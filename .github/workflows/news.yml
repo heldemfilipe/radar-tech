@@ -1,0 +1,40 @@
+name: Resumo Tech Diário
+
+on:
+  schedule:
+    # 09:45 UTC = 06:45 BRT. O cron do Actions NÃO é pontual (atrasa 5 a
+    # 40 min na fila), então disparamos 15 min antes pra entrega real
+    # cair em torno das 07:00.
+    - cron: "45 9 * * *"
+  workflow_dispatch: {}   # permite rodar manualmente pela aba Actions (pra testar)
+
+permissions:
+  contents: write   # necessário só pro keepalive (commit dummy a cada 50 dias)
+
+jobs:
+  resumo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Instalar dependências
+        run: pip install -r requirements.txt
+
+      - name: Gerar e enviar resumo
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python main.py
+
+      # O GitHub DESATIVA workflows agendados após 60 dias sem atividade
+      # no repo. Este step faz um commit vazio quando necessário pra
+      # manter o cron vivo sem você precisar lembrar de commitar.
+      - name: Keepalive (evita desativação por inatividade)
+        uses: gautamkrishnar/keepalive-workflow@v2

@@ -1,0 +1,19 @@
+# Um feed RSS por linha. Linhas com # são ignoradas.
+# Pra adicionar um site: procure "nome-do-site RSS" no Google e cole a URL aqui.
+
+# ---- Brasil ----
+https://tecnoblog.net/feed/
+https://canaltech.com.br/rss/
+https://www.tecmundo.com.br/rss
+https://olhardigital.com.br/feed/
+
+# ---- Internacionais ----
+https://hnrss.org/frontpage
+https://techcrunch.com/feed/
+https://www.theverge.com/rss/index.xml
+https://feeds.arstechnica.com/arstechnica/index
+
+# ---- DevOps / Cloud (seu perfil) ----
+https://aws.amazon.com/blogs/aws/feed/
+https://kubernetes.io/feed.xml
+https://www.hashicorp.com/blog/feed.xml

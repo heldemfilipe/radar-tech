@@ -1,0 +1,5 @@
+feedparser==6.0.11
+requests==2.32.3
+# edge-tts precisa ser recente: versões antigas quebram quando a Microsoft
+# muda a autenticação do serviço de voz (foi o que matou a série 6.1.x).
+edge-tts>=7.0.2
