@@ -56,6 +56,14 @@ seu-repo/
 - **Fuso.** O cron é em UTC. `45 9 * * *` = 6h45 de Brasília. Se o horário
   de verão voltar um dia, ajuste manualmente.
 
+## Estilo do podcast
+
+Por padrão o áudio é um **bate-papo entre dois apresentadores** — ANA
+(voz feminina, Francisca) e LEO (voz masculina, Antonio). Para voltar ao
+narrador único, descomente `PODCAST_STYLE: solo` no `news.yml`. As vozes
+podem ser trocadas pelas variáveis `VOICE_FEMALE` e `VOICE_MALE`
+(qualquer voz do edge-tts, ex.: `pt-BR-ThalitaNeural`).
+
 ## Editar feeds
 
 É só editar `feeds.txt` e dar push — sem rebuild, o runner sempre usa a

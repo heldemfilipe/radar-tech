@@ -31,6 +31,7 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          # PODCAST_STYLE: solo   # descomente pra voltar ao narrador único
         run: python main.py
 
       # O GitHub DESATIVA workflows agendados após 60 dias sem commits

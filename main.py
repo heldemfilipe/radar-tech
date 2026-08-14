@@ -25,7 +25,11 @@ TELEGRAM_CHAT_ID = os.environ["TELEGRAM_CHAT_ID"].strip()
 # "gemini-flash-latest" é um alias mantido pelo Google que sempre aponta pro
 # flash mais recente — evita 404 quando eles aposentam um modelo.
 GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-flash-latest")
+# "duo" = bate-papo entre dois apresentadores; "solo" = narrador único.
+PODCAST_STYLE = os.environ.get("PODCAST_STYLE", "duo")
 TTS_VOICE = os.environ.get("TTS_VOICE", "pt-BR-AntonioNeural")
+VOICE_FEMALE = os.environ.get("VOICE_FEMALE", "pt-BR-FranciscaNeural")
+VOICE_MALE = os.environ.get("VOICE_MALE", "pt-BR-AntonioNeural")
 MAX_ITEMS_PER_FEED = int(os.environ.get("MAX_ITEMS_PER_FEED", "8"))
 HOURS_WINDOW = int(os.environ.get("HOURS_WINDOW", "24"))
 FEEDS_FILE = os.environ.get("FEEDS_FILE", "feeds.txt")
@@ -93,8 +97,24 @@ def summarize(items: list[dict]) -> str:
         f"FONTE: {i['source']}\nTÍTULO: {i['title']}\nRESUMO: {i['summary']}"
         for i in items
     )
-    prompt = f"""Você é o roteirista de um podcast diário de notícias de tecnologia em português do Brasil.
-Abaixo estão as notícias das últimas {HOURS_WINDOW} horas coletadas de vários sites.
+    if PODCAST_STYLE == "duo":
+        estilo = """Você é o roteirista de um podcast diário de notícias de tecnologia em
+português do Brasil apresentado por DOIS hosts num bate-papo: ANA (mulher) e LEO (homem).
+
+Escreva um roteiro em formato de diálogo, de 4 a 6 minutos:
+- FORMATO OBRIGATÓRIO: cada fala em sua própria linha, começando com "ANA:" ou "LEO:".
+  Nenhuma linha pode existir fora desse formato — sem títulos, sem markdown, sem
+  asteriscos, sem emojis, sem rubricas como (risos) ou [vinheta].
+- Os dois conversam de verdade: um apresenta a notícia, o outro reage, faz perguntas,
+  complementa com contexto e opinião, solta um comentário bem-humorado de vez em quando.
+- Falas curtas e naturais, alternando bastante, como numa conversa real.
+- Comece com os dois dando bom dia aos ouvintes.
+- Agrupe notícias repetidas (vários sites cobrindo o mesmo assunto) em um item só.
+- Priorize: lançamentos relevantes, IA, cloud/DevOps, programação, segurança.
+- Ignore publieditorial, promoções e reviews de produto irrelevantes.
+- Encerre com uma despedida curta dos dois."""
+    else:
+        estilo = """Você é o roteirista de um podcast diário de notícias de tecnologia em português do Brasil.
 
 Escreva um roteiro de podcast de 3 a 5 minutos:
 - Comece com uma saudação curta ("Bom dia! Aqui está o seu resumo tech de hoje...").
@@ -103,7 +123,11 @@ Escreva um roteiro de podcast de 3 a 5 minutos:
 - Ignore publieditorial, promoções e reviews de produto irrelevantes.
 - Fale de forma natural, como um apresentador, sem markdown, sem asteriscos,
   sem emojis, sem listas — apenas texto corrido pronto para ser lido em voz alta.
-- Encerre com uma despedida curta.
+- Encerre com uma despedida curta."""
+
+    prompt = f"""{estilo}
+
+Abaixo estão as notícias das últimas {HOURS_WINDOW} horas coletadas de vários sites.
 
 NOTÍCIAS:
 {corpus}"""
@@ -171,6 +195,37 @@ async def text_to_speech(text: str, out_path: str) -> None:
 
     communicate = edge_tts.Communicate(text, TTS_VOICE, rate="+8%")
     await communicate.save(out_path)
+
+
+def parse_dialogue(script: str) -> list[tuple[str, str]]:
+    """Converte o roteiro em [(falante, fala), ...]. Linhas sem prefixo
+    ANA:/LEO: são tratadas como continuação da fala anterior."""
+    segments: list[tuple[str, str]] = []
+    for raw in script.splitlines():
+        line = raw.strip().lstrip("*-•# ").strip()
+        if not line:
+            continue
+        m = re.match(r"(?i)^\**(ana|leo)\**\s*:\s*(.+)$", line)
+        if m:
+            segments.append((m.group(1).upper(), m.group(2).strip()))
+        elif segments:
+            speaker, text = segments[-1]
+            segments[-1] = (speaker, text + " " + line)
+    return segments
+
+
+async def dialogue_to_speech(segments: list[tuple[str, str]], out_path: str) -> None:
+    """Gera cada fala com a voz do respectivo host e costura tudo num MP3 só.
+    Concatenar os bytes funciona porque o edge-tts emite MPEG puro, sem headers."""
+    import edge_tts
+
+    voices = {"ANA": VOICE_FEMALE, "LEO": VOICE_MALE}
+    with open(out_path, "wb") as out:
+        for speaker, text in segments:
+            communicate = edge_tts.Communicate(text, voices[speaker], rate="+8%")
+            async for chunk in communicate.stream():
+                if chunk["type"] == "audio":
+                    out.write(chunk["data"])
 
 
 def _telegram_ok(resp: requests.Response) -> None:
@@ -254,7 +309,14 @@ def main() -> None:
     mp3 = os.path.join(
         tempfile.gettempdir(), f"resumo_tech_{datetime.now().strftime('%Y%m%d')}.mp3"
     )
-    asyncio.run(text_to_speech(script, mp3))
+    segments = parse_dialogue(script) if PODCAST_STYLE == "duo" else []
+    if len(segments) >= 4:
+        print(f"Bate-papo com {len(segments)} falas (ANA e LEO)")
+        asyncio.run(dialogue_to_speech(segments, mp3))
+    else:
+        if PODCAST_STYLE == "duo":
+            print("[AVISO] Roteiro não veio em formato de diálogo; usando voz única.", file=sys.stderr)
+        asyncio.run(text_to_speech(script, mp3))
     print(f"Áudio gerado: {mp3} ({os.path.getsize(mp3) // 1024} KB)")
 
     send_telegram_audio(mp3, f"🎙️ Resumo Tech — {today}")
