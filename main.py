@@ -16,9 +16,11 @@ import feedparser
 import requests
 
 # ---------- Config via variáveis de ambiente ----------
-GEMINI_API_KEY = os.environ["GEMINI_API_KEY"]
-TELEGRAM_BOT_TOKEN = os.environ["TELEGRAM_BOT_TOKEN"]
-TELEGRAM_CHAT_ID = os.environ["TELEGRAM_CHAT_ID"]
+# .strip() porque um espaço/quebra de linha colado junto no secret do GitHub
+# é a causa nº 1 de "400 Bad Request" difícil de diagnosticar.
+GEMINI_API_KEY = os.environ["GEMINI_API_KEY"].strip()
+TELEGRAM_BOT_TOKEN = os.environ["TELEGRAM_BOT_TOKEN"].strip()
+TELEGRAM_CHAT_ID = os.environ["TELEGRAM_CHAT_ID"].strip()
 
 # "gemini-flash-latest" é um alias mantido pelo Google que sempre aponta pro
 # flash mais recente — evita 404 quando eles aposentam um modelo.
@@ -171,6 +173,36 @@ async def text_to_speech(text: str, out_path: str) -> None:
     await communicate.save(out_path)
 
 
+def _telegram_ok(resp: requests.Response) -> None:
+    """raise_for_status, mas incluindo a descrição de erro que o Telegram manda."""
+    if resp.ok:
+        return
+    try:
+        desc = resp.json().get("description", resp.text[:200])
+    except ValueError:
+        desc = resp.text[:200]
+    raise RuntimeError(f"Telegram respondeu {resp.status_code}: {desc}")
+
+
+def check_telegram() -> None:
+    """Valida token e chat_id logo no início, antes de gastar Gemini e TTS."""
+    resp = requests.get(
+        f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/getChat",
+        params={"chat_id": TELEGRAM_CHAT_ID},
+        timeout=30,
+    )
+    if not resp.ok:
+        try:
+            desc = resp.json().get("description", resp.text[:200])
+        except ValueError:
+            desc = resp.text[:200]
+        raise RuntimeError(
+            f"Telegram recusou o chat_id '{TELEGRAM_CHAT_ID}': {desc}. "
+            "Confira o secret TELEGRAM_CHAT_ID (só números, sem espaços; pode "
+            "começar com -) e garanta que você já mandou /start pro seu bot."
+        )
+
+
 def send_telegram_audio(mp3_path: str, caption: str) -> None:
     url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendAudio"
     with open(mp3_path, "rb") as f:
@@ -184,23 +216,27 @@ def send_telegram_audio(mp3_path: str, caption: str) -> None:
             files={"audio": (os.path.basename(mp3_path), f, "audio/mpeg")},
             timeout=120,
         )
-    resp.raise_for_status()
+    _telegram_ok(resp)
 
 
 def send_telegram_text(text: str) -> None:
     url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
     # Telegram limita mensagens a 4096 chars
     for i in range(0, len(text), 4000):
-        requests.post(
+        resp = requests.post(
             url,
             json={"chat_id": TELEGRAM_CHAT_ID, "text": text[i : i + 4000]},
             timeout=60,
-        ).raise_for_status()
+        )
+        _telegram_ok(resp)
 
 
 def main() -> None:
     today = datetime.now().strftime("%d/%m/%Y")
     print(f"=== Resumo tech {today} ===")
+
+    check_telegram()
+    print("Telegram OK (token e chat_id válidos)")
 
     feeds = load_feeds(FEEDS_FILE)
     print(f"{len(feeds)} feeds configurados")
