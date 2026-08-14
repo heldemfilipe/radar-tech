@@ -98,21 +98,51 @@ def summarize(items: list[dict]) -> str:
         for i in items
     )
     if PODCAST_STYLE == "duo":
-        estilo = """Você é o roteirista de um podcast diário de notícias de tecnologia em
-português do Brasil apresentado por DOIS hosts num bate-papo: ANA (mulher) e LEO (homem).
+        hoje = datetime.now()
+        dias = [
+            "segunda-feira", "terça-feira", "quarta-feira",
+            "quinta-feira", "sexta-feira", "sábado", "domingo",
+        ]
+        meses = [
+            "janeiro", "fevereiro", "março", "abril", "maio", "junho",
+            "julho", "agosto", "setembro", "outubro", "novembro", "dezembro",
+        ]
+        contexto_dia = (
+            f"Hoje é {dias[hoje.weekday()]}, "
+            f"{hoje.day} de {meses[hoje.month - 1]} de {hoje.year}."
+        )
+        estilo = f"""Você é o roteirista de um podcast diário de notícias de tecnologia em
+português do Brasil, apresentado por dois hosts com personalidades bem definidas:
 
-Escreva um roteiro em formato de diálogo, de 4 a 6 minutos:
-- FORMATO OBRIGATÓRIO: cada fala em sua própria linha, começando com "ANA:" ou "LEO:".
-  Nenhuma linha pode existir fora desse formato — sem títulos, sem markdown, sem
-  asteriscos, sem emojis, sem rubricas como (risos) ou [vinheta].
-- Os dois conversam de verdade: um apresenta a notícia, o outro reage, faz perguntas,
-  complementa com contexto e opinião, solta um comentário bem-humorado de vez em quando.
-- Falas curtas e naturais, alternando bastante, como numa conversa real.
-- Comece com os dois dando bom dia aos ouvintes.
+ANA — a analítica da dupla. Voz charmosa e envolvente, fala com calma e confiança.
+Quando surge um conceito técnico (LLM, kubernetes, zero-day, latência...), ela
+explica em uma frase simples com uma analogia do dia a dia, sem soar professoral.
+Gosta de dados e de apontar "o que ninguém está comentando" sobre a notícia.
+
+LEO — o brincalhão. Energia alta, piadas leves e referências nerd, reage com
+entusiasmo genuíno ("não acredito!", "olha isso!"), provoca a Ana de leve e sempre
+puxa o lado prático: "tá, mas o que isso muda na vida de quem tá ouvindo?".
+
+DINÂMICA (o que faz soar como conversa de verdade):
+- LEO SEMPRE abre o episódio com um bordão de abertura criativo, estilo nerd,
+  DIFERENTE a cada dia (crie um novo hoje, nunca repita), e ANA emenda com um
+  comentário charmoso no estilo dela.
+- Mencione o dia da semana na abertura de forma natural. {contexto_dia}
+- Eles se chamam pelo nome, discordam de leve às vezes, um completa o raciocínio
+  do outro, fazem gancho entre uma notícia e a próxima.
+- Reações curtas no meio da conversa ("sério?", "exato", "aí complicou") pra
+  quebrar blocos longos de fala.
+- LEO encerra com um bordão de despedida (também novo a cada dia) e ANA fecha com
+  uma última observação inteligente.
+
+FORMATO OBRIGATÓRIO: cada fala em sua própria linha, começando com "ANA:" ou
+"LEO:". Nenhuma linha fora desse formato — sem títulos, sem markdown, sem
+asteriscos, sem emojis, sem rubricas como (risos) ou [vinheta].
+
+CONTEÚDO (roteiro de 4 a 6 minutos):
 - Agrupe notícias repetidas (vários sites cobrindo o mesmo assunto) em um item só.
 - Priorize: lançamentos relevantes, IA, cloud/DevOps, programação, segurança.
-- Ignore publieditorial, promoções e reviews de produto irrelevantes.
-- Encerre com uma despedida curta dos dois."""
+- Ignore publieditorial, promoções e reviews de produto irrelevantes."""
     else:
         estilo = """Você é o roteirista de um podcast diário de notícias de tecnologia em português do Brasil.
 
@@ -219,10 +249,18 @@ async def dialogue_to_speech(segments: list[tuple[str, str]], out_path: str) -> 
     Concatenar os bytes funciona porque o edge-tts emite MPEG puro, sem headers."""
     import edge_tts
 
-    voices = {"ANA": VOICE_FEMALE, "LEO": VOICE_MALE}
+    # Ana: um pouco mais grave e pausada (charme, autoridade tranquila).
+    # Leo: mais acelerado (energia, empolgação).
+    styles = {
+        "ANA": {"voice": VOICE_FEMALE, "rate": "+2%", "pitch": "-10Hz"},
+        "LEO": {"voice": VOICE_MALE, "rate": "+12%", "pitch": "+0Hz"},
+    }
     with open(out_path, "wb") as out:
         for speaker, text in segments:
-            communicate = edge_tts.Communicate(text, voices[speaker], rate="+8%")
+            s = styles[speaker]
+            communicate = edge_tts.Communicate(
+                text, s["voice"], rate=s["rate"], pitch=s["pitch"]
+            )
             async for chunk in communicate.stream():
                 if chunk["type"] == "audio":
                     out.write(chunk["data"])
