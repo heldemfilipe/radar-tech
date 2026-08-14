@@ -37,23 +37,23 @@ seu-repo/
    | `TELEGRAM_BOT_TOKEN` | token do @BotFather |
    | `TELEGRAM_CHAT_ID` | seu chat_id (via `/getUpdates`) |
 
-4. **Teste sem esperar as 7h:**
+4. **Teste sem esperar o horário agendado:**
    Aba **Actions** → "Resumo Tech Diário" → **Run workflow**.
    Em ~1 min o áudio chega no Telegram.
 
-5. Pronto. Todo dia ~7h (BRT) ele roda sozinho.
+5. Pronto. Todo dia ~6h30 (BRT) ele roda sozinho.
 
 ## O que você precisa saber (limitações reais)
 
 - **Horário não é exato.** O cron do Actions entra numa fila — por isso o
-  gatilho está às 6h45 (BRT), pra entrega real cair em torno das 7h00.
+  gatilho está às 6h15 (BRT), pra entrega real cair em torno das 6h30.
   Se pontualidade de minuto importa, a versão no seu PC (systemd) é melhor.
 - **Repo público = código e feeds visíveis.** Não há nada sensível neles;
   as chaves ficam em Secrets (criptografados, nunca aparecem em log).
 - **Inatividade desativa o cron.** Após 60 dias sem atividade o GitHub
   pausa workflows agendados. O step de *keepalive* no workflow resolve
   isso automaticamente (faz um commit vazio quando necessário).
-- **Fuso.** O cron é em UTC. `45 9 * * *` = 6h45 de Brasília. Se o horário
+- **Fuso.** O cron é em UTC. `15 9 * * *` = 6h15 de Brasília. Se o horário
   de verão voltar um dia, ajuste manualmente.
 
 ## Estilo do podcast

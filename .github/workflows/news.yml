@@ -2,10 +2,10 @@ name: Resumo Tech Diário
 
 on:
   schedule:
-    # 09:45 UTC = 06:45 BRT. O cron do Actions NÃO é pontual (atrasa 5 a
+    # 09:15 UTC = 06:15 BRT. O cron do Actions NÃO é pontual (atrasa 5 a
     # 40 min na fila), então disparamos 15 min antes pra entrega real
-    # cair em torno das 07:00.
-    - cron: "45 9 * * *"
+    # cair em torno das 06:30.
+    - cron: "15 9 * * *"
   workflow_dispatch: {}   # permite rodar manualmente pela aba Actions (pra testar)
 
 permissions:
