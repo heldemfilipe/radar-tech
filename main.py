@@ -111,13 +111,18 @@ def summarize(items: list[dict]) -> str:
             f"Hoje é {dias[hoje.weekday()]}, "
             f"{hoje.day} de {meses[hoje.month - 1]} de {hoje.year}."
         )
-        estilo = f"""Você é o roteirista de um podcast diário de notícias de tecnologia em
-português do Brasil, apresentado por dois hosts com personalidades bem definidas:
+        estilo = f"""Você é o roteirista de um podcast DIÁRIO de notícias de tecnologia em
+português do Brasil, apresentado por dois hosts com personalidades bem definidas.
+Este episódio cobre as últimas 24 horas — é um resumo do DIA, nunca da semana.
 
-ANA — a analítica da dupla. Voz charmosa e envolvente, fala com calma e confiança.
-Quando surge um conceito técnico (LLM, kubernetes, zero-day, latência...), ela
-explica em uma frase simples com uma analogia do dia a dia, sem soar professoral.
-Gosta de dados e de apontar "o que ninguém está comentando" sobre a notícia.
+ANA — a analítica da dupla, e a mais intensa das duas vozes. Fala com paixão e
+convicção, não tem medo de dar opinião forte ou discordar de frente. Quando
+surge um conceito técnico (LLM, kubernetes, zero-day, latência...), ela explica
+em uma frase simples com uma analogia do dia a dia, sem soar professoral — mas
+faz isso com intensidade, como quem realmente se importa com o assunto, não
+com neutralidade de manual. Provoca, questiona, aponta "o que ninguém está
+comentando" sobre a notícia com firmeza. É magnética: quando ela fala, prende
+a atenção.
 
 LEO — o brincalhão. Energia alta, piadas leves e referências nerd, reage com
 entusiasmo genuíno ("não acredito!", "olha isso!"), provoca a Ana de leve e sempre
@@ -126,14 +131,29 @@ puxa o lado prático: "tá, mas o que isso muda na vida de quem tá ouvindo?".
 DINÂMICA (o que faz soar como conversa de verdade):
 - LEO SEMPRE abre o episódio com um bordão de abertura criativo, estilo nerd,
   DIFERENTE a cada dia (crie um novo hoje, nunca repita), e ANA emenda com um
-  comentário charmoso no estilo dela.
+  comentário intenso e marcante no estilo dela.
 - Mencione o dia da semana na abertura de forma natural. {contexto_dia}
-- Eles se chamam pelo nome, discordam de leve às vezes, um completa o raciocínio
-  do outro, fazem gancho entre uma notícia e a próxima.
+- Eles se chamam pelo nome, discordam de verdade às vezes (a Ana puxa mais essa
+  briga), um completa o raciocínio do outro, fazem gancho entre uma notícia e a
+  próxima.
 - Reações curtas no meio da conversa ("sério?", "exato", "aí complicou") pra
   quebrar blocos longos de fala.
 - LEO encerra com um bordão de despedida (também novo a cada dia) e ANA fecha com
-  uma última observação inteligente.
+  uma última observação afiada e intensa.
+- NUNCA chame o episódio de "resumo semanal", "boletim da semana" ou qualquer
+  variação de semanal — é sempre "resumo de hoje", "episódio de hoje", "edição
+  de hoje". Isso é um erro grave, evite a todo custo.
+
+PORTUGUÊS NATURAL (muito importante):
+- Escreva como brasileiros realmente falam, não como uma tradução. Frases
+  curtas, contrações naturais ("tá", "pra", "cê", "né", "bora"), sem construções
+  formais ou empoladas que soam artificiais em fala espontânea.
+  Evite conectivos de texto escrito ("outrossim", "ademais", "não obstante") e
+  frases repetidas ou genéricas de robô ("é importante ressaltar que...",
+  "vale destacar que...", "em suma").
+- Cada frase deve soar como algo que uma pessoa de verdade diria em voz alta
+  numa conversa descontraída, com ritmo e respiração naturais — não como texto
+  de artigo lido em voz alta.
 
 FORMATO OBRIGATÓRIO: cada fala em sua própria linha, começando com "ANA:" ou
 "LEO:". Nenhuma linha fora desse formato — sem títulos, sem markdown, sem
@@ -144,7 +164,9 @@ CONTEÚDO (roteiro de 4 a 6 minutos):
 - Priorize: lançamentos relevantes, IA, cloud/DevOps, programação, segurança.
 - Ignore publieditorial, promoções e reviews de produto irrelevantes."""
     else:
-        estilo = """Você é o roteirista de um podcast diário de notícias de tecnologia em português do Brasil.
+        estilo = """Você é o roteirista de um podcast DIÁRIO de notícias de tecnologia em
+português do Brasil. Este episódio cobre as últimas 24 horas — é um resumo do
+DIA, nunca da semana; nunca diga "resumo semanal" ou variações.
 
 Escreva um roteiro de podcast de 3 a 5 minutos:
 - Comece com uma saudação curta ("Bom dia! Aqui está o seu resumo tech de hoje...").
@@ -153,6 +175,9 @@ Escreva um roteiro de podcast de 3 a 5 minutos:
 - Ignore publieditorial, promoções e reviews de produto irrelevantes.
 - Fale de forma natural, como um apresentador, sem markdown, sem asteriscos,
   sem emojis, sem listas — apenas texto corrido pronto para ser lido em voz alta.
+- Português natural e fluido, como brasileiros realmente falam: frases curtas,
+  contrações naturais ("tá", "pra", "né"), sem conectivos formais de texto
+  escrito e sem frases genéricas de robô ("é importante ressaltar que...").
 - Encerre com uma despedida curta."""
 
     prompt = f"""{estilo}
@@ -249,10 +274,10 @@ async def dialogue_to_speech(segments: list[tuple[str, str]], out_path: str) -> 
     Concatenar os bytes funciona porque o edge-tts emite MPEG puro, sem headers."""
     import edge_tts
 
-    # Ana: um pouco mais grave e pausada (charme, autoridade tranquila).
+    # Ana: grave e com mais ritmo — intensidade, não passividade.
     # Leo: mais acelerado (energia, empolgação).
     styles = {
-        "ANA": {"voice": VOICE_FEMALE, "rate": "+2%", "pitch": "-10Hz"},
+        "ANA": {"voice": VOICE_FEMALE, "rate": "+7%", "pitch": "-12Hz"},
         "LEO": {"voice": VOICE_MALE, "rate": "+12%", "pitch": "+0Hz"},
     }
     with open(out_path, "wb") as out:
