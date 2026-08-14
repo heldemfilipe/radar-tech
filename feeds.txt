@@ -4,7 +4,7 @@
 # ---- Brasil ----
 https://tecnoblog.net/feed/
 https://canaltech.com.br/rss/
-https://www.tecmundo.com.br/rss
+https://rss.tecmundo.com.br/feed
 https://olhardigital.com.br/feed/
 
 # ---- Internacionais ----

@@ -20,7 +20,9 @@ GEMINI_API_KEY = os.environ["GEMINI_API_KEY"]
 TELEGRAM_BOT_TOKEN = os.environ["TELEGRAM_BOT_TOKEN"]
 TELEGRAM_CHAT_ID = os.environ["TELEGRAM_CHAT_ID"]
 
-GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash")
+# "gemini-flash-latest" é um alias mantido pelo Google que sempre aponta pro
+# flash mais recente — evita 404 quando eles aposentam um modelo.
+GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-flash-latest")
 TTS_VOICE = os.environ.get("TTS_VOICE", "pt-BR-AntonioNeural")
 MAX_ITEMS_PER_FEED = int(os.environ.get("MAX_ITEMS_PER_FEED", "8"))
 HOURS_WINDOW = int(os.environ.get("HOURS_WINDOW", "24"))
@@ -104,19 +106,20 @@ Escreva um roteiro de podcast de 3 a 5 minutos:
 NOTÍCIAS:
 {corpus}"""
 
-    url = (
-        f"https://generativelanguage.googleapis.com/v1beta/models/"
-        f"{GEMINI_MODEL}:generateContent"
-    )
+    model = GEMINI_MODEL
     last_error: Exception | None = None
     for attempt in range(3):
         try:
-            resp = requests.post(
-                url,
-                headers={"x-goog-api-key": GEMINI_API_KEY},
-                json={"contents": [{"parts": [{"text": prompt}]}]},
-                timeout=120,
-            )
+            resp = _gemini_generate(model, prompt)
+            if resp.status_code == 404 and model == GEMINI_MODEL:
+                # Modelo aposentado/renomeado pelo Google — descobre um
+                # substituto entre os modelos que a chave tem acesso.
+                model = discover_model()
+                print(
+                    f"[AVISO] Modelo {GEMINI_MODEL} indisponível; usando {model}.",
+                    file=sys.stderr,
+                )
+                resp = _gemini_generate(model, prompt)
             resp.raise_for_status()
             data = resp.json()
             return data["candidates"][0]["content"]["parts"][0]["text"].strip()
@@ -126,6 +129,39 @@ NOTÍCIAS:
                 print(f"[AVISO] Gemini falhou ({e}); nova tentativa em 20s...", file=sys.stderr)
                 time.sleep(20)
     raise RuntimeError(f"Gemini falhou após 3 tentativas: {last_error}")
+
+
+def _gemini_generate(model: str, prompt: str) -> requests.Response:
+    return requests.post(
+        f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
+        headers={"x-goog-api-key": GEMINI_API_KEY},
+        json={"contents": [{"parts": [{"text": prompt}]}]},
+        timeout=120,
+    )
+
+
+def discover_model() -> str:
+    """Lista os modelos disponíveis pra esta chave e escolhe o melhor 'flash'."""
+    resp = requests.get(
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        headers={"x-goog-api-key": GEMINI_API_KEY},
+        params={"pageSize": 1000},
+        timeout=30,
+    )
+    resp.raise_for_status()
+    names = [
+        m["name"].removeprefix("models/")
+        for m in resp.json().get("models", [])
+        if "generateContent" in m.get("supportedGenerationMethods", [])
+    ]
+    ruins = ("lite", "live", "tts", "image", "preview", "exp", "thinking")
+    flash_estavel = [n for n in names if "flash" in n and not any(r in n for r in ruins)]
+    candidatos = flash_estavel or [n for n in names if "flash" in n] or names
+    if not candidatos:
+        raise RuntimeError("Nenhum modelo com generateContent disponível para esta chave")
+    # Os nomes carregam a versão (gemini-3.7-flash > gemini-2.5-flash),
+    # então o "maior" em ordem alfabética tende a ser o mais novo.
+    return sorted(candidatos)[-1]
 
 
 async def text_to_speech(text: str, out_path: str) -> None:
