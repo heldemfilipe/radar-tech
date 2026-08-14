@@ -33,8 +33,17 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python main.py
 
-      # O GitHub DESATIVA workflows agendados após 60 dias sem atividade
-      # no repo. Este step faz um commit vazio quando necessário pra
-      # manter o cron vivo sem você precisar lembrar de commitar.
+      # O GitHub DESATIVA workflows agendados após 60 dias sem commits
+      # no repo. Se o último commit tiver mais de 50 dias, este step faz
+      # um commit vazio pra manter o cron vivo. Sem actions de terceiros.
       - name: Keepalive (evita desativação por inatividade)
-        uses: gautamkrishnar/keepalive-workflow@v2
+        run: |
+          last=$(git log -1 --format=%ct)
+          days=$(( ($(date +%s) - last) / 86400 ))
+          echo "Último commit há $days dia(s)"
+          if [ "$days" -ge 50 ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit --allow-empty -m "keepalive: mantém o cron ativo"
+            git push
+          fi
