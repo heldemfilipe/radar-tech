@@ -188,28 +188,39 @@ NOTÍCIAS:
 {corpus}"""
 
     model = GEMINI_MODEL
+    fallback_tried = False
+    attempts = 5
+    backoffs = [15, 30, 60, 60]  # segundos entre tentativas (exponencial, com teto)
     last_error: Exception | None = None
-    for attempt in range(3):
+    for attempt in range(attempts):
         try:
             resp = _gemini_generate(model, prompt)
-            if resp.status_code == 404 and model == GEMINI_MODEL:
-                # Modelo aposentado/renomeado pelo Google — descobre um
-                # substituto entre os modelos que a chave tem acesso.
-                model = discover_model()
-                print(
-                    f"[AVISO] Modelo {GEMINI_MODEL} indisponível; usando {model}.",
-                    file=sys.stderr,
-                )
-                resp = _gemini_generate(model, prompt)
+            # 404 = modelo aposentado/renomeado; 503 = sobrecarregado no momento.
+            # Em ambos os casos vale trocar pra um modelo estável alternativo.
+            if resp.status_code in (404, 503) and not fallback_tried:
+                fallback_tried = True
+                try:
+                    candidato = discover_model()
+                    if candidato != model:
+                        print(
+                            f"[AVISO] {model} devolveu {resp.status_code}; "
+                            f"tentando com {candidato}.",
+                            file=sys.stderr,
+                        )
+                        model = candidato
+                        resp = _gemini_generate(model, prompt)
+                except requests.RequestException:
+                    pass  # sem alternativa disponível agora; segue tentando o mesmo modelo
             resp.raise_for_status()
             data = resp.json()
             return data["candidates"][0]["content"]["parts"][0]["text"].strip()
         except (requests.RequestException, KeyError, IndexError) as e:
             last_error = e
-            if attempt < 2:
-                print(f"[AVISO] Gemini falhou ({e}); nova tentativa em 20s...", file=sys.stderr)
-                time.sleep(20)
-    raise RuntimeError(f"Gemini falhou após 3 tentativas: {last_error}")
+            if attempt < attempts - 1:
+                wait = backoffs[min(attempt, len(backoffs) - 1)]
+                print(f"[AVISO] Gemini falhou ({e}); nova tentativa em {wait}s...", file=sys.stderr)
+                time.sleep(wait)
+    raise RuntimeError(f"Gemini falhou após {attempts} tentativas: {last_error}")
 
 
 def _gemini_generate(model: str, prompt: str) -> requests.Response:

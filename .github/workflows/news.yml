@@ -14,7 +14,7 @@ permissions:
 jobs:
   resumo:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15   # dá folga pros retries do Gemini em caso de sobrecarga (503)
     steps:
       - uses: actions/checkout@v4
 
