@@ -200,7 +200,7 @@ NOTÍCIAS:
             if resp.status_code in (404, 503) and not fallback_tried:
                 fallback_tried = True
                 try:
-                    candidato = discover_model()
+                    candidato = discover_model(excluir=model)
                     if candidato != model:
                         print(
                             f"[AVISO] {model} devolveu {resp.status_code}; "
@@ -232,8 +232,20 @@ def _gemini_generate(model: str, prompt: str) -> requests.Response:
     )
 
 
-def discover_model() -> str:
-    """Lista os modelos disponíveis pra esta chave e escolhe o melhor 'flash'."""
+def _model_version_key(name: str) -> tuple:
+    # Prioriza modelos com número de versão explícito (gemini-3.7-flash) sobre
+    # aliases (gemini-flash-latest): alfabeticamente "flash-latest" vem DEPOIS
+    # de "3.7-flash" (letra > dígito), então um sort ingênuo escolhia o
+    # próprio alias sobrecarregado como seu "substituto" — daí o loop de 503.
+    m = re.match(r"gemini-(\d+)(?:\.(\d+))?", name)
+    if m:
+        return (1, int(m.group(1)), int(m.group(2) or 0))
+    return (0, 0, 0)
+
+
+def discover_model(excluir: str = "") -> str:
+    """Lista os modelos disponíveis pra esta chave e escolhe o melhor 'flash'
+    com versão explícita, evitando cair de volta no mesmo alias que falhou."""
     resp = requests.get(
         "https://generativelanguage.googleapis.com/v1beta/models",
         headers={"x-goog-api-key": GEMINI_API_KEY},
@@ -246,14 +258,14 @@ def discover_model() -> str:
         for m in resp.json().get("models", [])
         if "generateContent" in m.get("supportedGenerationMethods", [])
     ]
-    ruins = ("lite", "live", "tts", "image", "preview", "exp", "thinking")
+    if excluir:
+        names = [n for n in names if n != excluir]
+    ruins = ("lite", "live", "tts", "image", "preview", "exp", "thinking", "latest")
     flash_estavel = [n for n in names if "flash" in n and not any(r in n for r in ruins)]
     candidatos = flash_estavel or [n for n in names if "flash" in n] or names
     if not candidatos:
         raise RuntimeError("Nenhum modelo com generateContent disponível para esta chave")
-    # Os nomes carregam a versão (gemini-3.7-flash > gemini-2.5-flash),
-    # então o "maior" em ordem alfabética tende a ser o mais novo.
-    return sorted(candidatos)[-1]
+    return sorted(candidatos, key=_model_version_key)[-1]
 
 
 async def text_to_speech(text: str, out_path: str) -> None:
