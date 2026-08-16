@@ -30,7 +30,10 @@ PODCAST_STYLE = os.environ.get("PODCAST_STYLE", "duo")
 TTS_VOICE = os.environ.get("TTS_VOICE", "pt-BR-AntonioNeural")
 VOICE_FEMALE = os.environ.get("VOICE_FEMALE", "pt-BR-FranciscaNeural")
 VOICE_MALE = os.environ.get("VOICE_MALE", "pt-BR-AntonioNeural")
-MAX_ITEMS_PER_FEED = int(os.environ.get("MAX_ITEMS_PER_FEED", "8"))
+# Sem teto de verdade: o filtro que importa é a janela de HOURS_WINDOW.
+# Esse número é só uma trava de segurança contra um feed defeituoso que
+# devolva centenas de itens sem data.
+MAX_ITEMS_PER_FEED = int(os.environ.get("MAX_ITEMS_PER_FEED", "200"))
 HOURS_WINDOW = int(os.environ.get("HOURS_WINDOW", "24"))
 FEEDS_FILE = os.environ.get("FEEDS_FILE", "feeds.txt")
 SEND_TEXT_TOO = os.environ.get("SEND_TEXT_TOO", "true").lower() == "true"

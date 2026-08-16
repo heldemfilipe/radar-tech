@@ -1,17 +1,36 @@
 # Um feed RSS por linha. Linhas com # são ignoradas.
-# Pra adicionar um site: procure "nome-do-site RSS" no Google e cole a URL aqui.
+# Pra adicionar um site: procure "nome-do-site RSS" no Google e cole a URL
+# aqui — mas TESTE antes (alguns sites "chutados" devolvem 404 ou feed vazio).
+# Todo dia pegamos TODAS as notícias das últimas 24h de cada feed (não só
+# as primeiras); se um site não publicou nada no período, ele simplesmente
+# não entra no episódio daquele dia.
 
-# ---- Brasil ----
+# ---- Brasil: 10 maiores ----
 https://tecnoblog.net/feed/
 https://canaltech.com.br/rss/
 https://rss.tecmundo.com.br/feed
 https://olhardigital.com.br/feed/
+https://rss.uol.com.br/feed/tecnologia.xml
+https://www.adrenaline.com.br/feed/
+https://meiobit.com/feed
+https://imasters.com.br/feed
+https://www.showmetech.com.br/feed/
+https://www.mobiletime.com.br/feed/
 
-# ---- Internacionais ----
-https://hnrss.org/frontpage
+# ---- Internacional: 10 maiores ----
 https://techcrunch.com/feed/
 https://www.theverge.com/rss/index.xml
 https://feeds.arstechnica.com/arstechnica/index
+https://www.wired.com/feed/rss
+https://www.engadget.com/rss.xml
+https://www.cnet.com/rss/news/
+https://www.zdnet.com/news/rss.xml
+https://venturebeat.com/feed/
+https://thenextweb.com/feed
+https://mashable.com/feeds/rss/tech
+
+# ---- Agregador dev (bônus, fora da lista dos 10) ----
+https://hnrss.org/frontpage
 
 # ---- DevOps / Cloud (seu perfil) ----
 https://aws.amazon.com/blogs/aws/feed/
