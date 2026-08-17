@@ -190,40 +190,51 @@ Abaixo estão as notícias das últimas {HOURS_WINDOW} horas coletadas de vário
 NOTÍCIAS:
 {corpus}"""
 
-    model = GEMINI_MODEL
-    fallback_tried = False
-    attempts = 5
-    backoffs = [15, 30, 60, 60]  # segundos entre tentativas (exponencial, com teto)
+    # Estratégia: em vez de insistir 5x no MESMO modelo (o que só funciona se
+    # a sobrecarga for passageira), tenta poucas vezes em cada modelo e migra
+    # rápido pra outro. Um 503 costuma ser aquele modelo específico lotado,
+    # não a conta/chave — trocar de modelo é bem mais eficaz que esperar.
+    chain = [GEMINI_MODEL]
+    tentativas_por_modelo = 2
+    backoffs = [10, 20]  # segundos entre tentativas NO MESMO modelo
+    descoberta_feita = False
     last_error: Exception | None = None
-    for attempt in range(attempts):
-        try:
-            resp = _gemini_generate(model, prompt)
-            # 404 = modelo aposentado/renomeado; 503 = sobrecarregado no momento.
-            # Em ambos os casos vale trocar pra um modelo estável alternativo.
-            if resp.status_code in (404, 503) and not fallback_tried:
-                fallback_tried = True
-                try:
-                    candidato = discover_model(excluir=model)
-                    if candidato != model:
-                        print(
-                            f"[AVISO] {model} devolveu {resp.status_code}; "
-                            f"tentando com {candidato}.",
-                            file=sys.stderr,
-                        )
-                        model = candidato
-                        resp = _gemini_generate(model, prompt)
-                except requests.RequestException:
-                    pass  # sem alternativa disponível agora; segue tentando o mesmo modelo
-            resp.raise_for_status()
-            data = resp.json()
-            return data["candidates"][0]["content"]["parts"][0]["text"].strip()
-        except (requests.RequestException, KeyError, IndexError) as e:
-            last_error = e
-            if attempt < attempts - 1:
-                wait = backoffs[min(attempt, len(backoffs) - 1)]
-                print(f"[AVISO] Gemini falhou ({e}); nova tentativa em {wait}s...", file=sys.stderr)
-                time.sleep(wait)
-    raise RuntimeError(f"Gemini falhou após {attempts} tentativas: {last_error}")
+
+    i = 0
+    while i < len(chain):
+        model = chain[i]
+        for attempt in range(tentativas_por_modelo):
+            try:
+                resp = _gemini_generate(model, prompt)
+                resp.raise_for_status()
+                data = resp.json()
+                return data["candidates"][0]["content"]["parts"][0]["text"].strip()
+            except (requests.RequestException, KeyError, IndexError) as e:
+                last_error = e
+                print(f"[AVISO] {model} falhou ({e})", file=sys.stderr)
+                if attempt < tentativas_por_modelo - 1:
+                    wait = backoffs[attempt]
+                    print(f"[AVISO] nova tentativa em {wait}s...", file=sys.stderr)
+                    time.sleep(wait)
+        # Esgotou as tentativas nesse modelo. Na primeira vez que isso
+        # acontece, descobre outros modelos estáveis pra completar a fila.
+        if not descoberta_feita:
+            descoberta_feita = True
+            try:
+                alternativos = discover_models(excluir=set(chain))
+                if alternativos:
+                    print(
+                        f"[AVISO] modelos alternativos disponíveis: {', '.join(alternativos)}",
+                        file=sys.stderr,
+                    )
+                    chain.extend(alternativos)
+            except requests.RequestException as e:
+                print(f"[AVISO] não deu pra listar modelos alternativos: {e}", file=sys.stderr)
+        i += 1
+
+    raise RuntimeError(
+        f"Gemini falhou em todos os modelos tentados ({', '.join(chain)}): {last_error}"
+    )
 
 
 def _gemini_generate(model: str, prompt: str) -> requests.Response:
@@ -246,9 +257,10 @@ def _model_version_key(name: str) -> tuple:
     return (0, 0, 0)
 
 
-def discover_model(excluir: str = "") -> str:
-    """Lista os modelos disponíveis pra esta chave e escolhe o melhor 'flash'
-    com versão explícita, evitando cair de volta no mesmo alias que falhou."""
+def discover_models(excluir: set[str], limite: int = 3) -> list[str]:
+    """Lista os modelos disponíveis pra esta chave e devolve até `limite`
+    'flash' com versão explícita, do mais novo pro mais velho, sem repetir
+    nenhum nome já tentado (aliases tipo -latest ficam de fora de propósito)."""
     resp = requests.get(
         "https://generativelanguage.googleapis.com/v1beta/models",
         headers={"x-goog-api-key": GEMINI_API_KEY},
@@ -261,14 +273,11 @@ def discover_model(excluir: str = "") -> str:
         for m in resp.json().get("models", [])
         if "generateContent" in m.get("supportedGenerationMethods", [])
     ]
-    if excluir:
-        names = [n for n in names if n != excluir]
+    names = [n for n in names if n not in excluir]
     ruins = ("lite", "live", "tts", "image", "preview", "exp", "thinking", "latest")
     flash_estavel = [n for n in names if "flash" in n and not any(r in n for r in ruins)]
-    candidatos = flash_estavel or [n for n in names if "flash" in n] or names
-    if not candidatos:
-        raise RuntimeError("Nenhum modelo com generateContent disponível para esta chave")
-    return sorted(candidatos, key=_model_version_key)[-1]
+    candidatos = flash_estavel or [n for n in names if "flash" in n]
+    return sorted(candidatos, key=_model_version_key, reverse=True)[:limite]
 
 
 async def text_to_speech(text: str, out_path: str) -> None:
