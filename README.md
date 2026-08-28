@@ -33,7 +33,7 @@ seu-repo/
 
    | Nome | Valor |
    |---|---|
-   | `GEMINI_API_KEY` | chave do https://aistudio.google.com/apikey |
+   | `GEMINI_API_KEY` |  chave do https://aistudio.google.com/apikey |
    | `TELEGRAM_BOT_TOKEN` | token do @BotFather |
    | `TELEGRAM_CHAT_ID` | seu chat_id (via `/getUpdates`) |
 
