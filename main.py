@@ -34,6 +34,11 @@ VOICE_MALE = os.environ.get("VOICE_MALE", "pt-BR-AntonioNeural")
 # Esse número é só uma trava de segurança contra um feed defeituoso que
 # devolva centenas de itens sem data.
 MAX_ITEMS_PER_FEED = int(os.environ.get("MAX_ITEMS_PER_FEED", "200"))
+# Quantas notícias no MÁXIMO entram no prompt do Gemini. Coletar tudo das
+# últimas 24h de ~30 feeds gera um corpus enorme que faz o generateContent
+# estourar o timeout (foi o "Read timed out" do dia). Este teto mantém o
+# prompt enxuto e distribuído entre as fontes.
+MAX_ITEMS_TO_SUMMARIZE = int(os.environ.get("MAX_ITEMS_TO_SUMMARIZE", "100"))
 HOURS_WINDOW = int(os.environ.get("HOURS_WINDOW", "24"))
 FEEDS_FILE = os.environ.get("FEEDS_FILE", "feeds.txt")
 SEND_TEXT_TOO = os.environ.get("SEND_TEXT_TOO", "true").lower() == "true"
@@ -48,13 +53,43 @@ def load_feeds(path: str) -> list[str]:
         ]
 
 
-# Alguns sites bloqueiam o User-Agent padrão do Python; um UA de navegador resolve.
+# Alguns sites bloqueiam o User-Agent padrão do Python; um UA de navegador
+# resolve. Cloudflare e afins costumam exigir também Accept/Accept-Language
+# "de gente" — sem eles, adrenaline e meiobit devolvem 403.
 HTTP_HEADERS = {
     "User-Agent": (
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-        "(KHTML, like Gecko) Chrome/124.0 Safari/537.36"
-    )
+        "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+    ),
+    "Accept": (
+        "application/rss+xml, application/atom+xml, application/xml;q=0.9, "
+        "text/xml;q=0.8, text/html;q=0.7, */*;q=0.5"
+    ),
+    "Accept-Language": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7",
+    "Cache-Control": "no-cache",
 }
+
+# Status que valem nova tentativa: bloqueio momentâneo de WAF/CDN (403),
+# rate limit (429) e instabilidade do servidor (5xx). Feed atrás de
+# Cloudflare às vezes libera na 2ª/3ª tentativa a partir do mesmo IP;
+# o 429 do imasters costuma passar depois de uma pausa curta.
+RETRY_STATUS = {403, 429, 500, 502, 503, 504}
+
+
+def fetch_feed(url: str) -> bytes:
+    """GET com timeout separado de conexão/leitura e até 3 tentativas para
+    erros transitórios. Um 404 (feed mudou de endereço) falha na hora."""
+    for attempt in range(3):
+        try:
+            resp = requests.get(url, headers=HTTP_HEADERS, timeout=(10, 30))
+            resp.raise_for_status()
+            return resp.content
+        except requests.RequestException as e:
+            status = getattr(getattr(e, "response", None), "status_code", None)
+            if attempt == 2 or (status is not None and status not in RETRY_STATUS):
+                raise
+            time.sleep(3 * (attempt + 1))  # 3s, depois 6s
+    raise RuntimeError("unreachable")  # só pro type checker
 
 
 def strip_html(text: str) -> str:
@@ -66,15 +101,14 @@ def collect_news(feeds: list[str]) -> list[dict]:
     items = []
     for url in feeds:
         try:
-            resp = requests.get(url, headers=HTTP_HEADERS, timeout=30)
-            resp.raise_for_status()
-            parsed = feedparser.parse(resp.content)
+            parsed = feedparser.parse(fetch_feed(url))
             source = parsed.feed.get("title", url)
             count = 0
             for entry in parsed.entries:
                 if count >= MAX_ITEMS_PER_FEED:
                     break
                 published = entry.get("published_parsed") or entry.get("updated_parsed")
+                pub_dt = None
                 if published:
                     pub_dt = datetime.fromtimestamp(time.mktime(published), tz=timezone.utc)
                     if pub_dt < cutoff:
@@ -86,6 +120,7 @@ def collect_news(feeds: list[str]) -> list[dict]:
                         "title": entry.get("title", "(sem título)"),
                         "summary": summary,
                         "link": entry.get("link", ""),
+                        "ts": pub_dt.timestamp() if pub_dt else 0.0,
                     }
                 )
                 count += 1
@@ -95,7 +130,32 @@ def collect_news(feeds: list[str]) -> list[dict]:
     return items
 
 
+def trim_for_summary(items: list[dict], limite: int) -> list[dict]:
+    """Se a coleta trouxe mais que `limite` itens, faz um rodízio entre as
+    fontes (mais recentes primeiro dentro de cada fonte) até bater o teto —
+    assim um feed volumoso (HN, portais) não engole o episódio inteiro."""
+    if len(items) <= limite:
+        return items
+    por_fonte: dict[str, list[dict]] = {}
+    for it in items:
+        por_fonte.setdefault(it["source"], []).append(it)
+    for lst in por_fonte.values():
+        lst.sort(key=lambda i: i.get("ts") or 0.0, reverse=True)
+    filas = [lst for lst in por_fonte.values() if lst]
+    ordenados: list[dict] = []
+    while filas and len(ordenados) < limite:
+        for fila in list(filas):
+            ordenados.append(fila.pop(0))
+            if not fila:
+                filas.remove(fila)
+            if len(ordenados) >= limite:
+                break
+    print(f"[INFO] {len(items)} coletadas -> {len(ordenados)} enviadas ao Gemini (teto {limite})")
+    return ordenados
+
+
 def summarize(items: list[dict]) -> str:
+    items = trim_for_summary(items, MAX_ITEMS_TO_SUMMARIZE)
     corpus = "\n\n".join(
         f"FONTE: {i['source']}\nTÍTULO: {i['title']}\nRESUMO: {i['summary']}"
         for i in items
@@ -242,7 +302,9 @@ def _gemini_generate(model: str, prompt: str) -> requests.Response:
         f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
         headers={"x-goog-api-key": GEMINI_API_KEY},
         json={"contents": [{"parts": [{"text": prompt}]}]},
-        timeout=120,
+        # (conexão, leitura). Com o corpus já limitado por MAX_ITEMS_TO_SUMMARIZE
+        # a geração é rápida; 180s de leitura é só folga pra API sob carga.
+        timeout=(10, 180),
     )
 
 

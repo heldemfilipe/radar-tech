@@ -24,7 +24,7 @@ https://feeds.arstechnica.com/arstechnica/index
 https://www.wired.com/feed/rss
 https://www.engadget.com/rss.xml
 https://www.cnet.com/rss/news/
-https://www.zdnet.com/news/rss.xml
+https://www.zdnet.com/rss/all/
 https://venturebeat.com/feed/
 https://thenextweb.com/feed
 https://mashable.com/feeds/rss/tech
