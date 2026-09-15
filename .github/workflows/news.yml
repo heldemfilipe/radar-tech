@@ -9,7 +9,13 @@ on:
   workflow_dispatch: {}   # permite rodar manualmente pela aba Actions (pra testar)
 
 permissions:
-  contents: write   # necessário só pro keepalive (commit dummy a cada 50 dias)
+  contents: write   # pra commitar o historico.json (memória anti-repetição)
+
+# Duas execuções ao mesmo tempo (cron + botão manual) brigariam pelo
+# historico.json; a segunda espera a primeira terminar.
+concurrency:
+  group: resumo-tech
+  cancel-in-progress: false
 
 jobs:
   resumo:
@@ -31,20 +37,31 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          PYTHONUNBUFFERED: "1"   # log na ordem certa (stdout e stderr misturados)
           # PODCAST_STYLE: solo   # descomente pra voltar ao narrador único
         run: python main.py
 
-      # O GitHub DESATIVA workflows agendados após 60 dias sem commits
-      # no repo. Se o último commit tiver mais de 50 dias, este step faz
-      # um commit vazio pra manter o cron vivo. Sem actions de terceiros.
-      - name: Keepalive (evita desativação por inatividade)
+      # Guarda as notícias e o roteiro do episódio no repo, pra amanhã o
+      # script saber o que já foi falado e não repetir. De quebra, esse
+      # commit diário mantém o cron vivo (o GitHub desativa workflows
+      # agendados após 60 dias sem commits) — por isso não há mais keepalive.
+      - name: Salvar histórico (evita notícias repetidas)
         run: |
-          last=$(git log -1 --format=%ct)
-          days=$(( ($(date +%s) - last) / 86400 ))
-          echo "Último commit há $days dia(s)"
-          if [ "$days" -ge 50 ]; then
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git commit --allow-empty -m "keepalive: mantém o cron ativo"
-            git push
+          if [ ! -f historico.json ]; then
+            echo "Sem histórico pra salvar (nenhum episódio gerado)."
+            exit 0
           fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add historico.json
+          if git diff --cached --quiet; then
+            echo "Histórico sem mudanças."
+            exit 0
+          fi
+          git commit -m "histórico: episódio de $(TZ=America/Sao_Paulo date +%d/%m/%Y)"
+          for i in 1 2 3; do
+            git pull --rebase && git push && exit 0
+            sleep 5
+          done
+          echo "Não consegui dar push no histórico" >&2
+          exit 1

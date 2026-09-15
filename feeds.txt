@@ -1,21 +1,30 @@
-# Um feed RSS por linha. Linhas com # são ignoradas.
+# Um feed por linha. Linhas com # são ignoradas.
+#
+# Formatos aceitos:
+#   https://site.com/feed/                 -> RSS normal
+#   https://site.com/feed/ | Nome          -> RSS com nome fixo no episódio
+#   gnews: site:exemplo.com.br | Nome      -> busca no Google Notícias (últimas 24h)
+#   sitemap: <url com {data}> <trecho> | Nome -> sitemap diário (usado pro TecMundo)
+#
 # Pra adicionar um site: procure "nome-do-site RSS" no Google e cole a URL
 # aqui — mas TESTE antes (alguns sites "chutados" devolvem 404 ou feed vazio).
-# Todo dia pegamos TODAS as notícias das últimas 24h de cada feed (não só
-# as primeiras); se um site não publicou nada no período, ele simplesmente
-# não entra no episódio daquele dia.
+# Se o site bloquear o GitHub (403/429), o script busca as notícias dele
+# pelo Google Notícias sozinho — não precisa trocar a URL.
 
 # ---- Brasil: 10 maiores ----
 https://tecnoblog.net/feed/
 https://canaltech.com.br/rss/
-https://rss.tecmundo.com.br/feed
+# TecMundo virou seção do Estadão; o RSS antigo parou em 07/09/2026, o RSS
+# da seção devolve matérias velhas aleatórias e o Google Notícias mistura
+# matérias antigas migradas com data de hoje. O sitemap diário é confiável.
+sitemap: https://www.estadao.com.br/arc/outboundfeeds/sitemap/{data}/?outputType=xml /tecmundo/ | TecMundo
 https://olhardigital.com.br/feed/
 https://rss.uol.com.br/feed/tecnologia.xml
-https://www.adrenaline.com.br/feed/
-https://meiobit.com/feed
-https://imasters.com.br/feed
+https://www.adrenaline.com.br/feed/ | Adrenaline
+https://meiobit.com/feed | Meio Bit
+https://imasters.com.br/feed | iMasters
 https://www.showmetech.com.br/feed/
-https://www.mobiletime.com.br/feed/
+https://www.mobiletime.com.br/feed/ | Mobile Time
 
 # ---- Internacional: 10 maiores ----
 https://techcrunch.com/feed/
@@ -25,14 +34,32 @@ https://www.wired.com/feed/rss
 https://www.engadget.com/rss.xml
 https://www.cnet.com/rss/news/
 https://www.zdnet.com/rss/all/
-https://venturebeat.com/feed/
+https://venturebeat.com/feed/ | VentureBeat
 https://thenextweb.com/feed
 https://mashable.com/feeds/rss/tech
 
 # ---- Agregador dev (bônus, fora da lista dos 10) ----
 https://hnrss.org/frontpage
 
-# ---- DevOps / Cloud (seu perfil) ----
-https://aws.amazon.com/blogs/aws/feed/
+# ---- GFT ----
+gnews: "GFT Technologies" OR "GFT Brasil" | GFT (Google Notícias)
+
+# ---- AWS ----
+https://aws.amazon.com/pt/blogs/aws/feed/ | AWS News Blog
+https://aws.amazon.com/pt/blogs/aws-brasil/feed/ | Blog da AWS Brasil
+https://aws.amazon.com/blogs/devops/feed/ | AWS DevOps Blog
+https://aws.amazon.com/blogs/architecture/feed/ | AWS Architecture Blog
+
+# ---- Outras nuvens ----
+https://cloudblog.withgoogle.com/rss/ | Google Cloud Blog
+https://azure.microsoft.com/en-us/blog/feed/ | Microsoft Azure Blog
+https://www.microsoft.com/releasecommunications/api/v2/azure/rss | Azure Updates
+
+# ---- DevOps / Cloud Native ----
+https://thenewstack.io/feed/
+https://feed.infoq.com/ | InfoQ
+https://www.cncf.io/feed/ | CNCF
 https://kubernetes.io/feed.xml
 https://www.hashicorp.com/blog/feed.xml
+https://www.docker.com/blog/feed/ | Docker Blog
+https://github.blog/changelog/feed/ | GitHub Changelog
