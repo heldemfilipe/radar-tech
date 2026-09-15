@@ -71,13 +71,16 @@ podem ser trocadas pelas variáveis `VOICE_FEMALE` e `VOICE_MALE`
 ## Formato do episódio
 
 O roteiro segue blocos fixos — abertura, **manchete do dia** (a fundo),
-**radar Cloud & DevOps** (AWS, nuvens, GFT), **rodada rápida**, **termo do dia**
+**radar Cloud & DevOps** (AWS, nuvens, GFT), **radar Games** (pelo menos 1
+notícia da indústria de games), **radar Mobile** (pelo menos 1 da indústria
+mobile/telecom), **rodada rápida**, **termo do dia**
 e encerramento — com uma pausa maior entre um bloco e outro.
 
 - **Matéria completa:** as 5 notícias em destaque (`MAX_FULL_ARTICLES`) têm o
   texto inteiro baixado e enviado ao Gemini, pra explicação ter fatos e
   números de verdade, não só o resumo do RSS. A escolha é automática: assunto
-  coberto por vários sites, cloud/DevOps/GFT e segurança/IA sobem; promoção cai.
+  coberto por vários sites, cloud/DevOps/GFT e segurança/IA sobem; promoção cai;
+  a melhor notícia de games e a melhor de mobile têm vaga garantida.
 - **Pausas naturais:** o silêncio longo que o edge-tts coloca no fim de cada
   fala é cortado e substituído por pausas curtas (reação rápida emenda quase
   colada; troca de apresentador ~0,4 s; troca de bloco ~1 s).

@@ -405,10 +405,38 @@ _PROMO = re.compile(
 )
 
 
+# Categorias com vaga garantida no episódio (bloco próprio) e na matéria
+# completa. "console" e "switch" soltos ficam de fora: AWS Console e switch
+# de rede não são games. "vivo"/"claro"/"tim" também: são palavras comuns.
+_GAMES = re.compile(
+    r"\b(games?|gaming|gamers?|videogames?|jogos?|playstation|ps5|xbox|nintendo|"
+    r"steam|gta|ubisoft|epic games|valve|blizzard|capcom|bandai|rockstar|"
+    r"est[úu]dio de (jogos|games))\b",
+    re.I,
+)
+_MOBILE = re.compile(
+    r"\b(smartphones?|celular(es)?|iphone|android|galaxy|motorola|xiaomi|pixel|"
+    r"oneplus|operadoras?|5g|6g|anatel|telecom|telefonia|mobile|dobr[áa]ve(l|is)|"
+    r"foldables?|ios)\b",
+    re.I,
+)
+
+
+def categoria(it: dict) -> str | None:
+    texto = f"{it['title']} {it['summary']} {it['source']}"
+    if _GAMES.search(texto):
+        return "games"
+    if _MOBILE.search(texto):
+        return "mobile"
+    return None
+
+
 def escolher_destaques(items: list[dict]) -> list[dict]:
     """Ordena as candidatas a "matéria completa" sem gastar chamada extra no
     Gemini: sobe quem vários sites cobriram (sinal de assunto grande), quem
-    é de cloud/DevOps/GFT e o que parece relevante; derruba promoção."""
+    é de cloud/DevOps/GFT e o que parece relevante; derruba promoção. Logo
+    depois da melhor de todas vêm a melhor de games e a melhor de mobile, pra
+    esses blocos também terem conteúdo de verdade."""
     tokens = [_title_tokens(i["title"]) for i in items]
     pontuadas = []
     for idx, it in enumerate(items):
@@ -428,7 +456,17 @@ def escolher_destaques(items: list[dict]) -> list[dict]:
         score -= 6 if _PROMO.search(texto) else 0
         pontuadas.append((score, it.get("ts") or 0.0, idx))
     pontuadas.sort(reverse=True)
-    return [items[idx] for score, _, idx in pontuadas if score > 0]
+    ordem = [items[idx] for score, _, idx in pontuadas if score > 0]
+    for cat in ("mobile", "games"):  # insere games antes de mobile
+        melhor = next(
+            (items[idx] for score, _, idx in pontuadas if score >= 0 and categoria(items[idx]) == cat),
+            None,
+        )
+        if melhor is not None and not (ordem and melhor is ordem[0]):
+            if melhor in ordem:
+                ordem.remove(melhor)
+            ordem.insert(min(1, len(ordem)), melhor)
+    return ordem
 
 
 def baixar_materia(url: str) -> str:
@@ -559,7 +597,7 @@ FORMATO OBRIGATÓRIO: cada fala em sua própria linha, começando com "ANA:" ou
 títulos, sem markdown, sem asteriscos, sem emojis, sem rubricas como (risos)
 ou [vinheta].
 
-ESTRUTURA DO EPISÓDIO (5 a 7 minutos, nesta ordem):
+ESTRUTURA DO EPISÓDIO (6 a 8 minutos, nesta ordem):
 1. ABERTURA (curta): bordão do LEO, comentário da ANA, dia da semana e um
    gancho do assunto principal pra prender a atenção.
 2. MANCHETE DO DIA (uns 2 minutos): o assunto mais importante, a fundo. Cubra
@@ -569,11 +607,19 @@ ESTRUTURA DO EPISÓDIO (5 a 7 minutos, nesta ordem):
 3. RADAR CLOUD & DEVOPS: AWS, Azure, Google Cloud, DevOps e notícias da GFT
    Technologies. Se não houver nada relevante hoje, pule o bloco sem comentar
    a ausência.
-4. RODADA RÁPIDA: de 3 a 5 notícias curtas, poucas falas cada, com ritmo.
-5. TERMO DO DIA: a ANA explica um termo técnico que apareceu no episódio, com
+4. RADAR GAMES: pelo menos 1 notícia da INDÚSTRIA de games — lançamentos
+   importantes, estúdios, publishers, consoles, vendas, aquisições, demissões,
+   regulação. Não vale promoção, cupom nem "jogo grátis por tempo limitado".
+5. RADAR MOBILE: pelo menos 1 notícia da indústria mobile e de tecnologia de
+   consumo — smartphones, sistemas (iOS/Android), fabricantes, operadoras, 5G,
+   mercado de apps. Mesma regra: nada de oferta ou review de produto.
+6. RODADA RÁPIDA: de 2 a 4 notícias curtas, poucas falas cada, com ritmo.
+7. TERMO DO DIA: a ANA explica um termo técnico que apareceu no episódio, com
    uma analogia do dia a dia; o LEO faz a pergunta que um leigo faria. Nunca
    repita um termo já explicado nos episódios anteriores.
-6. ENCERRAMENTO: bordão de despedida do LEO e observação final da ANA.
+8. ENCERRAMENTO: bordão de despedida do LEO e observação final da ANA.
+Se a manchete do dia já for de games ou de mobile, o bloco correspondente
+ainda precisa de outra notícia daquela área (se existir na lista).
 
 EXPLICAR BEM (o ouvinte precisa entender, não só saber que aconteceu):
 - Toda notícia responde "o que aconteceu" e "por que isso importa".
@@ -597,8 +643,10 @@ Escreva um roteiro de podcast de 3 a 5 minutos:
   Technologies, IA, lançamentos relevantes, programação e segurança.
 - Ignore publieditorial, promoções e reviews de produto irrelevantes.
 - Ordem: manchete do dia a fundo (o que aconteceu, por que importa, o que muda),
-  depois cloud/DevOps/GFT, depois notas rápidas, e um "termo do dia" explicado
-  com analogia. Entre um bloco e outro, uma linha contendo apenas ---.
+  depois cloud/DevOps/GFT, depois pelo menos 1 notícia da indústria de games e
+  pelo menos 1 da indústria mobile (nada de promoção), depois notas rápidas, e
+  um "termo do dia" explicado com analogia. Entre um bloco e outro, uma linha
+  contendo apenas ---.
 - Não invente fatos que não estejam no material; use a MATÉRIA COMPLETA quando houver.
 - Fale de forma natural, como um apresentador, sem markdown, sem asteriscos,
   sem emojis, sem listas — apenas texto corrido pronto para ser lido em voz alta.
@@ -651,7 +699,7 @@ E abaixo dela, uma linha por notícia comentada, na ordem do episódio:
 NÚMERO | BLOCO | título curto em português
 - NÚMERO é o número entre colchetes da notícia na lista abaixo (se juntou
   várias, use a principal).
-- BLOCO é um destes: Manchete, Cloud & DevOps, Rodada rápida.
+- BLOCO é um destes: Manchete, Cloud & DevOps, Games, Mobile, Rodada rápida.
 - Por último, uma linha: TERMO | Termo do dia | termo — definição em uma frase{anteriores}
 
 Abaixo estão as notícias das últimas {HOURS_WINDOW} horas coletadas de vários sites
@@ -1081,6 +1129,8 @@ def send_telegram_text(text: str) -> None:
 _BLOCOS_NOTAS = [
     ("Manchete", "📌"),
     ("Cloud & DevOps", "☁️"),
+    ("Games", "🎮"),
+    ("Mobile", "📱"),
     ("Rodada rápida", "⚡"),
 ]
 

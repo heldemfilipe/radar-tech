@@ -38,6 +38,15 @@ https://venturebeat.com/feed/ | VentureBeat
 https://thenextweb.com/feed
 https://mashable.com/feeds/rss/tech
 
+# ---- Indústria de games (o episódio tem bloco próprio) ----
+https://www.gamesindustry.biz/feed | GamesIndustry.biz
+https://www.gamedeveloper.com/rss.xml | Game Developer
+https://br.ign.com/feed.xml | IGN Brasil
+
+# ---- Indústria mobile e telecom (o episódio tem bloco próprio) ----
+https://www.gsmarena.com/rss-news-reviews.php3 | GSMArena
+https://www.telesintese.com.br/feed/ | TeleSíntese
+
 # ---- Agregador dev (bônus, fora da lista dos 10) ----
 https://hnrss.org/frontpage
 
