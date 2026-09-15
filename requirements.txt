@@ -3,3 +3,7 @@ requests==2.32.3
 # edge-tts precisa ser recente: versões antigas quebram quando a Microsoft
 # muda a autenticação do serviço de voz (foi o que matou a série 6.1.x).
 edge-tts>=7.0.2
+# Extrai o texto da matéria completa das notícias em destaque.
+trafilatura==2.2.0
+# Decodifica o MP3 de cada fala pra cortar o silêncio que o edge-tts embute.
+miniaudio==1.71

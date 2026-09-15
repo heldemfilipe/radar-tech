@@ -1,0 +1,49 @@
+# Como a voz deve falar certos termos. Formato:   Termo = como falar
+#
+# - Vale só pro ÁUDIO; o texto das notas no Telegram continua com a grafia certa.
+# - Termo todo em MAIÚSCULAS (sigla) só troca quando aparece exatamente assim
+#   ("AI" troca, a interjeição "ai" não). Os outros ignoram maiúsculas/minúsculas.
+# - Ouviu a voz errando alguma palavra? Adicione uma linha aqui e dê push.
+# - Números romanos em nomes ("Diablo V" -> "Diablo 5") já são convertidos
+#   automaticamente; não precisa listar.
+#
+# As grafias abaixo são aproximações do jeito brasileiro de falar. Se alguma
+# ficar pior que o original, é só apagar a linha.
+
+# ---- Siglas que a gente fala "em inglês" ----
+AI = ei ai
+CEO = ci-i-ôu
+GPT = dji-pi-ti
+ChatGPT = tchat dji-pi-ti
+iOS = ai-ó-ésse
+iPadOS = ai-péd-ó-ésse
+macOS = mac-ó-ésse
+SaaS = sás
+Wi-Fi = uai-fai
+
+# ---- Empresas e produtos ----
+iPhone = aifone
+iPad = aipéd
+OpenAI = ôupen ei ai
+Nvidia = en-vídia
+Xbox = équis-bóx
+PlayStation = plêi-stêichon
+Steam = stím
+Switch = suítch
+Copilot = cópailot
+Gemini = djêmini
+Claude = clóude
+Anthropic = ântropic
+Hugging Face = ráguin fêis
+Cloudflare = cláud-flér
+
+# ---- Cloud e DevOps ----
+DevOps = dév-óps
+Kubernetes = kubernêtis
+GitHub = guít-rãb
+GitLab = guít-lab
+Azure = ájur
+Docker = dóquer
+Terraform = térra-fórm
+HashiCorp = réchi-corp
+Cilium = cílium

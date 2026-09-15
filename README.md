@@ -10,6 +10,7 @@ seu-repo/
 ├── .github/workflows/news.yml   ← agendamento + execução
 ├── main.py
 ├── feeds.txt
+├── pronuncia.txt                ← como a voz fala termos difíceis
 ├── historico.json               ← criado/atualizado pelo bot (não edite)
 └── requirements.txt
 ```
@@ -67,6 +68,25 @@ narrador único, descomente `PODCAST_STYLE: solo` no `news.yml`. As vozes
 podem ser trocadas pelas variáveis `VOICE_FEMALE` e `VOICE_MALE`
 (qualquer voz do edge-tts, ex.: `pt-BR-ThalitaNeural`).
 
+## Formato do episódio
+
+O roteiro segue blocos fixos — abertura, **manchete do dia** (a fundo),
+**radar Cloud & DevOps** (AWS, nuvens, GFT), **rodada rápida**, **termo do dia**
+e encerramento — com uma pausa maior entre um bloco e outro.
+
+- **Matéria completa:** as 5 notícias em destaque (`MAX_FULL_ARTICLES`) têm o
+  texto inteiro baixado e enviado ao Gemini, pra explicação ter fatos e
+  números de verdade, não só o resumo do RSS. A escolha é automática: assunto
+  coberto por vários sites, cloud/DevOps/GFT e segurança/IA sobem; promoção cai.
+- **Pausas naturais:** o silêncio longo que o edge-tts coloca no fim de cada
+  fala é cortado e substituído por pausas curtas (reação rápida emenda quase
+  colada; troca de apresentador ~0,4 s; troca de bloco ~1 s).
+- **Pronúncia:** `pronuncia.txt` diz como a voz deve falar termos em inglês e
+  siglas (ex.: `Kubernetes = kubernêtis`). Ouviu um erro? Adicione uma linha e
+  dê push. Números romanos em nomes viram algarismos (`Diablo V` → `Diablo 5`).
+- **Notas no Telegram:** em vez do roteiro inteiro, chega uma mensagem curta
+  com as notícias do episódio por bloco, com link pra matéria, e o termo do dia.
+
 ## Sem notícias repetidas
 
 Depois de enviar o episódio, o script grava em `historico.json` as notícias
@@ -75,8 +95,11 @@ usadas e o roteiro, e o workflow commita esse arquivo. No dia seguinte:
 1. notícias com o mesmo link (ou título quase igual) das usadas nos últimos
    3 dias (`HISTORY_DAYS`) são descartadas antes de ir pro Gemini;
 2. os roteiros desses episódios vão junto no prompt, com a ordem de não
-   voltar a um assunto já comentado (só se houver desdobramento novo) e de
-   não reaproveitar bordões e piadas.
+   voltar a um assunto já comentado e de não reaproveitar bordões, piadas e
+   termo do dia;
+3. quando uma notícia de hoje continua algo já falado, os apresentadores
+   fazem o gancho ("lembra que ontem a gente falou do...") e contam só a
+   novidade.
 
 Rodou manualmente duas vezes no mesmo dia? A segunda execução também conta
 a primeira como "já falada". Pra zerar a memória, apague o `historico.json`.
