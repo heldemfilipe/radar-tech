@@ -415,7 +415,7 @@ _GAMES = re.compile(
     re.I,
 )
 _MOBILE = re.compile(
-    r"\b(smartphones?|celular(es)?|iphone|android|galaxy|motorola|xiaomi|pixel|"
+    r"\b(smartphones?|phones?|tablets?|celular(es)?|iphone|android|galaxy|motorola|xiaomi|pixel|"
     r"oneplus|operadoras?|5g|6g|anatel|telecom|telefonia|mobile|dobr[áa]ve(l|is)|"
     r"foldables?|ios)\b",
     re.I,
@@ -424,6 +424,14 @@ _MOBILE = re.compile(
 
 def categoria(it: dict) -> str | None:
     texto = f"{it['title']} {it['summary']} {it['source']}"
+    if _PRIORIDADE.search(texto):
+        return "cloud"
+    # O título decide primeiro: "chip de celular focado em gaming" é mobile.
+    games_titulo, mobile_titulo = _GAMES.search(it["title"]), _MOBILE.search(it["title"])
+    if games_titulo and not mobile_titulo:
+        return "games"
+    if mobile_titulo:
+        return "mobile"
     if _GAMES.search(texto):
         return "games"
     if _MOBILE.search(texto):
@@ -435,8 +443,10 @@ def escolher_destaques(items: list[dict]) -> list[dict]:
     """Ordena as candidatas a "matéria completa" sem gastar chamada extra no
     Gemini: sobe quem vários sites cobriram (sinal de assunto grande), quem
     é de cloud/DevOps/GFT e o que parece relevante; derruba promoção. Logo
-    depois da melhor de todas vêm a melhor de games e a melhor de mobile, pra
-    esses blocos também terem conteúdo de verdade."""
+    depois da melhor de todas vêm a melhor de cloud, de games e de mobile, pra
+    esses blocos também terem conteúdo de verdade (se a melhor de todas já é
+    de uma dessas áreas, a vaga vai pra segunda melhor daquela área, porque o
+    bloco precisa de outra notícia além da manchete)."""
     tokens = [_title_tokens(i["title"]) for i in items]
     pontuadas = []
     for idx, it in enumerate(items):
@@ -457,12 +467,17 @@ def escolher_destaques(items: list[dict]) -> list[dict]:
         pontuadas.append((score, it.get("ts") or 0.0, idx))
     pontuadas.sort(reverse=True)
     ordem = [items[idx] for score, _, idx in pontuadas if score > 0]
-    for cat in ("mobile", "games"):  # insere games antes de mobile
+    topo = ordem[0] if ordem else None
+    for cat in ("mobile", "games", "cloud"):  # inseridas na posição 1: cloud, games, mobile
         melhor = next(
-            (items[idx] for score, _, idx in pontuadas if score >= 0 and categoria(items[idx]) == cat),
+            (
+                items[idx]
+                for score, _, idx in pontuadas
+                if score >= 0 and items[idx] is not topo and categoria(items[idx]) == cat
+            ),
             None,
         )
-        if melhor is not None and not (ordem and melhor is ordem[0]):
+        if melhor is not None:
             if melhor in ordem:
                 ordem.remove(melhor)
             ordem.insert(min(1, len(ordem)), melhor)
@@ -604,9 +619,10 @@ ESTRUTURA DO EPISÓDIO (6 a 8 minutos, nesta ordem):
    o que aconteceu, o contexto (como chegamos aqui), por que importa e o que
    muda na prática pra quem ouve. Use os fatos da MATÉRIA COMPLETA quando ela
    existir.
-3. RADAR CLOUD & DEVOPS: AWS, Azure, Google Cloud, DevOps e notícias da GFT
-   Technologies. Se não houver nada relevante hoje, pule o bloco sem comentar
-   a ausência.
+3. RADAR CLOUD & DEVOPS: pelo menos 1 notícia de AWS, Azure, Google Cloud,
+   DevOps, Kubernetes, infraestrutura ou da GFT Technologies — é a área de
+   quem ouve, então é o bloco mais importante depois da manchete. Se houver
+   várias, fale de 2 ou 3.
 4. RADAR GAMES: pelo menos 1 notícia da INDÚSTRIA de games — lançamentos
    importantes, estúdios, publishers, consoles, vendas, aquisições, demissões,
    regulação. Não vale promoção, cupom nem "jogo grátis por tempo limitado".
@@ -618,8 +634,10 @@ ESTRUTURA DO EPISÓDIO (6 a 8 minutos, nesta ordem):
    uma analogia do dia a dia; o LEO faz a pergunta que um leigo faria. Nunca
    repita um termo já explicado nos episódios anteriores.
 8. ENCERRAMENTO: bordão de despedida do LEO e observação final da ANA.
-Se a manchete do dia já for de games ou de mobile, o bloco correspondente
-ainda precisa de outra notícia daquela área (se existir na lista).
+Os blocos CLOUD & DEVOPS, GAMES e MOBILE são obrigatórios. Se a manchete do
+dia já for de uma dessas áreas, o bloco correspondente ainda precisa de OUTRA
+notícia daquela área. Só pule um deles se realmente não existir nenhuma
+notícia da área na lista (nesse caso, sem comentar a ausência).
 
 EXPLICAR BEM (o ouvinte precisa entender, não só saber que aconteceu):
 - Toda notícia responde "o que aconteceu" e "por que isso importa".
@@ -643,7 +661,7 @@ Escreva um roteiro de podcast de 3 a 5 minutos:
   Technologies, IA, lançamentos relevantes, programação e segurança.
 - Ignore publieditorial, promoções e reviews de produto irrelevantes.
 - Ordem: manchete do dia a fundo (o que aconteceu, por que importa, o que muda),
-  depois cloud/DevOps/GFT, depois pelo menos 1 notícia da indústria de games e
+  depois pelo menos 1 de cloud/DevOps/GFT, depois pelo menos 1 da indústria de games e
   pelo menos 1 da indústria mobile (nada de promoção), depois notas rápidas, e
   um "termo do dia" explicado com analogia. Entre um bloco e outro, uma linha
   contendo apenas ---.
@@ -1126,6 +1144,17 @@ def send_telegram_text(text: str) -> None:
 
 # ---------- Notas do episódio ----------
 
+# Palavras que identificam o bloco escrito pelo Gemini na linha das notas
+# ("Radar Cloud e DevOps", "DevOps", "Jogos"... tudo cai no lugar certo).
+_ALIASES_BLOCO = {
+    "Manchete": ("manchete",),
+    "Cloud & DevOps": ("cloud", "devops", "nuvem", "aws", "infra"),
+    "Games": ("game", "jogo"),
+    "Mobile": ("mobile", "celular", "smartphone", "telecom"),
+    "Rodada rápida": ("rodada", "rápida", "rapida"),
+}
+BLOCOS_OBRIGATORIOS = ("Cloud & DevOps", "Games", "Mobile")
+
 _BLOCOS_NOTAS = [
     ("Manchete", "📌"),
     ("Cloud & DevOps", "☁️"),
@@ -1159,7 +1188,11 @@ def montar_notas(notas: str, items: list[dict], today: str) -> tuple[str, str]:
             termo = titulo
             continue
         nome_bloco = next(
-            (nome for nome, _ in _BLOCOS_NOTAS if nome.split()[0].lower() in bloco.lower()),
+            (
+                nome
+                for nome, _ in _BLOCOS_NOTAS
+                if any(alias in bloco.lower() for alias in _ALIASES_BLOCO[nome])
+            ),
             "Rodada rápida",
         )
         n = re.sub(r"\D", "", num)
@@ -1174,6 +1207,13 @@ def montar_notas(notas: str, items: list[dict], today: str) -> tuple[str, str]:
             manchete = titulo
     if not any(por_bloco.values()):
         return "", ""
+    faltando = [nome for nome in BLOCOS_OBRIGATORIOS if not por_bloco[nome]]
+    if faltando:
+        print(
+            f"[AVISO] notas do episódio sem o(s) bloco(s): {', '.join(faltando)} "
+            "(o Gemini pulou ou não achou notícia da área)",
+            file=sys.stderr,
+        )
     partes = [f"🎙️ <b>Resumo Tech — {today}</b>"]
     for nome, emoji in _BLOCOS_NOTAS:
         if por_bloco[nome]:
