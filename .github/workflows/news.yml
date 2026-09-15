@@ -38,6 +38,9 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           PYTHONUNBUFFERED: "1"   # log na ordem certa (stdout e stderr misturados)
+          # Quantas notícias vão pro Gemini (padrão do código: 100). Subir
+          # demais aumenta o risco de timeout na geração do roteiro.
+          MAX_ITEMS_TO_SUMMARIZE: "150"
           # PODCAST_STYLE: solo   # descomente pra voltar ao narrador único
         run: python main.py
 
