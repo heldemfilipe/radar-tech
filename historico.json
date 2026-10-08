@@ -1,613 +1,6 @@
 {
  "episodios": [
   {
-   "data": "2026-10-05",
-   "gerado_em": "2026-10-05T15:23:56-03:00",
-   "noticias": [
-    {
-     "titulo": "Presente para crianças: Nintendo Switch OLED alcança o menor preço de 2026",
-     "link": "https://tecnoblog.net/achados/presente-para-criancas-nintendo-switch-oled-alcanca-o-menor-preco-de-2026/"
-    },
-    {
-     "titulo": "PS5 modificado consegue rodar jogos do XBOX a 60 FPS com novo emulador",
-     "link": "https://canaltech.com.br/games/ps5-modificado-consegue-rodar-jogos-do-xbox-a-60-fps-com-novo-emulador/"
-    },
-    {
-     "titulo": "Xbox game pass perdera vencedor do goty e mais jogos em outubro",
-     "link": "https://www.estadao.com.br/tecmundo/voxel/xbox-game-pass-perdera-vencedor-do-goty-e-mais-jogos-em-outubro/"
-    },
-    {
-     "titulo": "Som que imersiona de verdade: os melhores headsets 7.1 Surround em promoção na Amazon",
-     "link": "https://olhardigital.com.br/2026/10/05/reviews/som-que-imersiona-de-verdade-os-melhores-headsets-7-1-surround-em-promocao-na-amazon/"
-    },
-    {
-     "titulo": "ANPD cria página para receber denúncias contra redes sociais e aplicativos",
-     "link": "https://www.uol.com.br/tilt/ultimas-noticias/estado/2026/10/05/anpd-cria-pagina-para-receber-denuncias-contra-redes-sociais-e-aplicativos.htm"
-    },
-    {
-     "titulo": "Estúdio de Dead by Daylight trabalha em um FPS triplo A com \"alto nível de realismo\"",
-     "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNRE5QTHFhRFZiaEJEaVBWYVJ6d3BvbFZjR0NFcWctUWlOTE5wWTVnSFdKOE00bG02OEJ4TlFhSjdXcTAtS1YtX0p3Q2VqM3gtT0wySG1ucGxtZ1NlVm1XUGJjS2otVnhBZUdoZlZLWkluVjhnQmVBV3hpeV9RMkdXcVlreFgzblVVSkJpUXplV3NQazBwLVl3LUo5ZHZaMXJPNkR5bGd2UFRVR2k3NUtXMFBqdVhjdEZTQTRN?oc=5"
-    },
-    {
-     "titulo": "iMasters e Naia criam Logos do Brasil, biblioteca de marcas para pessoas e agentes de IA",
-     "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQMDlUQ0FFbFdvaFdqVndRS3A1WkNiVmxCUmtSbTU0R1RwZXA3eHFsRWpOWjJFdDFsXzdyRTVlWTFxSENOS05xbVBiRG9XeVNGekhNeGo1eTRpYzYxdWpLUjdIZWFxd2hEOFFreEJuMmVITWFXUl84UUlYOHRILTNrU3NSTFVoXzNWdkRkRmJDNlRxdWxRTS01bzFjbEFOYUpUNDNqckJQakhCT3VyVF93S3FQWThSbGhOOG9Z?oc=5"
-    },
-    {
-     "titulo": "Lenovo destaca Qira, a nova inteligência artificial de seus notebooks",
-     "link": "https://www.showmetech.com.br/lenovo-destaca-ia-qira-em-notebooks/"
-    },
-    {
-     "titulo": "At 19, founder raises $11 million for Ghost, maker of a $3,499 computer for personal AI",
-     "link": "https://techcrunch.com/2026/10/05/at-19-ghost-founder-raises-11-million-to-build-a-3499-computer-for-your-personal-ai/"
-    },
-    {
-     "titulo": "OpenAI is adding text watermarking in ChatGPT and Codex",
-     "link": "https://www.theverge.com/ai-artificial-intelligence/1004880/openai-chatgpt-text-watermarks-eu-ai-act"
-    },
-    {
-     "titulo": "F1 in Bahrain... in Malaysia: The race needed a software update to start",
-     "link": "https://arstechnica.com/cars/2026/10/f1-in-bahrain-in-malaysia-the-race-needed-a-software-update-to-start/"
-    },
-    {
-     "titulo": "Astronomers Confirm Discovery of the Youngest Known Exoplanet Ever",
-     "link": "https://www.wired.com/story/astronomers-confirm-discovery-of-youngest-known-exoplanet-ever/"
-    },
-    {
-     "titulo": "Oura Ring 5 vs. Apple Watch Series 12: Which smart health wearable is right for you?",
-     "link": "https://www.engadget.com/2275787/oura-ring-5-vs-apple-watch-series-12-which-smart-health-wearable-right/"
-    },
-    {
-     "titulo": "Looking at Smart Home Deals for Amazon Prime Day? Here Are 4 Picks I Use in My Own Home",
-     "link": "https://www.cnet.com/home/smart-home/amazon-prime-day-smart-home-deals/"
-    },
-    {
-     "titulo": "My 5 favorite Linux distros for security – and how they protect your privacy",
-     "link": "https://www.zdnet.com/tech/most-secure-linux-distros/"
-    },
-    {
-     "titulo": "Nobel Prize in medicine goes to the light switch for brain cells",
-     "link": "https://thenextweb.com/news/nobel-prize-medicine-2026-optogenetics"
-    },
-    {
-     "titulo": "Googles new Fitbit watch with a screen just leaked again",
-     "link": "https://mashable.com/tech/google-fitbit-edge-leaked-photos"
-    },
-    {
-     "titulo": "Ninja Theory begins laying off staff, according to employee posts",
-     "link": "https://www.gamesindustry.biz/ninja-theory-begins-laying-off-staff-according-to-employee-posts"
-    },
-    {
-     "titulo": "The Game Awards",
-     "link": "https://www.gamedeveloper.comthegameawards.com"
-    },
-    {
-     "titulo": "Fortnite troca arte do jogo após fãs descobrirem marca d’água da IA Gemini",
-     "link": "https://br.ign.com/fortnite/156628/fortnite-troca-arte-do-jogo-apos-fas-descobrirem-marca-dagua-da-ia-gemini"
-    },
-    {
-     "titulo": "Samsung makes its Galaxy A series devices more expensive in the US too",
-     "link": "https://www.gsmarena.com/samsung_makes_its_galaxy_a_series_devices_more_expensive_in_the_us_too-news-74909.php"
-    },
-    {
-     "titulo": "Controladora propõe fechar capital da Unifique",
-     "link": "https://telesintese.com.br/controladora-propoe-fechar-capital-da-unifique/"
-    },
-    {
-     "titulo": "OpenAI \"rogue\" agent activities found on Wikimedia projects",
-     "link": "https://diff.wikimedia.org/2026/10/05/openai-rogue-agent-activities-found-on-wikimedia-projects/"
-    },
-    {
-     "titulo": "AWS Weekly Roundup: Amazon Bedrock Managed Agents powered by OpenAI, Q3 service availability updates, Kiro workflows, and more (October 5, 2026)",
-     "link": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-amazon-bedrock-managed-agents-powered-by-openai-q3-service-availability-updates-kiro-workflows-and-more-october-5-2026/"
-    },
-    {
-     "titulo": "Restart EC2 and on-premises fleets faster with AWS CodeDeploy RESTART deployment mode",
-     "link": "https://aws.amazon.com/blogs/devops/restart-ec2-and-on-premises-fleets-faster-with-aws-codedeploy-restart-deployment-mode/"
-    },
-    {
-     "titulo": "Announcing the AWS Digital Sovereignty Lens for the Well-Architected Framework",
-     "link": "https://aws.amazon.com/blogs/architecture/announcing-the-aws-digital-sovereignty-well-architected-lens/"
-    },
-    {
-     "titulo": "Introducing Google Cloud Modernize, transforming for (and with) AI",
-     "link": "https://cloud.google.com/blog/products/infrastructure-modernization/google-cloud-modernize-accelerate-transformation-with-ai/"
-    },
-    {
-     "titulo": "XCOR launches to trace outages in minutes. It still pages engineers.",
-     "link": "https://thenewstack.io/cortex-xcor-ai-observability/"
-    },
-    {
-     "titulo": "Java News Roundup: JobRunr 9, OpenXava 8, Quarkus, LangChain4j, JNoSQL, Introducing Lathe",
-     "link": "https://www.infoq.com/news/2026/10/java-news-roundup-sep28-2026/?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=global"
-    },
-    {
-     "titulo": "Gemini vai ficar mais limitado para usuários de contas gratuitas",
-     "link": "https://tecnoblog.net/noticias/gemini-vai-ficar-mais-limitado-para-usuarios-de-contas-gratuitas/"
-    },
-    {
-     "titulo": "Tiggo 9 chega ao Brasil em duas versões; confira os preços",
-     "link": "https://canaltech.com.br/carros/tiggo-9-chega-ao-brasil-em-duas-versoes-confira-os-precos/"
-    },
-    {
-     "titulo": "Steve jobs morreu ha 15 anos confira as homenagens de ceos da apple",
-     "link": "https://www.estadao.com.br/tecmundo/big-techs/steve-jobs-morreu-ha-15-anos-confira-as-homenagens-de-ceos-da-apple/"
-    },
-    {
-     "titulo": "Iniciativa brasileira faz gênios do passado “ganharem vida” por meio da IA em experiência inovadora de ensino",
-     "link": "https://olhardigital.com.br/2026/10/05/ciencia-e-espaco/iniciativa-brasileira-faz-genios-do-passado-ganharem-vida-por-meio-da-ia-em-experiencia-inovadora-de-ensino/"
-    },
-    {
-     "titulo": "O que está rolando hoje: CEO da OpenAI 'paga pra ver' riscos das super IAs",
-     "link": "https://www.uol.com.br/flash/?c=6ac3d904ae32913f35872f56"
-    },
-    {
-     "titulo": "Testes mostram que Windows 11 26H2 reduz consumo de memória RAM no PC",
-     "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOT085YWVSbjctSmktQlQyRUJnYnRpMkZXS0tfLUZZZ2JCeW14OHpOaU16WjFNY2V6WUR5ZWZ6WGJOdFd6Ukd3dVdvc3NjNEhxb3F1ejRmczlMX281MEppNFBmSk55RDRJVUZtYXRSOG5YV2R5WkQ2NFhsVGJlN3EwRmloZy1Da3hMWFNvX3k3R1lLRmlXQVhUVUFpcXJyX1VhS0E?oc=5"
-    },
-    {
-     "titulo": "TypeScript no Node.js sem tsx: o que quebra na migração",
-     "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPTDJwVXhuX1llNVMzcENlaUxHejgxbUZKMm15VS1PQU1OaW1nbVVXYkVTclBGMlNmQllvbllVcUFXLTFLR0hkeFR6c3VhUktnaWZFT3dLUHo3VHMwTlZfNlBqTS1TLVZJcU9jOXBkai0zZDBZekM5VnZQUENJYThrUmZ3T0dab3lPU0NBZkxOQQ?oc=5"
-    },
-    {
-     "titulo": "Todos os jogos que chegam em outubro de 2026 | PlayStation, Xbox, Switch, PC e mais!",
-     "link": "https://www.showmetech.com.br/jogos-outubro-2026/"
-    },
-    {
-     "titulo": "Hot Girl Hotline is like ‘Dear Abby’ for the AI era",
-     "link": "https://techcrunch.com/2026/10/05/hot-girl-hotline-is-like-dear-abby-for-the-ai-era/"
-    },
-    {
-     "titulo": "OpenAI PR tells journalist to ‘move on’ while asking Sam Altman about a ChatGPT user&#8217;s suicide",
-     "link": "https://www.theverge.com/ai-artificial-intelligence/1004827/openai-sam-altman-vanity-fair-interview-pr"
-    },
-    {
-     "titulo": "Mass quarantine issued in Russia after unexplained death of plague researcher",
-     "link": "https://arstechnica.com/health/2026/10/researchers-death-from-undisclosed-illness-sparks-mass-quarantine-in-russia/"
-    },
-    {
-     "titulo": "The Best Early Amazon Prime Day Deals 2026: WIRED-Tested Picks to Shop Now",
-     "link": "https://www.wired.com/story/amazon-prime-day-early-deals-10-05-2026/"
-    },
-    {
-     "titulo": "Hyundai's all-electric hot hatch goes on sale in the UK, starting at around $25,000",
-     "link": "https://www.engadget.com/2277678/hyundai-ioniq-3-all-electric-hot-hatch-goes-on-sale-in-the-uk/"
-    },
-    {
-     "titulo": "I Got a First Look at Vitamix’s First Juicer, and I’m in Love",
-     "link": "https://www.cnet.com/home/kitchen-and-household/i-got-first-look-vitamix-first-juicer-im-in-love/"
-    },
-    {
-     "titulo": "Companies are ditching the cloud to save millions – should you? One factor matters most",
-     "link": "https://www.zdnet.com/tech/cloud-repatriation-enterprise-cost-optimization/"
-    },
-    {
-     "titulo": "US judge rules a police Flock search was unconstitutional mass surveillance",
-     "link": "https://thenextweb.com/news/flock-search-unconstitutional-mass-surveillance-judge"
-    },
-    {
-     "titulo": "The best early October Prime Day deals: $200 off MacBook Airs and $79 AirPods are already live",
-     "link": "https://mashable.com/tech/best-early-october-prime-day-apple-deals-2026"
-    },
-    {
-     "titulo": "Free-to-play playtime is broadly flat as gacha RPGs drive PC growth, says Newzoo",
-     "link": "https://www.gamesindustry.biz/free-to-play-playtime-is-broadly-flat-as-gacha-rpgs-drive-pc-growth-says-newzoo"
-    },
-    {
-     "titulo": "Game Conference MX (GCMX)",
-     "link": "https://www.gamedeveloper.com/events/untitled"
-    },
-    {
-     "titulo": "42% OFF! Membros Prime têm desconto exclusivo no Kindle 16 GB na Amazon",
-     "link": "https://br.ign.com/descontos/156625/42-off-membros-prime-tem-desconto-exclusivo-no-kindle-16-gb-na-amazon"
-    },
-    {
-     "titulo": "The Galaxy S27 Ultra could be available in these base color options",
-     "link": "https://www.gsmarena.com/the_galaxy_s27_ultra_could_be_available_in_these_base_color_options-news-74902.php"
-    },
-    {
-     "titulo": "Anatel marca audiências sobre leilão de 6 GHz",
-     "link": "https://telesintese.com.br/anatel-marca-audiencias-sobre-leilao-de-6-ghz/"
-    },
-    {
-     "titulo": "US closely monitoring case of lab worker who possibly died of plague in Siberia",
-     "link": "https://www.theguardian.com/world/2026/oct/05/russia-lab-worker-possibly-dies-of-plague-siberia-quarantine-measures-irkutsk"
-    },
-    {
-     "titulo": "Akka Tests Spec-Driven AI Delivery Across 65 Open Source Projects",
-     "link": "https://www.infoq.com/news/2026/10/ai-spec-driven-delivery/?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=global"
-    },
-    {
-     "titulo": "Kindle despenca 42% para clientes Amazon Prime após anúncio da nova linha",
-     "link": "https://tecnoblog.net/achados/kindle-despenca-42-para-clientes-amazon-prime-apos-anuncio-da-nova-linha/"
-    },
-    {
-     "titulo": "Cientistas criam IA capaz de entender quando deu resposta errada",
-     "link": "https://canaltech.com.br/inteligencia-artificial/cientistas-criam-ia-capaz-de-entender-quando-deu-resposta-errada/"
-    },
-    {
-     "titulo": "Quase de graca 5 jogos independentes por menos de r 5 na promocao da steam",
-     "link": "https://www.estadao.com.br/tecmundo/voxel/quase-de-graca-5-jogos-independentes-por-menos-de-r-5-na-promocao-da-steam/"
-    },
-    {
-     "titulo": "Reforce a segurança da sua casa com essas câmeras em promoção na Amazon",
-     "link": "https://olhardigital.com.br/2026/10/05/reviews/reforce-a-seguranca-da-sua-casa-com-essas-cameras-em-promocao-na-amazon-2/"
-    },
-    {
-     "titulo": "Rumble volta a funcionar no Brasil mesmo com bloqueio do STF",
-     "link": "https://www.uol.com.br/tilt/noticias/redacao/2026/10/05/rumble-brasil-outubro-2026.ghtm"
-    },
-    {
-     "titulo": "Conheça mais detalhes de Nodusfall: o Monster Hunter Grátis da Hoyoverse",
-     "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxObV9DR0M1WUM3Q1VLM1FHVGY3QWIxVTJCVjZ4NVd0RW5fTG5ITUNaTGlTOUQzandzV3RXLUc1LTBQMGJHcGtTT0ZnUHNBLVVWSmh0S3cwZWZ5cXI1WjB3T29sTVZCYWNVaDdfLWI1Y3lyMHc5SDFmLUUzQnk1SlpYZFRRZUxPSjJ0V1B6bzdqTEVOR1dqTVVseEEtdzRxMEgtX3JWTE1Ga0hlTGo5?oc=5"
-    },
-    {
-     "titulo": "ChatGPT Sites: crie e hospede sites sem sair do chat",
-     "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPQjl1akt2aWx1ZUdBT1hWclZZcnUtc256cFVWbHl1WGxGY2xfVkl6VmhUcWdtR3VJb2hIUHFuLVFYczdDTWhKcFh4eUxBRTA5enpXX3N2S3dVSjczLWZuYV85cjRqbXQyU3RIOTVUZlU4cGs1Q3FOOXRFRmp1VHRZeGl2UGlaaXpLYmtBZXF3aTFqcjl4eklEdjlBWlRSTERNaEF6MHlDN3NjNTJ3V0FwTlVR?oc=5"
-    },
-    {
-     "titulo": "5 startups that caught VCs’ attention at the latest PearX demo day",
-     "link": "https://techcrunch.com/2026/10/05/5-startups-that-caught-vcs-attention-at-the-latest-pearx-demo-day/"
-    },
-    {
-     "titulo": "Sam Altman says ‘some bad things&#8217; will happen, but AI is totally worth it",
-     "link": "https://www.theverge.com/ai-artificial-intelligence/1004811/openai-altman-bad-things-ai-tradeoff"
-    },
-    {
-     "titulo": "AI glasses face their first major government crackdown",
-     "link": "https://arstechnica.com/ai/2026/10/ai-glasses-face-their-first-major-government-crackdown/"
-    },
-    {
-     "titulo": "Best Power Banks (2026): My Picks After Testing Over 100",
-     "link": "https://www.wired.com/gallery/best-portable-chargers-power-banks/"
-    },
-    {
-     "titulo": "What are the limitations of using a USB-C to HDMI adapter?",
-     "link": "https://www.engadget.com/2275585/usb-c-to-hdmi-adapter-limitations/"
-    },
-    {
-     "titulo": "Ready for Driverless Trucks? I Took a Ride in Kodiak’s Autonomous Semi",
-     "link": "https://www.cnet.com/roadshow/automobiles/riding-in-kodiak-autonomous-semi-truck/"
-    },
-    {
-     "titulo": "How I avoided a $300 Wi-Fi bill on my cruise – and the 12 useful gadgets I packed",
-     "link": "https://www.zdnet.com/home-and-office/what-tech-to-bring-on-a-cruise/"
-    },
-    {
-     "titulo": "Security teams are starting to treat AI like staff, and that means managing it",
-     "link": "https://thenextweb.com/news/security-teams-treat-ai-like-staff-managing-agents"
-    },
-    {
-     "titulo": "The best early October Prime Day deals on iPads, according to Mashables tech experts",
-     "link": "https://mashable.com/tech/best-early-october-prime-day-ipad-deals-2026"
-    },
-    {
-     "titulo": "Sony introduces AI upscaling to base PS5; Marvel's Wolverine and Ghost of Yōtei are first games to implement new tech",
-     "link": "https://www.gamesindustry.biz/sony-introduces-ai-upscaling-to-base-ps5-marvels-wolverine-and-ghost-of-yotei-are-first-games-to-implement-new-tech"
-    },
-    {
-     "titulo": "MDEV",
-     "link": "https://www.gamedeveloper.comwww.mdevconf.com"
-    },
-    {
-     "titulo": "“Estamos honrados por terem confiado em nós para contar essas histórias”: Arc Raiders e The Finals serão adaptados para filmes e séries de TV",
-     "link": "https://br.ign.com/arc-raiders/156626/estamos-honrados-por-terem-confiado-em-nos-para-contar-essas-historias-arc-raiders-e-the-finals-sera"
-    },
-    {
-     "titulo": "Infinix Smart 20E leaks in four colors, some specs outed too",
-     "link": "https://www.gsmarena.com/infinix_smart_20e_leaks_in_four_colors_some_specs_outed_too-news-74905.php"
-    },
-    {
-     "titulo": "Our approach to EU text provenance rules",
-     "link": "https://openai.com/index/eu-text-provenance/"
-    },
-    {
-     "titulo": "Presentation: Building Reusable Evaluation Frameworks for Agentic AI Products",
-     "link": "https://www.infoq.com/presentations/elastic-ai-agent-evaluations/?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=global"
-    },
-    {
-     "titulo": "Galaxy Z Flip 8 (512 GB) volta em melhor oferta de 37% OFF no Mercado Livre",
-     "link": "https://tecnoblog.net/achados/galaxy-z-flip-8-512-gb-volta-em-melhor-oferta-de-37-off-no-mercado-livre/"
-    },
-    {
-     "titulo": "JBL lança caixa de som gigante com 800 W e karaokê com IA",
-     "link": "https://canaltech.com.br/caixa-de-som/jbl-lanca-caixa-de-som-gigante-com-800-w-e-karaoke-com-ia/"
-    },
-    {
-     "titulo": "Chatgpt vai exibir anuncios enquanto gera imagens",
-     "link": "https://www.estadao.com.br/tecmundo/inteligencia-artificial/chatgpt-vai-exibir-anuncios-enquanto-gera-imagens/"
-    },
-    {
-     "titulo": "Echo Dot em destaque: veja uma seleção de Smart Speakers Alexa em promoção na Amazon",
-     "link": "https://olhardigital.com.br/2026/10/05/reviews/echo-dot-em-destaque-veja-uma-selecao-de-smart-speakers-alexa-em-promocao-na-amazon-3/"
-    },
-    {
-     "titulo": "Nvidia e Broadcom se isolam de impacto de crise de energia em data centers dos EUA, diz Morgan Stanley",
-     "link": "https://www.uol.com.br/tilt/noticias/reuters/2026/10/05/nvidia-e-broadcom-se-isolam-de-impacto-de-crise-de-energia-em-data-centers-dos-eua-diz-morgan-stanley.htm"
-    },
-    {
-     "titulo": "Windows 11 completa 5 anos e já ultrapassa 1 bilhão de usuários no mundo",
-     "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPZ1VuY0hVd0tleW9BYVl6ZlBxMW9vYndYY2ZLVm5iUXVuWHVrX0MyZFFhazY2VGRYd3lMdWJOLUk5eGUwSVZZNi16VDBOMkFpdktaZUFEUm9jd0w5dm1uWHFBQWw0Y1Y0WnZwMWJTYmQ0TGhIdkhPWk8tejdJQW5mMDNXSGlSS0hBVURNSzI4U1dWcnQzdEZoWDdmUHA?oc=5"
-    },
-    {
-     "titulo": "FLUX 3 Image traz controle por bounding boxes e render nativo em 4K",
-     "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPRXM3RWhMajF2NU93RTBhcTBQMExMYnYta2lpVk5kREJFZkhwQVBRTVVOZmYzY1ZZMm9xMUwxRDl1Z2NBQVlZOFlMQ19nZFpOb0Z2VWw3RURsRTBvR3o3VlRXMThxS0s3S25SQV91N1ZISDNiUE1KLWpHcGZMLXJyN25xVG1GaFZSLTIyXzVrU1NvalBVVlpxT1k5MENCQnJo?oc=5"
-    },
-    {
-     "titulo": "HackerRank’s AI interviewer offers a glimpse into what job interviews could become",
-     "link": "https://techcrunch.com/2026/10/05/hackerranks-ai-interviewer-offers-a-glimpse-into-what-job-interviews-could-become/"
-    },
-    {
-     "titulo": "Apple’s new M6 Mac Mini is over $100 off",
-     "link": "https://www.theverge.com/gadgets/1004772/apple-mac-mini-m6-deal-october-prime-day-deal-sale"
-    },
-    {
-     "titulo": "Explaining Hall-effect, TMR, and other new types of \"mechanical\" switches",
-     "link": "https://arstechnica.com/gadgets/2026/10/the-hows-and-whys-of-non-mechanical-mechanical-keyboard-switches/"
-    },
-    {
-     "titulo": "Withings BodyScan 2 Review: Worth Its Weight",
-     "link": "https://www.wired.com/review/withings-bodyscan-2/"
-    },
-    {
-     "titulo": "Are there any disadvantages to using IMAX theaters?",
-     "link": "https://www.engadget.com/2275492/disadvantages-imax-theaters-explained/"
-    },
-    {
-     "titulo": "Meta’s ‘AI Tamagotchi’ Looks to Me Like a Smartwatch Preview for 2027",
-     "link": "https://www.cnet.com/tech/mobile/meta-muse-charm-pendant-smartwatch-hint/"
-    },
-    {
-     "titulo": "Best Prime Day AirPods deals: Up to 40% off the Pro 3, Max 2, and more models",
-     "link": "https://www.zdnet.com/tech/best-amazon-october-prime-day-airpods-deals/"
-    },
-    {
-     "titulo": "Collibra acquires Munich’s trail ML to automate AI governance",
-     "link": "https://thenextweb.com/news/collibra-trail-ml-eu-ai-act-market"
-    },
-    {
-     "titulo": "ChatGPT has new ad formats. Heres what they look like.",
-     "link": "https://mashable.com/tech/chatgpt-openai-new-ads-visual"
-    },
-    {
-     "titulo": "\"It's less risky to be the masters of our own fate\" – The AAA developers going indie",
-     "link": "https://www.gamesindustry.biz/its-less-risky-to-be-the-masters-of-our-own-fate-the-aaa-developers-going-indie"
-    },
-    {
-     "titulo": "Report: Ninja Theory lays off workers after failing to spin off from Xbox",
-     "link": "https://www.gamedeveloper.com/business/report-ninja-theory-lays-off-workers-after-failing-to-spin-off-from-xbox"
-    },
-    {
-     "titulo": "NBA 2K25 será retirado de circulação após apenas 2 anos, e modo história single-player não estará mais disponível",
-     "link": "https://br.ign.com/nba-2k25/156623/nba-2k25-sera-retirado-de-circulacao-apos-apenas-2-anos-e-modo-historia-single-player-nao-estara-mai"
-    },
-    {
-     "titulo": "Oppo K15s and K15x debut in China with familiar specs",
-     "link": "https://www.gsmarena.com/oppo_k15s_and_k15x_debut_in_china_with_familiar_specs_-news-74906.php"
-    },
-    {
-     "titulo": "The future of independence is interdependence",
-     "link": "https://onlys.ky/independence-is-interdependence/"
-    },
-    {
-     "titulo": "Article: The Platform Engineering Playbook for Production LLMs",
-     "link": "https://www.infoq.com/articles/platform-engineering-playbook-production-llms/?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=global"
-    },
-    {
-     "titulo": "Anthropic chama polícia após mulher ameaçar ataque em conversa com Claude",
-     "link": "https://tecnoblog.net/noticias/anthropic-chama-policia-apos-mulher-ameacar-ataque-em-conversa-com-claude/"
-    },
-    {
-     "titulo": "Último dia: usuários têm até hoje (5) para retirar saldo das bets",
-     "link": "https://canaltech.com.br/mercado/ultimo-dia-usuarios-tem-ate-hoje-5-para-retirar-saldo-das-bets/"
-    },
-    {
-     "titulo": "Google confirma problemas em apps nos googlebooks com chip intel",
-     "link": "https://www.estadao.com.br/tecmundo/produto-e-review/google-confirma-problemas-em-apps-nos-googlebooks-com-chip-intel/"
-    },
-    {
-     "titulo": "Mega Oferta Prime: 5 ofertas imperdíveis com até 51% OFF",
-     "link": "https://olhardigital.com.br/2026/10/05/reviews/mega-oferta-prime-5-ofertas-imperdiveis-ate-51-off/"
-    },
-    {
-     "titulo": "Qualcomm e Arm iniciam julgamento, com foco no potencial de grandes prejuízos",
-     "link": "https://www.uol.com.br/tilt/noticias/reuters/2026/10/05/qualcomm-e-arm-iniciam-julgamento-com-foco-no-potencial-de-grandes-prejuizos.htm"
-    },
-    {
-     "titulo": "[Aliexpress/BR] - GameSir G7 Pro Xbox - R$306,60",
-     "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPLTFwYm1jai1rZFZCc0dSNUt1alJKUEZTakIyMkkxYmtiQTl1ZG1DMWNmY0VnTEltbXZwQzBMSFNaUEdEMHk1bDBBV1JFYkoteng0MVJfVjdRNEhKZ1F4dHpwclhpRGpYSzh3TlV4UnItLVJQYkI5cWRyMjVWU1RFLXBSVHVXSTRIWEV4VDZ6NFdDZHJ1Z2VibFZjREtqX3VrVmNuUC1MLWI?oc=5"
-    },
-    {
-     "titulo": "Bug bounty open source do Google pausado por IA",
-     "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPZnVLMjNXWnhPcFlNX3RidTFNa2Vpamg1c3FHZ3pYSjBwTFRXb2kwLU5YMklMdUUyMnlLMEtSSllBdnNCWlBDZmEwdzktUzFHWHZYa0VMZ1BCb2RiTjVSSnQ5M1NGVkJNYmlyZFhOekl2VjlfWjdyT3VGcWV3WkxhR1ozdjBqVmVoVzVfTVN1RVZkNTFvMGJob05VUXlKMDBuMEVVNHRPaEFsdlpJcFE?oc=5"
-    },
-    {
-     "titulo": "OpenAI launches visual ads that appear alongside image generation results",
-     "link": "https://techcrunch.com/2026/10/05/openai-launches-visual-ads-that-appear-alongside-image-generation-results/"
-    },
-    {
-     "titulo": "CNN&#8217;s boss will remain as Paramount and WBD merge into Skydance",
-     "link": "https://www.theverge.com/entertainment/1004734/cnn-ceo-mark-thompson-paramount-warner-bros"
-    },
-    {
-     "titulo": "New forensic evidence supports Egyptian \"retainer sacrifice\"",
-     "link": "https://arstechnica.com/science/2026/10/new-forensice-evidence-supports-egyptian-retainer-sacrifice/"
-    },
-    {
-     "titulo": "Omega Has New Bond Watches Even if There Isn’t a New James Bond",
-     "link": "https://www.wired.com/story/omega-has-new-bond-watches-even-if-we-dont-have-a-new-bond/"
-    },
-    {
-     "titulo": "Poland's antitrust regulator accuses Google of unfair market practices",
-     "link": "https://www.engadget.com/2277403/polands-antitrust-regulator-accuses-google-of-unfair-market-practices/"
-    },
-    {
-     "titulo": "Amazon just dropped the price of this Fire TV and soundbar bundle 40% off for Prime Day",
-     "link": "https://www.zdnet.com/home-and-office/amazon-just-dropped-the-price-of-this-fire-tv-and-soundbar-bundle-40-off-for-prime-day/"
-    },
-    {
-     "titulo": "OpenAI’s chip chief tells More Than Moore he doesn’t fully trust AI design",
-     "link": "https://thenextweb.com/news/openai-jalapeno-chip-richard-ho-ai-design"
-    },
-    {
-     "titulo": "The best power tool deals ahead of October Prime Day: DeWalt, Craftsman, Husqvarna, and more",
-     "link": "https://mashable.com/tech/best-early-october-prime-day-power-tools-deals-2026"
-    },
-    {
-     "titulo": "Jagex responds to use of generative AI in RuneScape trailer made by \"trusted external partner\"",
-     "link": "https://www.gamesindustry.biz/jagex-responds-to-use-of-generative-ai-in-runescape-trailer-made-by-trusted-external-partner"
-    },
-    {
-     "titulo": "Why it's still worth making immersive sims ft. Harvey Smith &amp; Ben Horne",
-     "link": "https://www.gamedeveloper.com/design/why-it-s-still-worth-making-immersive-sims-ft-harvey-smith-ben-horne"
-    },
-    {
-     "titulo": "Marvel's Wolverine para PS5 fica muito mais barato para membros Prime",
-     "link": "https://br.ign.com/descontos/156622/marvels-wolverine-para-ps5-fica-muito-mais-barato-para-membros-prime"
-    },
-    {
-     "titulo": "Huawei and Qualcomm sign patent cross-licensing deal for 5G, AI and other tech",
-     "link": "https://www.gsmarena.com/huawei_and_qualcomm_sign_patent_crosslicensing_deal_for_5g_ai_and_other_tech-news-74900.php"
-    },
-    {
-     "titulo": "Borland Turbo Basic",
-     "link": "https://dosdays.co.uk/topics/Software/borland_turbo_basic.php"
-    },
-    {
-     "titulo": "Podcast: Future Cybersecurity: Hardware Memory Safety, Automated Governance and Post-Quantum Cryptography",
-     "link": "https://www.infoq.com/podcasts/future-cybersecurity-hardware-memory-safety/?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=global"
-    },
-    {
-     "titulo": "Apps de Android podem falhar em Googlebooks com chip Intel",
-     "link": "https://tecnoblog.net/noticias/apps-de-android-podem-falhar-em-googlebooks-com-chip-intel/"
-    },
-    {
-     "titulo": "Chrome testa mais mudanças que podem \"quebrar\" bloqueadores de anúncios",
-     "link": "https://canaltech.com.br/software/chrome-testa-mais-mudancas-que-podem-quebrar-bloqueadores-de-anuncios/"
-    },
-    {
-     "titulo": "Rockstar evitara deliberadamente questoes politicas em gta 6 entenda o motivo",
-     "link": "https://www.estadao.com.br/tecmundo/voxel/rockstar-evitara-deliberadamente-questoes-politicas-em-gta-6-entenda-o-motivo/"
-    },
-    {
-     "titulo": "Huawei e Qualcomm fecham acordo de patentes envolvendo 5G e IA",
-     "link": "https://olhardigital.com.br/2026/10/05/pro/huawei-e-qualcomm-fecham-acordo-de-patentes-envolvendo-5g-e-ia/"
-    },
-    {
-     "titulo": "Imagens de abuso infantil criadas por IA crescem e superam total de 2025",
-     "link": "https://www.uol.com.br/tilt/noticias/redacao/2026/10/05/reino-unido-ve-alta-de-40-em-imagens-ilegais-de-abuso-infantil-feitas-por-ia.ghtm"
-    },
-    {
-     "titulo": "AMD se antecipa à NVIDIA e revela desempenho de PCs com até 192 GB de memória para IA",
-     "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPb0taOUladU1PYk1mZzU1dHFGMXJBNHR0TFJ0aUJObmR0UkpaT2dPRDNRVVlwM2RzMHBhYVRjTU9vaS0wcXpCQy1ZbFJTMjNHaTNROEw4bGdQUGJZRERVZVRRcjNEaVMwMUljQnRHNVhsTUdjaFdLdGRVeERVbHdTMHgxbFZYWF90R3NuRXlrU3ZTRjZ6UEU4Y2o3dDZnSzFyXzFn?oc=5"
-    },
-    {
-     "titulo": ".NET – Criando Agentes com MAF e Ollama",
-     "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPbWowRlpOVU5peTZxbzd0MkNDVW1LTThCRjZXdzFOaUszU253UmtZaTZDUE1xUkFtLTNDVUZ2dUFGSFpZWjZ2cngzNG1FV3RjZjZnVEQ0SUJJZHI5MTQ1X3BZNUlWVERDVzNfU1k5WWhtSG1ZaWtuTEJDS085enE0RzJZOUFWSFRldlNLcg?oc=5"
-    },
-    {
-     "titulo": "Lola Vision Systems is trying to make it easier to run AI models on chips",
-     "link": "https://techcrunch.com/2026/10/05/lola-vision-systems-is-trying-to-make-it-easier-to-run-ai-models-on-chips/"
-    },
-    {
-     "titulo": "Sen. Adam Schiff on AI regulation, free speech, and impeaching Trump one more time",
-     "link": "https://www.theverge.com/podcast/1004286/senator-adam-schiff-ai-trump-regulation-corruption"
-    },
-    {
-     "titulo": "A Prediction Market About the Past? Sure, Why Not!",
-     "link": "https://www.wired.com/story/a-prediction-market-about-the-past-sure-why-not/"
-    },
-    {
-     "titulo": "Wing and Walmart are bringing drone deliveries to Denver and Seattle in 2027",
-     "link": "https://www.engadget.com/2277395/wing-and-walmart-are-bringing-drone-deliveries-to-denver-and-seattle-in-2027/"
-    },
-    {
-     "titulo": "October Prime Day live blog 2026: All the best deals from top brands in one place",
-     "link": "https://www.zdnet.com/news-live/amazon-october-prime-day-live-blog-10-05-2026/"
-    },
-    {
-     "titulo": "Dutch eyewear chain Hans Anders stops selling Meta’s Ray-Ban glasses",
-     "link": "https://thenextweb.com/news/hans-anders-meta-ray-ban-glasses-netherlands-belgium"
-    },
-    {
-     "titulo": "The 15 best early October Prime Day noise-cancelling headphones deals: Shop Bose, AirPods, and Sony",
-     "link": "https://mashable.com/tech/best-early-october-prime-day-noise-cancelling-headphones-deals-2026"
-    },
-    {
-     "titulo": "Disney president and CCO dismisses rumours of Epic Games buyout: \"Those are not the conversations we are having right now\"",
-     "link": "https://www.gamesindustry.biz/disney-president-and-cco-dismisses-rumours-of-epic-games-buyout-those-are-not-the-conversations-we-are-having-right-now"
-    },
-    {
-     "titulo": "Em 1970, a URSS perfurou um poço com 12.262 metros de profundidade: o que impediu as plataformas de perfuração não foi a rocha nem a falta de dinheiro",
-     "link": "https://br.ign.com/tech/156621/em-1970-a-urss-perfurou-um-poco-com-12262-metros-de-profundidade-o-que-impediu-as-plataformas-de-per"
-    },
-    {
-     "titulo": "Gurman: touchscreen MacBook Pros are launching next month",
-     "link": "https://www.gsmarena.com/gurman_touchscreen_macbook_pros_are_launching_next_month_-news-74897.php"
-    },
-    {
-     "titulo": "Making a GTK application in Haskell, part 1",
-     "link": "https://floreal.tech/blog/2026/making-a-gtk-app-in-haskell-part-1/"
-    },
-    {
-     "titulo": "Aspire 13.6 Adds Persistent Dashboard Telemetry and First-Party Java and Rust Hosting",
-     "link": "https://www.infoq.com/news/2026/10/dotnet-aspire-13-6-release/?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=global"
-    },
-    {
-     "titulo": "Motorola Razr 60 tem promoção exclusiva em até 12x para membros Prime",
-     "link": "https://tecnoblog.net/achados/motorola-razr-60-tem-promocao-exclusiva-em-ate-12x-para-membros-prime/"
-    },
-    {
-     "titulo": "Após relançamento, Vingadores: Ultimato volta a ser a maior bilheteria da história",
-     "link": "https://canaltech.com.br/entretenimento/apos-relancamento-vingadores-ultimato-volta-a-ser-a-maior-bilheteria-da-historia/"
-    },
-    {
-     "titulo": "Trump exalta a velocidade da apuracao no brasil e volta a atacar sistema eleitoral dos eua",
-     "link": "https://www.estadao.com.br/tecmundo/big-techs/trump-exalta-a-velocidade-da-apuracao-no-brasil-e-volta-a-atacar-sistema-eleitoral-dos-eua/"
-    },
-    {
-     "titulo": "Som de cinema em casa: selecionamos soundbars incríveis que estão em promoção na Amazon",
-     "link": "https://olhardigital.com.br/2026/10/05/reviews/som-de-cinema-em-casa-selecionamos-soundbars-incriveis-que-estao-em-promocao-na-amazon/"
-    },
-    {
-     "titulo": "Huawei fecha acordo plurianual de licenciamento de patentes com Qualcomm",
-     "link": "https://www.uol.com.br/tilt/noticias/reuters/2026/10/05/huawei-fecha-acordo-plurianual-de-licenciamento-de-patentes-com-qualcomm.htm"
-    },
-    {
-     "titulo": "[Kabum] ASUS TUF 23.8\" VG249QM5F, Full HD, 260Hz, 0.3ms, Fast IPS - R$719",
-     "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNWXNoaFc3UXZQSm05UkRNc1FhQmFQSUNxVzN2RW1DYXFhUnNvdXg0bGNDZk10Y1FjN21NY29ISThyVlYwek9heThkdVlxMUw0b3pGYldIVDBmYjdacWVfa3hxTUxDMmZXSmFBMEhWV2NjbFctcXpUOFFDeGkybnJxNFd0TVR2YzU5U3pVYWhuVGJNNEdyQ0V1RmFSU0FBb0ROc0s1MFVYenRlRVNhMzBLMmFzOXE0UnFUMUFheWNvTnBYOEtaS0E?oc=5"
-    },
-    {
-     "titulo": "Dynatrace compra Arize porque serviço deixou de significar resposta certa",
-     "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPalZ3MFNZcVgtdTlJVnJFa3hCVmxxc2FaaXo4X2ZEWkFZTy1TUS0ydDdDVkZFWkpKVDRaaHVuMnpPejczZGdESVNsN0p1QWlkRVo1b3E1VU4tWnNNZDNNdmRQajNoWXJqU1Q0RUltdmNXdlhxUDk0OWlqanN5bjlqakJMWmRIYlh1UkF6dTkzTW9hdGtkV05faTZzbTBMNUg0Vkx3Sk1QVnQ?oc=5"
-    },
-    {
-     "titulo": "Open or closed AI? How founders are choosing what to build on at TechCrunch Disrupt 2026",
-     "link": "https://techcrunch.com/2026/10/05/open-or-closed-ai-how-founders-are-choosing-what-to-build-on-at-techcrunch-disrupt-2026/"
-    },
-    {
-     "titulo": "An open-source tool lets you delete 12GB of Apple Intelligence data on macOS",
-     "link": "https://www.theverge.com/ai-artificial-intelligence/1004672/mac-delete-apple-intelligence-ai-tool"
-    },
-    {
-     "titulo": "Staples Print and Marketing Services Review: Fast Holiday Gifts",
-     "link": "https://www.wired.com/story/staples-print-and-marketing-services/"
-    },
-    {
-     "titulo": "Here's why it's important to keep your phone apps updated",
-     "link": "https://www.engadget.com/2275467/why-its-important-to-keep-phone-apps-updated/"
-    },
-    {
-     "titulo": "How the Dell XPS 13 fits into a modern hybrid workday",
-     "link": "https://www.zdnet.com/paid-content/article/how-the-dell-xps-13-fits-into-a-modern-hybrid-workday/"
-    },
-    {
-     "titulo": "Apple adds new Full Disk Access controls on Macs because of AI agents",
-     "link": "https://thenextweb.com/news/apple-full-disk-access-ai-agents-mac"
-    }
-   ],
-   "roteiro": "LEO: Liga o overclock, sincroniza os cronômetros e segura o deploy de sexta que sobreviveu, porque está no ar a edição de hoje do seu podcast diário de tecnologia, nesta segundona, 5 de outubro de 2026! Como é que tá essa energia pós-fim de semana, Ana?\n---\nANA: Tá a mil por hora, Leo, com cheiro de servidor próprio roncando no data center! Nos últimos dias a gente bateu na tecla do custo absurdo de rodar IA na nuvem e da dor de cabeça com segurança. Pois olha o contra-ataque: uma debandada silenciosa da nuvem pública tá virando tendência real no mercado corporativo, e as contas não mentem!\n---\nLEO: Rapaz, largar a nuvem da dona Amazon, do Google e da Microsoft pra voltar a ter computador debaixo da mesa? Isso sim é reviravolta pra começar a semana! Conta pra gente essa história, Ana, que a manchete do dia tá fervendo!\n---\nANA: Não é máquina debaixo da mesa não, Leo, é pura inteligência financeira! Uma reportagem aprofundada da ZDNET revelou que cada vez mais gigantes da tecnologia estão fazendo a chamada repatriação de nuvem. A 37signals, dona do Basecamp, puxou as cargas de volta, investiu meio milhão de dólares em hardware próprio instalado em colocation e cortou mais de três milhões e meio de dólares por ano que iam direto pro ralo da AWS e da Google Cloud!\n---\nLEO: Três milhões e meio de dólares por ano economizados? Rapaz do céu, isso paga muito café e muito salário de dev! Mas por que essa conta ficou tão salgada de repente?\n---\nANA: Porque as empresas finalmente auditaram o que realmente usam! Dados da consultoria Cast AI com mais de duas mil empresas mostraram que clusters de Kubernetes na AWS, Google Cloud e Azure usam, em média, vergonhosos dez por cento do processamento contratado e vinte e três por cento da memória. Ou seja: noventa por cento da capacidade que as empresas pagam todo mês fica lá parada, ociosa, gerando custo invisível! A empresa de SEO Ahrefs estimou que já economizou quatrocentos milhões de dólares desde 2020 só por nunca ter pisado na nuvem pública.\n---\nLEO: Noventa por cento de folga paga sem uso é de chorar no cantinho! Mas me diz uma coisa prática: isso significa que a nuvem pública morreu e todo mundo vai comprar servidor físico de novo?\n---\nANA: Claro que não, Leo, a nuvem pública ainda reina pra quem precisa de elasticidade louca e imprevisível. O que morreu foi a ingenuidade de achar que jogar tudo na nuvem sem critério é moderno! Cargas previsíveis, ambientes de teste e dados pesados estão voltando pro chão porque manter isso em servidor de terceiro com taxas abusivas de saída de rede virou loucura contábil.\n---\nLEO: A dura realidade da fatura batendo na porta dos diretores! E falando em otimizar e mover infraestrutura, o nosso Radar Cloud e DevOps vem quente com uma cartada pesada da Google Cloud, Ana.\n---\nANA: A Google Cloud anunciou hoje o portfólio Google Cloud Modernize! O grande destaque pros engenheiros de plantão é o EKS-to-GKE Migration Agent, um agente inteligente em prévia pública que automatiza a migração de contêineres do serviço gerenciado de Kubernetes da AWS direto pro Kubernetes do Google. Ele traduz manifestos, mapeia redes e volumes, tudo com travas de aprovação humana.\n---\nLEO: Olha a guerra da nuvem pegando fogo! O Google lançando robô pra puxar cliente da AWS no piloto quase automático!\n---\nANA: Exatamente! E pra completar, a AWS não ficou parada e soltou hoje uma atualização bem prática no AWS CodeDeploy: um modo dedicado chamado RESTART, que reaplica a última versão funcional em frotas EC2 até seis vezes mais rápido durante incidentes, mantendo os alarmes e a checagem de saúde sem precisar rodar todo o pipeline de deploy do zero.\n---\nLEO: Reiniciar o sistema com segurança sem derrubar o ambiente é o sonho de qualquer plantonista! E no Radar Games, a Sony resolveu surpreender todo mundo com um anúncio técnico pros donos do PlayStation 5 padrão, Ana.\n---\nANA: A Sony revelou que vai levar a tecnologia de upscaling por inteligência artificial para o PS5 base, com uma ferramenta chamada Quick Spectral Super Resolution! Os dois primeiros jogos confirmados com a novidade são Marvel's Wolverine e Ghost of Yōtei. É a Sony tentando extrair mais resolução e desempenho do console padrão usando modelos neurais otimizados.\n---\nLEO: IA melhorando a imagem no console de sala sem precisar comprar hardware novo! Mas nem tudo são flores na indústria, né?\n---\nANA: Nem de longe! A Ninja Theory, estúdio renomado de Hellblade e que pertence à Microsoft, começou uma rodada de demissões nesta segunda-feira após tentativas fracassadas de desmembrar a empresa da divisão Xbox. É mais um baque doloroso que mostra como os estúdios sob o guarda-chuva das gigantes continuam sangrando.\n---\nLEO: Uma notícia triste demais pra quem ama os jogos narrativos deles. Muita força pros desenvolvedores afetados! E pulando pro Radar Mobile, rolou um aperto de mãos histórico entre duas gigantes dos semicondutores e telecomunicações, Ana.\n---\nANA: Acordo gigante entre a americana Qualcomm e a chinesa Huawei, Leo! Elas assinaram uma parceria plurianual de licenciamento cruzado de patentes envolvendo 5G, computação, inteligência artificial e redes móveis. Além da troca mútua de licenças sob termos justos, a Qualcomm vai comprar ativos de patentes da própria Huawei nos Estados Unidos.\n---\nLEO: Espera aí! A Huawei que sofre sanções duríssimas do governo americano desde 2019 fazendo negócio bilionário de patente de 5G com a Qualcomm?\n---\nANA: Exatamente isso! O portfólio de patentes de pesquisa e desenvolvimento da Huawei é tão dominante no 5G e em inteligência de rede que nem a Qualcomm tem como desviar. A Huawei estima que a receita acumulada com licenciamento global já ultrapassou quase sete bilhões de dólares. No fim das contas, a tecnologia fala mais alto que as barreiras comerciais!\n---\nLEO: Contra fatos e patentes registradas não há argumentos! E pra completar o bloco mobile, a Samsung reajustou hoje os preços de toda a linha intermediária Galaxy A nos Estados Unidos, com altas de até setenta dólares em modelos como o Galaxy A17 e A57, refletindo a disparada no preço das memórias.\n---\nANA: O bolso do consumidor pagando a conta da escassez de silício! Bora pra nossa rodada rápida de notícias!\n---\nLEO: Começando por regulação e proteção de dados no Brasil: a ANPD lançou oficialmente uma página dedicada em seu portal para receber denúncias diretas da população sobre irregularidades cometidas por redes sociais e aplicativos.\n---\nANA: Fiscalização direta na mão do usuário brasileiro! E o prazo das apostas digitais?\n---\nLEO: Termina hoje, às vinte e três e cinquenta e nove, o prazo legal para os usuários sacarem todo o saldo restante de plataformas de apostas esportivas que não foram autorizadas a operar no país.\n---\nANA: Quem não tirou o dinheiro até a meia-noite vai ter uma bela dor de cabeça judicial! E no front de inteligência artificial de consumo?\n---\nLEO: A Lenovo detalhou o funcionamento da Qira, sua assistente de IA integrada a notebooks e celulares Motorola que roda de forma local e offline pra analisar arquivos em PDF e resumir textos com foco total em privacidade.\n---\nANA: IA rodando direto na máquina sem mandar os seus relatórios sigilosos pra servidor externo! Chegou a hora do nosso Termo do Dia! Leo, na nossa manchete a gente falou bastante sobre repatriação de nuvem. Como é que a gente explica isso de forma simples pra quem não é da área de TI?\n---\nLEO: Traduz aí pra gente, Ana: o que é que significa repatriar carga de trabalho?\n---\nANA: Imagina que durante anos a sua empresa alugou uma frota enorme de carros por assinatura mensal. No começo parecia perfeito, você não se preocupava com seguro nem revisão. Só que a frota cresceu, a locadora começou a cobrar caro por quilômetro rodado e a conta ficou astronômica. Repatriação de nuvem é quando a empresa decide devolver boa parte dos carros alugados, comprar veículos próprios e bancar a própria oficina porque, pras rotinas diárias e conhecidas, a conta fecha muito mais barata!\n---\nLEO: Ficou claríssimo! É saber a hora certa de parar de pagar aluguel e ter a sua própria garagem.\n---\nLEO: Desligando as instâncias ociosas, salvando os scripts de backup e fechando a nossa transmissão desta segunda-feira! Essa foi a edição de hoje. Boa semana pra todo mundo e a gente tá de volta amanhã cedo no seu agregador favorito. Valeu, pessoal!\n---\nANA: Ficar pagando o olho da cara em nuvem pública só pra dizer em reunião que a sua empresa é moderna é vaidade cara que quebra negócio. Olhe a sua fatura, corte a gordura e até amanhã!\n---"
-  },
-  {
    "data": "2026-10-06",
    "gerado_em": "2026-10-06T12:56:42-03:00",
    "noticias": [
@@ -1820,6 +1213,613 @@
     }
    ],
    "roteiro": "LEO: Trava o teclado, desliga a cafeteira e confere se a fiação não derreteu, porque está no ar a edição de hoje do seu podcast diário de tecnologia, nesta quarta-feira, 7 de outubro de 2026! Como é que tá esse ritmo de meio de semana por aí, Ana?\n---\nANA: Tá pegando fogo, Leo, com cheiro de silício queimado e mercado financeiro desesperado por chip de inteligência artificial! Enquanto o mundo discute se o robô vai roubar o emprego ou a lição de casa, a indústria pesada tá abrindo o cofre num nível que assusta. Segura a nossa manchete de hoje, porque a SpaceX quer comprar tanto chip que vai fazer a economia tremer!\n---\nLEO: Rapaz, quando a empresa do Elon Musk resolve fazer compra no atacado, não é pra rodar joguinho leve no tempo livre, não! Solta os detalhes dessa loucura, Ana, que eu quero ver o tamanho dessa fatura!\n---\nANA: Uma reportagem exclusiva da Reuters revelou nesta quarta-feira que a SpaceX está em negociações pesadas com bancos e gestores de ativos para levantar a bagatela de quarenta bilhões de dólares! O objetivo único dessa grana toda? Comprar chips de inteligência artificial da Nvidia em escala industrial para alimentar os projetos futuros da empresa. É o capital privado empurrando caminhões de dinheiro para dentro da infraestrutura de IA!\n---\nLEO: Quarenta bilhões de dólares só para fichas de processamento gráfico e IA? Meu amigo, isso é o PIB de muito país pequeno investido em silício de última geração! Mas me diz: por que essa corrida desesperada por tanto poder de fogo de uma vez só?\n---\nANA: Porque treinar e rodar modelos que simulam física espacial, autonomia de foguetes e redes de satélites exige uma quantidade de processamento que faz qualquer data center tradicional parecer brinquedo de criança, Leo. A indústria chegou num ponto em que quem não tiver o maior cluster de processamento simplesmente vai virar espectador no tabuleiro global. E por falar em arquiteturas que exigem precisão cirúrgica de infraestrutura, o nosso Radar Cloud e DevOps traz um marco histórico direto do ecossistema de nuvem e servidores, Ana!\n---\nANA: O projeto Meshery acabou de ser votado e aprovado pelo Comitê de Supervisão Técnica da CNCF para o status de projeto incubado, Leo! Para quem gerencia ambientes complexos, o Meshery se consolidou como uma das ferramentas de maior crescimento na nuvem nativa, oferecendo um plano de controle unificado para gerenciar ciclos de vida, configurações e performance de clusters Kubernetes e malhas de serviço sem precisar costurar ferramentas isoladas na mão.\n---\nLEO: Padronização de primeira linha para os engenheiros pararem de sofrer com dezenas de painéis diferentes! E na mesma toada de infraestrutura de alto desempenho, a Google Cloud anunciou a disponibilidade geral da sua nova solução de Ultra Low Latency e da nova família de processadores U4, focada em entregar computação bare metal com latência abaixo de dez nanossegundos para o mercado financeiro e de alta frequência.\n---\nANA: Velocidade absurda onde cada nanossegundo decide quem ganha ou perde milhões na bolsa de valores! É a física do hardware empurrando o limite da infraestrutura corporativa. E saindo dos servidores para o Radar Games, a Unity resolveu jogar lenha na fogueira da criação de jogos, Leo!\n---\nANA: A Unity anunciou uma parceria estratégica com a Google para lançar o Unity Spark, uma ferramenta integrada à nova plataforma de IA Playground da Google que permite criar jogos inteiros e mecânicas complexas apenas usando comandos de texto em linguagem natural, conectada diretamente à Unity Asset Store.\n---\nLEO: Espera aí! O desenvolvedor escreve o que quer no chat e a ferramenta gera a lógica e os elementos visuais do jogo do zero? O CEO da Unity, Matthew Bromberg, fez questão de avisar que isso não transforma ninguém em um Hideo Kojima da noite para o dia, mas com certeza vai mudar a rotina dos estúdios e dos modders!\n---\nANA: Modder e criador indie agora têm superpoderes de prototipagem rápida, mas a comunidade gamer continua com o pé atrás sobre o espaço que a inteligência artificial deve ocupar na direção artística. E por falar em ecossistema mobile e dispositivos de consumo, a Samsung resolveu atualizar o topo de sua pirâmide de tablets hoje, Leo!\n---\nANA: A Samsung anunciou oficialmente a chegada da nova linha Galaxy Tab S12, trazendo os modelos Tab S12 Ultra e Tab S12+ equipados com processador MediaTek Dimensity 9500 de três nanômetros, doze gigabytes de RAM e uma nova câmara de vapor tridimensional para resfriamento pesado em sessões longas de multitarefa e criação com IA integrada.\n---\nLEO: Tela Dynamic AMOLED de cento e vinte hertz, bateria para mais de vinte horas e resfriamento de ponta para rodar aplicativos pesados sem fritar os dedos! Celular e tablet virando verdadeiras estações de trabalho móveis. Bora pra nossa rodada rápida de notícias!\n---\nANA: Começando por segurança e detecção de conteúdos sintéticos: o Google liberou globalmente o seu SynthID Detector para qualquer pessoa verificar se imagens, áudios e vídeos carregam marcas d'água invisíveis de inteligência artificial.\n---\nLEO: Ferramenta essencial para tentar conter a maré de deepfakes na internet! E no mundo dos navegadores mobile?\n---\nANA: O Google começou a testar no Chrome cento e cinquenta e quatro para Android a verificação automática de e-mail, preenchendo cadastros na web sem precisar que o usuário fique pulando de aba para buscar códigos de confirmação.\n---\nLEO: Praticidade pura na hora de criar contas pelo celular! E para fechar a rodada, fiquem atentos: o Spotify anunciou que vai expandir o seu catálogo de audiolivros para mais de cento e oitenta mercados, incluindo o Brasil, até o fim deste ano de 2026, com mais de trezentos e cinquenta mil títulos disponíveis.\n---\nANA: Livro narrado em mais de cento e vinte idiomas direto no seu app de música favorito! Chegou a hora do nosso Termo do Dia! Leo, na nossa manchete a gente falou sobre a corrida bilionária da SpaceX para comprar chips de IA da Nvidia, e no bloco de cloud a gente citou instâncias bare metal. O que é exatamente esse conceito para quem ouve o podcast?\n---\nLEO: Explica aí pra gente, Ana: o que significa rodar uma aplicação em hardware bare metal na nuvem?\n---\nANA: Pensa que alugar uma máquina virtual comum na nuvem é como alugar um quarto em um hotel compartilhado, onde a cozinha e a piscina são divididas com centenas de outros hóspedes e a gerência controla tudo. Já o bare metal é como alugar a cobertura inteira do prédio: você tem acesso exclusivo a todo o ferro, processador e memória física da máquina, sem nenhum software intermediário de virtualização atrapalhando o seu desempenho. É velocidade bruta sem ruído de vizinho!\n---\nLEO: Analogia perfeita! É a chave do prédio inteiro na sua mão para pisar fundo no acelerador do servidor.\n---\n---\nLEO: Desligando as instâncias, salvando o progresso do deploy e fechando o plantão por hoje! Essa foi a edição de hoje. Aproveitem a quarta-feira, programem com sabedoria e a gente tá de volta amanhã cedinho com mais tecnologia direto no seu feed. Valeu, pessoal!\n---\nANA: Se a sua empresa acha que pode competir no mercado atual sem investir de verdade na robustez da própria infraestrutura de dados e inteligência artificial, o tombo vai ser monumental. Acorde para a realidade, bom descanso e até amanhã!\n---"
+  },
+  {
+   "data": "2026-10-08",
+   "gerado_em": "2026-10-08T13:28:46-03:00",
+   "noticias": [
+    {
+     "titulo": "Samsung pode cortar produção de celulares em até 30%",
+     "link": "https://tecnoblog.net/noticias/samsung-pode-cortar-producao-de-celulares-em-ate-30/"
+    },
+    {
+     "titulo": "Cadê o celular? Truque no Windows 11 vai ajudar a encontrar Android perdido",
+     "link": "https://canaltech.com.br/software/cade-o-celular-truque-no-windows-11-vai-ajudar-a-encontrar-android-perdido/"
+    },
+    {
+     "titulo": "Apple anuncia evento 13 outubro produtos casa",
+     "link": "https://www.estadao.com.br/tecmundo/produto-e-review/apple-anuncia-evento-13-outubro-produtos-casa/"
+    },
+    {
+     "titulo": "Som de qualidade onde você estiver: caixas de som Bluetooth em promoção na Amazon",
+     "link": "https://olhardigital.com.br/2026/10/08/reviews/som-de-qualidade-onde-voce-estiver-caixas-de-som-bluetooth-em-promocao-na-amazon-5/"
+    },
+    {
+     "titulo": "Amazon lança primeiros tablets Android, aumenta preços e incorpora Alexa",
+     "link": "https://www.uol.com.br/tilt/noticias/reuters/2026/10/08/amazon-lanca-primeiros-tablets-android-aumenta-precos-e-incorpora-alexa.htm"
+    },
+    {
+     "titulo": "Busca no Windows 11 vai ficar mais leve e permitir ações diretamente dos resultados",
+     "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOX1I1WndJMmZzb293b3FaZExJMnl0SWFLTWxiWHlKZDNkZk1KUU9JU0ltUDdUdlhUQjNaN1h4OVZXanRxWXVsc01TcllwcmhnakhRdzUzZFowYXJxLXdEWUZ1ejhUQWFBTENXamhmazcwNlg1bWNRSU02cUptUzRPLWxORDNoUklrdTVNcHk2b1MyR0xPOVJrZlptV1dXMlc5bXpqdFVGWGVqZHhZM0g5WVFpUGZQU0E1NTM0Nkt3eG03LUVpODNEb0RVc3Q?oc=5"
+    },
+    {
+     "titulo": "Adoção de IA no Brasil: uso cresce, mas falta engenharia",
+     "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPeTJaZkpFNF9aY2dBSVVDYnlGSXEyTUF1LTQzTWVYNlB6Tzkyc3hvTGp3MGh3V0pPUkN0ZW12T0lQXy0zVEpYaWhUNEJ1VnhEb0wzYWloN1g3cjNMUlphNUswQVBNcTk1MEFCSlJUekRKWGkzdS1HRjc5NnFVNmN0aW8zX3FBTTNQaU1QZm5EVGhRa0NhSTBobGxWRTd3eE9SZ2JvMzU0OUdoM1JPNE5id3JtTnRRQQ?oc=5"
+    },
+    {
+     "titulo": "Lineup do Lollapalooza Brasil 2027 é divgulgado com Travis Scott, Charli XCX,The Killers e mais",
+     "link": "https://www.showmetech.com.br/lineup-do-lollapalooza-brasil-2027-e-divulgado/"
+    },
+    {
+     "titulo": "Itaú oculta dados de investimentos no app em redes Wi-Fi não cadastradas",
+     "link": "https://www.mobiletime.com.br/noticias/07/10/2026/itau-oculta-investimento/"
+    },
+    {
+     "titulo": "Natura’s $99 smart ring puts AI agents on your finger",
+     "link": "https://techcrunch.com/2026/10/08/naturas-smart-ring-puts-ai-agents-on-your-finger/"
+    },
+    {
+     "titulo": "Apple announces surprise &#8216;Welcome home&#8217; launch event",
+     "link": "https://www.theverge.com/news/1008039/apple-smart-home-event-october-13th"
+    },
+    {
+     "titulo": "Internal files add to evidence of an ExxonMobil climate deception campaign",
+     "link": "https://arstechnica.com/tech-policy/2026/10/exxonmobils-own-scientists-doubted-climate-fixes-the-company-hyped/"
+    },
+    {
+     "titulo": "Amazon Alexa Tablet 12 Pro, Alexa Tablet 11, Alexa Tablet 8: Specs, Features, Price",
+     "link": "https://www.wired.com/story/amazon-alexa-tablets-2026/"
+    },
+    {
+     "titulo": "Apple is set to show off new smart home devices at an October 13 event",
+     "link": "https://www.engadget.com/2281263/apple-is-set-to-show-off-new-smart-home-devices-at-an-october-13-event/"
+    },
+    {
+     "titulo": "Smart Contact Lenses May Arrive as Soon as 2030. Here’s What They Do",
+     "link": "https://www.cnet.com/health/medical/smart-contact-lenses-here-soon-2030-what-they-do/"
+    },
+    {
+     "titulo": "Can AI fix legacy IT? The ‘economics don’t hold up,’ says former IBM strategist",
+     "link": "https://www.zdnet.com/innovation/ai-legacy-it-modernization/"
+    },
+    {
+     "titulo": "Google launches workplace AI agent that gets its own email address",
+     "link": "https://thenextweb.com/news/gemini-agent-workspace-identity-europe"
+    },
+    {
+     "titulo": "Sony just launched a new spatial audio microphone for creators: How to preorder now",
+     "link": "https://mashable.com/tech/sony-ecm-ax10-spatial-audio-microphone-for-creators-smartphones-launch"
+    },
+    {
+     "titulo": "Mixtape wins three awards at Australian Game Developer Awards 2026, including GOTY",
+     "link": "https://www.gamesindustry.biz/mixtape-wins-three-awards-at-australian-game-developer-awards-2026-including-goty"
+    },
+    {
+     "titulo": "Game Conference MX (GCMX)",
+     "link": "https://www.gamedeveloper.com/events/untitled"
+    },
+    {
+     "titulo": "PS5: grandes lançamentos de 2026 ficam mais baratos na Mega Oferta Prime",
+     "link": "https://br.ign.com/descontos/156717/ps5-grandes-lancamentos-de-2026-ficam-mais-baratos-na-mega-oferta-prime"
+    },
+    {
+     "titulo": "Here's how thin the iPhone Air 2 will be despite having better battery life than its predecessor",
+     "link": "https://www.gsmarena.com/heres_how_thin_the_iphone_air_2_will_be_despite_having_better_battery_life_than_its_predecessor-news-74952.php"
+    },
+    {
+     "titulo": "Eseye atribui crescimento de 64% à maturidade do mercado brasileiro de IoT",
+     "link": "https://telesintese.com.br/eseye-atribui-crescimento-de-64-a-maturidade-do-mercado-brasileiro-de-iot/"
+    },
+    {
+     "titulo": "New gTLD Application for .lan",
+     "link": "https://newgtldprogram-aps.icann.org/applications/CD2694T-T26351/summary"
+    },
+    {
+     "titulo": "Natura reduz custos com Spot e 71% dos incidentes com Karpenter no Amazon EKS",
+     "link": "https://aws.amazon.com/pt/blogs/aws-brasil/natura-reduz-custos-com-spot-e-71-dos-incidentes-com-karpenter-no-amazon-eks/"
+    },
+    {
+     "titulo": "Innovation in Ireland: How Irish brands scale with Gemini Enterprise",
+     "link": "https://cloud.google.com/blog/topics/customers/ireland-innovation-companies-startups-governments-scale-with-gemini/"
+    },
+    {
+     "titulo": "Announcing: Multiparty private offers in Microsoft Marketplace expands to Hong Kong",
+     "link": "https://azure.microsoft.com/updates?id=571831"
+    },
+    {
+     "titulo": "Postgres is struggling, but don’t rip it out just yet",
+     "link": "https://thenewstack.io/postgres-at-scale-why-it-struggles/"
+    },
+    {
+     "titulo": "Presentation: Multi-Agent Patterns from Spotify’s AI Powered Advertising Platform",
+     "link": "https://www.infoq.com/presentations/spotify-multi-agent-ai-architecture/?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=global"
+    },
+    {
+     "titulo": "CiliumCon is back at KubeCon + CloudNativeCon North America 2026",
+     "link": "https://www.cncf.io/blog/2026/10/07/ciliumcon-is-back-at-kubecon-cloudnativecon-north-america-2026/"
+    },
+    {
+     "titulo": "Screen readers can navigate timelines as lists",
+     "link": "https://github.blog/changelog/2026-10-08-screen-readers-can-navigate-timelines-as-lists"
+    },
+    {
+     "titulo": "Forza Horizon 6 atrasa no PS5 e deve ficar para 2027",
+     "link": "https://tecnoblog.net/noticias/forza-horizon-6-atrasa-no-ps5-e-deve-ficar-para-2027/"
+    },
+    {
+     "titulo": "Polo GTI elétrico já tem preço; veja quanto custa",
+     "link": "https://canaltech.com.br/carros/polo-gti-eletrico-ja-tem-preco-veja-quanto-custa/"
+    },
+    {
+     "titulo": "Efeito gta 6 emulacao de ps5 evolui rapido enquanto jogo da rockstar nao ganha data para pc",
+     "link": "https://www.estadao.com.br/tecmundo/voxel/efeito-gta-6-emulacao-de-ps5-evolui-rapido-enquanto-jogo-da-rockstar-nao-ganha-data-para-pc/"
+    },
+    {
+     "titulo": "SpaceX Dragon retorna à Terra após 237 dias na estação espacial",
+     "link": "https://olhardigital.com.br/2026/10/08/ciencia-e-espaco/spacex-dragon-retorna-a-terra-apos-237-dias-na-estacao-espacial/"
+    },
+    {
+     "titulo": "EUA suspendem Microsoft e grandes empresas de TI de programa de vistos de residęncia permanente",
+     "link": "https://www.uol.com.br/tilt/noticias/reuters/2026/10/08/eua-suspendem-microsoft-e-grandes-empresas-de-ti-de-programa-de-vistos-de-residencia-permanente.htm"
+    },
+    {
+     "titulo": "Cities: Skylines vai chegar ao Switch 2 em versão expandida",
+     "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPTUE2ZlNad3djeXJFS0dTamM5M0c0NUF3bDlxMEFkYUhEMmlqOWJLS3hxWFBVQVdaZnFnM01HRTYzdm5jT2ZCMTRUMWFVeDFYU2ZLMVE1NERmRmRlRmFGaEpSeGFpNFhzNjl2ZWFGellIejkxN1FlRFBCNk8xNGNqQkdlbkpkZzBYbFJSMUtieWJNMHM0Mk5Udld0Yw?oc=5"
+    },
+    {
+     "titulo": "Anthropic pediu freio e a China lançou 16 modelos em um mês",
+     "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxON0FMVjQ3NjlUVmg2QUNobXZ2LWZGV1FFQ25UQzV2S1lSQXdieFQtNTVCbVVoMFI2R29Bck0tdkhjVlJ3SDNvR25GQ3FPbFVub2V4czdzYzNDWEIxd2JsZUZUTG9ySHRWTkhUZGVvY2hlZnhzMEw5Vy1zbnFJSG1KbjljUFBRcW4xWHgxOGdqN3F4a0xtcVE?oc=5"
+    },
+    {
+     "titulo": "Orkut voltou… de novo? Página da tede social é atualizada",
+     "link": "https://www.showmetech.com.br/orkut-voltou/"
+    },
+    {
+     "titulo": "Brasscom e Abria preparam pesquisa sobre impacto da IA no setor produtivo no Brasil",
+     "link": "https://www.mobiletime.com.br/noticias/07/10/2026/brasscom-abria-ia-brasil/"
+    },
+    {
+     "titulo": "Goodfire says its new ‘inside-out’ monitors catch rogue AI agents at a fraction of the cost",
+     "link": "https://techcrunch.com/2026/10/08/goodfire-says-its-new-inside-out-monitors-catch-rogue-ai-agents-at-a-fraction-of-the-cost/"
+    },
+    {
+     "titulo": "Google’s AI note-taking app transcribes your meetings completely offline",
+     "link": "https://www.theverge.com/tech/1007985/google-ai-notetaking-app-transcribe-offline"
+    },
+    {
+     "titulo": "Nvidia's big bet on physical AI aims for safer robotaxis, humanoid robots",
+     "link": "https://arstechnica.com/ai/2026/10/nvidias-big-bet-on-physical-ai-aims-for-safer-robotaxis-humanoid-robots/"
+    },
+    {
+     "titulo": "The New Alexa Tablets Feel Like a Blueprint for an Amazon Phone",
+     "link": "https://www.wired.com/story/alexa-tablets-blueprint-for-upcoming-amazon-phone/"
+    },
+    {
+     "titulo": "Careful out there: latest GTA 6 leak has major story spoilers",
+     "link": "https://www.engadget.com/2281188/careful-out-there-latest-gta-6-leak-has-major-story-spoilers/"
+    },
+    {
+     "titulo": "Goodbye, Fire Tablet: Amazon’s New Alexa Tablet Is a Flashy Portable Entertainment Hub",
+     "link": "https://www.cnet.com/tech/computing/goodbye-fire-tablet-amazons-new-alexa-tablet-is-a-flashy-portable-entertainment-hub/"
+    },
+    {
+     "titulo": "Yelp, who? 4 ways Google Maps can help you find your next meal – and order it",
+     "link": "https://www.zdnet.com/tech/google-maps-features-restaurants-dining-food-ordering/"
+    },
+    {
+     "titulo": "Pentagon offers PsiQuantum a conditional loan of up to $150m",
+     "link": "https://thenextweb.com/news/psiquantum-loan-150m-department-of-war-office-of-strategic-capital"
+    },
+    {
+     "titulo": "Meta brings Muse to iPad with new tools for small businesses",
+     "link": "https://mashable.com/tech/meta-muse-ipad-ai-agent-business-tools"
+    },
+    {
+     "titulo": "\"A creative idea can save more money than AI can right now\" – Glen Schofield on his retirement, Callisto Protocol's development, and the state of AAA",
+     "link": "https://www.gamesindustry.biz/a-creative-idea-can-save-more-money-than-ai-can-right-now-glen-schofield-on-his-retirement-callisto-protocols-development-and-the-state-of-aaa"
+    },
+    {
+     "titulo": "Denuvo attempts to subpoena Discord, Valve, and Reddit in effort to identify hacker",
+     "link": "https://www.gamedeveloper.com/business/denuvo-attempts-to-subpoena-discord-valve-and-reddit-in-effort-to-identify-hacker"
+    },
+    {
+     "titulo": "PS5 na Mega Oferta Prime! Bundle com 2 jogos entra em oferta exclusiva em 12x sem juros na Amazon",
+     "link": "https://br.ign.com/descontos/156719/ps5-na-mega-oferta-prime-bundle-com-2-jogos-entra-em-oferta-exclusiva-em-12x-sem-juros-na-amazon"
+    },
+    {
+     "titulo": "Oppo Find X10 and Pro Max unboxing and hands-on",
+     "link": "https://www.gsmarena.com/oppo_find_x10_and_pro_max_unboxing_and_handson-news-74959.php"
+    },
+    {
+     "titulo": "Anatel e MCom defendem alternativas para garantir soberania nas comunicações via satélite",
+     "link": "https://telesintese.com.br/anatel-e-mcom-defendem-alternativas-para-garantir-soberania-nas-comunicacoes-via-satelite/"
+    },
+    {
+     "titulo": "US suspends Microsoft, major IT firms from key green card program",
+     "link": "https://www.reuters.com/business/us-suspending-permanent-residency-program-for-microsoft-vance-says-2026-10-08/"
+    },
+    {
+     "titulo": "Como a Certta unificou a governança de custos de IA generativa na AWS",
+     "link": "https://aws.amazon.com/pt/blogs/aws-brasil/como-a-certta-unificou-a-governanca-de-custos-de-ia-generativa-na-aws/"
+    },
+    {
+     "titulo": "Google Public Sector and SUNY launch AI-enabled platform to accelerate university research",
+     "link": "https://cloud.google.com/blog/topics/public-sector/gps-suny-launch-ai-enabled-platform-to-accelerate-university-research/"
+    },
+    {
+     "titulo": "[Launched] Generally Available: Anyscale on Azure",
+     "link": "https://azure.microsoft.com/updates?id=573744"
+    },
+    {
+     "titulo": "Most AI incident tools still leave a key decision to humans",
+     "link": "https://thenewstack.io/ai-sre-agent-autonomy-phases/"
+    },
+    {
+     "titulo": "Technological Sovereignty Requires Choice, Skills, and Support, Panelists Say During OSS EU",
+     "link": "https://www.infoq.com/news/2026/10/technological-sovereignity-panel/?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=global"
+    },
+    {
+     "titulo": "BackstageCon comes to KubeCon + CloudNativeCon North America 2026 in Salt Lake City",
+     "link": "https://www.cncf.io/blog/2026/10/07/backstagecon-comes-to-kubecon-cloudnativecon-north-america-2026-in-salt-lake-city/"
+    },
+    {
+     "titulo": "Draft pull requests count toward pull request limits",
+     "link": "https://github.blog/changelog/2026-10-08-draft-pull-requests-count-toward-pull-request-limits"
+    },
+    {
+     "titulo": "Nova tecnologia para Linux promete fazer a memória RAM render muito mais",
+     "link": "https://tecnoblog.net/noticias/nova-tecnologia-para-linux-promete-fazer-a-memoria-ram-render-muito-mais/"
+    },
+    {
+     "titulo": "PS5 vai ganhar aba exclusiva da Crunchyroll para assistir anime sem abrir o app",
+     "link": "https://canaltech.com.br/games/ps5-vai-ganhar-aba-exclusiva-da-crunchyroll-para-assistir-anime-sem-abrir-o-app/"
+    },
+    {
+     "titulo": "Dario amodei da anthropic ganhou mais de us 18 milhoes so em 2025",
+     "link": "https://www.estadao.com.br/tecmundo/inteligencia-artificial/dario-amodei-da-anthropic-ganhou-mais-de-us-18-milhoes-so-em-2025/"
+    },
+    {
+     "titulo": "Quer elevar sua experiência nos games? Confira uma seleção de headsets gamer em promoção",
+     "link": "https://olhardigital.com.br/2026/10/08/reviews/quer-elevar-sua-experiencia-nos-games-confira-uma-selecao-de-headsets-gamer-em-promocao/"
+    },
+    {
+     "titulo": "Após sofrimento mental na família, psicóloga cria IA de apoio emocional",
+     "link": "https://www.uol.com.br/tilt/noticias/redacao/2026/10/08/apos-sofrimento-mental-na-familia-psicologa-cria-ia-de-apoio-emocional.ghtm"
+    },
+    {
+     "titulo": "Dois novos jogos para PC de graça hoje - resgate agora!",
+     "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNS2w0QlRqdFhabFBoUmNRSGlZaWExZ2xHQjhQcUZ4cl8xWEJYcnI3WHktSDk3ZWFFZlFiWkp5eGZIeW5FOHBxNzJ2S2RKU2U1QV8zMjVKLUFJTUhVcjhFaERTRFZsZVQ3SHJBR0V6NVY3MldvOC00S3MtQzJOdDM1bjQ3V3RGSVdYeWV2b3VtZHlWMGRPMDF0cW9kUTQxRWpnOVE?oc=5"
+    },
+    {
+     "titulo": "Spotify Ads AI: arquitetura multiagente em produção",
+     "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPRHM3bm1JcEw2bzllU0VPNzdvV0VpT2hLOHZmd1VydmsxQlc5ZVZRZTVBN1R2dFdHUlhHelVLdnRhUkU4c294U1FfNkd3bEhtUnExWklWeTBIQzV5eURVSmpBWkhDV1lpMEc1S0UwRTJzLXdfZG9VbFAtS2lKYm5JTjdyNUxCbXhXcDVvMUNvY3F1b3ZmNG9QTFJsV1VkT0NYUmZUVWJkZVR1YlluQnFuUXln?oc=5"
+    },
+    {
+     "titulo": "Desenvolvedor recria versões gratuitas e de código aberto do Photoshop, Premiere e Lightroom usando IA",
+     "link": "https://www.showmetech.com.br/artcraft-alternativas-gratuitas-photoshop-premiere-lightroom/"
+    },
+    {
+     "titulo": "YouTube terá novas ferramentas de IA e dublagem até o final de 2026",
+     "link": "https://www.mobiletime.com.br/noticias/07/10/2026/youtube-recursos-de-ia/"
+    },
+    {
+     "titulo": "US bars Microsoft, Adobe, and major IT firms from green card program for skilled foreign workers",
+     "link": "https://techcrunch.com/2026/10/08/us-bars-microsoft-adobe-and-major-it-firms-from-green-card-program-for-skilled-foreign-workers/"
+    },
+    {
+     "titulo": "GTA VI will have in-game podcasts and at least six radio stations",
+     "link": "https://www.theverge.com/games/1007965/gta-6-music-radio-stations-podcasts"
+    },
+    {
+     "titulo": "A senator tried to ban gambling on prediction markets—now she's a Kalshi lobbyist",
+     "link": "https://arstechnica.com/tech-policy/2026/10/a-senator-tried-to-ban-gambling-on-prediction-markets-now-shes-a-kalshi-lobbyist/"
+    },
+    {
+     "titulo": "How Massive Is Elon Musk’s Trillion-Dollar Fortune? Spend It Yourself",
+     "link": "https://www.wired.com/story/how-massive-is-elon-musks-trillion-dollar-fortune-spend-it-yourself/"
+    },
+    {
+     "titulo": "Xbox's new division will focus on TV and movie adaptations of its biggest franchises",
+     "link": "https://www.engadget.com/2281079/xboxs-new-division-will-focus-on-tv-and-movie-adaptations-of-its-biggest-franchises/"
+    },
+    {
+     "titulo": "Is That Picture AI? Google’s SynthID Detector Launches to Identify AI-Generated Media",
+     "link": "https://www.cnet.com/tech/services-and-software/google-synthid-detector-launches/"
+    },
+    {
+     "titulo": "I had a Walmart drone deliver eggs – checking for cracks was half the fun",
+     "link": "https://www.zdnet.com/innovation/walmart-drone-delivery-egg-test/"
+    },
+    {
+     "titulo": "Amazon replaces Fire tablets with Android Alexa Tablets from $229.99",
+     "link": "https://thenextweb.com/news/amazon-alexa-tablets-android-google-play-replace-fire"
+    },
+    {
+     "titulo": "The ASUS ROG Strix OLED monitor is $215 off after October Prime Day — record-low deal still live",
+     "link": "https://mashable.com/tech/oct-8-asus-rog-strix-oled-monitor-deal"
+    },
+    {
+     "titulo": "Safe In Our World launches Four Billion Players campaign to make mental health support more accessible for gamers",
+     "link": "https://www.gamesindustry.biz/safe-in-our-world-launches-four-billion-players-campaign-to-make-mental-health-support-more-accessible-for-gamers"
+    },
+    {
+     "titulo": "Star Wars Zero Company developer Bit Reactor brings back 'over half' of furloughed staff",
+     "link": "https://www.gamedeveloper.com/business/star-wars-zero-company-developer-bit-reactor-brings-back-over-half-of-furloughed-staff"
+    },
+    {
+     "titulo": "Filme de Diários de uma Apotecária será lançado no Brasil pela Crunchyroll",
+     "link": "https://br.ign.com/the-apothecary-diaries/156718/filme-de-diarios-de-uma-apotecaria-sera-lancado-no-brasil-pela-crunchyroll"
+    },
+    {
+     "titulo": "WhatsApp is creating a new Contacts tab in its app",
+     "link": "https://www.gsmarena.com/whatsapp_is_creating_a_new_contacts_tab_in_its_app-news-74950.php"
+    },
+    {
+     "titulo": "Alares prevê aceleração da consolidação entre ISPs e mantém pipeline de aquisições",
+     "link": "https://telesintese.com.br/alares-preve-aceleracao-da-consolidacao-entre-isps-e-mantem-pipeline-de-aquisicoes/"
+    },
+    {
+     "titulo": "Tell HN: I've been paying for a rural Tanzanian's education for 10 years",
+     "link": "https://news.ycombinator.com/item?id=50006366"
+    },
+    {
+     "titulo": "Empowering SMBs to do more with Gemini",
+     "link": "https://cloud.google.com/blog/topics/startups/how-to-grow-your-small-business-using-google-gemini/"
+    },
+    {
+     "titulo": "[Launched] Generally Available: Enabling the Bulk admin role for SQL Server on Linux",
+     "link": "https://azure.microsoft.com/updates?id=573443"
+    },
+    {
+     "titulo": "Your AI agent just provisioned a resource. Who owns it?",
+     "link": "https://thenewstack.io/ai-agent-cloud-ownership/"
+    },
+    {
+     "titulo": "Cloudflare Open Sources Decision Models for AI Agents",
+     "link": "https://www.infoq.com/news/2026/10/clef-decision-models/?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=global"
+    },
+    {
+     "titulo": "Kubernetes on Edge Day returns to KubeCon + CloudNativeCon North America 2026",
+     "link": "https://www.cncf.io/blog/2026/10/07/kubernetes-on-edge-day-returns-to-kubecon-cloudnativecon-north-america-2026/"
+    },
+    {
+     "titulo": "Claude Haiku 5.5 in GitHub Copilot",
+     "link": "https://github.blog/changelog/2026-10-07-claude-haiku-5-5-in-github-copilot"
+    },
+    {
+     "titulo": "NuCel usa qual rede? Saiba ver a cobertura para a sua região",
+     "link": "https://tecnoblog.net/responde/nucel-usa-qual-rede-saiba-ver-a-cobertura-para-a-sua-regiao/"
+    },
+    {
+     "titulo": "Lollapalooza 2027 anuncia Travis Scott, Charli XCX e The Killers; veja line-up",
+     "link": "https://canaltech.com.br/entretenimento/lollapalooza-2027-anuncia-travis-scott-charli-xcx-e-the-killers-veja-line-up/"
+    },
+    {
+     "titulo": "Spotify anuncia chegada de audiolivros no brasil com tres planos confira",
+     "link": "https://www.estadao.com.br/tecmundo/produto-e-review/spotify-anuncia-chegada-de-audiolivros-no-brasil-com-tres-planos-confira/"
+    },
+    {
+     "titulo": "Fone bom não precisa custar caro: veja uma seleção de opções Bluetooth em promoção",
+     "link": "https://olhardigital.com.br/2026/10/08/reviews/fone-bom-nao-precisa-custar-caro-veja-uma-selecao-de-opcoes-bluetooth-em-promocao-3/"
+    },
+    {
+     "titulo": "Como a IA já ajuda a prender de assassinos a ladrőes de celular no Brasil",
+     "link": "https://www.uol.com.br/tilt/colunas/helton-simoes-gomes/2026/10/08/como-ia-brasileira-ajuda-policia-a-prender-assassinos-e-ladroes-de-celular.htm"
+    },
+    {
+     "titulo": "Bloodborne ganha RTX Remix e DLSS 5 mesmo sem versão oficial para PC",
+     "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOY09ScklvTU1kYnZMNjhDZC1sNTlRUmxReXdBRVZlNDJzUWxDcDd2TXRNZmNPTGN3Tm1ycG9NTzhjaFJSTFNGcHRDZE9CM28xTVpRR2tJYVFNQk45QUM1TTZWZmJSWVNLSVd3ck9mU3NjZXpXOFRjY3hGVElPMUlGWVhibmF2S0lpcmVFemZ2Y2RXRWppRGJDbHItS2J5Q0dLaTFmNG1ReUM?oc=5"
+    },
+    {
+     "titulo": "Microsoft e Nvidia apresentam laptop de IA em momento de memória cara",
+     "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPQ3RUMW5NRDhIdU41Tl8wYzRLZXdTM1ExdUd3Z3ZNaFBfMGRIS2l0cWtLY2lacUxaQVpvMDlWOVY4S0VxeUo5aWRLT3NZX0Zxa0xNczNyU2d5U19fRlhzdG1IeVhiV25BSWxmQlJldGxIdkJvdkkzT0pvU2EtZWhxcmdlSnVyRDlnajN3MWtra1lVdmVTZ1Z6TDkyTDkwRVZ2akVN?oc=5"
+    },
+    {
+     "titulo": "Microsoft apresenta Surface Laptop Ultra com chip NVIDIA e até 128 GB de RAM",
+     "link": "https://www.showmetech.com.br/surface-laptop-ultra-microsoft-chip-nvidia-128-gb/"
+    },
+    {
+     "titulo": "TIM acredita que RCPs podem impulsionar uso do 5G RedCap",
+     "link": "https://www.mobiletime.com.br/noticias/07/10/2026/tim-redcap-5g-rcps/"
+    },
+    {
+     "titulo": "Elon Musk questions Ambani’s influence as Starlink India launch stalls",
+     "link": "https://techcrunch.com/2026/10/08/india-rejects-elon-musks-claim-of-discrimination-over-starlink-launch/"
+    },
+    {
+     "titulo": "The Retro Song Bird plays just the music from your favorite Game Boy cartridges",
+     "link": "https://www.theverge.com/tech/1007926/retro-song-bird-nintendo-game-boy-cartridge-music-player"
+    },
+    {
+     "titulo": "Microsoft event debuts new AI-friendly hardware and Windows changes",
+     "link": "https://arstechnica.com/gadgets/2026/10/microsoft-event-debuts-new-ai-friendly-hardware-and-windows-changes/"
+    },
+    {
+     "titulo": "Spend Elon Musk’s Money",
+     "link": "https://www.wired.com/story/spend-elon-musk-money/"
+    },
+    {
+     "titulo": "The new Stylophone Mini packs in iconic sounds and comes in three nifty colors",
+     "link": "https://www.engadget.com/2279055/the-new-stylophone-mini-packs-in-iconic-sounds-and-comes-in-three-nifty-colors/"
+    },
+    {
+     "titulo": "Today’s NYT Mini Crossword Answers for Thursday, Oct. 8",
+     "link": "https://www.cnet.com/tech/gaming/todays-nyt-mini-crossword-answers-for-thursday-oct-8/"
+    },
+    {
+     "titulo": "Microsoft’s new Surface Laptop Ultra finally has a starting price (you should sit down)",
+     "link": "https://www.zdnet.com/tech/microsoft-surface-laptop-ultra-preorder-starting-price/"
+    },
+    {
+     "titulo": "US suspending permanent residency programme for Microsoft and Capgemini, officials say",
+     "link": "https://thenextweb.com/news/perm-suspension-capgemini-europe"
+    },
+    {
+     "titulo": "The new Mac mini is still on sale for a record-low price after October Prime Day: Last chance to save $150",
+     "link": "https://mashable.com/tech/oct-8-apple-mac-mini-m6-m5-pro-still-live-deal"
+    },
+    {
+     "titulo": "NBA 2K27 tops US August charts, becomes third-best selling game of 2026 | US Monthly Charts",
+     "link": "https://www.gamesindustry.biz/nba-2k27-tops-us-august-charts-becomes-third-best-selling-game-of-2026-us-monthly-charts"
+    },
+    {
+     "titulo": "Former Activision Blizzard CEO Bobby Kotick named to the board of post-merger Skydance",
+     "link": "https://www.gamedeveloper.com/business/former-activision-ceo-bobby-kotick-named-to-the-board-of-post-merger-skydance"
+    },
+    {
+     "titulo": "Xbox anuncia nova divisão XP Entertainment para produzir filmes, programas de TV e muito mais",
+     "link": "https://br.ign.com/a-minecraft-movie/156714/xbox-anuncia-nova-divisao-xp-entertainment-para-produzir-filmes-programas-de-tv-e-muito-mais"
+    },
+    {
+     "titulo": "Report: Samsung is cutting up to 30% of its smartphone production in Q4",
+     "link": "https://www.gsmarena.com/report_samsung_is_cutting_up_to_30_of_its_smartphone_production_in_q4_-news-74955.php"
+    },
+    {
+     "titulo": "Conexis propõe licenciamento federal unificado para cabos submarinos",
+     "link": "https://telesintese.com.br/conexis-propoe-licenciamento-federal-unificado-para-cabos-submarinos/"
+    },
+    {
+     "titulo": "Orkut.com",
+     "link": "https://orkut.com/"
+    },
+    {
+     "titulo": "Welcome to Gemini at Work 2026: Introducing the Gemini agent",
+     "link": "https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026/"
+    },
+    {
+     "titulo": "The audit log says my name: what an agent inherits when you hand it your credentials",
+     "link": "https://thenewstack.io/ai-agent-credential-risks/"
+    },
+    {
+     "titulo": "Survey Finds AI-Generated Code Increases Debugging and Failure Rates and Creates a Comprehension Gap",
+     "link": "https://www.infoq.com/news/2026/10/survey-complex-codebases-agents/?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=global"
+    },
+    {
+     "titulo": "Galaxy Watch 9 (40 mm) sai mais barato com cupom no Mercado Livre",
+     "link": "https://tecnoblog.net/achados/galaxy-watch-9-40-mm-sai-mais-barato-com-cupom-no-mercado-livre/"
+    },
+    {
+     "titulo": "Farsa: processo revela que TikTok deu ferramenta de segurança falsa para jovens usuários",
+     "link": "https://canaltech.com.br/apps/farsa-processo-revela-que-tiktok-deu-ferramenta-de-seguranca-falsa-para-jovens-usuarios/"
+    },
+    {
+     "titulo": "Whatsapp web comeca a liberar temas e papeis de parede personalizados",
+     "link": "https://www.estadao.com.br/tecmundo/produto-e-review/whatsapp-web-comeca-a-liberar-temas-e-papeis-de-parede-personalizados/"
+    },
+    {
+     "titulo": "Brasil tem 3,6 milhões de registros biométricos ligados a fraudes de identidade",
+     "link": "https://olhardigital.com.br/2026/10/08/seguranca/brasil-tem-36-milhoes-de-registros-biometricos-ligados-a-fraudes-de-identidade/"
+    },
+    {
+     "titulo": "Margaret Hamilton, pioneira do software da missăo Apollo, morre aos 90 anos",
+     "link": "https://www.uol.com.br/tilt/noticias/redacao/2026/10/08/margaret-hamilton-pioneira-do-software-da-missao-apollo-morre-aos-90-anos.ghtm"
+    },
+    {
+     "titulo": "Xbox anuncia XP, nova divisão que vai levar franquias para além dos games",
+     "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNQlBqVG83bExDcG91MW1BSGpvdDRIOHpWbFpqUXlScDlnSWxPWDhuNXVyNHJjUS16YmQ1ZzgtQ2xZd2FDSWNqbERScHBwZ2dGZmlWOW1TazY1MG1UdnNHSjVNRjl3SjNvQmdjQk1PQzk4RUlKMUc2VFFOYVhhWjBvNlVIcEVGTm5JSGsxdUNnNVY0VnNlN05zRm1pYmVGdHh5bU1oQThSeVk3NC14eUR3VkxtbGM?oc=5"
+    },
+    {
+     "titulo": "A mágica do LLM termina quando abrimos a porta do data center",
+     "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNVl9BODhxTDNfZlBjVU05cS1fMG1GdEl1U3lJbXFoLWdvdUxsZWpNVnNZSXRuUE5McnV4VHlFaWdoZ2tkYnZnQjBkS01rblp6RGRpSUE3dENYOURlXzZBVmxabkRHSDlubjc1MFRCSVlDQjJCLWk4UDNacEI1R3YtQUp0VHhFeVo3RGx3OFBXSzFGVlVKUm9zMWJxYnktVDhkOVloa3dJOGxGVFJEVXc?oc=5"
+    },
+    {
+     "titulo": "Spotify lançará audiolivros no Brasil em 15 de outubro, com mais de 6 mil títulos em português",
+     "link": "https://www.showmetech.com.br/spotify-lancara-audiolivros-no-brasil/"
+    },
+    {
+     "titulo": "Globo entra com pedido de RCP para F1 em São Paulo, revela Anatel",
+     "link": "https://www.mobiletime.com.br/noticias/07/10/2026/globo-rcp-f1-sp/"
+    },
+    {
+     "titulo": "New York alleges TikTok gave teens, children a placebo safety feature instead of a real one",
+     "link": "https://techcrunch.com/2026/10/08/new-york-alleges-tiktok-gave-teens-children-a-placebo-safety-feature-instead-of-a-real-one/"
+    },
+    {
+     "titulo": "75 great October Prime Day deals are still happening",
+     "link": "https://www.theverge.com/gadgets/1007804/october-prime-day-leftover-deals"
+    },
+    {
+     "titulo": "“Software is over”: Bold AI developer takes aim at Adobe with open source clones",
+     "link": "https://arstechnica.com/ai/2026/10/software-is-over-bold-ai-developer-takes-aim-at-adobe-with-open-source-clones/"
+    },
+    {
+     "titulo": "Life Is Asymmetric. The Scientists Who Figured Out Why Won the 2026 Nobel Prize in Chemistry",
+     "link": "https://www.wired.com/story/life-is-asymmetric-the-scientists-who-figured-out-why-won-the-2026-nobel-prize-in-chemistry/"
+    },
+    {
+     "titulo": "Amazon Alexa Tablet 12 Pro vs Amazon Fire HD 10: What's changed, and is the upgrade worth it?",
+     "link": "https://www.engadget.com/2280791/amazon-alexa-tablet-12-pro-vs-fire-hd-10-what-changed/"
+    },
+    {
+     "titulo": "Utah Now Allows AI to Scan Your Face and Prescribe Acne Medication",
+     "link": "https://www.cnet.com/tech/services-and-software/an-ai-doctor-in-utah-can-prescribe-medicine/"
+    },
+    {
+     "titulo": "How to make Windows more like MacOS: 6 tweaks to try",
+     "link": "https://www.zdnet.com/tech/how-to-make-windows-more-like-macos/"
+    },
+    {
+     "titulo": "Waymo closes a $5bn loan, its first debt deal, to fund robotaxi growth",
+     "link": "https://thenextweb.com/news/waymo-loan-5bn-first-debt-financing-pimco-blackstone"
+    },
+    {
+     "titulo": "LGs B6 OLED TV is under $1,000 for the first time and comes with a free soundbar",
+     "link": "https://mashable.com/tech/oct-8-lg-b6-oled-tv-free-soundbar-deal"
+    },
+    {
+     "titulo": "Xbox announces new XP division to deliver transmedia spinoffs including film, TV, and theme parks",
+     "link": "https://www.gamesindustry.biz/xbox-announces-new-xp-division-to-deliver-transmedia-spinoffs-including-film-tv-and-theme-parks"
+    },
+    {
+     "titulo": "Sony Pictures cria divisão na Crunchyroll focada em adaptar histórias para animes e animes em live-action",
+     "link": "https://br.ign.com/anime/156712/sony-pictures-cria-divisao-na-crunchyroll-focada-em-adaptar-historias-para-animes-e-animes-em-live-a"
+    },
+    {
+     "titulo": "Oppo Find X10 and Find X10 Pro Max to launch globally on October 21",
+     "link": "https://www.gsmarena.com/heres_when_the_oppo_find_x10_and_find_x10_pro_max_will_launch_globally-news-74957.php"
+    },
+    {
+     "titulo": "MCTI defende regulação de IA com menos regras e mais princípios",
+     "link": "https://telesintese.com.br/mcti-defende-regulacao-de-ia-com-menos-regras-e-mais-principios/"
+    },
+    {
+     "titulo": "2027 Web Platform Feature Ranking",
+     "link": "https://interop-rank.fxdx.dev/"
+    },
+    {
+     "titulo": "The API tax: Why AI agents stall without infrastructure context",
+     "link": "https://thenewstack.io/autonomous-cloud-context-layer/"
+    },
+    {
+     "titulo": "Motorola Edge 70 Pro atinge 2.º menor preço desde lançamento no Mercado Livre",
+     "link": "https://tecnoblog.net/achados/motorola-edge-70-pro-atinge-2-o-menor-preco-desde-lancamento-no-mercado-livre/"
+    },
+    {
+     "titulo": "Sony desiste do PS VR2 e vende mais de 400 patentes para a Meta",
+     "link": "https://canaltech.com.br/games/sony-desiste-do-ps-vr2-e-vende-mais-de-400-patentes-para-a-meta/"
+    },
+    {
+     "titulo": "Amazon lanca tablets com sistema android alexa e ate tela tipo kindle",
+     "link": "https://www.estadao.com.br/tecmundo/produto-e-review/amazon-lanca-tablets-com-sistema-android-alexa-e-ate-tela-tipo-kindle/"
+    },
+    {
+     "titulo": "Governo australiano orienta trabalhadores sobre como pedir folga para jogar GTA 6",
+     "link": "https://olhardigital.com.br/2026/10/08/games-e-consoles/gta-6-governo-australiano-ensina-como-pedir-folga-para-jogar/"
+    },
+    {
+     "titulo": "Samsung estima salto de quase 9 vezes no lucro do 3ş tri puxado por IA",
+     "link": "https://www.uol.com.br/tilt/noticias/reuters/2026/10/07/samsung-estima-salto-de-quase-9-vezes-no-lucro-do-3-tri-puxado-por-ia.htm"
+    },
+    {
+     "titulo": "Minisforum lança PC com 192 GB de memória unificada para rodar IA localmente",
+     "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNQXRMbVRyVTRwZnlhNlY4bHFsRUNqa3hDdTVta2prSmMtdFRYRDBTX3c4T2NNT3JGRXhoVnFhLVZGNEpubktrTU8yRTgyU0MyLUVKY2NBSVdaN0xER2Q4U2lwWnVBOWhDVnEtU2VkYjZGd1lIM0ZEa3hNUl80Wk1BZXRPbkdDVWVGZTFDTWQ4VUcyRmVWUEo3NXhIZFY2NWpZUGdvc2l3TFZfdlJHcnVBQXpBamxwQXc?oc=5"
+    },
+    {
+     "titulo": "ChatGPT deixa de responder só em texto e começa a montar interface",
+     "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNMThHZi0xaFVZYlh1ODVjVERtN0dKaC1jNl95XzN2UDRuOU80dWZXYmhJOG5uY2tNdkZ2VTQ5d3h3aGc4ejZwVHZZc1Y1SVBDWkVIWEdaeXF2QlhYMFhuSGtnN0YwS1FGcDNhcXk5Tzl4a2l2bWpzWHBidVBjZnFZLVVfQ3pTNnhscnlKcWhLbHlzOVZocVVmN1p1czJ3T3M?oc=5"
+    }
+   ],
+   "roteiro": "LEO: Prepara a garrafa de café, confere se o seu cluster de servidores não tá fritando e segura o fôlego, porque está no ar a edição de hoje do seu podcast diário de tecnologia, nesta quinta-feira, 8 de outubro de 2026! Como é que tá esse pique de quinta-feira por aí, Ana?\n---\nANA: Tá com gosto de chassi de alumínio novo balançando o mercado e de revolução nos tablets, Leo! Lembra que ontem a gente tava falando sobre a disparada nos investimentos de hardware e nuvem? Pois a parada escalou de vez nas últimas vinte e quatro horas com a Amazon chutando o balde e mudando radicalmente a sua linha de dispositivos!\n---\nLEO: Rapaz do céu, quando a gigante do e-commerce mexe em time que tava ganhando há anos, a poeira só abaixa depois que a concorrência inteira se mexe! Mas ó, essa guinada histórica no mundo dos tablets é a nossa manchete de hoje, que traz os detalhes do que a Amazon acabou de anunciar. Conta pra gente o que aconteceu, Ana!\n---\nANA: A Amazon jogou uma bomba no mercado de tecnologia nesta quinta-feira ao lançar sua nova linha de tablets de ponta, abandonando de vez o sistema Fire OS para rodar o Android do Google com acesso completo à Google Play Store, Leo! Conhecidos pelo codinome interno Kittyhawk e agora batizados como Alexa Tablets, os novos aparelhos chegam com carcaças de alumínio e preços que vão de duzentos e trinta até quinhentos e cinquenta dólares, marcando a virada de chave do chefe de dispositivos Panos Panay para o segmento premium.\n---\nLEO: Android de verdade com Google Play e carcaça de alumínio saindo do forno da Amazon?! Segura o forninho, porque isso enterra de vez os velhos tablets baratos de plástico e muda tudo para quem quer um ecossistema robusto! Mas na prática, Ana, o que isso muda para quem tá comprando dispositivo e para os desenvolvedores que sofriam com a lojinha antiga?\n---\nANA: Muda o tabuleiro inteiro, Leo. Para o desenvolvedor, acaba o pesadelo de ter que criar uma terceira versão de aplicativo só para o ecossistema fechado da Amazon. E para o consumidor, entra em cena a assistente Alexa Plus turbinada com inteligência artificial generativa bem no centro da experiência, exigindo uma assinatura Prime para funcionar a todo vapor. É a Amazon tentando recuperar relevância num mercado global de tablets que caiu doze por cento no último trimestre.\n---\nLEO: Jogo de gente grande e apostando alto em inteligência artificial! E por falar em infraestrutura robusta que precisa gerenciar o caos da nuvem, o nosso Radar Cloud e DevOps traz uma sacada genial de engenharia direto do ecossistema da AWS, Ana.\n---\nANA: A equipe de engenharia do grupo Natura publicou os detalhes de como reduziu em cento e sessenta e oito por cento a economia de custos com instâncias Spot e eliminou setenta e um por cento dos incidentes usando o Karpenter no Amazon EKS, Leo! Para quem gerencia clusters pesados, o Karpenter se consolidou como o provisionador de nós definitivo para dimensionar a infraestrutura de Kubernetes sob demanda com velocidade cirúrgica.\n---\nLEO: Automação de primeira linha para os engenheiros pararem de queimar orçamento com máquina ociosa na nuvem! E na mesma toada de eficiência em arquitetura que a gente comentou nos últimos dias com os gargalos de IA, o projeto env zero anunciou o desenvolvimento de uma camada de contexto unificada chamada EZ Control para acabar com a chamada taxa de API dos agentes autônomos.\n---\nANA: O pesadelo dos agentes de IA fazendo consultas redundantes na nuvem e estourando limites de taxa finalmente achou uma solução de arquitetura que conecta a intenção do código com o estado real do servidor! É a infraestrutura conversando de verdade com a inteligência artificial. E saindo dos servidores para o Radar Games, a Microsoft resolveu sacudir a indústria com uma tacada multimídia gigantesca, Leo!\n---\nANA: A Microsoft anunciou a criação da XP Entertainment, uma nova divisão de entretenimento liderada por Kayleen Walters para expandir as grandes franquias de jogos dos estúdios para o cinema, televisão, parques temáticos e produtos de consumo, Leo! A estrutura formaliza quatro áreas de investimento: Pictures, Products, Partnerships e Places.\n---\nLEO: Depois do estrago bilionário que o filme do Minecraft e a série de Fallout fizeram no streaming, o Xbox quer transformar suas franquias em um império pop global! Olho aberto na força transmidiática dos games! E no Radar Mobile e tecnologia de consumo, a Apple resolveu movimentar os bastidores com um convite misterioso, Ana.\n---\nANA: A Apple anunciou de surpresa um evento especial para o dia treze de outubro em Nova York com o lema Bem-vindo ao lar, indicando o lançamento iminente de novos dispositivos focados em casa inteligente, Leo.\n---\nLEO: Casa conectada ganhando superpoderes da maçã na semana que vem! Bora pra nossa rodada rápida de notícias!\n---\nANA: Começando pelo cenário de inteligência artificial e segurança: o Google liberou globalmente o seu detector SynthID para qualquer pessoa verificar se imagens e vídeos carregam marcas d'água invisíveis de conteúdo sintético.\n---\nLEO: Ferramenta vital para tentar segurar a onda de deepfakes na internet! E na frente de sistemas operacionais e produtividade?\n---\nANA: O Windows 11 começou a testar um atalho rápido no painel de ações para controlar o celular Android vinculado, permitindo localizar o aparelho perdido ou desligar o modo não perturbe direto do PC.\n---\nLEO: Praticidade pura integrando o computador e o smartphone! E para fechar a rodada?\n---\nANA: A Sony Interactive Entertainment vendeu mais de quatrocentos patentes de sua tecnologia de realidade virtual do PlayStation VR2 para a Meta, sinalizando uma guinada estratégica da empresa nos acessórios de imersão.\n---\nLEO: A tecnologia dos óculos de realidade virtual mudando de dono nos bastidores da indústria! Chegou a hora do nosso Termo do Dia! Ana, no nosso bloco de Cloud e DevOps a gente falou sobre instâncias Spot e o provisionamento de nós no Kubernetes. O que é exatamente esse conceito de instâncias Spot para quem ouve o podcast?\n---\nANA: Explica aí pra gente, Ana: como é que funciona esse recurso de economia na nuvem?\n---\nANA: Pensa que alugar uma máquina virtual comum na nuvem é como comprar uma passagem aérea de primeira classe com preço fixo, enquanto a instância Spot é como um assento na classe executiva que sobra no último segundo e é vendido por uma fração do preço — com o risco de a cia aérea te pedir o lugar de volta se precisar da poltrona. No servidor, você usa o excedente barato da nuvem para rodar tarefas que podem ser interrompidas, economizando uma grana preta.\n---\nLEO: Analogia cirúrgica! É o leilão de inteligência para pagar mixaria pelo poder de processamento.\n---\n---\nLEO: Desconectando as instâncias, fechando os logs de produção e encerrando o plantão por hoje! Essa foi a edição de hoje. Aproveitem a quinta-feira, programem com sabedoria e a gente tá de volta amanhã cedinho com mais tecnologia direto no seu feed. Valeu, pessoal!\n---\nANA: Se a sua equipe de engenharia ainda acha que pode colocar agentes de inteligência artificial em produção sem uma camada robusta de contexto e governança de custos, a fatura vai chegar cobrando caro pelo desperdício de infraestrutura. Acorde para a realidade, bom descanso e até amanhã!\n---"
   }
  ]
 }
