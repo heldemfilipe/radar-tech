@@ -5,6 +5,9 @@
 #   https://site.com/feed/ | Nome          -> RSS com nome fixo no episódio
 #   gnews: site:exemplo.com.br | Nome      -> busca no Google Notícias (últimas 24h)
 #   sitemap: <url com {data}> <trecho> | Nome -> sitemap diário (usado pro TecMundo)
+#   https://site.com/feed/ | Nome | 72h    -> janela maior que 24h, pra blogs
+#                                             que postam pouco (o histórico
+#                                             impede repetir notícia)
 #
 # Pra adicionar um site: procure "nome-do-site RSS" no Google e cole a URL
 # aqui — mas TESTE antes (alguns sites "chutados" devolvem 404 ou feed vazio).
@@ -21,7 +24,7 @@ sitemap: https://www.estadao.com.br/arc/outboundfeeds/sitemap/{data}/?outputType
 https://olhardigital.com.br/feed/
 https://rss.uol.com.br/feed/tecnologia.xml
 https://www.adrenaline.com.br/feed/ | Adrenaline
-https://meiobit.com/feed | Meio Bit
+https://meiobit.com/feed | Meio Bit | 48h
 https://imasters.com.br/feed | iMasters
 https://www.showmetech.com.br/feed/
 https://www.mobiletime.com.br/feed/ | Mobile Time
@@ -55,20 +58,20 @@ gnews: "GFT Technologies" OR "GFT Brasil" | GFT (Google Notícias)
 
 # ---- AWS ----
 https://aws.amazon.com/pt/blogs/aws/feed/ | AWS News Blog
-https://aws.amazon.com/pt/blogs/aws-brasil/feed/ | Blog da AWS Brasil
-https://aws.amazon.com/blogs/devops/feed/ | AWS DevOps Blog
-https://aws.amazon.com/blogs/architecture/feed/ | AWS Architecture Blog
+https://aws.amazon.com/pt/blogs/aws-brasil/feed/ | Blog da AWS Brasil | 48h
+https://aws.amazon.com/blogs/devops/feed/ | AWS DevOps Blog | 72h
+https://aws.amazon.com/blogs/architecture/feed/ | AWS Architecture Blog | 72h
 
 # ---- Outras nuvens ----
-https://cloudblog.withgoogle.com/rss/ | Google Cloud Blog
-https://azure.microsoft.com/en-us/blog/feed/ | Microsoft Azure Blog
-https://www.microsoft.com/releasecommunications/api/v2/azure/rss | Azure Updates
+https://cloudblog.withgoogle.com/rss/ | Google Cloud Blog | 48h
+https://azure.microsoft.com/en-us/blog/feed/ | Microsoft Azure Blog | 72h
+https://www.microsoft.com/releasecommunications/api/v2/azure/rss | Azure Updates | 72h
 
 # ---- DevOps / Cloud Native ----
 https://thenewstack.io/feed/
 https://feed.infoq.com/ | InfoQ
-https://www.cncf.io/feed/ | CNCF
-https://kubernetes.io/feed.xml
-https://www.hashicorp.com/blog/feed.xml
-https://www.docker.com/blog/feed/ | Docker Blog
+https://www.cncf.io/feed/ | CNCF | 72h
+https://kubernetes.io/feed.xml | Kubernetes Blog | 72h
+https://www.hashicorp.com/blog/feed.xml | HashiCorp Blog | 72h
+https://www.docker.com/blog/feed/ | Docker Blog | 72h
 https://github.blog/changelog/feed/ | GitHub Changelog

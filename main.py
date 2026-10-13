@@ -74,26 +74,40 @@ MESES = [
 ]
 
 
-def google_news_url(query: str) -> str:
-    q = urllib.parse.quote_plus(f"{query} when:1d")
-    return f"https://news.google.com/rss/search?q={q}&hl=pt-BR&gl=BR&ceid=BR:pt-419"
+_EDICOES_GNEWS = {
+    "pt": "hl=pt-BR&gl=BR&ceid=BR:pt-419",
+    "en": "hl=en-US&gl=US&ceid=US:en",
+}
 
 
-def load_feeds(path: str) -> list[tuple[str, str]]:
-    """Cada linha: `URL` ou `URL | Nome`. `gnews: <busca> | Nome` vira uma
-    busca no Google Notícias; `sitemap: <url> <trecho>` lê um sitemap diário
-    (veja fetch_sitemap)."""
+def google_news_url(query: str, horas: int = 24, edicao: str = "pt") -> str:
+    """A edição importa: a brasileira quase não indexa site em inglês
+    (VentureBeat via fallback dava 0 notícias; na edição dos EUA, 12)."""
+    q = urllib.parse.quote_plus(f"{query} when:{max(1, -(-horas // 24))}d")
+    return f"https://news.google.com/rss/search?q={q}&{_EDICOES_GNEWS[edicao]}"
+
+
+def load_feeds(path: str) -> list[tuple[str, str, int]]:
+    """Cada linha: `URL`, `URL | Nome` ou `URL | Nome | 72h`. O terceiro
+    campo amplia a janela daquele feed (padrão: HOURS_WINDOW) — pra blogs
+    que postam poucas vezes por semana (Kubernetes, CNCF, Docker...), que
+    com 24h quase sempre davam 0. O histórico impede que a mesma notícia
+    entre em dois episódios. `gnews: <busca> | Nome` vira uma busca no
+    Google Notícias; `sitemap: <url> <trecho>` lê um sitemap diário (veja
+    fetch_sitemap)."""
     feeds = []
     with open(path, encoding="utf-8") as f:
         for line in f:
             line = line.strip()
             if not line or line.startswith("#"):
                 continue
-            spec, _, nome = line.partition("|")
+            spec, nome, janela = (line.split("|") + ["", ""])[:3]
             spec, nome = spec.strip(), nome.strip()
+            m = re.fullmatch(r"\s*(\d+)\s*h?\s*", janela)
+            horas = int(m.group(1)) if m else HOURS_WINDOW
             if spec.lower().startswith("gnews:"):
-                spec = google_news_url(spec[len("gnews:"):].strip())
-            feeds.append((spec, nome))
+                spec = google_news_url(spec[len("gnews:"):].strip(), horas)
+            feeds.append((spec, nome, horas))
     return feeds
 
 
@@ -202,7 +216,7 @@ def fetch_sitemap(spec: str) -> list[dict]:
     return entries
 
 
-def _ler_fonte(url: str, nome: str) -> tuple[list, str, bool]:
+def _ler_fonte(url: str, nome: str, horas: int) -> tuple[list, str, bool]:
     """Devolve (entries, nome da fonte, veio do Google Notícias?)."""
     alvo = url.removeprefix("sitemap:").strip()
     partes = urllib.parse.urlsplit(alvo.split(" ")[0])
@@ -222,17 +236,20 @@ def _ler_fonte(url: str, nome: str) -> tuple[list, str, bool]:
         busca = f"site:{dominio}"
         if url.startswith("sitemap:"):
             busca += alvo.partition(" ")[2].strip().rstrip("/")
-        parsed = fetch_feed(google_news_url(busca))
+        parsed = fetch_feed(google_news_url(busca, horas, "pt"))
+        if not parsed.entries:  # site em inglês: só a edição dos EUA tem
+            parsed = fetch_feed(google_news_url(busca, horas, "en"))
         return parsed.entries, nome or dominio, True
 
 
-def collect_news(feeds: list[tuple[str, str]]) -> list[dict]:
-    cutoff = datetime.now(timezone.utc) - timedelta(hours=HOURS_WINDOW)
+def collect_news(feeds: list[tuple[str, str, int]]) -> list[dict]:
+    agora = datetime.now(timezone.utc)
     items = []
     vistos: set[str] = set()
-    for url, nome in feeds:
+    for url, nome, horas in feeds:
+        cutoff = agora - timedelta(hours=horas)
         try:
-            entries, source, via_gnews = _ler_fonte(url, nome)
+            entries, source, via_gnews = _ler_fonte(url, nome, horas)
             count = 0
             for entry in entries:
                 if count >= MAX_ITEMS_PER_FEED:
@@ -262,7 +279,8 @@ def collect_news(feeds: list[tuple[str, str]]) -> list[dict]:
                     }
                 )
                 count += 1
-            print(f"[OK] {source}: {count} notícias")
+            janela = f" (janela {horas}h)" if horas != HOURS_WINDOW else ""
+            print(f"[OK] {source}: {count} notícias{janela}")
         except Exception as e:
             print(f"[ERRO] {nome or url}: {e}", file=sys.stderr)
     return items
