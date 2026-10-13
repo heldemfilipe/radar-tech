@@ -50,6 +50,11 @@ seu-repo/
 - **Horário não é exato.** O cron do Actions entra numa fila — por isso o
   gatilho está às 6h15 (BRT), pra entrega real cair em torno das 6h30.
   Se pontualidade de minuto importa, a versão no seu PC (systemd) é melhor.
+- **Repescagem automática.** Se o episódio das 6h15 falhar (Gemini fora do
+  ar, voz da Microsoft recusando), o workflow tenta de novo às 9h15 e às
+  12h15. Se só a voz falhou, o roteiro já vai em texto na hora e a
+  repescagem manda só o áudio, sem gerar outro roteiro. Nos dias em que tudo
+  dá certo, essas execuções terminam em segundos sem fazer nada.
 - **Repo público = código e feeds visíveis.** Não há nada sensível neles;
   as chaves ficam em Secrets (criptografados, nunca aparecem em log).
 - **Inatividade desativa o cron.** Após 60 dias sem atividade o GitHub

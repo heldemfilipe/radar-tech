@@ -6,6 +6,11 @@ on:
     # 40 min na fila), então disparamos 15 min antes pra entrega real
     # cair em torno das 06:30.
     - cron: "15 9 * * *"
+    # Repescagens (09:15 e 12:15 BRT): só fazem algo se o episódio das 06:15
+    # falhou — Gemini fora do ar (13/10) ou voz da Microsoft recusando (12/10).
+    # Se o roteiro saiu e só a voz falhou, refazem apenas o áudio.
+    - cron: "15 12 * * *"
+    - cron: "15 15 * * *"
   workflow_dispatch: {}   # permite rodar manualmente pela aba Actions (pra testar)
 
 permissions:
@@ -19,12 +24,14 @@ concurrency:
 
 jobs:
   resumo:
-    runs-on: ubuntu-latest
-    timeout-minutes: 15   # dá folga pros retries do Gemini em caso de sobrecarga (503)
+    # Fixo no 24.04: o ubuntu-latest vira Ubuntu 26 em 19/10/2026 e o
+    # setup-python pode demorar a ter Python 3.12 pronto pra ele.
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20   # folga pros retries do Gemini (rodadas de até 3 min de espera)
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
           cache: pip
@@ -38,6 +45,9 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           PYTHONUNBUFFERED: "1"   # log na ordem certa (stdout e stderr misturados)
+          REPESCAGEM: ${{ github.event.schedule == '15 12 * * *' || github.event.schedule == '15 15 * * *' }}
+          # Horário (BRT) da próxima execução agendada, citado no aviso de falha.
+          PROXIMA_TENTATIVA: ${{ github.event.schedule == '15 9 * * *' && '09:15' || github.event.schedule == '15 12 * * *' && '12:15' || '' }}
           # Quantas notícias vão pro Gemini (padrão do código: 100). Subir
           # demais aumenta o risco de timeout na geração do roteiro.
           MAX_ITEMS_TO_SUMMARIZE: "150"
@@ -48,7 +58,11 @@ jobs:
       # script saber o que já foi falado e não repetir. De quebra, esse
       # commit diário mantém o cron vivo (o GitHub desativa workflows
       # agendados após 60 dias sem commits) — por isso não há mais keepalive.
+      # always(): se a voz falhar, o script sai com erro mas grava o roteiro
+      # com "audio_ok: false" — esse registro precisa ser commitado pra a
+      # repescagem refazer só o áudio.
       - name: Salvar histórico (evita notícias repetidas)
+        if: always()
         run: |
           if [ ! -f historico.json ]; then
             echo "Sem histórico pra salvar (nenhum episódio gerado)."

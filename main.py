@@ -58,6 +58,11 @@ BRT = timezone(timedelta(hours=-3))
 # Gemini (o RSS só traz ~500 caracteres, pouco pra explicar direito).
 MAX_FULL_ARTICLES = int(os.environ.get("MAX_FULL_ARTICLES", "5"))
 PRONUNCIA_FILE = os.environ.get("PRONUNCIA_FILE", "pronuncia.txt")
+# Preenchidos pelo workflow. REPESCAGEM: execução extra do fim da manhã, que
+# só gera episódio se o das 06:15 não saiu. PROXIMA_TENTATIVA: horário (BRT)
+# da próxima execução agendada, pra citar no aviso de falha.
+REPESCAGEM = os.environ.get("REPESCAGEM", "false").lower() == "true"
+PROXIMA_TENTATIVA = os.environ.get("PROXIMA_TENTATIVA", "").strip()
 
 DIAS_SEMANA = [
     "segunda-feira", "terça-feira", "quarta-feira",
@@ -318,7 +323,16 @@ def load_history(path: str) -> list[dict]:
     return [ep for ep in episodios if ep.get("data", "") > limite]
 
 
-def save_history(path: str, episodios: list[dict], items: list[dict], roteiro: str) -> None:
+def save_history(
+    path: str,
+    episodios: list[dict],
+    items: list[dict],
+    roteiro: str,
+    manchete: str = "",
+    audio_ok: bool = True,
+) -> None:
+    """`audio_ok: false` marca um episódio cujo texto já foi pro Telegram mas
+    o áudio falhou — a repescagem do workflow refaz só o áudio dele."""
     agora = datetime.now(BRT)
     episodios = episodios + [
         {
@@ -326,8 +340,14 @@ def save_history(path: str, episodios: list[dict], items: list[dict], roteiro: s
             "gerado_em": agora.isoformat(timespec="seconds"),
             "noticias": [{"titulo": i["title"], "link": i["link"]} for i in items],
             "roteiro": roteiro,
+            "manchete": manchete,
+            "audio_ok": audio_ok,
         }
     ]
+    gravar_historico(path, episodios)
+
+
+def gravar_historico(path: str, episodios: list[dict]) -> None:
     with open(path, "w", encoding="utf-8") as f:
         json.dump({"episodios": episodios}, f, ensure_ascii=False, indent=1)
         f.write("\n")
@@ -548,7 +568,7 @@ def _rotulo_dia(data_iso: str) -> str:
     return f"{DIAS_SEMANA[d.weekday()]} ({d:%d/%m})"
 
 
-def summarize(items: list[dict], episodios: list[dict]) -> str:
+def montar_prompt(items: list[dict], episodios: list[dict]) -> str:
     blocos = []
     for n, i in enumerate(items, 1):
         bloco = f"[{n}] FONTE: {i['source']}\nTÍTULO: {i['title']}\nRESUMO: {i['summary']}"
@@ -584,6 +604,11 @@ DINÂMICA (o que faz soar como conversa de verdade):
   DIFERENTE a cada dia (crie um novo hoje, nunca repita), e ANA emenda com um
   comentário intenso e marcante no estilo dela.
 - Mencione o dia da semana na abertura de forma natural. {contexto_dia}
+- Cada um fala SEMPRE em primeira pessoa ("eu acho", "eu falei"). Ninguém
+  fala de si mesmo na terceira pessoa nem diz o próprio nome: numa fala da
+  ANA, o único nome que aparece é "Leo", e vice-versa. Quem faz uma pergunta
+  é quem recebe a resposta — nunca jogue a pergunta de volta pra quem
+  perguntou.
 - Eles se chamam pelo nome, discordam de verdade às vezes (a Ana puxa mais essa
   briga), um completa o raciocínio do outro, fazem gancho entre uma notícia e a
   próxima.
@@ -608,7 +633,9 @@ PORTUGUÊS NATURAL (muito importante):
 
 FORMATO OBRIGATÓRIO: cada fala em sua própria linha, começando com "ANA:" ou
 "LEO:". Entre um bloco e outro do episódio, uma linha contendo apenas ---
-(vira uma pausa no áudio). Nenhuma outra linha fora desse formato — sem
+(vira uma pausa no áudio). O --- aparece SÓ na troca de bloco (umas 7 vezes
+no episódio inteiro), NUNCA entre uma fala e outra do mesmo bloco — mesmo que
+os episódios anteriores tenham feito diferente. Nenhuma outra linha fora desse formato — sem
 títulos, sem markdown, sem asteriscos, sem emojis, sem rubricas como (risos)
 ou [vinheta].
 
@@ -630,9 +657,19 @@ ESTRUTURA DO EPISÓDIO (6 a 8 minutos, nesta ordem):
    consumo — smartphones, sistemas (iOS/Android), fabricantes, operadoras, 5G,
    mercado de apps. Mesma regra: nada de oferta ou review de produto.
 6. RODADA RÁPIDA: de 2 a 4 notícias curtas, poucas falas cada, com ritmo.
-7. TERMO DO DIA: a ANA explica um termo técnico que apareceu no episódio, com
-   uma analogia do dia a dia; o LEO faz a pergunta que um leigo faria. Nunca
-   repita um termo já explicado nos episódios anteriores.
+7. TERMO DO DIA: um termo técnico que apareceu no episódio, explicado pela
+   ANA com uma analogia do dia a dia. Nunca repita um termo já explicado nos
+   episódios anteriores. Roteiro FIXO deste bloco, sem variar os papéis:
+   a) LEO anuncia o termo do dia e, na MESMA fala, pergunta direto pra Ana,
+      falando com ela ("Ana, o que é ...?").
+   b) ANA responde na fala seguinte, em primeira pessoa, já explicando — ela
+      NÃO repete a pergunta, NÃO devolve a vez pro Leo e NÃO pede pra alguém
+      explicar.
+   c) LEO pode fazer UMA pergunta de leigo de acompanhamento, que a ANA
+      responde; e fecha com uma reação curta.
+   Errado (nunca faça): ANA perguntando o termo pro Leo; LEO respondendo
+   "explica aí, Ana" pra uma pergunta que a própria Ana fez; qualquer um
+   falando o próprio nome.
 8. ENCERRAMENTO: bordão de despedida do LEO e observação final da ANA.
 Os blocos CLOUD & DEVOPS, GAMES e MOBILE são obrigatórios. Se a manchete do
 dia já for de uma dessas áreas, o bloco correspondente ainda precisa de OUTRA
@@ -689,7 +726,9 @@ NÃO SEJA REPETITIVO (muito importante):
 - Não volte a comentar nenhum assunto que já apareceu neles, mesmo que hoje
   venha de outro site ou com outro título.
 - Não reaproveite bordões de abertura e despedida, piadas, analogias, frases
-  de efeito nem o termo do dia desses episódios.
+  de efeito nem o termo do dia desses episódios. Também não copie o formato
+  deles: as regras de formato e o roteiro do TERMO DO DIA acima valem mais
+  que qualquer coisa que esses episódios tenham feito.
 - Se sobrarem poucas notícias inéditas, faça um episódio mais curto em vez de
   requentar assunto.
 
@@ -726,24 +765,41 @@ Abaixo estão as notícias das últimas {HOURS_WINDOW} horas coletadas de vário
 NOTÍCIAS DE HOJE:
 {corpus}"""
 
-    return gerar_com_gemini(prompt)
+    return prompt
 
 
-def gerar_com_gemini(prompt: str) -> str:
+def roteirizar(items: list[dict], episodios: list[dict]) -> str:
+    """Prompt completo nas primeiras rodadas; na última, uma versão enxuta
+    (metade das notícias, sem matéria completa nem episódios anteriores
+    longos). Em 13/10 todos os modelos deram 500 por minutos seguidos — se
+    for o tamanho do pedido pesando no servidor, a versão enxuta passa."""
+    enxutos = [{k: v for k, v in it.items() if k != "full_text"} for it in items[:60]]
+    ultimo = [{**ep, "roteiro": ep.get("roteiro", "")[:3000]} for ep in episodios[-1:]]
+    return gerar_com_gemini([montar_prompt(items, episodios), montar_prompt(enxutos, ultimo)])
+
+
+def gerar_com_gemini(prompts: list[str]) -> str:
     """Um 503 costuma ser aquele modelo específico lotado, não a conta/chave.
     Por isso cada rodada passa UMA vez por cada modelo da fila (sem esperar
     entre eles) e só pausa entre rodadas. Antes eram 2 tentativas + 10s de
-    espera por modelo, o que demorava pra chegar num modelo livre."""
+    espera por modelo, o que demorava pra chegar num modelo livre. A última
+    rodada usa o último prompt da lista (o enxuto)."""
     chain = [GEMINI_MODEL]
-    pausas = [0, 20, 60]  # espera antes de cada rodada
+    # Espera antes de cada rodada. Instabilidade geral do Gemini (500 em
+    # todos os modelos) costuma durar minutos, então as pausas crescem; se
+    # nem assim der, a repescagem do workflow tenta de novo horas depois.
+    pausas = [0, 30, 90, 180]
     descoberta_feita = False
     last_error: Exception | None = None
 
     for rodada, pausa in enumerate(pausas, 1):
+        prompt = prompts[-1] if rodada == len(pausas) else prompts[0]
         if pausa:
             print(
                 f"[AVISO] rodada {rodada - 1} falhou em todos os modelos; "
-                f"nova rodada em {pausa}s...",
+                f"nova rodada em {pausa}s"
+                + (" com prompt enxuto" if prompt is not prompts[0] else "")
+                + "...",
                 file=sys.stderr,
             )
             time.sleep(pausa)
@@ -775,7 +831,8 @@ def gerar_com_gemini(prompt: str) -> str:
                     print(f"[AVISO] não deu pra listar modelos alternativos: {e}", file=sys.stderr)
 
     raise RuntimeError(
-        f"Gemini falhou em todos os modelos tentados ({', '.join(chain)}): {last_error}"
+        f"Gemini falhou em todos os modelos tentados ({', '.join(chain)}): "
+        f"{_resumo_erro(last_error) if last_error else '?'}"
     )
 
 
@@ -1002,12 +1059,74 @@ def aparar_silencio(mp3: bytes, margem_ms: int = 60) -> bytes:
     return b"".join(mp3[o : o + t] for o, t in frames[ini:fim])
 
 
-async def text_to_speech(text: str, out_path: str) -> None:
+async def _sintetizar(texto: str, voz: str, rate: str, pitch: str = "+0Hz") -> bytes:
+    """Uma chamada ao edge-tts com até 3 tentativas. O serviço da Microsoft
+    às vezes recusa a conexão (403/timeout) por alguns segundos; quando a
+    recusa é permanente (mudaram a autenticação, como em 12/10), a saída é
+    atualizar o edge-tts — o workflow já instala a versão mais nova."""
     import edge_tts
 
+    for tentativa in range(3):
+        try:
+            communicate = edge_tts.Communicate(texto, voz, rate=rate, pitch=pitch)
+            audio = b"".join(
+                [chunk["data"] async for chunk in communicate.stream() if chunk["type"] == "audio"]
+            )
+            if audio:
+                return audio
+            raise RuntimeError("edge-tts não devolveu áudio")
+        except Exception as e:
+            if tentativa == 2:
+                raise RuntimeError(f"voz (edge-tts) indisponível: {_resumo_erro_tts(e)}") from e
+            print(f"[AVISO] edge-tts falhou ({_resumo_erro_tts(e)}); tentando de novo", file=sys.stderr)
+            await asyncio.sleep(5 * (tentativa + 1))
+    raise RuntimeError("unreachable")
+
+
+def _resumo_erro_tts(e: Exception) -> str:
+    """'403, Invalid response status' sem a URL gigante com o token."""
+    return re.sub(r",?\s*url=\S+", "", str(e)).strip() or type(e).__name__
+
+
+async def text_to_speech(text: str, out_path: str) -> None:
     text = re.sub(r"(?m)^\s*-{3,}\s*$", "", text)
-    communicate = edge_tts.Communicate(texto_para_fala(text), TTS_VOICE, rate="+8%")
-    await communicate.save(out_path)
+    audio = await _sintetizar(texto_para_fala(text), TTS_VOICE, rate="+8%")
+    with open(out_path, "wb") as out:
+        out.write(audio)
+
+
+_OUTRO = {"ANA": "LEO", "LEO": "ANA"}
+
+
+def normalizar_roteiro(script: str) -> str:
+    """Conserta dois vícios do Gemini antes do áudio (e do histórico, pra ele
+    não imitar amanhã):
+
+    - Rótulo trocado: fala em que o apresentador chama A SI MESMO pelo nome
+      ("ANA: Explica aí pra gente, Ana"), sem citar o outro — era pra ser do
+      outro apresentador. Troca o rótulo.
+    - '---' entre TODAS as falas (aconteceu de 09/10 em diante): virava uma
+      pausa de bloco a cada troca e a conversa ficava picotada. Se há bem mais
+      separadores que blocos possíveis, eles são removidos."""
+    linhas = []
+    for linha in script.splitlines():
+        m = re.match(r"^\s*\**(ANA|LEO)\**\s*:\s*(.*)$", linha, re.I)
+        if m:
+            spk, fala = m.group(1).upper(), m.group(2)
+            proprio, outro = spk.capitalize(), _OUTRO[spk].capitalize()
+            vocativo = re.search(
+                rf"(^|[,.!?;]\s*){proprio}\s*[,:!?]|,\s*{proprio}\s*[.!?:]*\s*$", fala
+            )
+            if vocativo and not re.search(rf"\b{outro}\b", fala):
+                print(f"[AVISO] fala com rótulo trocado corrigida: {spk}: {fala[:60]}", file=sys.stderr)
+                spk = _OUTRO[spk]
+            linha = f"{spk}: {fala}"
+        linhas.append(linha)
+    separadores = sum(1 for l in linhas if re.fullmatch(r"\s*-{3,}\s*", l))
+    if separadores > 12:
+        print(f"[AVISO] {separadores} separadores --- no roteiro (máx. ~8); removidos", file=sys.stderr)
+        linhas = [l for l in linhas if not re.fullmatch(r"\s*-{3,}\s*", l)]
+    return "\n".join(linhas)
 
 
 def parse_dialogue(script: str) -> list[tuple[str, str]]:
@@ -1051,8 +1170,6 @@ async def dialogue_to_speech(segments: list[tuple[str, str]], out_path: str) -> 
     """Gera cada fala com a voz do respectivo host, apara o silêncio embutido
     e costura tudo num MP3 só com pausas controladas. Concatenar os bytes
     funciona porque o edge-tts emite MPEG puro, sem headers."""
-    import edge_tts
-
     # Ana: grave e com mais ritmo — intensidade, não passividade.
     # Leo: mais acelerado (energia, empolgação).
     styles = {
@@ -1069,12 +1186,7 @@ async def dialogue_to_speech(segments: list[tuple[str, str]], out_path: str) -> 
                 troca_de_bloco = True
                 continue
             s = styles[speaker]
-            communicate = edge_tts.Communicate(
-                texto_para_fala(text), s["voice"], rate=s["rate"], pitch=s["pitch"]
-            )
-            audio = b"".join(
-                [chunk["data"] async for chunk in communicate.stream() if chunk["type"] == "audio"]
-            )
+            audio = await _sintetizar(texto_para_fala(text), s["voice"], s["rate"], s["pitch"])
             audio = aparar_silencio(audio)
             amostra = amostra or audio
             if anterior:
@@ -1247,36 +1359,7 @@ def send_telegram_html(text: str) -> None:
         _telegram_ok(resp)
 
 
-def main() -> None:
-    today = datetime.now(BRT).strftime("%d/%m/%Y")
-    print(f"=== Resumo tech {today} ===")
-
-    check_telegram()
-    print("Telegram OK (token e chat_id válidos)")
-
-    feeds = load_feeds(FEEDS_FILE)
-    print(f"{len(feeds)} feeds configurados")
-
-    items = collect_news(feeds)
-    print(f"{len(items)} notícias coletadas")
-    episodios = load_history(HISTORY_FILE)
-    items = remove_repeated(items, episodios)
-    if not items:
-        send_telegram_text(f"Resumo tech {today}: nenhuma notícia nova encontrada nas últimas {HOURS_WINDOW}h.")
-        print("Nenhuma notícia nova. Encerrando.")
-        return
-
-    items = trim_for_summary(items, MAX_ITEMS_TO_SUMMARIZE)
-    anexar_materias_completas(items)
-    script, notas = separar_notas(summarize(items, episodios))
-    print(f"Roteiro gerado: {len(script)} caracteres")
-    mensagem, manchete = montar_notas(notas, items, today)
-    if not mensagem:
-        print("[AVISO] Gemini não mandou as notas do episódio; envio o roteiro como texto.", file=sys.stderr)
-
-    mp3 = os.path.join(
-        tempfile.gettempdir(), f"resumo_tech_{datetime.now(BRT).strftime('%Y%m%d')}.mp3"
-    )
+def gerar_audio(script: str, mp3: str) -> None:
     segments = parse_dialogue(script) if PODCAST_STYLE == "duo" else []
     falas = sum(1 for spk, _ in segments if spk != "PAUSA")
     if falas >= 4:
@@ -1289,10 +1372,88 @@ def main() -> None:
         asyncio.run(text_to_speech(script, mp3))
     print(f"Áudio gerado: {mp3} ({os.path.getsize(mp3) // 1024} KB)")
 
-    caption = f"🎙️ Resumo Tech — {today}"
-    if manchete:
-        caption += f"\n📌 {manchete}"
-    send_telegram_audio(mp3, caption)
+
+def _legenda(today: str, manchete: str) -> str:
+    return f"🎙️ Resumo Tech — {today}" + (f"\n📌 {manchete}" if manchete else "")
+
+
+def _caminho_mp3() -> str:
+    return os.path.join(
+        tempfile.gettempdir(), f"resumo_tech_{datetime.now(BRT).strftime('%Y%m%d')}.mp3"
+    )
+
+
+def refazer_audio_pendente(episodios: list[dict], ep: dict, today: str) -> None:
+    """O texto do episódio de hoje já foi pro Telegram, mas a voz falhou:
+    gera só o áudio do roteiro salvo, sem chamar o Gemini de novo."""
+    print("Episódio de hoje já tem roteiro, mas ficou sem áudio; refazendo só o áudio.")
+    mp3 = _caminho_mp3()
+    gerar_audio(ep["roteiro"], mp3)
+    send_telegram_audio(mp3, _legenda(today, ep.get("manchete", "")))
+    ep["audio_ok"] = True
+    gravar_historico(HISTORY_FILE, episodios)
+    print("Áudio pendente enviado. Fim.")
+
+
+def main() -> None:
+    today = datetime.now(BRT).strftime("%d/%m/%Y")
+    print(f"=== Resumo tech {today} ===")
+
+    check_telegram()
+    print("Telegram OK (token e chat_id válidos)")
+
+    episodios = load_history(HISTORY_FILE)
+    hoje_iso = datetime.now(BRT).strftime("%Y-%m-%d")
+    ep_hoje = next((ep for ep in reversed(episodios) if ep.get("data") == hoje_iso), None)
+    if ep_hoje and ep_hoje.get("audio_ok") is False:
+        refazer_audio_pendente(episodios, ep_hoje, today)
+        return
+    if ep_hoje and REPESCAGEM:
+        print("Repescagem: o episódio de hoje já foi entregue. Nada a fazer.")
+        return
+
+    feeds = load_feeds(FEEDS_FILE)
+    print(f"{len(feeds)} feeds configurados")
+
+    items = collect_news(feeds)
+    print(f"{len(items)} notícias coletadas")
+    items = remove_repeated(items, episodios)
+    if not items:
+        send_telegram_text(f"Resumo tech {today}: nenhuma notícia nova encontrada nas últimas {HOURS_WINDOW}h.")
+        print("Nenhuma notícia nova. Encerrando.")
+        return
+
+    items = trim_for_summary(items, MAX_ITEMS_TO_SUMMARIZE)
+    anexar_materias_completas(items)
+    script, notas = separar_notas(roteirizar(items, episodios))
+    script = normalizar_roteiro(script)
+    print(f"Roteiro gerado: {len(script)} caracteres")
+    mensagem, manchete = montar_notas(notas, items, today)
+    if not mensagem:
+        print("[AVISO] Gemini não mandou as notas do episódio; envio o roteiro como texto.", file=sys.stderr)
+
+    mp3 = _caminho_mp3()
+    try:
+        gerar_audio(script, mp3)
+    except Exception as e:
+        # O roteiro (a parte cara e instável) já está pronto: não joga fora.
+        # Manda o texto agora e marca o áudio como pendente pra repescagem.
+        print(f"[ERRO] áudio falhou: {e}", file=sys.stderr)
+        aviso = f"⚠️ A voz do resumo de hoje falhou ({_texto_curto(e)})."
+        aviso += (
+            f" Mando o roteiro em texto; o áudio sai na nova tentativa (~{PROXIMA_TENTATIVA})."
+            if PROXIMA_TENTATIVA
+            else " Segue o roteiro em texto."
+        )
+        send_telegram_text(aviso)
+        if mensagem:
+            send_telegram_html(mensagem)
+        send_telegram_text(script)
+        save_history(HISTORY_FILE, episodios, items, script, manchete, audio_ok=False)
+        print("Texto enviado e áudio marcado como pendente no histórico.")
+        sys.exit(1)  # job vermelho, sem o aviso genérico de falha do __main__
+
+    send_telegram_audio(mp3, _legenda(today, manchete))
     if SEND_TEXT_TOO:
         if mensagem:
             send_telegram_html(mensagem)
@@ -1302,8 +1463,15 @@ def main() -> None:
 
     # Só grava depois de enviar: se algo falhar antes, amanhã essas notícias
     # continuam valendo.
-    save_history(HISTORY_FILE, episodios, items, script)
+    save_history(HISTORY_FILE, episodios, items, script, manchete)
     print(f"Histórico salvo em {HISTORY_FILE} ({len(episodios) + 1} episódio(s)). Fim.")
+
+
+def _texto_curto(e: Exception) -> str:
+    """Mensagem de erro legível no Telegram: sem URLs/tokens, até 300 chars."""
+    texto = re.sub(r"https?://\S+|wss?://\S+", "", _resumo_erro_tts(e))
+    texto = re.sub(r"\s+", " ", texto).strip(" ,:")
+    return (texto[:300] + "…") if len(texto) > 300 else texto
 
 
 if __name__ == "__main__":
@@ -1314,8 +1482,11 @@ if __name__ == "__main__":
         main()
     except Exception as e:
         # Avisa no Telegram antes de falhar o job, senão o erro passa despercebido.
+        aviso = f"⚠️ O resumo tech de hoje falhou: {_texto_curto(e)}"
+        if PROXIMA_TENTATIVA:
+            aviso += f"\n🔁 Nova tentativa automática por volta das {PROXIMA_TENTATIVA}."
         try:
-            send_telegram_text(f"⚠️ O resumo tech de hoje falhou: {e}")
+            send_telegram_text(aviso)
         except Exception:
             pass
         raise
