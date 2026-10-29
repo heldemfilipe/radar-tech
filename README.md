@@ -12,6 +12,7 @@ seu-repo/
 ├── feeds.txt
 ├── apresentadores.json          ← elenco, vozes e rodízio de apresentadores
 ├── pronuncia.txt                ← como a voz fala termos difíceis
+├── LICENSE                      ← licença MIT
 ├── historico.json               ← criado/atualizado pelo bot (não edite)
 └── requirements.txt
 ```
@@ -167,3 +168,7 @@ versão atual do repo. Formatos aceitos estão explicados no topo do arquivo
 campo `politica` (`URL | Nome | 24h | politica`) e alimenta o Radar Política.
 Se um site bloquear o GitHub
 (403/429), o script busca as notícias dele pelo Google Notícias sozinho.
+
+## Licença
+
+[MIT](LICENSE) © 2026 heldemfilipe
