@@ -10,6 +10,7 @@ seu-repo/
 ├── .github/workflows/news.yml   ← agendamento + execução
 ├── main.py
 ├── feeds.txt
+├── apresentadores.json          ← elenco, vozes e rodízio de apresentadores
 ├── pronuncia.txt                ← como a voz fala termos difíceis
 ├── historico.json               ← criado/atualizado pelo bot (não edite)
 └── requirements.txt
@@ -67,25 +68,68 @@ seu-repo/
 
 ## Estilo do podcast
 
-Por padrão o áudio é um **bate-papo entre dois apresentadores** — ANA
-(voz feminina, Francisca) e LEO (voz masculina, Antonio). Para voltar ao
-narrador único, descomente `PODCAST_STYLE: solo` no `news.yml`. As vozes
-podem ser trocadas pelas variáveis `VOICE_FEMALE` e `VOICE_MALE`
-(qualquer voz do edge-tts, ex.: `pt-BR-ThalitaNeural`).
+Por padrão o áudio é um **bate-papo entre dois apresentadores**, escolhidos
+em **rodízio a cada 2 dias** a partir do `apresentadores.json`. A cada 3
+trocas a dupla é **de duas mulheres** (alternando quem conduz); nas outras, uma
+mulher e um homem. Quem explica os conceitos é sempre uma das mulheres. Hoje o
+elenco é:
+
+| | Voz | Personalidade |
+|---|---|---|
+| **Ana** | Francisca | analítica, intensa e sensual, opinião forte |
+| **Clara** | Thalita | sedutora bem-humorada, irônica, charmosa |
+| **Leo** | Antonio | brincalhão, energia alta |
+| **Caio** | Antonio (mais grave e calmo) | cético tranquilo, humor seco |
+| **Teo** | Antonio (mais agudo e rápido) | entusiasta atrapalhado |
+
+As duplas variam (Ana+Clara, Ana+Caio, Clara+Teo, Clara+Ana, Ana+Leo,
+Clara+Caio...) em vez de repetir sempre o mesmo par. As apresentadoras falam de
+um jeito sensual e envolvente em qualquer dupla: no tom, nunca no conteúdo
+(nada explícito). A conta depende só da data: a repescagem do mesmo dia cai na mesma
+dupla, e o `historico.json` guarda quem apresentou cada episódio.
+
+- **Trocar ou adicionar alguém:** edite o `apresentadores.json` (nome sem
+  acento, `voz`, `rate`, `pitch`, `persona`). `rodizio_dias` muda a frequência
+  da troca e `dupla_feminina_a_cada` a da dupla feminina (0 desliga). Na
+  persona, descreva o jeito da pessoa **sem frases prontas entre aspas**: o
+  Gemini copia exemplo literal todo dia e vira bordão. Ana e Leo devem continuar lá: os episódios antigos foram deles.
+- **Forçar uma dupla** (teste): variável `DUPLA`, ex.: `DUPLA=Clara,Caio` ou
+  `DUPLA=Ana,Clara` (precisa ter pelo menos uma mulher).
+- **Só existe uma voz masculina pt-BR** no edge-tts (Antonio); os homens se
+  diferenciam por ritmo e tom. Dá pra usar uma voz multilingual (ex.:
+  `en-US-AndrewMultilingualNeural`) no campo `voz`, mas o sotaque muda — ouça
+  antes de pôr no ar.
+- Para voltar ao narrador único, descomente `PODCAST_STYLE: solo` no `news.yml`.
+
+### Diálogo mais humano
+
+O prompt tem uma seção "SOAR HUMANO" (falas de tamanhos variados com reações
+curtas, interrupções, hesitação, pouca exclamação, pouco "Ana, ..." / "Leo,
+...", transições variadas, sem formato de entrevista) e não tem mais bordão de
+abertura, despedida, pergunta ou termo do dia: cada fala nasce da conversa.
+Além disso, o script procura nos episódios anteriores os **começos de frase
+que se repetiram** ("e aí, Ana, pronta pra ver", "tá, mas o que isso muda",
+"dá pra explicar isso"...) e manda essa lista no prompt como proibida. A cada episódio o log do
+Actions mostra uma linha `[DIÁLOGO]` com as métricas e um `[AVISO]` se o
+roteiro voltou a soar como locutor ou repetiu frase gasta. Base medida nos episódios de 11 e 13/10,
+antes da mudança: 0% de falas curtas, ~45 palavras por fala, ~75% das falas
+com "!" e o nome do colega em ~35% delas.
 
 ## Formato do episódio
 
 O roteiro segue blocos fixos — abertura, **manchete do dia** (a fundo),
-**radar Cloud & DevOps** (pelo menos 1 notícia de AWS, nuvens, DevOps ou GFT), **radar Games** (pelo menos 1
+**radar Cloud & DevOps** (pelo menos 1 notícia de AWS, nuvens ou DevOps), **radar Games** (pelo menos 1
 notícia da indústria de games), **radar Mobile** (pelo menos 1 da indústria
-mobile/telecom), **rodada rápida**, **termo do dia**
+mobile/telecom), **radar Política** (de 1 a 3 notícias de política brasileira,
+com cobertura imparcial: fatos, posições atribuídas a quem as disse, sem
+apresentadores tomando partido), **rodada rápida**, **termo do dia**
 e encerramento — com uma pausa maior entre um bloco e outro.
 
 - **Matéria completa:** as 5 notícias em destaque (`MAX_FULL_ARTICLES`) têm o
   texto inteiro baixado e enviado ao Gemini, pra explicação ter fatos e
   números de verdade, não só o resumo do RSS. A escolha é automática: assunto
-  coberto por vários sites, cloud/DevOps/GFT e segurança/IA sobem; promoção cai;
-  a melhor notícia de cloud, a de games e a de mobile têm vaga garantida (se a
+  coberto por vários sites, cloud/DevOps e segurança/IA sobem; promoção cai;
+  a melhor notícia de cloud, a de games, a de mobile e a de política têm vaga garantida (se a
   manchete já é de uma dessas áreas, a vaga vai pra segunda melhor dela).
   Se as notas do episódio vierem sem algum desses blocos, o log do Actions
   mostra um `[AVISO]`.
@@ -119,5 +163,7 @@ a primeira como "já falada". Pra zerar a memória, apague o `historico.json`.
 
 É só editar `feeds.txt` e dar push — sem rebuild, o runner sempre usa a
 versão atual do repo. Formatos aceitos estão explicados no topo do arquivo
-(RSS, busca no Google Notícias e sitemap). Se um site bloquear o GitHub
+(RSS, busca no Google Notícias e sitemap). Um feed de política leva o 4º
+campo `politica` (`URL | Nome | 24h | politica`) e alimenta o Radar Política.
+Se um site bloquear o GitHub
 (403/429), o script busca as notícias dele pelo Google Notícias sozinho.

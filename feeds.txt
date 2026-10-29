@@ -8,6 +8,9 @@
 #   https://site.com/feed/ | Nome | 72h    -> janela maior que 24h, pra blogs
 #                                             que postam pouco (o histórico
 #                                             impede repetir notícia)
+#   https://site.com/feed/ | Nome | 24h | politica
+#                                          -> 4º campo: marca a fonte como
+#                                             política (bloco "Radar Política")
 #
 # Pra adicionar um site: procure "nome-do-site RSS" no Google e cole a URL
 # aqui — mas TESTE antes (alguns sites "chutados" devolvem 404 ou feed vazio).
@@ -53,8 +56,15 @@ https://www.telesintese.com.br/feed/ | TeleSíntese
 # ---- Agregador dev (bônus, fora da lista dos 10) ----
 https://hnrss.org/frontpage
 
-# ---- GFT ----
-gnews: "GFT Technologies" OR "GFT Brasil" | GFT (Google Notícias)
+# ---- Política (o episódio tem bloco próprio; o 4º campo "politica" marca a
+#      fonte, pra o código separar essas notícias das de tecnologia) ----
+https://agenciabrasil.ebc.com.br/rss/politica/feed.xml | Agência Brasil | 24h | politica
+https://www.camara.leg.br/noticias/rss/ultimas-noticias | Agência Câmara | 24h | politica
+https://www12.senado.leg.br/noticias/rss | Agência Senado | 24h | politica
+https://g1.globo.com/rss/g1/politica/ | G1 Política | 24h | politica
+https://www.poder360.com.br/feed/ | Poder360 | 24h | politica
+https://feeds.folha.uol.com.br/poder/rss091.xml | Folha Poder | 24h | politica
+https://www.jota.info/feed | JOTA | 24h | politica
 
 # ---- AWS ----
 https://aws.amazon.com/pt/blogs/aws/feed/ | AWS News Blog

@@ -1,0 +1,55 @@
+{
+  "_ajuda": [
+    "Elenco do podcast. A cada 'rodizio_dias' dias entra uma dupla nova.",
+    "A cada 'dupla_feminina_a_cada' trocas a dupla é de duas mulheres (0 desliga); nas outras, 1 mulher + 1 homem.",
+    "Quem explica os conceitos é sempre uma mulher; quem conduz pode ser homem ou mulher.",
+    "Pra trocar um apresentador, edite a entrada (nome, voz, persona). Pra adicionar, copie um bloco.",
+    "Nomes SEM acento e sem espaço (viram o rótulo 'CLARA:' no roteiro).",
+    "Persona: descreva o JEITO da pessoa, sem frases prontas entre aspas — o Gemini copia frase de exemplo todo dia e vira bordão.",
+    "Vozes pt-BR do edge-tts hoje: FranciscaNeural, ThalitaMultilingualNeural (mulheres) e AntonioNeural (homem).",
+    "Só existe UMA voz masculina pt-BR; os homens se diferenciam por rate/pitch. Dá pra testar uma voz",
+    "multilingual (ex.: en-US-AndrewMultilingualNeural) mas o sotaque muda — ouça antes de pôr no ar.",
+    "Ana e Leo precisam continuar aqui: os episódios antigos do histórico foram falados por eles."
+  ],
+  "rodizio_dias": 2,
+  "dupla_feminina_a_cada": 3,
+  "mulheres": [
+    {
+      "nome": "Ana",
+      "voz": "pt-BR-FranciscaNeural",
+      "rate": "+5%",
+      "pitch": "-12Hz",
+      "persona": "a analítica intensa, e sensual nessa intensidade. Voz grave e firme, fala como quem sussurra um segredo importante: desacelera na frase de efeito, segura a pausa e deixa o outro esperando. Tem opinião forte e discorda de frente, com um sorriso na voz. Explica conceito técnico com analogia do cotidiano, sem soar professoral, e com a segurança de quem domina o assunto e sabe que isso é atraente. Gosta de apontar o detalhe que ninguém viu."
+    },
+    {
+      "nome": "Clara",
+      "voz": "pt-BR-ThalitaMultilingualNeural",
+      "rate": "+3%",
+      "pitch": "-4Hz",
+      "persona": "a sedutora bem-humorada. Voz quente de rádio de madrugada, ritmo sem pressa, charme o tempo todo. Provoca quem estiver do lado com elogios debochados e um duplo sentido leve e elegante de vez em quando, e ri do próprio charme. Conta notícia como quem conta uma fofoca boa ao pé do ouvido. Explica conceito técnico com analogias do cotidiano e uma pitada de malícia na ironia. Tem opinião e não pede licença pra dar."
+    }
+  ],
+  "homens": [
+    {
+      "nome": "Leo",
+      "voz": "pt-BR-AntonioNeural",
+      "rate": "+12%",
+      "pitch": "+0Hz",
+      "persona": "o brincalhão. Energia alta, piadas leves e referências nerd, se empolga de verdade com o que é empolgante e provoca a parceira de leve. Tem faro pro lado prático das notícias, mas traz isso de um jeito diferente a cada vez: um exemplo concreto, uma conta rápida, uma situação do cotidiano."
+    },
+    {
+      "nome": "Caio",
+      "voz": "pt-BR-AntonioNeural",
+      "rate": "+3%",
+      "pitch": "-6Hz",
+      "persona": "o cético tranquilo. Fala pausado, humor seco, desconfia de hype e lembra de coisas parecidas que aconteceram antes. Faz a pergunta que o ouvinte desconfiado faria. Quando algo é bom de verdade, admite sem drama, e isso tem peso justamente porque ele raramente elogia."
+    },
+    {
+      "nome": "Teo",
+      "voz": "pt-BR-AntonioNeural",
+      "rate": "+16%",
+      "pitch": "+5Hz",
+      "persona": "o entusiasta atrapalhado. Fala rápido, se empolga, às vezes se perde no meio da frase e se corrige. Faz analogia com games e anime, ri de si mesmo e faz a pergunta de leigo que ninguém tem coragem de fazer."
+    }
+  ]
+}

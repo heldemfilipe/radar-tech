@@ -15,7 +15,8 @@ import tempfile
 import time
 import unicodedata
 import urllib.parse
-from datetime import datetime, timedelta, timezone
+from collections import Counter
+from datetime import date, datetime, timedelta, timezone
 from xml.etree import ElementTree
 
 import feedparser
@@ -34,8 +35,10 @@ GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-flash-latest")
 # "duo" = bate-papo entre dois apresentadores; "solo" = narrador único.
 PODCAST_STYLE = os.environ.get("PODCAST_STYLE", "duo")
 TTS_VOICE = os.environ.get("TTS_VOICE", "pt-BR-AntonioNeural")
-VOICE_FEMALE = os.environ.get("VOICE_FEMALE", "pt-BR-FranciscaNeural")
-VOICE_MALE = os.environ.get("VOICE_MALE", "pt-BR-AntonioNeural")
+# Elenco de apresentadores (veja apresentadores.json). DUPLA="Clara,Caio"
+# força uma dupla específica, útil pra testar.
+APRESENTADORES_FILE = os.environ.get("APRESENTADORES_FILE", "apresentadores.json")
+DUPLA_FORCADA = os.environ.get("DUPLA", "").strip()
 # Sem teto de verdade: o filtro que importa é a janela de HOURS_WINDOW.
 # Esse número é só uma trava de segurança contra um feed defeituoso que
 # devolva centenas de itens sem data.
@@ -56,7 +59,7 @@ HISTORY_DAYS = int(os.environ.get("HISTORY_DAYS", "3"))
 BRT = timezone(timedelta(hours=-3))
 # Quantas notícias em destaque têm a matéria completa baixada e enviada ao
 # Gemini (o RSS só traz ~500 caracteres, pouco pra explicar direito).
-MAX_FULL_ARTICLES = int(os.environ.get("MAX_FULL_ARTICLES", "5"))
+MAX_FULL_ARTICLES = int(os.environ.get("MAX_FULL_ARTICLES", "6"))
 PRONUNCIA_FILE = os.environ.get("PRONUNCIA_FILE", "pronuncia.txt")
 # Preenchidos pelo workflow. REPESCAGEM: execução extra do fim da manhã, que
 # só gera episódio se o das 06:15 não saiu. PROXIMA_TENTATIVA: horário (BRT)
@@ -87,27 +90,28 @@ def google_news_url(query: str, horas: int = 24, edicao: str = "pt") -> str:
     return f"https://news.google.com/rss/search?q={q}&{_EDICOES_GNEWS[edicao]}"
 
 
-def load_feeds(path: str) -> list[tuple[str, str, int]]:
+def load_feeds(path: str) -> list[tuple[str, str, int, str]]:
     """Cada linha: `URL`, `URL | Nome` ou `URL | Nome | 72h`. O terceiro
     campo amplia a janela daquele feed (padrão: HOURS_WINDOW) — pra blogs
     que postam poucas vezes por semana (Kubernetes, CNCF, Docker...), que
     com 24h quase sempre davam 0. O histórico impede que a mesma notícia
-    entre em dois episódios. `gnews: <busca> | Nome` vira uma busca no
-    Google Notícias; `sitemap: <url> <trecho>` lê um sitemap diário (veja
-    fetch_sitemap)."""
+    entre em dois episódios. O quarto campo é uma tag (`politica`: as
+    notícias do feed entram no bloco Radar Política). `gnews: <busca> | Nome`
+    vira uma busca no Google Notícias; `sitemap: <url> <trecho>` lê um
+    sitemap diário (veja fetch_sitemap)."""
     feeds = []
     with open(path, encoding="utf-8") as f:
         for line in f:
             line = line.strip()
             if not line or line.startswith("#"):
                 continue
-            spec, nome, janela = (line.split("|") + ["", ""])[:3]
-            spec, nome = spec.strip(), nome.strip()
+            spec, nome, janela, tag = (line.split("|") + ["", "", ""])[:4]
+            spec, nome, tag = spec.strip(), nome.strip(), tag.strip().lower()
             m = re.fullmatch(r"\s*(\d+)\s*h?\s*", janela)
             horas = int(m.group(1)) if m else HOURS_WINDOW
             if spec.lower().startswith("gnews:"):
                 spec = google_news_url(spec[len("gnews:"):].strip(), horas)
-            feeds.append((spec, nome, horas))
+            feeds.append((spec, nome, horas, tag))
     return feeds
 
 
@@ -242,11 +246,11 @@ def _ler_fonte(url: str, nome: str, horas: int) -> tuple[list, str, bool]:
         return parsed.entries, nome or dominio, True
 
 
-def collect_news(feeds: list[tuple[str, str, int]]) -> list[dict]:
+def collect_news(feeds: list[tuple[str, str, int, str]]) -> list[dict]:
     agora = datetime.now(timezone.utc)
     items = []
     vistos: set[str] = set()
-    for url, nome, horas in feeds:
+    for url, nome, horas, tag in feeds:
         cutoff = agora - timedelta(hours=horas)
         try:
             entries, source, via_gnews = _ler_fonte(url, nome, horas)
@@ -276,6 +280,7 @@ def collect_news(feeds: list[tuple[str, str, int]]) -> list[dict]:
                         "summary": strip_html(entry.get("summary", ""))[:500],
                         "link": link,
                         "ts": pub_dt.timestamp() if pub_dt else 0.0,
+                        "tag": tag,
                     }
                 )
                 count += 1
@@ -284,6 +289,109 @@ def collect_news(feeds: list[tuple[str, str, int]]) -> list[dict]:
         except Exception as e:
             print(f"[ERRO] {nome or url}: {e}", file=sys.stderr)
     return items
+
+
+# ---------- Apresentadores: elenco e rodízio ----------
+
+LEGADO = ("Ana", "Leo")  # episódios gravados antes do rodízio
+_ELENCO_PADRAO = {
+    "rodizio_dias": 2,
+    "mulheres": [
+        {
+            "nome": "Ana",
+            "voz": "pt-BR-FranciscaNeural",
+            "rate": "+7%",
+            "pitch": "-12Hz",
+            "persona": "a analítica da dupla, intensa e de opinião forte. Explica "
+            "conceitos técnicos com analogias do dia a dia.",
+        }
+    ],
+    "homens": [
+        {
+            "nome": "Leo",
+            "voz": "pt-BR-AntonioNeural",
+            "rate": "+12%",
+            "pitch": "+0Hz",
+            "persona": "o brincalhão, energia alta, puxa o lado prático.",
+        }
+    ],
+}
+_elenco: dict | None = None
+
+
+def carregar_elenco() -> dict:
+    """Lê apresentadores.json (ou o elenco padrão Ana e Leo, se faltar ou
+    estiver quebrado) e acrescenta a cada pessoa o `rotulo` usado no roteiro
+    ("CLARA:") e o `genero`."""
+    global _elenco
+    if _elenco is not None:
+        return _elenco
+    try:
+        with open(APRESENTADORES_FILE, encoding="utf-8") as f:
+            dados = json.load(f)
+        assert dados["mulheres"] and dados["homens"]
+        for a in dados["mulheres"] + dados["homens"]:
+            assert a["nome"] and a["voz"] and a["persona"]
+    except FileNotFoundError:
+        dados = _ELENCO_PADRAO
+    except (ValueError, KeyError, TypeError, AssertionError) as e:
+        print(f"[AVISO] {APRESENTADORES_FILE} inválido ({e!r}); usando Ana e Leo", file=sys.stderr)
+        dados = _ELENCO_PADRAO
+    for chave, genero in (("mulheres", "F"), ("homens", "M")):
+        for a in dados[chave]:
+            a.setdefault("rate", "+0%")
+            a.setdefault("pitch", "+0Hz")
+            a["genero"], a["rotulo"] = genero, a["nome"].strip().upper()
+    _elenco = dados
+    return _elenco
+
+
+def todos_apresentadores() -> dict[str, dict]:
+    elenco = carregar_elenco()
+    return {a["rotulo"]: a for a in elenco["mulheres"] + elenco["homens"]}
+
+
+def escolher_dupla(hoje: date | None = None) -> tuple[dict, dict]:
+    """(quem explica, quem conduz) do dia. Quem explica é sempre mulher. A
+    dupla muda a cada `rodizio_dias` dias; a cada `dupla_feminina_a_cada`
+    trocas entra uma dupla de duas mulheres (alternando quem conduz). Como o
+    elenco feminino e o masculino têm tamanhos diferentes, as duplas mistas
+    também vão variando. A conta depende só da data, então a repescagem do
+    mesmo dia cai na mesma dupla."""
+    elenco = carregar_elenco()
+    mulheres, homens = elenco["mulheres"], elenco["homens"]
+    if DUPLA_FORCADA:
+        todos = todos_apresentadores()
+        achados = [todos.get(n.strip().upper()) for n in DUPLA_FORCADA.split(",")]
+        if len(achados) == 2 and all(achados):
+            a, b = achados
+            if a["genero"] == "F":
+                return a, b
+            if b["genero"] == "F":
+                return b, a
+        print(f"[AVISO] DUPLA='{DUPLA_FORCADA}' precisa de 2 nomes do elenco, com 1 mulher; sorteando", file=sys.stderr)
+    dias = max(1, int(elenco.get("rodizio_dias", 2)))
+    bloco = (hoje or datetime.now(BRT).date()).toordinal() // dias
+    a_cada = int(elenco.get("dupla_feminina_a_cada", 3)) if len(mulheres) >= 2 else 0
+    if a_cada > 0 and bloco % a_cada == a_cada - 1:
+        pares = [(x, y) for k, x in enumerate(mulheres) for y in mulheres[k + 1 :]]
+        vez = bloco // a_cada
+        a, b = pares[vez % len(pares)]
+        return (a, b) if (vez // len(pares)) % 2 == 0 else (b, a)
+    mista = bloco - (bloco // a_cada if a_cada > 0 else 0)
+    return mulheres[mista % len(mulheres)], homens[mista % len(homens)]
+
+
+def dupla_do_episodio(ep: dict) -> tuple[dict, dict]:
+    """Dupla que gravou um episódio já salvo (a repescagem do áudio precisa
+    das mesmas vozes), na ordem gravada: (quem explica, quem conduz). Sem
+    registro, é um episódio antigo de Ana e Leo."""
+    elenco = todos_apresentadores()
+    achados = [elenco.get(n.upper()) for n in (ep.get("apresentadores") or LEGADO)]
+    if len(achados) == 2 and all(achados):
+        return achados[0], achados[1]
+    print("[AVISO] apresentadores do episódio fora do elenco atual; usando a dupla de hoje", file=sys.stderr)
+    return escolher_dupla()
 
 
 # ---------- Histórico: não repetir notícia de um dia pro outro ----------
@@ -348,6 +456,7 @@ def save_history(
     roteiro: str,
     manchete: str = "",
     audio_ok: bool = True,
+    apresentadores: tuple[str, str] | None = None,
 ) -> None:
     """`audio_ok: false` marca um episódio cujo texto já foi pro Telegram mas
     o áudio falhou — a repescagem do workflow refaz só o áudio dele."""
@@ -360,6 +469,7 @@ def save_history(
             "roteiro": roteiro,
             "manchete": manchete,
             "audio_ok": audio_ok,
+            "apresentadores": list(apresentadores or LEGADO),
         }
     ]
     gravar_historico(path, episodios)
@@ -427,7 +537,7 @@ def trim_for_summary(items: list[dict], limite: int) -> list[dict]:
 
 _PRIORIDADE = re.compile(
     r"\b(aws|amazon web services|azure|google cloud|gcp|kubernetes|k8s|devops|"
-    r"terraform|docker|cloud|nuvem|gft)\b",
+    r"terraform|docker|cloud|nuvem)\b",
     re.I,
 )
 _RELEVANTE = re.compile(
@@ -452,6 +562,15 @@ _GAMES = re.compile(
     r"est[úu]dio de (jogos|games))\b",
     re.I,
 )
+# Política: as fontes marcadas com `politica` no feeds.txt já valem; este
+# regex pega só o que aparece no TÍTULO de feeds de tecnologia (regulação,
+# STF, Congresso...).
+_POLITICA = re.compile(
+    r"\b(congresso|senado|senador(a|es)?|c[âa]mara dos deputados|deputad[oa]s?|"
+    r"stf|supremo|tse|planalto|governo|ministr[oa]s?|presidente da rep[úu]blica|"
+    r"lula|elei[çc][õo]es|eleitoral|projeto de lei|marco civil|big techs?|anpd)\b",
+    re.I,
+)
 _MOBILE = re.compile(
     r"\b(smartphones?|phones?|tablets?|celular(es)?|iphone|android|galaxy|motorola|xiaomi|pixel|"
     r"oneplus|operadoras?|5g|6g|anatel|telecom|telefonia|mobile|dobr[áa]ve(l|is)|"
@@ -461,6 +580,8 @@ _MOBILE = re.compile(
 
 
 def categoria(it: dict) -> str | None:
+    if it.get("tag") == "politica":
+        return "politica"
     texto = f"{it['title']} {it['summary']} {it['source']}"
     if _PRIORIDADE.search(texto):
         return "cloud"
@@ -474,15 +595,17 @@ def categoria(it: dict) -> str | None:
         return "games"
     if _MOBILE.search(texto):
         return "mobile"
+    if _POLITICA.search(it["title"]):
+        return "politica"
     return None
 
 
 def escolher_destaques(items: list[dict]) -> list[dict]:
     """Ordena as candidatas a "matéria completa" sem gastar chamada extra no
     Gemini: sobe quem vários sites cobriram (sinal de assunto grande), quem
-    é de cloud/DevOps/GFT e o que parece relevante; derruba promoção. Logo
-    depois da melhor de todas vêm a melhor de cloud, de games e de mobile, pra
-    esses blocos também terem conteúdo de verdade (se a melhor de todas já é
+    é de cloud/DevOps e o que parece relevante; derruba promoção. Logo
+    depois da melhor de todas vêm a melhor de cloud, de games, de mobile e de
+    política, pra esses blocos também terem conteúdo de verdade (se a melhor de todas já é
     de uma dessas áreas, a vaga vai pra segunda melhor daquela área, porque o
     bloco precisa de outra notícia além da manchete)."""
     tokens = [_title_tokens(i["title"]) for i in items]
@@ -506,7 +629,8 @@ def escolher_destaques(items: list[dict]) -> list[dict]:
     pontuadas.sort(reverse=True)
     ordem = [items[idx] for score, _, idx in pontuadas if score > 0]
     topo = ordem[0] if ordem else None
-    for cat in ("mobile", "games", "cloud"):  # inseridas na posição 1: cloud, games, mobile
+    # inseridas na posição 1, nesta ordem: cloud, games, mobile, política
+    for cat in ("politica", "mobile", "games", "cloud"):
         melhor = next(
             (
                 items[idx]
@@ -586,113 +710,179 @@ def _rotulo_dia(data_iso: str) -> str:
     return f"{DIAS_SEMANA[d.weekday()]} ({d:%d/%m})"
 
 
-def montar_prompt(items: list[dict], episodios: list[dict]) -> str:
-    blocos = []
-    for n, i in enumerate(items, 1):
-        bloco = f"[{n}] FONTE: {i['source']}\nTÍTULO: {i['title']}\nRESUMO: {i['summary']}"
-        if i.get("full_text"):
-            bloco += f"\nMATÉRIA COMPLETA: {i['full_text']}"
-        blocos.append(bloco)
-    corpus = "\n\n".join(blocos)
-    if PODCAST_STYLE == "duo":
-        hoje = datetime.now(BRT)
-        contexto_dia = (
-            f"Hoje é {DIAS_SEMANA[hoje.weekday()]}, "
-            f"{hoje.day} de {MESES[hoje.month - 1]} de {hoje.year}."
-        )
-        estilo = f"""Você é o roteirista de um podcast DIÁRIO de notícias de tecnologia em
-português do Brasil, apresentado por dois hosts com personalidades bem definidas.
-Este episódio cobre as últimas 24 horas — é um resumo do DIA, nunca da semana.
+def _estilo_duo(dupla: tuple[dict, dict], gastas: list[str]) -> str:
+    """`dupla` = (quem explica, quem conduz). Quem explica é sempre uma
+    mulher; quem conduz pode ser homem ou mulher (dia de dupla feminina)."""
+    m, h = dupla
+    M, H, Mn, Hn = m["rotulo"], h["rotulo"], m["nome"], h["nome"]
+    pro_h = "pra" if h["genero"] == "F" else "pro"
+    proibidas = (
+        "- Estas expressões já se repetiram nos últimos episódios e estão PROIBIDAS "
+        "hoje (nem parecidas): " + "; ".join(f'"{g}"' for g in gastas) + "."
+        if gastas
+        else ""
+    )
+    hoje = datetime.now(BRT)
+    contexto_dia = (
+        f"Hoje é {DIAS_SEMANA[hoje.weekday()]}, "
+        f"{hoje.day} de {MESES[hoje.month - 1]} de {hoje.year}."
+    )
+    return f"""Você é o roteirista de um podcast DIÁRIO de notícias de tecnologia, com um
+bloco de política, em português do Brasil, apresentado por dois hosts com
+personalidades bem definidas. Este episódio cobre as últimas 24 horas — é um
+resumo do DIA, nunca da semana. O elenco do podcast muda a cada poucos dias:
+hoje quem apresenta são {Mn} e {Hn}. Escreva só pra essa dupla. {Mn} é quem
+explica os conceitos; {Hn} conduz (abre, faz as viradas e encerra).
 
-ANA — a analítica da dupla, e a mais intensa das duas vozes. Fala com paixão e
-convicção, não tem medo de dar opinião forte ou discordar de frente. Quando
-surge um conceito técnico (LLM, kubernetes, zero-day, latência...), ela explica
-em uma frase simples com uma analogia do dia a dia, sem soar professoral — mas
-faz isso com intensidade, como quem realmente se importa com o assunto, não
-com neutralidade de manual. Provoca, questiona, aponta "o que ninguém está
-comentando" sobre a notícia com firmeza. É magnética: quando ela fala, prende
-a atenção.
+{M} — {m["persona"]}
 
-LEO — o brincalhão. Energia alta, piadas leves e referências nerd, reage com
-entusiasmo genuíno ("não acredito!", "olha isso!"), provoca a Ana de leve e sempre
-puxa o lado prático: "tá, mas o que isso muda na vida de quem tá ouvindo?".
+{H} — {h["persona"]}
+
+TOM GERAL: descontraído, com charme e personalidade. Provocação bem-humorada
+entre os dois, sempre leve. Sem palavrão pesado, sem ofender ninguém.
+
+AS APRESENTADORAS (vale pra qualquer dupla, até quando as duas são mulheres):
+falam de um jeito sensual e envolvente — voz macia e segura, frase de efeito
+dita devagar, charme, elogio provocante, um duplo sentido leve e elegante de
+vez em quando, a confiança de quem sabe que está sendo ouvida. A sedução está
+no tom e no jeito, nunca no conteúdo: nada explícito, nada vulgar, nada sexual.
+Cada uma do seu jeito (veja a persona), sem virar caricatura.
+
+NADA DE BORDÃO NEM FRASE FEITA (o ouvinte já percebeu a repetição):
+- Não existe bordão de abertura, de despedida, de pergunta nem de transição.
+  Cada fala nasce do que acabou de ser dito: a pergunta seguinte depende da
+  resposta anterior, a reação depende do tamanho e do clima da notícia.
+- Pergunta muda de forma e de função: às vezes é dúvida real, às vezes
+  provocação, às vezes uma hipótese, às vezes nem é pergunta ("não entendi
+  essa parte"). Nunca use a mesma estrutura de pergunta duas vezes no episódio
+  — nada de uma pergunta-padrão sobre "o que muda pra quem ouve" em toda
+  notícia; o impacto prático entra quando faz sentido, cada vez de um jeito.
+- As frases entre aspas neste prompt são só pra mostrar o tom: NÃO as use
+  como estão. Invente as suas, a partir do assunto do dia.
+{proibidas}
 
 DINÂMICA (o que faz soar como conversa de verdade):
-- LEO SEMPRE abre o episódio com um bordão de abertura criativo, estilo nerd,
-  DIFERENTE a cada dia (crie um novo hoje, nunca repita), e ANA emenda com um
-  comentário intenso e marcante no estilo dela.
+- {H} abre do jeito que o dia pedir — sem fórmula: pode ser um comentário
+  sobre a notícia mais estranha, uma provocação, uma confissão, o clima da
+  semana. {M} reage no estilo dela. O primeiro minuto soa como duas pessoas se
+  encontrando, e só depois vem o gancho do assunto principal.
 - Mencione o dia da semana na abertura de forma natural. {contexto_dia}
 - Cada um fala SEMPRE em primeira pessoa ("eu acho", "eu falei"). Ninguém
-  fala de si mesmo na terceira pessoa nem diz o próprio nome: numa fala da
-  ANA, o único nome que aparece é "Leo", e vice-versa. Quem faz uma pergunta
+  fala de si mesmo na terceira pessoa nem diz o próprio nome: numa fala de
+  {M}, o único nome que aparece é "{Hn}", e vice-versa. Quem faz uma pergunta
   é quem recebe a resposta — nunca jogue a pergunta de volta pra quem
   perguntou.
-- Eles se chamam pelo nome, discordam de verdade às vezes (a Ana puxa mais essa
-  briga), um completa o raciocínio do outro, fazem gancho entre uma notícia e a
-  próxima.
-- Reações curtas no meio da conversa ("sério?", "exato", "aí complicou") pra
-  quebrar blocos longos de fala.
-- LEO encerra com um bordão de despedida (também novo a cada dia) e ANA fecha com
-  uma última observação afiada e intensa.
+- Eles discordam de verdade às vezes, um completa o raciocínio do outro, fazem
+  gancho entre uma notícia e a próxima.
+- {H} encerra ligando com algo que rolou no próprio episódio (nada de bordão)
+  e {M} fica com a última palavra.
 - NUNCA chame o episódio de "resumo semanal", "boletim da semana" ou qualquer
   variação de semanal — é sempre "resumo de hoje", "episódio de hoje", "edição
   de hoje". Isso é um erro grave, evite a todo custo.
+
+SOAR HUMANO, NÃO LOCUTOR (a parte mais importante do roteiro):
+- É uma conversa entre duas pessoas que trabalham juntas e se gostam, não dois
+  locutores lendo notícia em revezamento. Um reage ao que o outro acabou de
+  dizer ANTES de seguir pro próximo assunto.
+- Misture o tamanho das falas. Umas bem curtas, de 1 a 6 palavras (reação
+  de verdade ao que o outro disse); várias de 10 a 25 palavras; e só
+  de vez em quando uma de até 45 palavras (na manchete). Pelo menos 1 em cada
+  4 falas é curta. NUNCA duas falas seguidas com mais de 35 palavras.
+- Quem fala pode ser cortado: interrompa uma frase no meio com "—" e deixe o
+  outro entrar; quem foi cortado retoma depois ("Então, como eu ia dizendo,
+  ..."). Faça isso de 3 a 5 vezes no episódio.
+- Marcas de fala real, sem exagero: hesitação ("é... tipo", "como é que eu
+  falo"), autocorreção ("quer dizer, não, peraí"), pensar em voz alta, e
+  palavrinhas como "olha", "cara", "pô", "nossa", "hum", "ué", "sei lá".
+- Exclamação é rara: no máximo 1 em cada 4 falas termina em "!". O resto
+  termina em ponto, interrogação ou reticências. Tom de locutor de propaganda
+  ("Olha isso!" a cada fala) é proibido.
+- Não transforme em entrevista. Não é "{H} pergunta, {M} responde" em toda
+  notícia: os dois trazem informação, os dois opinam, às vezes a pergunta vem
+  de {M}, às vezes um sabe uma coisa que o outro não sabia e reage.
+- Chamar o outro pelo nome é raro: no máximo 1 em cada 6 falas. Gente de
+  verdade não repete o nome do colega o tempo todo.
+- Transições entre notícias variadas e naturais, cada uma diferente. "E por
+  falar em...", "e pra fechar", "chegou a hora do..." e "e agora segura essa"
+  estão proibidas. Prefira sair do que foi dito: uma reação, uma ligação de
+  ideia entre as duas notícias, ou só uma virada seca.
+- Humor que nasce da notícia: uma tirada, uma comparação inesperada, uma ironia
+  com a situação. Nada de piada de manual. Se rir, escreva a reação falada
+  ("ai, essa foi boa", "não, para") — nunca "haha" nem "(risos)".
+- Números do jeito que se fala: "uns quarenta por cento", "quase três
+  bilhões". No máximo 2 números por fala; ficha técnica inteira vira conversa.
+- Uma ideia por fala. Se tem três informações, são três falas, com reação no
+  meio.
 
 PORTUGUÊS NATURAL (muito importante):
 - Escreva como brasileiros realmente falam, não como uma tradução. Frases
   curtas, contrações naturais ("tá", "pra", "cê", "né", "bora"), sem construções
   formais ou empoladas que soam artificiais em fala espontânea.
   Evite conectivos de texto escrito ("outrossim", "ademais", "não obstante") e
-  frases repetidas ou genéricas de robô ("é importante ressaltar que...",
-  "vale destacar que...", "em suma").
+  frases genéricas de robô ("é importante ressaltar que...", "vale destacar
+  que...", "em suma").
 - Cada frase deve soar como algo que uma pessoa de verdade diria em voz alta
   numa conversa descontraída, com ritmo e respiração naturais — não como texto
   de artigo lido em voz alta.
 
-FORMATO OBRIGATÓRIO: cada fala em sua própria linha, começando com "ANA:" ou
-"LEO:". Entre um bloco e outro do episódio, uma linha contendo apenas ---
-(vira uma pausa no áudio). O --- aparece SÓ na troca de bloco (umas 7 vezes
+FORMATO OBRIGATÓRIO: cada fala em sua própria linha, começando com "{M}:" ou
+"{H}:". Entre um bloco e outro do episódio, uma linha contendo apenas ---
+(vira uma pausa no áudio). O --- aparece SÓ na troca de bloco (umas 8 vezes
 no episódio inteiro), NUNCA entre uma fala e outra do mesmo bloco — mesmo que
 os episódios anteriores tenham feito diferente. Nenhuma outra linha fora desse formato — sem
 títulos, sem markdown, sem asteriscos, sem emojis, sem rubricas como (risos)
 ou [vinheta].
 
-ESTRUTURA DO EPISÓDIO (6 a 8 minutos, nesta ordem):
-1. ABERTURA (curta): bordão do LEO, comentário da ANA, dia da semana e um
+ESTRUTURA DO EPISÓDIO (7 a 9 minutos, nesta ordem):
+1. ABERTURA (curta): {H} abre sem fórmula, {M} reage, dia da semana e um
    gancho do assunto principal pra prender a atenção.
 2. MANCHETE DO DIA (uns 2 minutos): o assunto mais importante, a fundo. Cubra
    o que aconteceu, o contexto (como chegamos aqui), por que importa e o que
    muda na prática pra quem ouve. Use os fatos da MATÉRIA COMPLETA quando ela
    existir.
 3. RADAR CLOUD & DEVOPS: pelo menos 1 notícia de AWS, Azure, Google Cloud,
-   DevOps, Kubernetes, infraestrutura ou da GFT Technologies — é a área de
-   quem ouve, então é o bloco mais importante depois da manchete. Se houver
-   várias, fale de 2 ou 3.
+   DevOps, Kubernetes ou infraestrutura — é a área de quem ouve, então é o
+   bloco mais importante depois da manchete. Se houver várias, fale de 2 ou 3.
 4. RADAR GAMES: pelo menos 1 notícia da INDÚSTRIA de games — lançamentos
    importantes, estúdios, publishers, consoles, vendas, aquisições, demissões,
    regulação. Não vale promoção, cupom nem "jogo grátis por tempo limitado".
 5. RADAR MOBILE: pelo menos 1 notícia da indústria mobile e de tecnologia de
    consumo — smartphones, sistemas (iOS/Android), fabricantes, operadoras, 5G,
    mercado de apps. Mesma regra: nada de oferta ou review de produto.
-6. RODADA RÁPIDA: de 2 a 4 notícias curtas, poucas falas cada, com ritmo.
-7. TERMO DO DIA: um termo técnico que apareceu no episódio, explicado pela
-   ANA com uma analogia do dia a dia. Nunca repita um termo já explicado nos
-   episódios anteriores. Roteiro FIXO deste bloco, sem variar os papéis:
-   a) LEO anuncia o termo do dia e, na MESMA fala, pergunta direto pra Ana,
-      falando com ela ("Ana, o que é ...?").
-   b) ANA responde na fala seguinte, em primeira pessoa, já explicando — ela
-      NÃO repete a pergunta, NÃO devolve a vez pro Leo e NÃO pede pra alguém
-      explicar.
-   c) LEO pode fazer UMA pergunta de leigo de acompanhamento, que a ANA
-      responde; e fecha com uma reação curta.
-   Errado (nunca faça): ANA perguntando o termo pro Leo; LEO respondendo
-   "explica aí, Ana" pra uma pergunta que a própria Ana fez; qualquer um
+6. RADAR POLÍTICA: de 1 a 3 notícias de política brasileira — Congresso,
+   governo federal, STF/TSE, eleições, regulação de tecnologia e internet.
+   Prefira o que mexe com a vida de quem ouve (economia, impostos, regras pra
+   internet, IA e plataformas). REGRAS DESTE BLOCO: imparcialidade total.
+   Relate fatos, atribua posições a quem as disse ("segundo o ministro", "o
+   relator defende"), mostre os dois lados quando há disputa e deixe claro se é
+   decisão, proposta ou só declaração. Os apresentadores NÃO tomam partido, não
+   torcem, não ironizam político, partido, governo ou eleitor e não usam
+   adjetivo carregado. A personalidade deles aparece no ritmo e na reação ao
+   impacto prático ("e isso muda o quê no bolso de quem ouve?"), nunca em
+   opinião política. Linguagem simples: explique sigla e rito (relator, PEC,
+   medida provisória).
+7. RODADA RÁPIDA: de 2 a 4 notícias curtas, poucas falas cada, com ritmo.
+8. TERMO DO DIA: um termo técnico que apareceu no episódio, explicado por
+   {M} com uma analogia do dia a dia. Nunca repita um termo já explicado nos
+   episódios anteriores. Os PAPÉIS são fixos; as palavras mudam todo dia:
+   a) {H} puxa o termo a partir da conversa (algo que apareceu numa notícia,
+      uma dúvida que ficou, uma provocação) e passa a vez pra {Mn}. A frase
+      é diferente a cada episódio — nunca a fórmula "{Mn}, o que é ...?" nem
+      um pedido de "analogia do dia a dia".
+   b) {M} responde na fala seguinte, em primeira pessoa, já explicando — ela
+      NÃO repete a pergunta, NÃO devolve a vez {pro_h} {Hn} e NÃO pede pra
+      alguém explicar.
+   c) {H} pode reagir ou puxar UMA dúvida de acompanhamento, que {M}
+      responde.
+   Errado (nunca faça): {M} perguntando o termo {pro_h} {Hn}; {H} respondendo
+   "explica aí, {Mn}" pra uma pergunta que a própria {Mn} fez; qualquer um
    falando o próprio nome.
-8. ENCERRAMENTO: bordão de despedida do LEO e observação final da ANA.
-Os blocos CLOUD & DEVOPS, GAMES e MOBILE são obrigatórios. Se a manchete do
-dia já for de uma dessas áreas, o bloco correspondente ainda precisa de OUTRA
-notícia daquela área. Só pule um deles se realmente não existir nenhuma
-notícia da área na lista (nesse caso, sem comentar a ausência).
+9. ENCERRAMENTO: {H} fecha ligando com o que rolou no episódio e {M} dá a
+   última palavra. Nada de bordão.
+Os blocos CLOUD & DEVOPS, GAMES, MOBILE e POLÍTICA são obrigatórios. Se a
+manchete do dia já for de uma dessas áreas, o bloco correspondente ainda
+precisa de OUTRA notícia daquela área. Só pule um deles se realmente não
+existir nenhuma notícia da área na lista (nesse caso, sem comentar a ausência).
 
 EXPLICAR BEM (o ouvinte precisa entender, não só saber que aconteceu):
 - Toda notícia responde "o que aconteceu" e "por que isso importa".
@@ -701,25 +891,27 @@ EXPLICAR BEM (o ouvinte precisa entender, não só saber que aconteceu):
   números ou declarações que não estejam no material; se a informação é vaga,
   fale menos daquele assunto.
 - Agrupe notícias repetidas (vários sites cobrindo o mesmo assunto) em um item só.
-- Priorize: AWS e nuvem (Azure, Google Cloud), DevOps, notícias da GFT
-  Technologies, IA, lançamentos relevantes, programação e segurança.
+- Priorize: AWS e nuvem (Azure, Google Cloud), DevOps, IA, lançamentos
+  relevantes, programação, segurança e a política que mexe com tecnologia.
 - Ignore publieditorial, promoções e reviews de produto irrelevantes."""
-    else:
-        estilo = """Você é o roteirista de um podcast DIÁRIO de notícias de tecnologia em
+
+
+_ESTILO_SOLO = """Você é o roteirista de um podcast DIÁRIO de notícias de tecnologia em
 português do Brasil. Este episódio cobre as últimas 24 horas — é um resumo do
 DIA, nunca da semana; nunca diga "resumo semanal" ou variações.
 
 Escreva um roteiro de podcast de 3 a 5 minutos:
 - Comece com uma saudação curta ("Bom dia! Aqui está o seu resumo tech de hoje...").
 - Agrupe notícias repetidas (vários sites cobrindo o mesmo assunto) em um item só.
-- Priorize: AWS e nuvem (Azure, Google Cloud), DevOps, notícias da GFT
-  Technologies, IA, lançamentos relevantes, programação e segurança.
+- Priorize: AWS e nuvem (Azure, Google Cloud), DevOps, IA, lançamentos relevantes,
+  programação e segurança.
 - Ignore publieditorial, promoções e reviews de produto irrelevantes.
 - Ordem: manchete do dia a fundo (o que aconteceu, por que importa, o que muda),
-  depois pelo menos 1 de cloud/DevOps/GFT, depois pelo menos 1 da indústria de games e
-  pelo menos 1 da indústria mobile (nada de promoção), depois notas rápidas, e
-  um "termo do dia" explicado com analogia. Entre um bloco e outro, uma linha
-  contendo apenas ---.
+  depois pelo menos 1 de cloud/DevOps, depois pelo menos 1 da indústria de games e
+  pelo menos 1 da indústria mobile (nada de promoção), depois 1 de política
+  brasileira (imparcial: só fatos, posições atribuídas a quem as disse, sem
+  tomar partido), depois notas rápidas, e um "termo do dia" explicado com
+  analogia. Entre um bloco e outro, uma linha contendo apenas ---.
 - Não invente fatos que não estejam no material; use a MATÉRIA COMPLETA quando houver.
 - Fale de forma natural, como um apresentador, sem markdown, sem asteriscos,
   sem emojis, sem listas — apenas texto corrido pronto para ser lido em voz alta.
@@ -728,10 +920,24 @@ Escreva um roteiro de podcast de 3 a 5 minutos:
   escrito e sem frases genéricas de robô ("é importante ressaltar que...").
 - Encerre com uma despedida curta."""
 
+
+def montar_prompt(items: list[dict], episodios: list[dict], dupla: tuple[dict, dict]) -> str:
+    blocos = []
+    for n, i in enumerate(items, 1):
+        bloco = f"[{n}] FONTE: {i['source']}\nTÍTULO: {i['title']}\nRESUMO: {i['summary']}"
+        if i.get("full_text"):
+            bloco += f"\nMATÉRIA COMPLETA: {i['full_text']}"
+        blocos.append(bloco)
+    corpus = "\n\n".join(blocos)
+    estilo = (
+        _estilo_duo(dupla, expressoes_gastas(episodios)) if PODCAST_STYLE == "duo" else _ESTILO_SOLO
+    )
+
     anteriores = ""
     if episodios:
         roteiros = "\n\n".join(
-            f"--- EPISÓDIO DE {_rotulo_dia(ep.get('data', '?')).upper()} ---\n"
+            f"--- EPISÓDIO DE {_rotulo_dia(ep.get('data', '?')).upper()} "
+            f"(apresentado por {' e '.join(ep.get('apresentadores') or LEGADO)}) ---\n"
             f"{ep.get('roteiro', '')[:8000]}"
             for ep in episodios
         )
@@ -745,16 +951,20 @@ NÃO SEJA REPETITIVO (muito importante):
   venha de outro site ou com outro título.
 - Não reaproveite bordões de abertura e despedida, piadas, analogias, frases
   de efeito nem o termo do dia desses episódios. Também não copie o formato
-  deles: as regras de formato e o roteiro do TERMO DO DIA acima valem mais
-  que qualquer coisa que esses episódios tenham feito.
+  nem o ritmo deles: as regras de formato, de SOAR HUMANO e o roteiro do TERMO
+  DO DIA acima valem mais que qualquer coisa que esses episódios tenham feito
+  (por exemplo, não imite falas longas cheias de exclamação).
 - Se sobrarem poucas notícias inéditas, faça um episódio mais curto em vez de
   requentar assunto.
 
 GANCHOS COM EPISÓDIOS ANTERIORES (faz o podcast parecer uma série):
 - Quando uma notícia de hoje for continuação, consequência ou reação a algo
-  desses episódios, faça a ligação de forma natural citando quando foi:
-  "lembra que ontem a gente falou do...", "na segunda eu disse que isso ia dar
-  problema, e olha aí". Aí fale só da novidade, sem recontar a história.
+  desses episódios, faça a ligação de forma natural citando quando foi, cada
+  vez com palavras diferentes (não comece sempre com "lembra que..."). Aí
+  fale só da novidade, sem recontar a história.
+- Os apresentadores mudam a cada poucos dias (veja o cabeçalho de cada
+  episódio): só diga "eu falei/eu disse" se quem fala estava naquele episódio;
+  senão use "a gente falou" ou "o pessoal comentou".
 - De 1 a 3 ganchos por episódio, só quando a ligação for real — nunca force.
 
 {roteiros}"""
@@ -774,7 +984,7 @@ E abaixo dela, uma linha por notícia comentada, na ordem do episódio:
 NÚMERO | BLOCO | título curto em português
 - NÚMERO é o número entre colchetes da notícia na lista abaixo (se juntou
   várias, use a principal).
-- BLOCO é um destes: Manchete, Cloud & DevOps, Games, Mobile, Rodada rápida.
+- BLOCO é um destes: Manchete, Cloud & DevOps, Games, Mobile, Política, Rodada rápida.
 - Por último, uma linha: TERMO | Termo do dia | termo — definição em uma frase{anteriores}
 
 Abaixo estão as notícias das últimas {HOURS_WINDOW} horas coletadas de vários sites
@@ -786,14 +996,16 @@ NOTÍCIAS DE HOJE:
     return prompt
 
 
-def roteirizar(items: list[dict], episodios: list[dict]) -> str:
+def roteirizar(items: list[dict], episodios: list[dict], dupla: tuple[dict, dict]) -> str:
     """Prompt completo nas primeiras rodadas; na última, uma versão enxuta
     (metade das notícias, sem matéria completa nem episódios anteriores
     longos). Em 13/10 todos os modelos deram 500 por minutos seguidos — se
     for o tamanho do pedido pesando no servidor, a versão enxuta passa."""
     enxutos = [{k: v for k, v in it.items() if k != "full_text"} for it in items[:60]]
     ultimo = [{**ep, "roteiro": ep.get("roteiro", "")[:3000]} for ep in episodios[-1:]]
-    return gerar_com_gemini([montar_prompt(items, episodios), montar_prompt(enxutos, ultimo)])
+    return gerar_com_gemini(
+        [montar_prompt(items, episodios, dupla), montar_prompt(enxutos, ultimo, dupla)]
+    )
 
 
 def gerar_com_gemini(prompts: list[str]) -> str:
@@ -1113,10 +1325,7 @@ async def text_to_speech(text: str, out_path: str) -> None:
         out.write(audio)
 
 
-_OUTRO = {"ANA": "LEO", "LEO": "ANA"}
-
-
-def normalizar_roteiro(script: str) -> str:
+def normalizar_roteiro(script: str, dupla: tuple[dict, dict]) -> str:
     """Conserta dois vícios do Gemini antes do áudio (e do histórico, pra ele
     não imitar amanhã):
 
@@ -1126,31 +1335,35 @@ def normalizar_roteiro(script: str) -> str:
     - '---' entre TODAS as falas (aconteceu de 09/10 em diante): virava uma
       pausa de bloco a cada troca e a conversa ficava picotada. Se há bem mais
       separadores que blocos possíveis, eles são removidos."""
+    nomes = {a["rotulo"]: a["nome"] for a in dupla}
+    outro = {dupla[0]["rotulo"]: dupla[1]["rotulo"], dupla[1]["rotulo"]: dupla[0]["rotulo"]}
+    padrao = "|".join(re.escape(r) for r in nomes)
     linhas = []
     for linha in script.splitlines():
-        m = re.match(r"^\s*\**(ANA|LEO)\**\s*:\s*(.*)$", linha, re.I)
+        m = re.match(rf"^\s*\**({padrao})\**\s*:\s*(.*)$", linha, re.I)
         if m:
             spk, fala = m.group(1).upper(), m.group(2)
-            proprio, outro = spk.capitalize(), _OUTRO[spk].capitalize()
+            proprio, do_outro = nomes[spk], nomes[outro[spk]]
             vocativo = re.search(
                 rf"(^|[,.!?;]\s*){proprio}\s*[,:!?]|,\s*{proprio}\s*[.!?:]*\s*$", fala
             )
-            if vocativo and not re.search(rf"\b{outro}\b", fala):
+            if vocativo and not re.search(rf"\b{do_outro}\b", fala):
                 print(f"[AVISO] fala com rótulo trocado corrigida: {spk}: {fala[:60]}", file=sys.stderr)
-                spk = _OUTRO[spk]
+                spk = outro[spk]
             linha = f"{spk}: {fala}"
         linhas.append(linha)
     separadores = sum(1 for l in linhas if re.fullmatch(r"\s*-{3,}\s*", l))
-    if separadores > 12:
-        print(f"[AVISO] {separadores} separadores --- no roteiro (máx. ~8); removidos", file=sys.stderr)
+    if separadores > 14:
+        print(f"[AVISO] {separadores} separadores --- no roteiro (máx. ~9); removidos", file=sys.stderr)
         linhas = [l for l in linhas if not re.fullmatch(r"\s*-{3,}\s*", l)]
     return "\n".join(linhas)
 
 
 def parse_dialogue(script: str) -> list[tuple[str, str]]:
-    """Converte o roteiro em [(falante, fala), ...]. Uma linha só com ---
-    vira ("PAUSA", "") (troca de bloco). Linhas sem prefixo ANA:/LEO: são
-    tratadas como continuação da fala anterior."""
+    """Converte o roteiro em [(falante, fala), ...] — o falante é o rótulo de
+    qualquer apresentador do elenco. Uma linha só com --- vira ("PAUSA", "")
+    (troca de bloco). Linhas sem rótulo são continuação da fala anterior."""
+    padrao = "|".join(re.escape(r) for r in todos_apresentadores())
     segments: list[tuple[str, str]] = []
     for raw in script.splitlines():
         if re.fullmatch(r"\s*-{3,}\s*", raw):
@@ -1160,7 +1373,7 @@ def parse_dialogue(script: str) -> list[tuple[str, str]]:
         line = raw.strip().lstrip("*-•# ").strip()
         if not line:
             continue
-        m = re.match(r"(?i)^\**(ana|leo)\**\s*:\s*(.+)$", line)
+        m = re.match(rf"(?i)^\**({padrao})\**\s*:\s*(.+)$", line)
         if m:
             segments.append((m.group(1).upper(), m.group(2).strip()))
         elif segments and segments[-1][0] != "PAUSA":
@@ -1169,6 +1382,89 @@ def parse_dialogue(script: str) -> list[tuple[str, str]]:
     while segments and segments[-1][0] == "PAUSA":
         segments.pop()
     return segments
+
+
+def _aberturas(fala: str) -> set[str]:
+    """Começo (3 e 4 palavras) de cada frase da fala, sem pontuação e com os
+    nomes do elenco trocados por <nome> — é onde mora bordão e frase feita
+    ("e aí, <nome>, pronta pra ver", "tá mas o que"). Trecho com nome próprio
+    fora do elenco ("a Google Cloud") é assunto, não vício: fica de fora."""
+    nomes = {n.lower() for n in todos_apresentadores()} | {n.lower() for n in LEGADO}
+    saida = set()
+    for frase in re.split(r"(?<=[.!?])\s+", fala):
+        w = []
+        for k, x in enumerate(re.findall(r"[\wÀ-ÿ']+", frase)):
+            if x.lower() in nomes:
+                w.append("<nome>")
+            elif k > 0 and x[0].isupper():
+                break
+            else:
+                w.append(x.lower())
+        saida.update(" ".join(w[:n]) for n in (3, 4) if len(w) >= n)
+    return saida
+
+
+def expressoes_gastas(episodios: list[dict], limite: int = 25) -> list[str]:
+    """Começos de frase que apareceram em 2+ episódios anteriores. Assunto
+    não se repete entre episódios (o histórico já barra), então o que se
+    repete é vício de escrita: viram lista proibida no prompt de hoje."""
+    por_ep = Counter()
+    for ep in episodios:
+        vistos: set[str] = set()
+        for spk, fala in parse_dialogue(ep.get("roteiro", "")):
+            if spk != "PAUSA":
+                vistos |= _aberturas(fala)
+        por_ep.update(vistos)
+    repetidas = sorted(
+        (g for g, n in por_ep.items() if n >= 2), key=lambda g: (-por_ep[g], -len(g))
+    )
+    escolhidas: list[str] = []
+    for g in repetidas:  # "tá mas o que" cobre "tá mas o"
+        if not any(e.startswith(g) for e in escolhidas):
+            escolhidas.append(g)
+    return escolhidas[:limite]
+
+
+def avaliar_dialogo(
+    segments: list[tuple[str, str]], dupla: tuple[dict, dict], gastas: list[str] = ()
+) -> None:
+    """Mede o quanto o roteiro parece conversa (e não locutores revezando) e
+    avisa no log quando regride. Linha de base dos episódios de 11 e 13/10,
+    antes das regras de SOAR HUMANO: 0 falas curtas, ~45 palavras por fala,
+    ~75% das falas com '!' e nome do colega em ~35% delas."""
+    falas = [(spk, t) for spk, t in segments if spk != "PAUSA"]
+    if len(falas) < 4:
+        return
+    n = len(falas)
+    palavras = [len(t.split()) for _, t in falas]
+    curtas = sum(p <= 6 for p in palavras)
+    longas = sum(p > 40 for p in palavras)
+    exclamacao = sum("!" in t for _, t in falas)
+    cortes = sum("—" in t or "--" in t for _, t in falas)
+    nomes = [a["nome"] for a in dupla]
+    vocativos = sum(any(re.search(rf"\b{nm}\b", t) for nm in nomes) for _, t in falas)
+    por_falar = sum(len(re.findall(r"por falar em", t, re.I)) for _, t in falas)
+    gastas_usadas = sorted({g for _, t in falas for g in _aberturas(t) if g in set(gastas)})
+    print(
+        f"[DIÁLOGO] {n} falas, média {sum(palavras) / n:.0f} palavras | curtas {curtas / n:.0%} | "
+        f"longas {longas / n:.0%} | com '!' {exclamacao / n:.0%} | nome do colega {vocativos / n:.0%} | "
+        f"interrupções {cortes} | 'por falar em' {por_falar} | frases gastas {len(gastas_usadas)}"
+    )
+    problemas = []
+    if curtas / n < 0.15:
+        problemas.append("poucas falas curtas (<15%)")
+    if longas / n > 0.25:
+        problemas.append("falas longas demais (>25%)")
+    if exclamacao / n > 0.5:
+        problemas.append("exclamação demais (>50%)")
+    if vocativos / n > 0.3:
+        problemas.append("repete o nome do colega (>30%)")
+    if por_falar > 1:
+        problemas.append("'por falar em' repetido")
+    if gastas_usadas:
+        problemas.append("repetiu frase de episódio anterior: " + ", ".join(gastas_usadas[:5]))
+    if problemas:
+        print(f"[AVISO] diálogo ainda com cara de locutor: {'; '.join(problemas)}", file=sys.stderr)
 
 
 def _pausa_ms(anterior: tuple[str, str], atual: tuple[str, str]) -> int:
@@ -1188,11 +1484,11 @@ async def dialogue_to_speech(segments: list[tuple[str, str]], out_path: str) -> 
     """Gera cada fala com a voz do respectivo host, apara o silêncio embutido
     e costura tudo num MP3 só com pausas controladas. Concatenar os bytes
     funciona porque o edge-tts emite MPEG puro, sem headers."""
-    # Ana: grave e com mais ritmo — intensidade, não passividade.
-    # Leo: mais acelerado (energia, empolgação).
+    # Voz, ritmo e tom de cada apresentador vêm do apresentadores.json
+    # (só há uma voz masculina pt-BR; rate e pitch diferenciam os homens).
     styles = {
-        "ANA": {"voice": VOICE_FEMALE, "rate": "+7%", "pitch": "-12Hz"},
-        "LEO": {"voice": VOICE_MALE, "rate": "+12%", "pitch": "+0Hz"},
+        rotulo: {"voice": a["voz"], "rate": a["rate"], "pitch": a["pitch"]}
+        for rotulo, a in todos_apresentadores().items()
     }
     amostra = b""
     anterior: tuple[str, str] | None = None
@@ -1281,15 +1577,17 @@ _ALIASES_BLOCO = {
     "Cloud & DevOps": ("cloud", "devops", "nuvem", "aws", "infra"),
     "Games": ("game", "jogo"),
     "Mobile": ("mobile", "celular", "smartphone", "telecom"),
+    "Política": ("polític", "politic", "congresso", "governo", "stf"),
     "Rodada rápida": ("rodada", "rápida", "rapida"),
 }
-BLOCOS_OBRIGATORIOS = ("Cloud & DevOps", "Games", "Mobile")
+BLOCOS_OBRIGATORIOS = ("Cloud & DevOps", "Games", "Mobile", "Política")
 
 _BLOCOS_NOTAS = [
     ("Manchete", "📌"),
     ("Cloud & DevOps", "☁️"),
     ("Games", "🎮"),
     ("Mobile", "📱"),
+    ("Política", "🏛️"),
     ("Rodada rápida", "⚡"),
 ]
 
@@ -1377,12 +1675,12 @@ def send_telegram_html(text: str) -> None:
         _telegram_ok(resp)
 
 
-def gerar_audio(script: str, mp3: str) -> None:
+def gerar_audio(script: str, mp3: str, dupla: tuple[dict, dict]) -> None:
     segments = parse_dialogue(script) if PODCAST_STYLE == "duo" else []
     falas = sum(1 for spk, _ in segments if spk != "PAUSA")
     if falas >= 4:
         blocos = sum(1 for spk, _ in segments if spk == "PAUSA") + 1
-        print(f"Bate-papo com {falas} falas (ANA e LEO) em {blocos} blocos")
+        print(f"Bate-papo com {falas} falas ({dupla[0]['nome']} e {dupla[1]['nome']}) em {blocos} blocos")
         asyncio.run(dialogue_to_speech(segments, mp3))
     else:
         if PODCAST_STYLE == "duo":
@@ -1406,7 +1704,7 @@ def refazer_audio_pendente(episodios: list[dict], ep: dict, today: str) -> None:
     gera só o áudio do roteiro salvo, sem chamar o Gemini de novo."""
     print("Episódio de hoje já tem roteiro, mas ficou sem áudio; refazendo só o áudio.")
     mp3 = _caminho_mp3()
-    gerar_audio(ep["roteiro"], mp3)
+    gerar_audio(ep["roteiro"], mp3, dupla_do_episodio(ep))
     send_telegram_audio(mp3, _legenda(today, ep.get("manchete", "")))
     ep["audio_ok"] = True
     gravar_historico(HISTORY_FILE, episodios)
@@ -1443,16 +1741,20 @@ def main() -> None:
 
     items = trim_for_summary(items, MAX_ITEMS_TO_SUMMARIZE)
     anexar_materias_completas(items)
-    script, notas = separar_notas(roteirizar(items, episodios))
-    script = normalizar_roteiro(script)
+    dupla = escolher_dupla()
+    print(f"Apresentadores de hoje: {dupla[0]['nome']} e {dupla[1]['nome']}")
+    script, notas = separar_notas(roteirizar(items, episodios, dupla))
+    script = normalizar_roteiro(script, dupla)
     print(f"Roteiro gerado: {len(script)} caracteres")
+    if PODCAST_STYLE == "duo":
+        avaliar_dialogo(parse_dialogue(script), dupla, expressoes_gastas(episodios))
     mensagem, manchete = montar_notas(notas, items, today)
     if not mensagem:
         print("[AVISO] Gemini não mandou as notas do episódio; envio o roteiro como texto.", file=sys.stderr)
 
     mp3 = _caminho_mp3()
     try:
-        gerar_audio(script, mp3)
+        gerar_audio(script, mp3, dupla)
     except Exception as e:
         # O roteiro (a parte cara e instável) já está pronto: não joga fora.
         # Manda o texto agora e marca o áudio como pendente pra repescagem.
@@ -1467,7 +1769,10 @@ def main() -> None:
         if mensagem:
             send_telegram_html(mensagem)
         send_telegram_text(script)
-        save_history(HISTORY_FILE, episodios, items, script, manchete, audio_ok=False)
+        save_history(
+            HISTORY_FILE, episodios, items, script, manchete, audio_ok=False,
+            apresentadores=(dupla[0]["nome"], dupla[1]["nome"]),
+        )
         print("Texto enviado e áudio marcado como pendente no histórico.")
         sys.exit(1)  # job vermelho, sem o aviso genérico de falha do __main__
 
@@ -1481,7 +1786,9 @@ def main() -> None:
 
     # Só grava depois de enviar: se algo falhar antes, amanhã essas notícias
     # continuam valendo.
-    save_history(HISTORY_FILE, episodios, items, script, manchete)
+    save_history(
+        HISTORY_FILE, episodios, items, script, manchete, apresentadores=(dupla[0]["nome"], dupla[1]["nome"])
+    )
     print(f"Histórico salvo em {HISTORY_FILE} ({len(episodios) + 1} episódio(s)). Fim.")
 
 
