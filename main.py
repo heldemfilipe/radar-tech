@@ -39,6 +39,11 @@ TTS_VOICE = os.environ.get("TTS_VOICE", "pt-BR-AntonioNeural")
 # força uma dupla específica, útil pra testar.
 APRESENTADORES_FILE = os.environ.get("APRESENTADORES_FILE", "apresentadores.json")
 DUPLA_FORCADA = os.environ.get("DUPLA", "").strip()
+# Frase fixa da abertura (a "vinheta" falada), igual em todo episódio desde
+# o começo do podcast. Não é bordão: é a assinatura do programa.
+VINHETA = os.environ.get(
+    "VINHETA", "tá no ar a edição de hoje do seu podcast diário de tecnologia"
+)
 # Sem teto de verdade: o filtro que importa é a janela de HOURS_WINDOW.
 # Esse número é só uma trava de segurança contra um feed defeituoso que
 # devolva centenas de itens sem data.
@@ -716,6 +721,7 @@ def _estilo_duo(dupla: tuple[dict, dict], gastas: list[str]) -> str:
     m, h = dupla
     M, H, Mn, Hn = m["rotulo"], h["rotulo"], m["nome"], h["nome"]
     pro_h = "pra" if h["genero"] == "F" else "pro"
+    art_m, art_h = "a", "a" if h["genero"] == "F" else "o"
     proibidas = (
         "- Estas expressões já se repetiram nos últimos episódios e estão PROIBIDAS "
         "hoje (nem parecidas): " + "; ".join(f'"{g}"' for g in gastas) + "."
@@ -761,14 +767,25 @@ NADA DE BORDÃO NEM FRASE FEITA (o ouvinte já percebeu a repetição):
   como estão. Invente as suas, a partir do assunto do dia.
 {proibidas}
 
+APRESENTAÇÃO DO PROGRAMA (obrigatória, SEMPRE nesta ordem, no começo):
+- A primeira fala é de {H} e traz a vinheta do programa com estas palavras
+  exatas: "{VINHETA}", seguida do dia da semana e da data. {contexto_dia}
+  Antes da vinheta pode vir uma frase curta e criativa sobre o clima do dia
+  (diferente a cada episódio); a vinheta em si não muda.
+- Logo depois da vinheta, os dois se apresentam pelo nome: {H} diz que é
+  {art_h} {Hn} (na mesma fala da vinheta ou na seguinte) e {M} diz, na fala
+  dela, que é {art_m} {Mn}. Cada apresentação tem um toque pessoal no estilo de
+  cada um, com palavras diferentes a cada dia — só o nome e a ideia de "eu
+  sou" se repetem.
+- Só depois disso vem a conversa e o gancho do assunto principal.
+
 DINÂMICA (o que faz soar como conversa de verdade):
-- {H} abre do jeito que o dia pedir — sem fórmula: pode ser um comentário
-  sobre a notícia mais estranha, uma provocação, uma confissão, o clima da
-  semana. {M} reage no estilo dela. O primeiro minuto soa como duas pessoas se
-  encontrando, e só depois vem o gancho do assunto principal.
-- Mencione o dia da semana na abertura de forma natural. {contexto_dia}
-- Cada um fala SEMPRE em primeira pessoa ("eu acho", "eu falei"). Ninguém
-  fala de si mesmo na terceira pessoa nem diz o próprio nome: numa fala de
+- Depois das apresentações, o primeiro minuto soa como duas pessoas se
+  encontrando: uma reação, um comentário sobre o dia, e aí o gancho da
+  manchete.
+- Cada um fala SEMPRE em primeira pessoa ("eu acho", "eu falei"). Fora da
+  apresentação do começo, ninguém fala de si mesmo na terceira pessoa nem diz
+  o próprio nome: numa fala de
   {M}, o único nome que aparece é "{Hn}", e vice-versa. Quem faz uma pergunta
   é quem recebe a resposta — nunca jogue a pergunta de volta pra quem
   perguntou.
@@ -834,8 +851,8 @@ títulos, sem markdown, sem asteriscos, sem emojis, sem rubricas como (risos)
 ou [vinheta].
 
 ESTRUTURA DO EPISÓDIO (7 a 9 minutos, nesta ordem):
-1. ABERTURA (curta): {H} abre sem fórmula, {M} reage, dia da semana e um
-   gancho do assunto principal pra prender a atenção.
+1. ABERTURA (curta): vinheta do programa com dia e data, {H} e {M} se
+   apresentam, e um gancho do assunto principal pra prender a atenção.
 2. MANCHETE DO DIA (uns 2 minutos): o assunto mais importante, a fundo. Cubra
    o que aconteceu, o contexto (como chegamos aqui), por que importa e o que
    muda na prática pra quem ouve. Use os fatos da MATÉRIA COMPLETA quando ela
@@ -876,7 +893,7 @@ ESTRUTURA DO EPISÓDIO (7 a 9 minutos, nesta ordem):
       responde.
    Errado (nunca faça): {M} perguntando o termo {pro_h} {Hn}; {H} respondendo
    "explica aí, {Mn}" pra uma pergunta que a própria {Mn} fez; qualquer um
-   falando o próprio nome.
+   falando o próprio nome fora da apresentação.
 9. ENCERRAMENTO: {H} fecha ligando com o que rolou no episódio e {M} dá a
    última palavra. Nada de bordão.
 Os blocos CLOUD & DEVOPS, GAMES, MOBILE e POLÍTICA são obrigatórios. Se a
@@ -901,7 +918,7 @@ português do Brasil. Este episódio cobre as últimas 24 horas — é um resumo
 DIA, nunca da semana; nunca diga "resumo semanal" ou variações.
 
 Escreva um roteiro de podcast de 3 a 5 minutos:
-- Comece com uma saudação curta ("Bom dia! Aqui está o seu resumo tech de hoje...").
+- Comece com a vinheta do programa: "{VINHETA}", com o dia da semana e a data.
 - Agrupe notícias repetidas (vários sites cobrindo o mesmo assunto) em um item só.
 - Priorize: AWS e nuvem (Azure, Google Cloud), DevOps, IA, lançamentos relevantes,
   programação e segurança.
@@ -930,7 +947,9 @@ def montar_prompt(items: list[dict], episodios: list[dict], dupla: tuple[dict, d
         blocos.append(bloco)
     corpus = "\n\n".join(blocos)
     estilo = (
-        _estilo_duo(dupla, expressoes_gastas(episodios)) if PODCAST_STYLE == "duo" else _ESTILO_SOLO
+        _estilo_duo(dupla, expressoes_gastas(episodios))
+        if PODCAST_STYLE == "duo"
+        else _ESTILO_SOLO.replace("{VINHETA}", VINHETA)
     )
 
     anteriores = ""
@@ -1347,7 +1366,10 @@ def normalizar_roteiro(script: str, dupla: tuple[dict, dict]) -> str:
             vocativo = re.search(
                 rf"(^|[,.!?;]\s*){proprio}\s*[,:!?]|,\s*{proprio}\s*[.!?:]*\s*$", fala
             )
-            if vocativo and not re.search(rf"\b{do_outro}\b", fala):
+            apresentacao = re.search(
+                rf"\b(sou|aqui é|quem fala é)\s+(a\s+|o\s+)?{proprio}\b|\b{proprio}\s+aqui\b", fala, re.I
+            )
+            if vocativo and not apresentacao and not re.search(rf"\b{do_outro}\b", fala):
                 print(f"[AVISO] fala com rótulo trocado corrigida: {spk}: {fala[:60]}", file=sys.stderr)
                 spk = outro[spk]
             linha = f"{spk}: {fala}"
@@ -1415,8 +1437,11 @@ def expressoes_gastas(episodios: list[dict], limite: int = 25) -> list[str]:
             if spk != "PAUSA":
                 vistos |= _aberturas(fala)
         por_ep.update(vistos)
+    vinheta = " ".join(re.findall(r"[\wÀ-ÿ']+", VINHETA.lower()))
+    fixas = re.compile(r"^(e |oi |olá )?(eu sou|aqui é|e eu)\b")
     repetidas = sorted(
-        (g for g, n in por_ep.items() if n >= 2), key=lambda g: (-por_ep[g], -len(g))
+        (g for g, n in por_ep.items() if n >= 2 and g not in vinheta and not fixas.match(g)),
+        key=lambda g: (-por_ep[g], -len(g)),
     )
     escolhidas: list[str] = []
     for g in repetidas:  # "tá mas o que" cobre "tá mas o"

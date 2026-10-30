@@ -126,6 +126,11 @@ com cobertura imparcial: fatos, posições atribuídas a quem as disse, sem
 apresentadores tomando partido), **rodada rápida**, **termo do dia**
 e encerramento — com uma pausa maior entre um bloco e outro.
 
+A **abertura** é sempre igual na estrutura: quem conduz fala a vinheta do
+programa ("tá no ar a edição de hoje do seu podcast diário de tecnologia", com
+dia e data) e, logo depois, os dois apresentadores se apresentam pelo nome. A
+frase da vinheta pode ser trocada pela variável `VINHETA`.
+
 - **Matéria completa:** as 5 notícias em destaque (`MAX_FULL_ARTICLES`) têm o
   texto inteiro baixado e enviado ao Gemini, pra explicação ter fatos e
   números de verdade, não só o resumo do RSS. A escolha é automática: assunto
