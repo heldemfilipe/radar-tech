@@ -75,24 +75,20 @@ seu-repo/
 
 ## Estilo do podcast
 
-Por padrão o áudio é um **bate-papo entre dois apresentadores**, escolhidos
-em **rodízio a cada 2 dias** a partir do `apresentadores.json`. A cada 3
-trocas a dupla é **de duas mulheres** (alternando quem conduz); nas outras, uma
-mulher e um homem. Quem explica os conceitos é sempre uma das mulheres. Hoje o
-elenco é:
+Por padrão o áudio é um **bate-papo entre dois dos três apresentadores** do
+`apresentadores.json`, e a dupla muda a cada 2 dias:
 
 | | Voz | Personalidade |
 |---|---|---|
 | **Ana** | Francisca | analítica, intensa e sensual, opinião forte |
 | **Clara** | Thalita | sedutora bem-humorada, irônica, charmosa |
 | **Leo** | Antonio | brincalhão, energia alta |
-| **Caio** | Antonio (mais grave e calmo) | cético tranquilo, humor seco |
-| **Teo** | Antonio (mais agudo e rápido) | entusiasta atrapalhado |
 
-As duplas variam (Ana+Clara, Ana+Caio, Clara+Teo, Clara+Ana, Ana+Leo,
-Clara+Caio...) em vez de repetir sempre o mesmo par. As apresentadoras falam de
-um jeito sensual e envolvente em qualquer dupla: no tom, nunca no conteúdo
-(nada explícito). A conta depende só da data: a repescagem do mesmo dia cai na mesma
+As três duplas se revezam por igual: Ana+Leo, Clara+Leo e Ana+Clara (na dupla
+feminina elas alternam quem conduz). Quem explica os conceitos é sempre uma das
+mulheres; quem conduz abre com a vinheta. As apresentadoras falam de um jeito
+sensual e envolvente em qualquer dupla: no tom, nunca no conteúdo (nada
+explícito). A conta depende só da data: a repescagem do mesmo dia cai na mesma
 dupla, e o `historico.json` guarda quem apresentou cada episódio.
 
 - **Trocar ou adicionar alguém:** edite o `apresentadores.json` (nome sem
@@ -100,12 +96,8 @@ dupla, e o `historico.json` guarda quem apresentou cada episódio.
   da troca e `dupla_feminina_a_cada` a da dupla feminina (0 desliga). Na
   persona, descreva o jeito da pessoa **sem frases prontas entre aspas**: o
   Gemini copia exemplo literal todo dia e vira bordão. Ana e Leo devem continuar lá: os episódios antigos foram deles.
-- **Forçar uma dupla** (teste): variável `DUPLA`, ex.: `DUPLA=Clara,Caio` ou
+- **Forçar uma dupla** (teste): variável `DUPLA`, ex.: `DUPLA=Clara,Leo` ou
   `DUPLA=Ana,Clara` (precisa ter pelo menos uma mulher).
-- **Só existe uma voz masculina pt-BR** no edge-tts (Antonio); os homens se
-  diferenciam por ritmo e tom. Dá pra usar uma voz multilingual (ex.:
-  `en-US-AndrewMultilingualNeural`) no campo `voz`, mas o sotaque muda — ouça
-  antes de pôr no ar.
 - Para voltar ao narrador único, descomente `PODCAST_STYLE: solo` no `news.yml`.
 
 ### Diálogo mais humano

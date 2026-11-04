@@ -35,7 +35,7 @@ GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-flash-latest")
 # "duo" = bate-papo entre dois apresentadores; "solo" = narrador único.
 PODCAST_STYLE = os.environ.get("PODCAST_STYLE", "duo")
 TTS_VOICE = os.environ.get("TTS_VOICE", "pt-BR-AntonioNeural")
-# Elenco de apresentadores (veja apresentadores.json). DUPLA="Clara,Caio"
+# Elenco de apresentadores (veja apresentadores.json). DUPLA="Clara,Leo"
 # força uma dupla específica, útil pra testar.
 APRESENTADORES_FILE = os.environ.get("APRESENTADORES_FILE", "apresentadores.json")
 DUPLA_FORCADA = os.environ.get("DUPLA", "").strip()
