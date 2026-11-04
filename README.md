@@ -18,6 +18,7 @@ seu-repo/
 ├── feeds.txt
 ├── apresentadores.json          ← elenco, vozes e rodízio de apresentadores
 ├── pronuncia.txt                ← como a voz fala termos difíceis
+├── capa.jpg                     ← capa do áudio (JPEG, até 320x320 e 200 KB)
 ├── LICENSE                      ← licença MIT
 ├── historico.json               ← criado/atualizado pelo bot (não edite)
 └── requirements.txt
@@ -46,6 +47,7 @@ seu-repo/
    | `GEMINI_API_KEY` |  chave do https://aistudio.google.com/apikey |
    | `TELEGRAM_BOT_TOKEN` | token do @BotFather |
    | `TELEGRAM_CHAT_ID` | seu chat_id (via `/getUpdates`) ou, pra publicar num canal, o `@usuario` do canal (o bot precisa ser administrador dele, com permissão de publicar) |
+   | `TELEGRAM_ADMIN_CHAT_ID` | seu chat_id (id de usuário), depois de mandar `/start` pro bot. Recebe os avisos de falha, que nunca vão pro canal. Sem ele, os avisos ficam só no log do Actions |
 
 4. **Teste sem esperar o horário agendado:**
    Aba **Actions** → "Resumo Tech Diário" → **Run workflow**.
@@ -60,8 +62,8 @@ seu-repo/
   Se pontualidade de minuto importa, a versão no seu PC (systemd) é melhor.
 - **Repescagem automática.** Se o episódio das 6h15 falhar (Gemini fora do
   ar, voz da Microsoft recusando), o workflow tenta de novo às 9h15 e às
-  12h15. Se só a voz falhou, o roteiro já vai em texto na hora e a
-  repescagem manda só o áudio, sem gerar outro roteiro. Nos dias em que tudo
+  12h15. Se só a voz falhou, o canal não recebe nada até a repescagem, que
+  refaz o áudio sem gerar outro roteiro e manda as notas junto. Nos dias em que tudo
   dá certo, essas execuções terminam em segundos sem fazer nada.
 - **Repo público = código e feeds visíveis.** Não há nada sensível neles;
   as chaves ficam em Secrets (criptografados, nunca aparecem em log).
@@ -149,11 +151,12 @@ frase da vinheta pode ser trocada pela variável `VINHETA`.
 ## Sem notícias repetidas
 
 Depois de enviar o episódio, o script grava em `historico.json` as notícias
-usadas e o roteiro, e o workflow commita esse arquivo. No dia seguinte:
+faladas e o roteiro, e o workflow commita esse arquivo. As que o Gemini recebeu
+e não comentou continuam disponíveis. No dia seguinte:
 
-1. notícias com o mesmo link (ou título quase igual) das usadas nos últimos
-   3 dias (`HISTORY_DAYS`) são descartadas antes de ir pro Gemini;
-2. os roteiros desses episódios vão junto no prompt, com a ordem de não
+1. notícias com o mesmo link (ou título quase igual) das faladas nos últimos
+   8 dias (`HISTORY_NEWS_DAYS`) são descartadas antes de ir pro Gemini;
+2. os roteiros dos últimos 3 dias (`HISTORY_DAYS`) vão junto no prompt, com a ordem de não
    voltar a um assunto já comentado e de não reaproveitar bordões, piadas e
    termo do dia;
 3. quando uma notícia de hoje continua algo já falado, os apresentadores

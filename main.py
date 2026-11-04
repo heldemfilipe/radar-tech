@@ -28,6 +28,10 @@ import requests
 GEMINI_API_KEY = os.environ["GEMINI_API_KEY"].strip()
 TELEGRAM_BOT_TOKEN = os.environ["TELEGRAM_BOT_TOKEN"].strip()
 TELEGRAM_CHAT_ID = os.environ["TELEGRAM_CHAT_ID"].strip()
+# Chat privado pros avisos de falha (seu id de usuário). O TELEGRAM_CHAT_ID é um
+# canal público: erro não pode cair lá. Sem este secret, os avisos ficam só no
+# log do Actions.
+TELEGRAM_ADMIN_CHAT_ID = os.environ.get("TELEGRAM_ADMIN_CHAT_ID", "").strip()
 
 # "gemini-flash-latest" é um alias mantido pelo Google que sempre aponta pro
 # flash mais recente — evita 404 quando eles aposentam um modelo.
@@ -61,11 +65,18 @@ SEND_TEXT_TOO = os.environ.get("SEND_TEXT_TOO", "true").lower() == "true"
 # pro outro.
 HISTORY_FILE = os.environ.get("HISTORY_FILE", "historico.json")
 HISTORY_DAYS = int(os.environ.get("HISTORY_DAYS", "3"))
+# Por quantos dias as notícias faladas continuam barradas. Precisa cobrir a
+# maior janela do feeds.txt (168h = 7 dias), senão a notícia volta como nova
+# enquanto ainda está no feed. Os roteiros no prompt seguem em HISTORY_DAYS.
+HISTORY_NEWS_DAYS = max(HISTORY_DAYS, int(os.environ.get("HISTORY_NEWS_DAYS", "8")))
 BRT = timezone(timedelta(hours=-3))
 # Quantas notícias em destaque têm a matéria completa baixada e enviada ao
 # Gemini (o RSS só traz ~500 caracteres, pouco pra explicar direito).
 MAX_FULL_ARTICLES = int(os.environ.get("MAX_FULL_ARTICLES", "6"))
 PRONUNCIA_FILE = os.environ.get("PRONUNCIA_FILE", "pronuncia.txt")
+PROGRAMA = "Resumo Tech"  # artista do áudio e nome nos avisos
+# JPEG de até 320x320 e 200 KB (limite do Telegram). Sem o arquivo, sai sem capa.
+CAPA_FILE = os.environ.get("CAPA_FILE", "capa.jpg")
 # Preenchidos pelo workflow. REPESCAGEM: execução extra do fim da manhã, que
 # só gera episódio se o das 06:15 não saiu. PROXIMA_TENTATIVA: horário (BRT)
 # da próxima execução agendada, pra citar no aviso de falha.
@@ -441,7 +452,7 @@ def _titulos_parecidos(a: set[str], b: set[str]) -> bool:
 
 
 def load_history(path: str) -> list[dict]:
-    """Episódios dos últimos HISTORY_DAYS dias, do mais antigo pro mais novo."""
+    """Episódios dos últimos HISTORY_NEWS_DAYS dias, do mais antigo pro mais novo."""
     try:
         with open(path, encoding="utf-8") as f:
             episodios = json.load(f).get("episodios", [])
@@ -450,6 +461,12 @@ def load_history(path: str) -> list[dict]:
     except (ValueError, AttributeError) as e:
         print(f"[AVISO] histórico ilegível ({e}); ignorando", file=sys.stderr)
         return []
+    limite = (datetime.now(BRT) - timedelta(days=HISTORY_NEWS_DAYS)).strftime("%Y-%m-%d")
+    return [ep for ep in episodios if ep.get("data", "") > limite]
+
+
+def episodios_recentes(episodios: list[dict]) -> list[dict]:
+    """Os que entram no prompt (HISTORY_DAYS): roteiro velho só gasta tokens."""
     limite = (datetime.now(BRT) - timedelta(days=HISTORY_DAYS)).strftime("%Y-%m-%d")
     return [ep for ep in episodios if ep.get("data", "") > limite]
 
@@ -462,9 +479,11 @@ def save_history(
     manchete: str = "",
     audio_ok: bool = True,
     apresentadores: tuple[str, str] | None = None,
+    notas_html: str = "",
 ) -> None:
-    """`audio_ok: false` marca um episódio cujo texto já foi pro Telegram mas
-    o áudio falhou — a repescagem do workflow refaz só o áudio dele."""
+    """`items` são as notícias faladas (veja itens_falados). `audio_ok: false`
+    marca um episódio cujo áudio falhou: nada foi pro canal ainda, e a
+    repescagem do workflow refaz o áudio e manda as `notas_html` junto."""
     agora = datetime.now(BRT)
     episodios = episodios + [
         {
@@ -475,6 +494,7 @@ def save_history(
             "manchete": manchete,
             "audio_ok": audio_ok,
             "apresentadores": list(apresentadores or LEGADO),
+            **({"notas_html": notas_html} if notas_html else {}),
         }
     ]
     gravar_historico(path, episodios)
@@ -1315,7 +1335,13 @@ async def _sintetizar(texto: str, voz: str, rate: str, pitch: str = "+0Hz") -> b
     atualizar o edge-tts — o workflow já instala a versão mais nova."""
     import edge_tts
 
+    if not re.search(r"\w", texto):
+        return b""  # só pontuação ("—", "..."): não há o que falar
     for tentativa in range(3):
+        if tentativa:
+            # "No audio was received" costuma ser texto com símbolo que a voz
+            # não aceita; na nova tentativa vai só letra, número e pontuação básica.
+            texto = re.sub(r"\s+", " ", re.sub(r"[^\w\s.,;:!?%$°/()'-]", " ", texto)).strip()
         try:
             communicate = edge_tts.Communicate(texto, voz, rate=rate, pitch=pitch)
             audio = b"".join(
@@ -1387,6 +1413,7 @@ def parse_dialogue(script: str) -> list[tuple[str, str]]:
     (troca de bloco). Linhas sem rótulo são continuação da fala anterior."""
     padrao = "|".join(re.escape(r) for r in todos_apresentadores())
     segments: list[tuple[str, str]] = []
+    pendente: str | None = None  # rótulo "ANA:" sozinho; a fala vem na linha seguinte
     for raw in script.splitlines():
         if re.fullmatch(r"\s*-{3,}\s*", raw):
             if segments and segments[-1][0] != "PAUSA":
@@ -1396,8 +1423,15 @@ def parse_dialogue(script: str) -> list[tuple[str, str]]:
         if not line:
             continue
         m = re.match(rf"(?i)^\**({padrao})\**\s*:\s*(.+)$", line)
+        solo = re.match(rf"(?i)^\**({padrao})\**\s*:?\**$", line)
         if m:
-            segments.append((m.group(1).upper(), m.group(2).strip()))
+            segments.append((m.group(1).upper(), m.group(2).lstrip("* ").strip()))
+            pendente = None
+        elif solo:
+            pendente = solo.group(1).upper()
+        elif pendente:
+            segments.append((pendente, line))
+            pendente = None
         elif segments and segments[-1][0] != "PAUSA":
             speaker, text = segments[-1]
             segments[-1] = (speaker, text + " " + line)
@@ -1518,6 +1552,8 @@ async def dialogue_to_speech(segments: list[tuple[str, str]], out_path: str) -> 
     amostra = b""
     anterior: tuple[str, str] | None = None
     troca_de_bloco = False
+    total_falas = sum(1 for sp, _ in segments if sp != "PAUSA")
+    falhas = 0
     with open(out_path, "wb") as out:
         for seg in segments:
             speaker, text = seg
@@ -1525,7 +1561,18 @@ async def dialogue_to_speech(segments: list[tuple[str, str]], out_path: str) -> 
                 troca_de_bloco = True
                 continue
             s = styles[speaker]
-            audio = await _sintetizar(texto_para_fala(text), s["voice"], s["rate"], s["pitch"])
+            try:
+                audio = await _sintetizar(texto_para_fala(text), s["voice"], s["rate"], s["pitch"])
+            except RuntimeError as e:
+                # Uma fala que a voz recusa não deve derrubar o episódio; só
+                # se forem muitas é que o serviço está fora do ar.
+                falhas += 1
+                print(f"[AVISO] fala ignorada pela voz: {text[:80]!r} ({e})", file=sys.stderr)
+                if falhas > max(3, total_falas // 20):
+                    raise
+                continue
+            if not audio:
+                continue
             audio = aparar_silencio(audio)
             amostra = amostra or audio
             if anterior:
@@ -1560,37 +1607,60 @@ def check_telegram() -> None:
             desc = resp.text[:200]
         raise RuntimeError(
             f"Telegram recusou o chat_id '{TELEGRAM_CHAT_ID}': {desc}. "
-            "Confira o secret TELEGRAM_CHAT_ID (só números, sem espaços; pode "
-            "começar com -) e garanta que você já mandou /start pro seu bot."
+            "Confira o secret TELEGRAM_CHAT_ID (o @usuario do canal, com o bot "
+            "como administrador, ou o seu id de usuário depois de mandar /start pro bot)."
         )
 
 
-def send_telegram_audio(mp3_path: str, caption: str) -> None:
+def duracao_mp3(path: str) -> int:
+    """Segundos de áudio, frame a frame: o MP3 costurado não tem cabeçalho que
+    diga a duração, e sem ela o player do Telegram pode mostrar um valor errado."""
+    with open(path, "rb") as f:
+        dados = f.read()
+    total = 0.0
+    for inicio, _ in _frames_mp3(dados):
+        _, sr, amostras = _info_frame(dados[inicio : inicio + 4])
+        total += amostras / sr
+    return round(total)
+
+
+def send_telegram_audio(mp3_path: str, caption: str, today: str) -> None:
     url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendAudio"
     with open(mp3_path, "rb") as f:
+        files = {"audio": (os.path.basename(mp3_path), f, "audio/mpeg")}
+        if os.path.exists(CAPA_FILE):
+            with open(CAPA_FILE, "rb") as capa:
+                files["thumbnail"] = ("capa.jpg", capa.read(), "image/jpeg")
         resp = requests.post(
             url,
             data={
                 "chat_id": TELEGRAM_CHAT_ID,
                 "caption": caption[:1024],
-                "title": caption.split("\n")[0][:60],
+                "title": f"Edição de {today}",
+                "performer": PROGRAMA,
+                "duration": duracao_mp3(mp3_path),
             },
-            files={"audio": (os.path.basename(mp3_path), f, "audio/mpeg")},
-            timeout=120,
+            files=files,
+            timeout=300,
         )
     _telegram_ok(resp)
 
 
-def send_telegram_text(text: str) -> None:
-    url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
-    # Telegram limita mensagens a 4096 chars
-    for i in range(0, len(text), 4000):
+def avisar_admin(texto: str) -> None:
+    """Aviso de falha no chat privado, nunca no canal público. Não levanta
+    erro: quem chama já está lidando com outro problema."""
+    print(f"[ADMIN] {texto}", file=sys.stderr)
+    if not TELEGRAM_ADMIN_CHAT_ID:
+        return
+    try:
         resp = requests.post(
-            url,
-            json={"chat_id": TELEGRAM_CHAT_ID, "text": text[i : i + 4000]},
+            f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage",
+            json={"chat_id": TELEGRAM_ADMIN_CHAT_ID, "text": texto[:4000]},
             timeout=60,
         )
         _telegram_ok(resp)
+    except Exception as e:
+        print(f"[AVISO] aviso privado não enviado: {_texto_curto(e)}", file=sys.stderr)
 
 
 # ---------- Notas do episódio ----------
@@ -1625,6 +1695,18 @@ def separar_notas(resposta: str) -> tuple[str, str]:
     return resposta.strip(), ""
 
 
+def itens_falados(notas: str, items: list[dict]) -> list[dict]:
+    """Notícias citadas nas notas: só essas contam como usadas. Gravar todas as
+    enviadas ao Gemini queimava as que ele nem comentou. Sem notas não dá pra
+    saber o que foi falado, então todas contam (melhor que repetir)."""
+    numeros = {
+        int(m.group(1))
+        for linha in notas.splitlines()
+        if (m := re.match(r"\W*(\d+)\s*\|", linha))
+    }
+    return [it for n, it in enumerate(items, 1) if n in numeros] or items
+
+
 def montar_notas(notas: str, items: list[dict], today: str) -> tuple[str, str]:
     """Transforma as linhas `NÚMERO | BLOCO | título` em mensagem HTML do
     Telegram com links. Devolve (mensagem, título da manchete) — mensagem
@@ -1640,7 +1722,11 @@ def montar_notas(notas: str, items: list[dict], today: str) -> tuple[str, str]:
         if num.upper() == "TERMO" or "termo" in bloco.lower():
             termo = titulo
             continue
+        # Nome exato primeiro; os apelidos só pegam o que veio escrito diferente.
         nome_bloco = next(
+            (nome for nome, _ in _BLOCOS_NOTAS if nome.lower() == bloco.lower()),
+            None,
+        ) or next(
             (
                 nome
                 for nome, _ in _BLOCOS_NOTAS
@@ -1700,6 +1786,18 @@ def send_telegram_html(text: str) -> None:
         _telegram_ok(resp)
 
 
+def enviar_notas(mensagem: str) -> None:
+    """As notas vão depois do áudio, que já saiu. Se falharem, só avisa: deixar
+    o erro subir impediria gravar o histórico, e a repescagem publicaria o
+    episódio de novo no canal."""
+    if not SEND_TEXT_TOO or not mensagem:
+        return
+    try:
+        send_telegram_html(mensagem)
+    except Exception as e:
+        avisar_admin(f"⚠️ {PROGRAMA}: o áudio saiu, mas as notas falharam ({_texto_curto(e)}).")
+
+
 def gerar_audio(script: str, mp3: str, dupla: tuple[dict, dict]) -> None:
     segments = parse_dialogue(script) if PODCAST_STYLE == "duo" else []
     falas = sum(1 for spk, _ in segments if spk != "PAUSA")
@@ -1725,12 +1823,13 @@ def _caminho_mp3() -> str:
 
 
 def refazer_audio_pendente(episodios: list[dict], ep: dict, today: str) -> None:
-    """O texto do episódio de hoje já foi pro Telegram, mas a voz falhou:
-    gera só o áudio do roteiro salvo, sem chamar o Gemini de novo."""
+    """A voz falhou na execução anterior e o canal ainda não recebeu nada: gera
+    o áudio do roteiro salvo, sem chamar o Gemini de novo, e manda as notas."""
     print("Episódio de hoje já tem roteiro, mas ficou sem áudio; refazendo só o áudio.")
     mp3 = _caminho_mp3()
     gerar_audio(ep["roteiro"], mp3, dupla_do_episodio(ep))
-    send_telegram_audio(mp3, _legenda(today, ep.get("manchete", "")))
+    send_telegram_audio(mp3, _legenda(today, ep.get("manchete", "")), today)
+    enviar_notas(ep.pop("notas_html", ""))
     ep["audio_ok"] = True
     gravar_historico(HISTORY_FILE, episodios)
     print("Áudio pendente enviado. Fim.")
@@ -1744,6 +1843,7 @@ def main() -> None:
     print("Telegram OK (token e chat_id válidos)")
 
     episodios = load_history(HISTORY_FILE)
+    recentes = episodios_recentes(episodios)
     hoje_iso = datetime.now(BRT).strftime("%Y-%m-%d")
     ep_hoje = next((ep for ep in reversed(episodios) if ep.get("data") == hoje_iso), None)
     if ep_hoje and ep_hoje.get("audio_ok") is False:
@@ -1760,7 +1860,7 @@ def main() -> None:
     print(f"{len(items)} notícias coletadas")
     items = remove_repeated(items, episodios)
     if not items:
-        send_telegram_text(f"Resumo tech {today}: nenhuma notícia nova encontrada nas últimas {HOURS_WINDOW}h.")
+        avisar_admin(f"{PROGRAMA} {today}: nenhuma notícia nova nas últimas {HOURS_WINDOW}h; sem episódio hoje.")
         print("Nenhuma notícia nova. Encerrando.")
         return
 
@@ -1768,52 +1868,46 @@ def main() -> None:
     anexar_materias_completas(items)
     dupla = escolher_dupla()
     print(f"Apresentadores de hoje: {dupla[0]['nome']} e {dupla[1]['nome']}")
-    script, notas = separar_notas(roteirizar(items, episodios, dupla))
+    script, notas = separar_notas(roteirizar(items, recentes, dupla))
     script = normalizar_roteiro(script, dupla)
     print(f"Roteiro gerado: {len(script)} caracteres")
     if PODCAST_STYLE == "duo":
-        avaliar_dialogo(parse_dialogue(script), dupla, expressoes_gastas(episodios))
+        avaliar_dialogo(parse_dialogue(script), dupla, expressoes_gastas(recentes))
     mensagem, manchete = montar_notas(notas, items, today)
+    falados = itens_falados(notas, items)
+    print(f"[INFO] {len(falados)} de {len(items)} notícias contam como usadas no histórico")
+    apresentadores = (dupla[0]["nome"], dupla[1]["nome"])
     if not mensagem:
-        print("[AVISO] Gemini não mandou as notas do episódio; envio o roteiro como texto.", file=sys.stderr)
+        avisar_admin(f"⚠️ {PROGRAMA}: o Gemini não mandou as notas; o episódio sai sem elas.")
 
     mp3 = _caminho_mp3()
     try:
         gerar_audio(script, mp3, dupla)
     except Exception as e:
-        # O roteiro (a parte cara e instável) já está pronto: não joga fora.
-        # Manda o texto agora e marca o áudio como pendente pra repescagem.
+        # O roteiro (a parte cara e instável) já está pronto: não joga fora. O
+        # canal não recebe nada até o áudio sair; a repescagem refaz só o áudio.
         print(f"[ERRO] áudio falhou: {e}", file=sys.stderr)
-        aviso = f"⚠️ A voz do resumo de hoje falhou ({_texto_curto(e)})."
+        aviso = f"⚠️ A voz do {PROGRAMA} de hoje falhou ({_texto_curto(e)})."
         aviso += (
-            f" Mando o roteiro em texto; o áudio sai na nova tentativa (~{PROXIMA_TENTATIVA})."
+            f" O áudio sai na nova tentativa (~{PROXIMA_TENTATIVA})."
             if PROXIMA_TENTATIVA
-            else " Segue o roteiro em texto."
+            else " Rode o workflow de novo pra refazer só o áudio."
         )
-        send_telegram_text(aviso)
-        if mensagem:
-            send_telegram_html(mensagem)
-        send_telegram_text(script)
+        avisar_admin(aviso)
         save_history(
-            HISTORY_FILE, episodios, items, script, manchete, audio_ok=False,
-            apresentadores=(dupla[0]["nome"], dupla[1]["nome"]),
+            HISTORY_FILE, episodios, falados, script, manchete, audio_ok=False,
+            apresentadores=apresentadores, notas_html=mensagem,
         )
-        print("Texto enviado e áudio marcado como pendente no histórico.")
+        print("Áudio marcado como pendente no histórico.")
         sys.exit(1)  # job vermelho, sem o aviso genérico de falha do __main__
 
-    send_telegram_audio(mp3, _legenda(today, manchete))
-    if SEND_TEXT_TOO:
-        if mensagem:
-            send_telegram_html(mensagem)
-        else:
-            send_telegram_text(script)
+    send_telegram_audio(mp3, _legenda(today, manchete), today)
+    enviar_notas(mensagem)
     print("Enviado pro Telegram.")
 
     # Só grava depois de enviar: se algo falhar antes, amanhã essas notícias
     # continuam valendo.
-    save_history(
-        HISTORY_FILE, episodios, items, script, manchete, apresentadores=(dupla[0]["nome"], dupla[1]["nome"])
-    )
+    save_history(HISTORY_FILE, episodios, falados, script, manchete, apresentadores=apresentadores)
     print(f"Histórico salvo em {HISTORY_FILE} ({len(episodios) + 1} episódio(s)). Fim.")
 
 
@@ -1831,12 +1925,9 @@ if __name__ == "__main__":
     try:
         main()
     except Exception as e:
-        # Avisa no Telegram antes de falhar o job, senão o erro passa despercebido.
-        aviso = f"⚠️ O resumo tech de hoje falhou: {_texto_curto(e)}"
+        # Avisa antes de falhar o job, senão o erro passa despercebido.
+        aviso = f"⚠️ O {PROGRAMA} de hoje falhou: {_texto_curto(e)}"
         if PROXIMA_TENTATIVA:
             aviso += f"\n🔁 Nova tentativa automática por volta das {PROXIMA_TENTATIVA}."
-        try:
-            send_telegram_text(aviso)
-        except Exception:
-            pass
+        avisar_admin(aviso)
         raise

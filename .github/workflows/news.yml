@@ -44,6 +44,8 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          # Seu id de usuário: os avisos de falha vão pra cá, nunca pro canal.
+          TELEGRAM_ADMIN_CHAT_ID: ${{ secrets.TELEGRAM_ADMIN_CHAT_ID }}
           PYTHONUNBUFFERED: "1"   # log na ordem certa (stdout e stderr misturados)
           REPESCAGEM: ${{ github.event.schedule == '15 12 * * *' || github.event.schedule == '15 15 * * *' }}
           # Horário (BRT) da próxima execução agendada, citado no aviso de falha.
