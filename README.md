@@ -3,6 +3,12 @@
 Mesmo pipeline (RSS → Gemini → edge-tts → Telegram), mas rodando de graça
 na nuvem do GitHub. Sem Docker, sem PC ligado, sem systemd.
 
+## 📲 Ouça no Telegram
+
+Quer só ouvir as notícias? Abra o bot
+[@RadarTechDiarioBot](https://t.me/RadarTechDiarioBot) no Telegram e toque em
+**Iniciar**.
+
 ## Estrutura do repo
 
 ```
