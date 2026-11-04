@@ -1,0 +1,49 @@
+{
+ "episodios": [
+  {
+   "data": "2026-11-04",
+   "gerado_em": "2026-11-04T18:24:24-03:00",
+   "noticias": [
+    {
+     "titulo": "Meta acquires AI coding startup Conductor",
+     "link": "https://techcrunch.com/2026/11/04/meta-acquires-ai-coding-startup-conductor/"
+    },
+    {
+     "titulo": "MTE prevê publicar decreto sobre fim da escala 6×1 na próxima segunda-feira (9/11)",
+     "link": "https://www.jota.info/trabalho/mte-preve-publicar-decreto-sobre-fim-da-escala-6x1-na-proxima-segunda-feira-9-11"
+    },
+    {
+     "titulo": "Arkane union accuses Microsoft of \"sabotaging\" Marvel's Blade with 19-month hiring freeze",
+     "link": "https://www.gamesindustry.biz/arkane-union-accuses-microsoft-of-sabotaging-marvels-blade-with-19-month-hiring-freeze"
+    },
+    {
+     "titulo": "Alcolumbre decide aguardar Câmara votar redução da maioridade penal para pautar tema no Senado",
+     "link": "https://g1.globo.com/politica/noticia/2026/11/04/alcolumbre-decide-aguardar-camara-votar-reducao-da-maioridade-penal-para-pautar-tema-no-senado.ghtml"
+    },
+    {
+     "titulo": "Resiliência a desconexões de rede com Amazon EKS Hybrid Nodes",
+     "link": "https://aws.amazon.com/pt/blogs/aws-brasil/resiliencia-a-desconexoes-de-rede-com-amazon-eks-hybrid-nodes/"
+    },
+    {
+     "titulo": "Pangram’s new models spot AI fakes in images and video, it says",
+     "link": "https://thenextweb.com/news/pangram-image-1-0-flash-ai-image-video-detection"
+    },
+    {
+     "titulo": "Contra golpes, operadoras terão de bloquear SMS de códigos sem registro",
+     "link": "https://www.uol.com.br/tilt/noticias/redacao/2026/11/04/operadoras-terao-de-bloquear-sms-de-codigos-nao-registrados.ghtm"
+    },
+    {
+     "titulo": "Google will spend $15B on data centres in Malaysia over two years",
+     "link": "https://thenextweb.com/news/google-15b-malaysia-data-centres-2027-2028"
+    }
+   ],
+   "roteiro": "CLARA: O café tá quente, a noite tá viva... tá no ar a edição de hoje do seu podcast diário de tecnologia. Quarta-feira, 4 de novembro de 2026. Sou a Clara, pronta pra te contar tudo no ouvido.\nANA: E eu sou a Ana. Pronta pra ir fundo onde o detalhe se esconde.\nCLARA: Viu o clima no mercado hoje? A Meta resolveu ir às compras de novo.\nANA: E não foi pouca coisa... eles querem robôs programando tudo pra ontem.\n---\nCLARA: Fala a verdade... cê imaginava a Meta comprando uma empresa só pra colocar esquadrões de agentes de IA programando em conjunto?\nANA: Eu já esperava. A startup se chama Conductor. O diferencial dela não é só gerar código isolado... é colocar um exército de agentes autônomos trabalhando em paralelo em várias partes de um mesmo software.\nCLARA: Imagina a bagunça... quer dizer, o charme disso. Um agente arruma o banco de dados enquanto o outro ajusta a tela?\nANA: Exatamente. Pense nisso como a cozinha de um restaurante sofisticado. Em vez de um chef fazendo tudo devagar, você tem cinco ajudantes ultra rápidos preparando os pratos simultaneamente.\nCLARA: Hum... e o programador humano fica só olhando a mágica acontecer?\nANA: Ele vira o maestro. Mas tem um perigo silencioso aí. Se você entrega a chave do código pra robôs sem uma supervisão rigorosa...\nCLARA: — cê cria um caos na infraestrutura.\nANA: — exatamente. A Meta quer engolir essa tecnologia pra acelerar os próprios produtos antes que os rivais reajam. E isso muda totalmente o ritmo de desenvolvimento das grandes plataformas.\n---\nCLARA: Agora, tirando o olho dos robôs da Meta... me conta o que acontece quando o cabo de rede do data center simplesmente rompe?\nANA: A AWS publicou uma análise técnica perfeita sobre isso hoje, focada no EKS Hybrid Nodes.\nCLARA: Adoro um drama de infraestrutura.\nANA: O cenário é o seguinte... se a conexão entre o seu data center local e a nuvem cai, o Kubernetes, por padrão, espera cinco minutos. Depois disso...\nCLARA: — ele surta?\nANA: — ele começa a expulsar as aplicações dos servidores locais, achando que o nó morreu.\nCLARA: Que crueldade.\nANA: Pois é. E a AWS mostrou como configurar quatro camadas de resiliência local. Pra garantir que, se a fibra cortar, a sua fábrica ou o seu hospital continuem rodando normalmente on-premises.\nCLARA: Ou seja, a nuvem vai embora, mas o serviço continua firme no lugar.\nANA: É a diferença entre um transtorno invisível e uma pane total de produção.\n---\nCLARA: Mudando de assunto... o mundo dos games tá num clima bem tenso hoje.\nANA: Bastante. O sindicato francês acusou a Microsoft de ter sabotado o estúdio Arkane Lyon com um congelamento de contratações de 19 meses durante o desenvolvimento de Marvel’s Blade.\nCLARA: Eita... treta brava.\nANA: E o mais curioso é que agora a Ubisoft surge como uma das interessadas em comprar a Arkane pra salvar o estúdio do fechamento.\nCLARA: Deixa eu ver se entendi... a Microsoft congela o projeto e a rival francesa vem tentar o resgate?\nANA: Um terço dos estúdios comprados na indústria de games acaba fechando em menos de cinco anos. Essa consolidação desenfreada tá cobrando a conta agora.\n---\nCLARA: Sabe aquele SMS suspeito de banco que chega no seu celular de madrugada?\nANA: Aquele com código de verificação fake?\nCLARA: Esse mesmo. O governo federal publicou novas regras hoje.\nANA: A Anatel determinou que as operadoras de telefonia vão ter que bloquear mensagens disparadas por números curtos que não estejam devidamente cadastrados num sistema público.\nCLARA: Finalmente um freio nesses golpistas de plantão.\nANA: É um passo importante. Sem essa checagem na origem, o SMS virou uma terra sem lei pra golpes de engenharia social.\n---\nCLARA: Chegou a hora do nosso bloco de política. E tem movimentação forte no Congresso Nacional hoje.\nANA: O presidente do Senado, Davi Alcolumbre, confirmou que vai aguardar a decisão da Câmara dos Deputados sobre a PEC da redução da maioridade penal antes de colocar o tema em votação no Plenário do Senado.\nCLARA: Teve acordo entre os presidentes das duas Casas?\nANA: Sim, após conversas com o deputado Hugo Motta. Na Câmara, a comissão especial que analisa o texto deve ouvir especialistas em audiências públicas antes de apresentar o parecer final até o fim do mês.\nCLARA: E sobre a jornada de trabalho... teve novidade do governo?\nANA: Teve. O ministro do Trabalho, Luiz Marinho, anunciou que pretende publicar na próxima segunda-feira um decreto com diretrizes sobre o fim da escala 6x1.\nCLARA: O texto vai orientar os setores?\nANA: Exato. O decreto vai balizar a transição para diferentes modelos de jornada nas empresas, após reuniões da equipe econômica com o presidente da República.\n---\nCLARA: Bora pra nossa rodada rápida?\nANA: Bora. O Google anunciou um investimento massivo de 15 bilhões de dólares na Malásia entre 2027 e 2028 pra expandir data centers e infraestrutura de nuvem.\nCLARA: Bilhões voando... e no campo da segurança de IA?\nANA: A Pangram lançou novas ferramentas capazes de detectar vídeos e imagens gerados por inteligência artificial com quase 99% de precisão nos testes.\nCLARA: Ficou mais difícil enganar os atentos.\n---\nCLARA: Falando em segurança... você mencionou os acessos pesados em redes complexas. Teve um termo de segurança que você citou no relatório que me deixou curiosa... acesso de emergência.\nANA: É o famoso Break Glass.\nCLARA: Que tem um charme meio proibido...\nANA: Tem mesmo. Pensa naquela caixinha vermelha de vidro com um martelo do lado, que fica na parede do ônibus ou perto do extintor de incêndio.\nCLARA: Aquela que cê só quebra se o bicho pegar?\nANA: Exatamente. Em arquitetura de nuvem, o Break Glass é uma conta de superusuário altamente protegida, com credenciais guardadas em cofre. Ninguém usa no dia a dia. Mas se o sistema central de autenticação cair e o ambiente ficar trancado...\nCLARA: — cê quebra o vidro.\nANA: — cê quebra o vidro, pega aquela chave de emergência, resolve a pane e depois descarta a credencial pra gerar uma nova.\n---\nCLARA: E assim a gente fecha nossa edição de hoje. Com robôs programando, operadoras bloqueando SMS de golpe e a chave de emergência pronta no cofre.\nANA: O segredo é nunca deixar o controle 100% na mão da máquina.\nCLARA: Adorei essa provocação. Até amanhã.\nANA: Até. Segue o jogo.",
+   "manchete": "Meta adquire a startup de IA Conductor para programação em paralelo",
+   "audio_ok": true,
+   "apresentadores": [
+    "Ana",
+    "Clara"
+   ]
+  }
+ ]
+}
