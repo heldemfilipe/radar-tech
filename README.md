@@ -5,9 +5,9 @@ na nuvem do GitHub. Sem Docker, sem PC ligado, sem systemd.
 
 ## 📲 Ouça no Telegram
 
-Quer só ouvir as notícias? Abra o bot
-[@RadarTechDiarioBot](https://t.me/RadarTechDiarioBot) no Telegram e toque em
-**Iniciar**.
+Quer só ouvir as notícias? Entre no canal
+[@RadarTechDiario](https://t.me/RadarTechDiario) no Telegram: o episódio chega
+lá todo dia.
 
 ## Estrutura do repo
 
@@ -45,7 +45,7 @@ seu-repo/
    |---|---|
    | `GEMINI_API_KEY` |  chave do https://aistudio.google.com/apikey |
    | `TELEGRAM_BOT_TOKEN` | token do @BotFather |
-   | `TELEGRAM_CHAT_ID` | seu chat_id (via `/getUpdates`) |
+   | `TELEGRAM_CHAT_ID` | seu chat_id (via `/getUpdates`) ou, pra publicar num canal, o `@usuario` do canal (o bot precisa ser administrador dele, com permissão de publicar) |
 
 4. **Teste sem esperar o horário agendado:**
    Aba **Actions** → "Resumo Tech Diário" → **Run workflow**.
