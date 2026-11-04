@@ -57,9 +57,9 @@ seu-repo/
 
 ## O que você precisa saber (limitações reais)
 
-- **Horário não é exato.** O cron do Actions entra numa fila — por isso o
-  gatilho está às 6h15 (BRT), pra entrega real cair em torno das 6h30.
-  Se pontualidade de minuto importa, a versão no seu PC (systemd) é melhor.
+- **Sem agendador externo o horário atrasa muito.** O cron do GitHub tem chegado
+  entre 12h e 16h (BRT), não às 6h15. Pra cumprir o horário, siga a seção
+  "Horário: agendador externo"; os crons ficam de reserva.
 - **Repescagem automática.** Se o episódio das 6h15 falhar (Gemini fora do
   ar, voz da Microsoft recusando), o workflow tenta de novo às 9h15 e às
   12h15. Se só a voz falhou, o canal não recebe nada até a repescagem, que
@@ -165,6 +165,25 @@ e não comentou continuam disponíveis. No dia seguinte:
 
 Rodou manualmente duas vezes no mesmo dia? A segunda execução também conta
 a primeira como "já falada". Pra zerar a memória, apague o `historico.json`.
+
+## Horário: agendador externo
+
+Disparo agendado só gera episódio se o de hoje ainda não saiu, então o serviço
+externo e os crons do GitHub não duplicam nada.
+
+1. **Token do GitHub:** Settings → Developer settings → Fine-grained tokens →
+   Generate. Dê acesso só aos repos que vai disparar, com a permissão
+   **Actions: Read and write**. Quando ele vencer, os episódios voltam a depender
+   do cron do GitHub.
+2. **Em [cron-job.org](https://cron-job.org)**, crie um job com fuso
+   `America/Sao_Paulo`, às **6h15, 9h15 e 12h15**:
+   - URL: `https://api.github.com/repos/heldemfilipe/radar-tech/actions/workflows/news.yml/dispatches`
+   - Método: `POST`
+   - Cabeçalhos: `Authorization: Bearer <token>` e
+     `Accept: application/vnd.github+json`
+   - Corpo: `{"ref":"main","inputs":{"repescagem":"true"}}`
+
+O histórico de execução do job deve mostrar a resposta `204`.
 
 ## Editar feeds
 

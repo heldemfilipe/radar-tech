@@ -9,9 +9,16 @@ on:
     # Repescagens (09:15 e 12:15 BRT): só fazem algo se o episódio das 06:15
     # falhou — Gemini fora do ar (13/10) ou voz da Microsoft recusando (12/10).
     # Se o roteiro saiu e só a voz falhou, refazem apenas o áudio.
+    # Na prática o cron do GitHub tem chegado às 12h-16h (BRT); o agendador
+    # externo do README é quem cumpre o horário, e estes crons ficam de reserva.
     - cron: "15 12 * * *"
     - cron: "15 15 * * *"
-  workflow_dispatch: {}   # permite rodar manualmente pela aba Actions (pra testar)
+  workflow_dispatch:   # botão Run workflow e agendador externo
+    inputs:
+      repescagem:
+        description: "Só gerar se o episódio de hoje ainda não saiu"
+        type: boolean
+        default: false
 
 permissions:
   contents: write   # pra commitar o historico.json (memória anti-repetição)
@@ -30,6 +37,8 @@ jobs:
     timeout-minutes: 20   # folga pros retries do Gemini (rodadas de até 3 min de espera)
     steps:
       - uses: actions/checkout@v5
+        with:
+          ref: main   # o último histórico: sem isso, execução que esperou na fila duplica o episódio
 
       - uses: actions/setup-python@v6
         with:
@@ -47,9 +56,8 @@ jobs:
           # Seu id de usuário: os avisos de falha vão pra cá, nunca pro canal.
           TELEGRAM_ADMIN_CHAT_ID: ${{ secrets.TELEGRAM_ADMIN_CHAT_ID }}
           PYTHONUNBUFFERED: "1"   # log na ordem certa (stdout e stderr misturados)
-          REPESCAGEM: ${{ github.event.schedule == '15 12 * * *' || github.event.schedule == '15 15 * * *' }}
-          # Horário (BRT) da próxima execução agendada, citado no aviso de falha.
-          PROXIMA_TENTATIVA: ${{ github.event.schedule == '15 9 * * *' && '09:15' || github.event.schedule == '15 12 * * *' && '12:15' || '' }}
+          # Disparo agendado só gera se o episódio de hoje ainda não saiu.
+          REPESCAGEM: ${{ github.event_name == 'schedule' || inputs.repescagem }}
           # Quantas notícias vão pro Gemini (padrão do código: 100). Subir
           # demais aumenta o risco de timeout na geração do roteiro.
           MAX_ITEMS_TO_SUMMARIZE: "150"

@@ -77,11 +77,14 @@ PRONUNCIA_FILE = os.environ.get("PRONUNCIA_FILE", "pronuncia.txt")
 PROGRAMA = "Resumo Tech"  # artista do áudio e nome nos avisos
 # JPEG de até 320x320 e 200 KB (limite do Telegram). Sem o arquivo, sai sem capa.
 CAPA_FILE = os.environ.get("CAPA_FILE", "capa.jpg")
-# Preenchidos pelo workflow. REPESCAGEM: execução extra do fim da manhã, que
-# só gera episódio se o das 06:15 não saiu. PROXIMA_TENTATIVA: horário (BRT)
-# da próxima execução agendada, pra citar no aviso de falha.
+# REPESCAGEM: disparo agendado (cron do GitHub ou agendador externo), que só gera
+# episódio se o de hoje ainda não saiu. Assim os vários disparos do dia não
+# duplicam o episódio; o botão Run workflow continua gerando sempre.
 REPESCAGEM = os.environ.get("REPESCAGEM", "false").lower() == "true"
-PROXIMA_TENTATIVA = os.environ.get("PROXIMA_TENTATIVA", "").strip()
+# Horário (BRT) da próxima tentativa, pra citar no aviso de falha.
+PROXIMA_TENTATIVA = next(
+    (h for h in ("09:15", "12:15") if h > datetime.now(BRT).strftime("%H:%M")), ""
+)
 
 DIAS_SEMANA = [
     "segunda-feira", "terça-feira", "quarta-feira",
@@ -1047,47 +1050,73 @@ def roteirizar(items: list[dict], episodios: list[dict], dupla: tuple[dict, dict
     )
 
 
+# Valem pra execução inteira (uma chamada por parte do episódio): sem isso cada
+# parte reaprendia do zero quais modelos estão lotados.
+_fila_modelos = [GEMINI_MODEL]
+_modelos_esgotados: set[str] = set()  # cota diária acabou: não adianta insistir
+_descoberta_feita = False
+
+
 def gerar_com_gemini(prompts: list[str]) -> str:
     """Um 503 costuma ser aquele modelo específico lotado, não a conta/chave.
     Por isso cada rodada passa UMA vez por cada modelo da fila (sem esperar
-    entre eles) e só pausa entre rodadas. Antes eram 2 tentativas + 10s de
-    espera por modelo, o que demorava pra chegar num modelo livre. A última
-    rodada usa o último prompt da lista (o enxuto)."""
-    chain = [GEMINI_MODEL]
+    entre eles) e só pausa entre rodadas. A última rodada usa o último prompt
+    da lista (o enxuto). O modelo que respondeu vai pra frente da fila.
+
+    O flash-lite é último recurso: fica fora da 1ª rodada. Em 04/11 ele escreveu
+    7 de 9 respostas porque entrava logo depois do primeiro 429, e um limite por
+    minuto passa em menos de um minuto de espera."""
+    global _descoberta_feita
+    chain = _fila_modelos
     # Espera antes de cada rodada. Instabilidade geral do Gemini (500 em
     # todos os modelos) costuma durar minutos, então as pausas crescem; se
     # nem assim der, a repescagem do workflow tenta de novo horas depois.
     pausas = [0, 30, 90, 180]
-    descoberta_feita = False
+    espera_cota = 0.0
     last_error: Exception | None = None
 
     for rodada, pausa in enumerate(pausas, 1):
         prompt = prompts[-1] if rodada == len(pausas) else prompts[0]
         if pausa:
+            pausa = max(pausa, min(espera_cota, 120))  # o 429 diz quanto esperar
             print(
                 f"[AVISO] rodada {rodada - 1} falhou em todos os modelos; "
-                f"nova rodada em {pausa}s"
+                f"nova rodada em {pausa:.0f}s"
                 + (" com prompt enxuto" if prompt is not prompts[0] else "")
                 + "...",
                 file=sys.stderr,
             )
             time.sleep(pausa)
+        espera_cota = 0.0
         i = 0
-        while i < len(chain):  # chain pode crescer durante a 1ª rodada
+        while i < len(chain):  # chain pode crescer depois da 1ª falha
             model = chain[i]
             i += 1
+            if model in _modelos_esgotados:
+                continue
+            tem_melhor = any("lite" not in m and m not in _modelos_esgotados for m in chain)
+            if rodada == 1 and "lite" in model and tem_melhor:
+                continue
             try:
                 resp = _gemini_generate(model, prompt)
                 resp.raise_for_status()
                 texto = _extrair_texto(resp.json())
                 print(f"[OK] roteiro gerado por {model}")
+                if "lite" not in model:
+                    chain.remove(model)
+                    chain.insert(0, model)
                 return texto
             except (requests.RequestException, KeyError, IndexError, ValueError) as e:
                 last_error = e
                 print(f"[AVISO] {model} falhou ({_resumo_erro(e)})", file=sys.stderr)
+                cotas, segundos = _limite_429(e)
+                espera_cota = max(espera_cota, segundos)
+                if "perday" in cotas.lower():
+                    _modelos_esgotados.add(model)
+                    print(f"[AVISO] cota diária de {model} acabou; fora da fila hoje", file=sys.stderr)
             # Na primeira falha, descobre outros modelos pra completar a fila.
-            if not descoberta_feita:
-                descoberta_feita = True
+            if not _descoberta_feita:
+                _descoberta_feita = True
                 try:
                     alternativos = discover_models(excluir=set(chain))
                     if alternativos:
@@ -1098,6 +1127,8 @@ def gerar_com_gemini(prompts: list[str]) -> str:
                         chain.extend(alternativos)
                 except requests.RequestException as e:
                     print(f"[AVISO] não deu pra listar modelos alternativos: {e}", file=sys.stderr)
+        if all(m in _modelos_esgotados for m in chain):
+            break  # esperar não traz cota diária de volta
 
     raise RuntimeError(
         f"Gemini falhou em todos os modelos tentados ({', '.join(chain)}): "
@@ -1118,11 +1149,32 @@ def _extrair_texto(data: dict) -> str:
     return texto
 
 
+def _limite_429(e: Exception) -> tuple[str, float]:
+    """(cotas estouradas, segundos sugeridos pelo Gemini). O corpo do 429 é o
+    que diz se o limite é por minuto (vale esperar) ou por dia (não vale)."""
+    resp = getattr(e, "response", None)
+    if resp is None or resp.status_code != 429:
+        return "", 0.0
+    cotas: list[str] = []
+    segundos = 0.0
+    try:
+        for d in resp.json()["error"]["details"]:
+            cotas += [v["quotaId"] for v in d.get("violations", []) if v.get("quotaId")]
+            m = re.fullmatch(r"([\d.]+)s", str(d.get("retryDelay", "")))
+            if m:
+                segundos = float(m.group(1))
+    except (ValueError, KeyError, TypeError, AttributeError):
+        pass
+    return "+".join(cotas), segundos
+
+
 def _resumo_erro(e: Exception) -> str:
-    """'503 Service Unavailable' em vez da URL inteira repetida no log."""
+    """'503 Service Unavailable' em vez da URL inteira repetida no log. No 429,
+    acrescenta qual cota estourou."""
     resp = getattr(e, "response", None)
     if resp is not None:
-        return f"{resp.status_code} {resp.reason}"
+        cotas = _limite_429(e)[0]
+        return f"{resp.status_code} {resp.reason}" + (f" [{cotas}]" if cotas else "")
     return str(e)
 
 
