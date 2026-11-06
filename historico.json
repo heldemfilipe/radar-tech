@@ -657,6 +657,55 @@
     "Ana",
     "Clara"
    ]
+  },
+  {
+   "data": "2026-11-06",
+   "gerado_em": "2026-11-06T13:49:54-03:00",
+   "noticias": [
+    {
+     "titulo": "Microsoft quer patentear IA que altera falas ao vivo",
+     "link": "https://tecnoblog.net/noticias/microsoft-quer-patentear-ia-que-altera-falas-ao-vivo/"
+    },
+    {
+     "titulo": "Fox completes its $22B acquisition of Roku",
+     "link": "https://techcrunch.com/2026/11/06/fox-completes-its-22b-acquisition-of-roku/"
+    },
+    {
+     "titulo": "Tesla to wind down Cybertruck production in mid-2027 to build Cybercabs",
+     "link": "https://thenextweb.com/news/tesla-cybertruck-production-wind-down-2027"
+    },
+    {
+     "titulo": "Lula vai criar Ministério da Segurança Pública com Medida Provisória",
+     "link": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-11/lula-vai-criar-ministerio-da-seguranca-publica-com-medida-provisoria"
+    },
+    {
+     "titulo": "Lula diz que será 'fiscal' de entregas do governo: 'Quem não quiser fazer, cai fora'",
+     "link": "https://g1.globo.com/politica/noticia/2026/11/06/lula-diz-que-sera-fiscal-de-entregas-do-governo-quem-nao-quiser-fazer-cai-fora.ghtml"
+    },
+    {
+     "titulo": "Docker Sandboxes vs. Containers: Choosing the Right Isolation for AI Agents",
+     "link": "https://www.docker.com/blog/docker-sandboxes-vs-containers/"
+    },
+    {
+     "titulo": "Falha grave inutiliza e trava celulares Android em loop infinito",
+     "link": "https://canaltech.com.br/apps/falha-grave-inutiliza-e-trava-celulares-android-em-loop-infinito/"
+    },
+    {
+     "titulo": "EUA vão finalmente deixar de usar disquetes no controle de tráfego aéreo",
+     "link": "https://tecnoblog.net/noticias/eua-vao-finalmente-deixar-de-usar-disquetes-no-controle-de-trafego-aereo/"
+    },
+    {
+     "titulo": "EA ouve fãs e relança Road Rash, Ultima e mais 23 clássicos no PC",
+     "link": "https://canaltech.com.br/games/ea-ouve-fas-e-relanca-road-rash-ultima-e-mais-23-classicos-no-pc/"
+    }
+   ],
+   "roteiro": "LEO: Sabe aquele cheirinho de café fresco que avisa que a semana acabou? tá no ar a edição de hoje do seu podcast diário de tecnologia, sexta-feira, 6 de novembro de 2026.\nLEO: Eu sou o Leo, pronto pra esquentar o seu dia.\nANA: E eu sou a Ana. Pronta pra ir direto ao ponto, do jeito que você gosta.\nLEO: Cê viu a bomba do Elon Musk hoje?\nANA: Qual delas?\nLEO: Ele finalmente cansou daquele caixote de aço.\nANA: O Cybertruck?\nLEO: Esse mesmo. A Tesla vai matar o picapeiro futurista.\n---\nLEO: A notícia caiu como uma bomba no setor automotivo. A fábrica do Texas vai parar de produzir o Cybertruck na metade de dois mil e vinte e sete.\nANA: E o espaço físico da linha de montagem vai ser todo reaproveitado.\nLEO: Pra construir os Cybercabs.\nANA: Exatamente. Aquele robotáxi de dois lugares sem volante nem pedal.\nLEO: Mas peraí... o Cybertruck não ia desbancar a F-150 no mercado americano?\nANA: Essa era a promessa em dois mil e dezenove.\nLEO: — e deu ruim.\nANA: — e virou um pesadelo de engenharia. Painéis desalinhados, problemas de produção e um público consumidor bem menor do que o esperado.\nLEO: Um fracasso em formato de polígono.\nANA: A Tesla percebeu que inspecionar aço inoxidável não dá o mesmo retorno que dominar a frota de táxis autônomos.\nLEO: É um pivô de bilhões.\nANA: Um movimento arriscado, mas inevitável. Quem não entrega volume na indústria automobilística troca o produto antes que a conta chegue.\n---\nLEO: Falando em automação... lembra que na quarta-feira a gente comentou sobre os agentes de IA programando em paralelo?\nANA: Lembro perfeitamente.\nLEO: A Docker resolveu lançar uma ferramenta focada exatamente nesses robôs que escrevem código.\nANA: São os Docker Sandboxes. E a diferença técnica pra um container comum é enorme.\nLEO: Ué, mas um container já não era isolado?\nANA: Um container isola processos, mas compartilha o mesmo kernel do sistema operacional com a máquina hospedeira.\nLEO: — entendi.\nANA: — e um agente autônomo de código precisa de liberdade total. Ele quer rodar o comando sudo, instalar pacotes, criar novos containers e testar comandos sem supervisão.\nLEO: Se o robô errar num container normal...\nANA: ...ele pode comprometer a máquina inteira. O Sandbox cria uma microVM dedicada, com kernel e motor Docker próprios. É como dar uma oficina inteira, trancada e isolada, pro robô brincar à vontade.\n---\nLEO: Agora me dá um segundo que eu preciso comemorar. A Electronic Arts resolveu ouvir os saudosistas.\nANA: Lançaram vinte e cinco jogos clássicos de PC no catálogo?\nLEO: Sim! Tem Road Rash, Ultima e Wing Commander atualizados pra rodar nos computadores de hoje.\nANA: Road Rash... aquele das brigas de moto nos anos noventa?\nLEO: Ele mesmo! Soco, corrente e capacete voando na pista.\nANA: É fascinante ver as publishers resgatando o próprio acervo sem cobrar o preço de um lançamento do ano.\nLEO: É o charme da nostalgia sem precisar de emulador engasgando.\n---\nLEO: Só que nem tudo é nostalgia feliz no mundo dos celulares hoje.\nANA: Tem uma falha grave afetando o Android.\nLEO: A Bitdefender descobriu um bug batizado de GhostMap que trava o celular num loop infinito de reinicialização.\nANA: O famoso bootloop. E o detalhe mais assustador é que a vítima nem precisa abrir o aplicativo malicioso.\nLEO: Como assim?\nANA: O erro tá no serviço do Android que verifica arquivos compactados durante a instalação. Quando ele tenta ler o app, o sistema trava e reinicia.\nLEO: E tenta ler de novo assim que liga?\nANA: — exatamente.\nLEO: — e fica preso pra sempre.\nANA: Isso. O pior de tudo é que o Google classificou a falha como fora de escopo pra atualização de segurança e não lançou um patch ainda.\nLEO: Pô, sacanagem do Google. A regra de ouro por enquanto é não baixar nada fora da loja oficial.\n---\nLEO: Mudando de assunto, chegou a hora da nossa cobertura de política. E o Palácio do Planalto anunciou duas movimentações importantes.\nANA: A primeira é que o presidente Luiz Inácio Lula da Silva confirmou a criação do Ministério da Segurança Pública.\nLEO: E a mudança vem por Medida Provisória?\nANA: Sim. O objetivo da proposta é centralizar e ampliar as ações federais de combate a organizações criminosas no país.\nLEO: E na parte econômica, teve cobrança de metas dentro do próprio ministério?\nANA: Teve. O presidente declarou que vai fiscalizar pessoalmente os prazos das entregas do governo e que quem não cumprir as metas terá que deixar a gestão.\nLEO: Ele reforçou a necessidade de manter a seriedade fiscal sem cortar programas sociais.\nANA: Exato. O governo quer garantir previsibilidade econômica pra atrair investimentos, alinhando o discurso com a equipe do Ministério da Fazenda.\n---\nLEO: Hora da nossa rodada rápida.\nANA: A autoridade de aviação dos Estados Unidos vai finalmente aposentar os disquetes do controle de tráfego aéreo até dois mil e vinte e oito.\nLEO: Disquete em dois mil e vinte e seis? Guerreiros.\nANA: Enquanto isso, no mercado de mídia, a Fox concluiu a compra da plataforma Roku por vinte e dois bilhões de dólares.\nLEO: Negócio gigante. E a Microsoft?\nANA: Pediu a patente de uma inteligência artificial capaz de alterar a fala de uma pessoa ao vivo, com tradução rápida e ajuste automático da boca.\nLEO: Dublagem em tempo real no vídeo.\n---\nLEO: Você explicou ali atrás sobre o Docker Sandbox pra isolar os agentes de IA...\nANA: Pensa numa caixinha de areia no parquinho de uma escola.\nLEO: Onde as crianças jogam a areia pra cima sem sujar a sala de aula?\nANA: Perfeito. No mundo do software, o Sandbox é esse ambiente totalmente murado e seguro. Você coloca um programa não confiável lá dentro pra rodar. Se ele quebrar tudo, jogar tinta na parede ou tentar fazer uma besteira...\nLEO: ...fica só dentro da caixinha.\nANA: Não encosta na sua casa, não afeta o sistema principal e você limpa tudo com um único clique.\nLEO: Prático e seguro.\n---\nLEO: E com disquetes se aposentando, o Cybertruck saindo de cena e a caixinha de areia protegendo nossos códigos, fechamos o episódio de hoje.\nANA: No final das contas, saber onde colocar os limites é o que evita os maiores desastres.\nLEO: Gostei do recado. Até amanhã.\nANA: Até. Fica bem.",
+   "manchete": "Tesla encerra produção do Cybertruck em 2027",
+   "audio_ok": true,
+   "apresentadores": [
+    "Ana",
+    "Leo"
+   ]
   }
  ]
 }
