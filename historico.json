@@ -1319,6 +1319,619 @@
     "Ana",
     "Leo"
    ]
+  },
+  {
+   "data": "2026-11-08",
+   "gerado_em": "2026-11-08T13:12:01-03:00",
+   "noticias": [
+    {
+     "titulo": "Lava e seca na Black Friday: 5 modelos que podem despencar de preço",
+     "link": "https://canaltech.com.br/eletro/lava-e-seca-na-black-friday-5-modelos-que-podem-despencar-de-preco/"
+    },
+    {
+     "titulo": "Meta muse ganha conversas naturais por voz e avatares expressivos",
+     "link": "https://www.estadao.com.br/tecmundo/inteligencia-artificial/meta-muse-ganha-conversas-naturais-por-voz-e-avatares-expressivos/"
+    },
+    {
+     "titulo": "Resultado da Quina de hoje: veja números e ganhadores do concurso 7162 (domingo, 08/11)",
+     "link": "https://olhardigital.com.br/2026/11/08/internet-e-redes-sociais/resultado-da-quina-de-hoje-veja-numeros-e-ganhadores-do-concurso-7162-domingo-08-11/"
+    },
+    {
+     "titulo": "Suspeitos usam deepfakes de chefes para desviar US$ 129 mi, dizem EUA",
+     "link": "https://www.uol.com.br/tilt/noticias/redacao/2026/11/08/suspeitos-usam-deepfakes-de-chefes-para-desviar-us-129-milhoes-diz-eua.ghtm"
+    },
+    {
+     "titulo": "- Fórum Adrenaline",
+     "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFBYMzN4cl8walFscWlQdEp0X2VOYUh2RWg4U2NpOUROOW1HX1FnSXd1UTdBeERJU0VSa1M4a0xzWGE1SW9Qd1VBTElEVnJrcFFSWHlQa2dabDBxZ2ow?oc=5"
+    },
+    {
+     "titulo": "Qwen 3.8 27B interpreta pesos de rede neural localmente",
+     "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQV2pyclBDQTJkNk9vYTgzUWFyeExXTWo3NjJHRTI0NUNFcm9zQ095ZHJ5RkV0cnlkcDlld0hKSWZ2Ym01OWEwNHZZSEM4dHZXSFZGU0M2cFMtenpUbnRhbWs1UFV4Z0JHRWxyRVF4eVlWOV9WYzNPbUtadFpNZWkyOXZvRVcwa0ZBbjlsUUR2LTVMTXdzM0EySVlNUVc0Q2lDSHlMWG1kWndpS0tfZVJkeG9FYVFualRGUXptRA?oc=5"
+    },
+    {
+     "titulo": "Como editar a memória do ChatGPT no celular e no PC",
+     "link": "https://www.showmetech.com.br/como-editar-a-memoria-do-chatgpt/"
+    },
+    {
+     "titulo": "Ninja’s AutoBarista is impressively versatile, but one feature was a dealbreaker for me",
+     "link": "https://techcrunch.com/2026/11/08/ninjas-autobarista-is-impressively-versatile-but-one-feature-was-a-dealbreaker-for-me/"
+    },
+    {
+     "titulo": "Chatbots might be coming to Apple’s HomeView",
+     "link": "https://www.theverge.com/tech/1029526/chatbots-might-be-coming-to-apples-homeview"
+    },
+    {
+     "titulo": "Physicists listened to electrical noise to crack a superconductor mystery",
+     "link": "https://arstechnica.com/science/2026/11/physicists-listened-to-electrical-noise-to-crack-a-superconductor-mystery/"
+    },
+    {
+     "titulo": "8 Best Computer Speakers (2026) After Testing 30 Pairs",
+     "link": "https://www.wired.com/gallery/best-computer-speakers/"
+    },
+    {
+     "titulo": "Can PC coolant expire? Here's how long it can last",
+     "link": "https://www.engadget.com/2307846/how-long-pc-coolant-lasts/"
+    },
+    {
+     "titulo": "Wendy’s Just Released a Video Game Where You Can Win Fast Food",
+     "link": "https://www.cnet.com/tech/gaming/wendys-video-game-fast-food/"
+    },
+    {
+     "titulo": "Decision models like Jev don’t explain their answers. That makes context your problem",
+     "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPQkVBckpjNkJQTGxzMUE4WDEtZFZ3REwyYUtHc1JkSnhjRnpxbGJER1J6cFhFYmNzWjE1RlVFMG1fd013MThoWTRsaThzdU5TaDJPSkt6a3Njajk1UEJoTTlKRFVQWFp0by1QVXY0YkxQVmczUVZYT1NxUmhXenNuMUxFWS1ic3ltWHlhM2tSNmNhUms2T2UtSEM5NEh4M1AzUHBKUzlYTTI4a21fQ3ZKb2NTVUVHeThMLTZpX3BR?oc=5"
+    },
+    {
+     "titulo": "Tencent AI chief warns models will soon pose biology risks, SCMP reports",
+     "link": "https://thenextweb.com/news/tencent-yao-shunyu-ai-biology-risk-hy4"
+    },
+    {
+     "titulo": "Hey, Prime members: Take 50% off Amazons brand-new Alexa+ devices",
+     "link": "https://mashable.com/tech/amazon-alexa-devices-prime-member-early-black-friday-sale"
+    },
+    {
+     "titulo": "Edição de luxo do livro que abriu as portas de Nárnia está por quase metade do preço na Amazon",
+     "link": "https://br.ign.com/descontos/157427/edicao-de-luxo-do-livro-que-abriu-as-portas-de-narnia-esta-por-quase-metade-do-preco-na-amazon"
+    },
+    {
+     "titulo": "Google Pixel 11 Pro XL vs Samsung Galaxy S26 Ultra",
+     "link": "https://www.gsmarena.com/pixel_11_pro_xl_vs_galaxy_s26_ultra_battery_camera_price_compared-news-75303.php"
+    },
+    {
+     "titulo": "Apple CEO Presses Software Chief to Pursue More Ambitious AI Strategy",
+     "link": "https://www.bloomberg.com/news/newsletters/2026-11-08/apple-explores-turning-siri-ai-into-chatgpt-dots-like-agent-ios-28-shake-up"
+    },
+    {
+     "titulo": "Lula avançou em todas as faixas de renda; maior alta foi em áreas de classe média baixa",
+     "link": "https://g1.globo.com/politica/eleicoes/2026/noticia/2026/11/08/votacao-lula-faixas-de-renda.ghtml"
+    },
+    {
+     "titulo": "Embrapa indica diretrizes para adaptar hortaliças ao El Niño",
+     "link": "https://www.poder360.com.br/poder-agro/embrapa-indica-diretrizes-para-adaptar-hortalicas-ao-el-nino/"
+    },
+    {
+     "titulo": "Quaest: Fim da 6x1 e isenção da cesta básica lideram prioridades de eleitores para Lula 4",
+     "link": "https://redir.folha.com.br/redir/online/poder/rss091/*https://www1.folha.uol.com.br/poder/2026/11/quaest-fim-da-6x1-e-isencao-da-cesta-basica-lideram-prioridades-de-eleitores-para-lula-4.shtml"
+    },
+    {
+     "titulo": "Sim, todos podem: minorias políticas nas eleições de 2026",
+     "link": "https://www.jota.info/opiniao-e-analise/colunas/elas-no-jota/sim-todos-podem-minorias-politicas-nas-eleicoes-de-2026"
+    },
+    {
+     "titulo": "Perplexity’s AI agents keep working after you close the tab",
+     "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE1NOHRPWU5DTjFiWU8yTFVBWGNKYk9vc3hCbjRpT1BEOE1rNWpUdWp4ZkZZMGFCR0tjdTRURGVGUUdNLVE5bF9qWDJjb1FxUjl2NjExNXdJVGJFQVZja1gxNTJEN2phNUV6QzM3NHdXSXdNZw?oc=5"
+    },
+    {
+     "titulo": "Entire's Git Forge Rethinks Git Collaboration for Coding Agents",
+     "link": "https://www.infoq.com/news/2026/11/entire-git-forge-coding-agents/?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=global"
+    },
+    {
+     "titulo": "Lima v2.3: Native on Windows, VMnet on Linux, and menu TUI",
+     "link": "https://www.cncf.io/blog/2026/11/08/lima-v2-3-native-on-windows-vmnet-on-linux-and-menu-tui/"
+    },
+    {
+     "titulo": "GTA 6, Zelda Ocarina of Time e 10 jogos que devem concorrer ao GOTY 2026",
+     "link": "https://canaltech.com.br/games/jogos-que-devem-concorrer-ao-goty-2026/"
+    },
+    {
+     "titulo": "Dead island 2 na ps plus silent hill f baratinho e mais veja as indicacoes de games",
+     "link": "https://www.estadao.com.br/tecmundo/voxel/dead-island-2-na-ps-plus-silent-hill-f-baratinho-e-mais-veja-as-indicacoes-de-games/"
+    },
+    {
+     "titulo": "Resultado da Lotofácil de hoje: veja números e ganhadores do concurso 3824 (domingo, 08/11)",
+     "link": "https://olhardigital.com.br/2026/11/08/internet-e-redes-sociais/resultado-da-lotofacil-de-hoje-veja-numeros-e-ganhadores-do-concurso-3824-domingo-08-11/"
+    },
+    {
+     "titulo": "K-pop vira laboratório de artistas clonados com inteligência artificial",
+     "link": "https://www.uol.com.br/tilt/colunas/carlos-affonso-de-souza/2026/11/08/k-pop-vira-laboratorio-de-artistas-clonados-com-inteligencia-artificial.htm"
+    },
+    {
+     "titulo": "Jogos de PlayStation por menos de R$ 25 em oferta de Black Friday",
+     "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPTEc4MFp5VXlOM1ZxNVVldGJGeWlrX0YtYVJPWVl4akYxaUp2cndLQk5ESGdDck9fZGhxWnJBVUFNZjQyeFBmVE5KR1JfckVaTDBNMmdxbEVFVWpTRFZuaWsxY1FqLXR2bGg2dUJiWm1XM1lmbFVZQ2d5R2FNcVU1Qjk2V0ZfUmpKY1l1dlVmZElMS25kcml5OUFlZHY5cW5xZnk5Mmh4aEhSYWpsUjZTc00yaw?oc=5"
+    },
+    {
+     "titulo": "AI Overviews: o que o Google exige de SEO",
+     "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNaC02Mnl6LW1iWVRaRlh2aUVaUVVuNkpNOXhRazJ4NE95elh2R2s4WjZaNm1HSnRQR1BtbE5iQU9CaDF3bFM0eWl4aXFybHVZRXJ4YzRTVnFzX2FOMTQ5aUdEUnlUcnpkalBUWnBOc1hUazJLT3lnMkc2cnZnTjZ0SmlSZ2VZNzhNQmxqR1A2d1RXb1RrQ3N2VEtXaVF1VzBmVUdlQkhteldJNk1O?oc=5"
+    },
+    {
+     "titulo": "Casa Stark: entenda a história, a linhagem e os herdeiros de Winterfell",
+     "link": "https://www.showmetech.com.br/casa-stark-historia-linhagem-herdeiros-winterfell/"
+    },
+    {
+     "titulo": "After the midterms, things are looking rocky for Elon Musk and data centers",
+     "link": "https://techcrunch.com/2026/11/07/after-the-midterms-things-are-looking-rocky-for-elon-musk-and-data-centers/"
+    },
+    {
+     "titulo": "There’s no slowing down media’s pivot-to-video 2.0",
+     "link": "https://www.theverge.com/column/1026252/video-media-news-tiktok-pivot"
+    },
+    {
+     "titulo": "I Used NYT Cooking’s New AI-Powered Recipe Modifier, and It’s Actually Pretty Good",
+     "link": "https://www.wired.com/story/nyt-cooking-new-ai-powered-recipe-modifier-is-pretty-good/"
+    },
+    {
+     "titulo": "These experimental EV batteries can eject themselves during a fire",
+     "link": "https://www.engadget.com/2307844/experimental-ev-batteries-eject-during-fire/"
+    },
+    {
+     "titulo": "Italy blames pro-Russian hackers for leaking Tajani’s personal data",
+     "link": "https://thenextweb.com/news/italy-tajani-personal-data-pro-russian-hackers"
+    },
+    {
+     "titulo": "Own Microsoft Office 2024 Home for $119.97 with no ongoing fees",
+     "link": "https://mashable.com/tech/nov-8-microsoft-office-2024-home-for-mac-or-pc"
+    },
+    {
+     "titulo": "Últimas unidades! Box com a trilogia de Jogos Vorazes está com 39% de desconto na Black Friday da Amazon",
+     "link": "https://br.ign.com/descontos/157426/ultimas-unidades-box-com-a-trilogia-de-jogos-vorazes-esta-com-39-de-desconto-na-black-friday-da-amaz"
+    },
+    {
+     "titulo": "Deals: vivo X500 Pro and X500 Pro Max come with freebies, the Oppo Find X10 series has a small discount",
+     "link": "https://www.gsmarena.com/deals_vivo_x500_pro_and_x500_pro_max_come_with_freebies_the_oppo_find_x10_series_has_a_small_discoun-news-75384.php"
+    },
+    {
+     "titulo": "OpenAI raises $11B at a $1.25T valuation",
+     "link": "https://247wallst.com/investing/2026/11/07/openai-just-raised-11-billion-at-a-1-25-trillion-valuation-below-the-1-4-trillion-it-first-sought/"
+    },
+    {
+     "titulo": "Onde ficam as urnas que Lula e Flávio Bolsonaro 'zeraram' no 2º turno",
+     "link": "https://g1.globo.com/politica/eleicoes/2026/noticia/2026/11/08/onde-ficam-as-urnas-que-lula-e-flavio-bolsonaro-zeraram-no-2o-turno.ghtml"
+    },
+    {
+     "titulo": "Janones diz que perdeu 10 kg durante 2º turno",
+     "link": "https://www.poder360.com.br/poder-gente/janones-diz-que-perdeu-10-kg-durante-2o-turno/"
+    },
+    {
+     "titulo": "62% afirmam que Flávio errou ao fugir para os EUA, e 61% dizem que eleição foi justa, mostra pesquisa Quaest",
+     "link": "https://redir.folha.com.br/redir/online/poder/rss091/*https://www1.folha.uol.com.br/poder/2026/11/quaest-61-dizem-que-eleicoes-foram-limpas-e-justas-30-fraudadas.shtml"
+    },
+    {
+     "titulo": "B3, operadores do mercado e cartórios vão desenvolver sistema de gestão de precatórios com CNJ",
+     "link": "https://www.jota.info/tributos-e-empresas/mercado/b3-operadores-do-mercado-e-cartorios-vao-desenvolver-sistema-de-gestao-de-precatorios-com-cnj"
+    },
+    {
+     "titulo": "How we review 4x more AI code without reading every line",
+     "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1heVVFMi1IeVU1Y3BZWWctbHlPbnN1TFI0UkpVUTV0dWpIMWpwNEFvVnZPVk5TbkZrVDJYQWFYbzNxSzVjSjA0TV9qQzRaVVlGOENmaE90Ylo?oc=5"
+    },
+    {
+     "titulo": "Google Cloud Adds Self-Managed VMware Cloud Foundation on Bare Metal",
+     "link": "https://www.infoq.com/news/2026/11/google-cloud-self-managed-vmware/?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=global"
+    },
+    {
+     "titulo": "Echo Dot: qual preço é promoção de verdade na Black Friday?",
+     "link": "https://canaltech.com.br/produtos/echo-dot-qual-preco-e-promocao-de-verdade-na-black-friday/"
+    },
+    {
+     "titulo": "Usuarios relatam falhas de wi fi e 5g apos atualizacao one ui 9",
+     "link": "https://www.estadao.com.br/tecmundo/produto-e-review/usuarios-relatam-falhas-de-wi-fi-e-5g-apos-atualizacao-one-ui-9/"
+    },
+    {
+     "titulo": "Resultado da Mega-Sena de hoje: veja números e ganhadores do concurso 3083 (domingo, 08/11)",
+     "link": "https://olhardigital.com.br/2026/11/08/internet-e-redes-sociais/resultado-da-mega-sena-de-hoje-veja-numeros-e-ganhadores-do-concurso-3083-domingo-08-11/"
+    },
+    {
+     "titulo": "Diretor renuncia do conselho de administração da SpaceX após uma década",
+     "link": "https://economia.uol.com.br/noticias/estadao-conteudo/2026/11/06/diretor-renuncia-do-conselho-de-administracao-da-spacex-apos-mais-de-uma-decada.htm"
+    },
+    {
+     "titulo": "Launcher da Epic Games terá versão oficial para o SteamOS",
+     "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNSG1zVjdzWWJGaXdJREcyYlJXaWpnOFRFckU1SnItVng5LUd5VG9wTnRiNWxRRmx4c1VXODNjd24wbUd5LUw3em5Wb1l4cUZFTU1KTGdLRWFoWGF0bHktRU5XUHl0SG8yMXNVVmhyRzJhR0FvNmFCQTRuMjlpRkZBOW5OOE83UlJiNTNXa2RXbFhDYXQtbHppb1N5MHM0QmxKMlVfbHVB?oc=5"
+    },
+    {
+     "titulo": "MCP 2025-06-18: o que muda na autorização e no elicitation",
+     "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPSTlOX19GdkxpY1lfdnh4ZUp0clUwcUtQTEpfV1hwT3lwdktkTVRJal9KcnlKZnliaXpSTEhlYThGdXlaLXd0dXBGZnVYVjZuNHJlMUd1MDVLaGtKZ0lhd1FCUTVoWkloZEZUMzc4UXNjenREem1FVlBSakdwMkVTN09HQ1N3R2ZENURqSjlpWktTWHlxLVhKZFBIWlVWYkxDQnZyRWtYdnAtYnFuQ1dSQWZCY3N4X18xRm84eW43MHgzcDE2UjZN?oc=5"
+    },
+    {
+     "titulo": "Megaspeed exec was recruited to spy on Nvidia CEO, according to US intelligence memo",
+     "link": "https://techcrunch.com/2026/11/07/chinese-exec-was-recruited-to-spy-on-nvidia-ceo-according-to-us-intelligence-memo/"
+    },
+    {
+     "titulo": "The UV-tracking Gem made me rethink how sunlight affects my health, not just my appearance",
+     "link": "https://www.theverge.com/tech/1023230/the90-gem-necklace-hands-on-impressions"
+    },
+    {
+     "titulo": "Wandrd’s Magnetic Camera Straps Are My New Favorite Accessory",
+     "link": "https://www.wired.com/story/wandrd-magnetic-camera-straps-are-my-new-favorite-accessory/"
+    },
+    {
+     "titulo": "Pro Gamers typically don't use OLED monitors, but you most definitely can",
+     "link": "https://www.engadget.com/2307840/pro-gamers-dont-use-oled-monitors-why-you-should/"
+    },
+    {
+     "titulo": "CoreWeave asks Texas governor-elect to let permitted data centres finish",
+     "link": "https://thenextweb.com/news/coreweave-texas-hinojosa-data-centre-letter"
+    },
+    {
+     "titulo": "Prime members can get $20 off dinner with this new Uber Eats offer — how to claim",
+     "link": "https://mashable.com/tech/nov-8-uber-eats-amazon-prime-early-black-friday-deal"
+    },
+    {
+     "titulo": "Esta série de zumbis com apenas 16 episódios recebeu críticas melhores que The Walking Dead e foi elogiada por Stephen King",
+     "link": "https://br.ign.com/the-walking-dead-1/157389/esta-serie-de-zumbis-com-apenas-16-episodios-recebeu-criticas-melhores-que-the-walking-dead-e-foi-el"
+    },
+    {
+     "titulo": "Weekly poll: are you interested in the Motorola Signature 27?",
+     "link": "https://www.gsmarena.com/weekly_poll_are_you_interested_in_the_motorola_signature_27-news-75364.php"
+    },
+    {
+     "titulo": "Person of Interest",
+     "link": "https://krthr.co/person-of-interest/"
+    },
+    {
+     "titulo": "Quaest: 48% aprovam e 44% desaprovam governo Lula na primeira pesquisa após a eleição",
+     "link": "https://g1.globo.com/politica/noticia/2026/11/08/quaest-48percent-aprovam-e-44percent-desaprovam-governo-lula-na-primeira-pesquisa-apos-a-eleicao.ghtml"
+    },
+    {
+     "titulo": "Estamos fazendo uma “guerra pela educação”, diz Lula sobre Enem",
+     "link": "https://www.poder360.com.br/poder-educacao/estamos-fazendo-uma-guerra-pela-educacao-diz-lula-sobre-enem/"
+    },
+    {
+     "titulo": "Vereadora do PT questiona Nunes por eleição online dos conselhos participativos",
+     "link": "https://redir.folha.com.br/redir/online/poder/rss091/*https://www1.folha.uol.com.br/colunas/painel/2026/11/vereadora-do-pt-questiona-nunes-por-eleicao-online-dos-conselhos-participativos.shtml"
+    },
+    {
+     "titulo": "Carf mantém tributação de lucros de controladas da JBS, mas derruba multa",
+     "link": "https://www.jota.info/tributos/carf-mantem-tributacao-de-lucros-de-controladas-da-jbs-mas-derruba-multa"
+    },
+    {
+     "titulo": "In the software factory, engineers become process engineers",
+     "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1EX2JpMS0wUUJQX0xwNjJJcFI4MVIzdV96MkF3cVoyRlQ2X1FsUHNkZFdlbzVkZnhncl8weHBoeEMySjdBTDZPaVIwMVlaTlJoSWd5RXNjeEZuNGNpQV9vR1NRcFJoRnNZY0E?oc=5"
+    },
+    {
+     "titulo": "Cloudflare Scales D1 Control Plane to Millions of Databases",
+     "link": "https://www.infoq.com/news/2026/11/cloudflare-d1-control-plane/?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=global"
+    },
+    {
+     "titulo": "Por que algumas portas USB são pretas?",
+     "link": "https://canaltech.com.br/hardware/por-que-algumas-portas-usb-sao-pretas/"
+    },
+    {
+     "titulo": "Epic games libera dois jogos gratis no celular resgate agora no android 08",
+     "link": "https://www.estadao.com.br/tecmundo/voxel/epic-games-libera-dois-jogos-gratis-no-celular-resgate-agora-no-android-08/"
+    },
+    {
+     "titulo": "Como criminosos usaram rostos falsos para desviar mais de R$ 700 milhões",
+     "link": "https://olhardigital.com.br/2026/11/08/seguranca/como-criminosos-usaram-rostos-falsos-para-desviar-mais-de-r-700-milhoes/"
+    },
+    {
+     "titulo": "Governo Lula aprova R$ 46,3 mi para rede nacional de data center",
+     "link": "https://www.uol.com.br/tilt/colunas/helton-simoes-gomes/2026/11/06/governo-lula-aprova-r-463-mi-para-rede-nacional-de-data-center.htm"
+    },
+    {
+     "titulo": "CPUs Intel Razor Lake-S para desktop podem chegar em 2028 e compatíveis com LGA-1954",
+     "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQTWtLbVhmRmZqQXEzeGYtcTZPTmxvSTM0U2V1MVRmVnRIcTJKU1lVMzh3Z0ZKVS11Q2s1bTl1M1N3Wl9oQnB1eHlqNVRTMnowazNCOHRvTWVGc3NzN09oaC1tQmZBSURlZHlmejZWdGF1dl9xa3E4SUJiWEJLN1pPRkRuNkxMOEx5R0hXdmVtX2FhNUZDbmRvNUVXVlNJZ1p4cFNOc2hkd0p3ZkR1WW1GX3VGdUhDVzVQRlBnX0pn?oc=5"
+    },
+    {
+     "titulo": "Sistemas financeiros",
+     "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE5PSkVsdjd0TVNjcHNzNzR1LURIQzB6QjNqUWhaVHR6MFZmYkREMm5sNFpRLTlHUDRqT2hZWFI5U2hyeGNIQkl5aGlQNHlLbWhzd0l2SEpzcl9IRTN5ZDU4V1JVRVJteVQ3azlJ?oc=5"
+    },
+    {
+     "titulo": "Parents want safer phones for kids. These companies are answering the call.",
+     "link": "https://techcrunch.com/2026/11/07/parents-want-safer-phones-for-kids-these-companies-are-answering-the-call/"
+    },
+    {
+     "titulo": "Costco members can get $5 off the reimagined Ocarina of Time",
+     "link": "https://www.theverge.com/gadgets/1028917/legend-of-zelda-ocarina-of-time-remake-switch-2-costco-deal-sale"
+    },
+    {
+     "titulo": "How to Remind Your Boss of Your PTO Without Pissing Them Off",
+     "link": "https://www.wired.com/story/how-to-remind-your-boss-about-your-vacation/"
+    },
+    {
+     "titulo": "How to set up Google Authenticator on a new phone",
+     "link": "https://www.engadget.com/2307835/how-to-set-up-google-authenticator-new-phone/"
+    },
+    {
+     "titulo": "Unfold CEO Ran Cherniavsky on breaking down enterprise data barriers to AI adoption",
+     "link": "https://thenextweb.com/news/unfold-ran-cherniavsky-enterprise-data-ai-adoption"
+    },
+    {
+     "titulo": "AdGuard blocks all ads on 9 devices for life for just $18",
+     "link": "https://mashable.com/tech/nov-7-adguard-family-plan-lifetime-subscription"
+    },
+    {
+     "titulo": "Nova minissérie da Netflix que está conquistando o público: um thriller para terminar em uma única tarde",
+     "link": "https://br.ign.com/netflix/157387/nova-minisserie-da-netflix-que-esta-conquistando-o-publico-um-thriller-para-terminar-em-uma-unica-ta"
+    },
+    {
+     "titulo": "Weekly poll results: touchscreens on laptops only make sense if you can use the laptop as a tablet",
+     "link": "https://www.gsmarena.com/weekly_poll_results_touchscreens_on_laptops_only_make_sense_if_you_can_use_the_laptop_as_a_tablet-news-75367.php"
+    },
+    {
+     "titulo": "Petered (what happens after the Peter Principle)",
+     "link": "https://aworkinglibrary.com/writing/petered"
+    },
+    {
+     "titulo": "Quaest: 62% reprovam ida de Flávio Bolsonaro para os EUA, e 56% acham que ele está fugindo da Justiça",
+     "link": "https://g1.globo.com/politica/noticia/2026/11/08/quaest-56percent-acham-que-flavio-bolsonaro-deixou-o-brasil-apos-as-eleicoes-para-fugir-da-justica.ghtml"
+    },
+    {
+     "titulo": "Defesa Civil diz que kits de emergência não indicam risco: “calma”",
+     "link": "https://www.poder360.com.br/poder-brasil/defesa-civil-diz-que-kits-de-emergencia-nao-indicam-risco-calma/"
+    },
+    {
+     "titulo": "Lula planeja reformular gabinete pessoal, e Janja pode ganhar força em novo desenho",
+     "link": "https://redir.folha.com.br/redir/online/poder/rss091/*https://www1.folha.uol.com.br/poder/2026/11/lula-planeja-reformular-gabinete-pessoal-e-janja-pode-ganhar-forca-em-novo-desenho.shtml"
+    },
+    {
+     "titulo": "Relações Governamentais: uma ponte entre o setor produtivo e o poder público",
+     "link": "https://www.jota.info/opiniao-e-analise/artigos/relacoes-governamentais-uma-ponte-entre-o-setor-produtivo-e-o-poder-publico"
+    },
+    {
+     "titulo": "8 ferramentas para descobrir se texto, foto ou vídeo foram feitos por IA",
+     "link": "https://canaltech.com.br/inteligencia-artificial/ferramentas-para-descobrir-texto-foto-video-feito-por-ia/"
+    },
+    {
+     "titulo": "A doenca do nobel e o risco da falacia de autoridade por que grandes cientistas erram",
+     "link": "https://www.estadao.com.br/tecmundo/frankito-o-curioso/a-doenca-do-nobel-e-o-risco-da-falacia-de-autoridade-por-que-grandes-cientistas-erram/"
+    },
+    {
+     "titulo": "Procuram-se astronautas: NASA abre seleção para novas missões à Lua",
+     "link": "https://olhardigital.com.br/2026/11/08/ciencia-e-espaco/procura-se-astronautas-nasa-abre-selecao-para-novas-missoes-a-lua/"
+    },
+    {
+     "titulo": "Tempestade geomagnética atinge a Terra no fim de semana, diz alerta dos EUA",
+     "link": "https://noticias.uol.com.br/cotidiano/ultimas-noticias/2026/11/06/tempestade-geomagnetica-atinge-a-terra-no-fim-de-semana-saiba-os-efeitos.ghtm"
+    },
+    {
+     "titulo": "Modder instala Radeon RX 9070 XT em Steam Machine e roda Crimson Desert a mais de 100 FPS",
+     "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQRlN5WXh6SlBoRF9BWk9jaVlxT3BnWm1sY0stVUhseWtXaFFKaGxHZWVqMG9OTk5rUmJpUUI5WFV2Z2lHVDV3bExBdnBrVEIyX3FMRThZY2o4cVp0dzcxSl9ORUh6MnNNeElzR0I0MGNfU0JYbHlBeFo4NS1qRzVxYzh3T0FqTFdwZmJIajNldmFtZEtTUHg1Q3FPamd1TlVBWmxndUpRT1dza2ZZRVVLV1pOcXRINk1TLXhPQ2k3TC1mU0E?oc=5"
+    },
+    {
+     "titulo": "Fraser McAllister (@FraserMcAllister483)",
+     "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE53LVItcVJobmQzVnAwdDIzT2ViZWludUFUNV9QZHAtbC1MRWt4WnYxd3JXMHZKdXBxd1YyYUxEcHNWRW11RW0xd0RzM0FHNm5JVGt0UTIzRUlVdHNvS2pXT1pXUTQ?oc=5"
+    },
+    {
+     "titulo": "Binance CFO is leaving to ‘pursue a new venture’ after $6.3 billion hack",
+     "link": "https://techcrunch.com/2026/11/07/binance-cfo-is-leaving-to-pursue-a-new-venture-after-6-3-billion-hack/"
+    },
+    {
+     "titulo": "Discogs’ Kevin Lewandowski can’t live without his AeroPress",
+     "link": "https://www.theverge.com/tech/1029474/discogs-kevin-lewandowski-aeropress-interview"
+    },
+    {
+     "titulo": "A 55-Year-Old Math Problem Was Solved—This Time by Humans",
+     "link": "https://www.wired.com/story/a-55-year-old-math-problem-was-solved-this-time-by-humans/"
+    },
+    {
+     "titulo": "Your digital game library is yours, until it's not",
+     "link": "https://www.engadget.com/2307829/digital-game-library-ownership-uncertainty/"
+    },
+    {
+     "titulo": "Anthropic buys $3.4bn of gas generators for its data centres, FT reports",
+     "link": "https://thenextweb.com/news/anthropic-3-4bn-gas-generators-onepwr-ft"
+    },
+    {
+     "titulo": "Farewell Roku aquarium: Popular screensaver will be removed following billion dollar Fox acquisition",
+     "link": "https://mashable.com/tech/what-happened-to-roku-aquatic-life-aquarium-screensaver"
+    },
+    {
+     "titulo": "Christopher Lloyd, 88 anos: “Toda vez que assisto a De Volta para o Futuro 3 e vejo aquela cena, sinto uma pontada no coração”",
+     "link": "https://br.ign.com/de-volta-para-o-futuro/157385/christopher-lloyd-88-anos-toda-vez-que-assisto-a-de-volta-para-o-futuro-3-e-vejo-aquela-cena-sinto-u"
+    },
+    {
+     "titulo": "vivo X500 Ultra on track to launch next year, says tipster",
+     "link": "https://www.gsmarena.com/vivo_x500_ultra_launch_timeframe_corroborated-news-75399.php"
+    },
+    {
+     "titulo": "JIT bitmap text rendering for microcontrollers",
+     "link": "https://linebender.org/blog/jit-bitmap-text/"
+    },
+    {
+     "titulo": "'Meu medo é o governo Lula buscar atalhos e brigar com o mercado': por que professor em Cambridge defende ajuste fiscal 'suave'",
+     "link": "https://g1.globo.com/economia/noticia/2026/11/08/meu-medo-e-o-governo-lula-buscar-atalhos-e-brigar-com-o-mercado-por-que-professor-em-cambridge-defende-ajuste-fiscal-suave.ghtml"
+    },
+    {
+     "titulo": "Cleitinho quer acabar com verba estadual para festas em Minas",
+     "link": "https://www.poder360.com.br/poder-brasil/cleitinho-quer-acabar-com-verba-estadual-para-festas-em-minas/"
+    },
+    {
+     "titulo": "Brasilianista progressista, amigo de Hobsbawm, lembra como perdeu apoio do PT",
+     "link": "https://redir.folha.com.br/redir/online/poder/rss091/*https://www1.folha.uol.com.br/ilustrissima/2026/11/brasilianista-progressista-amigo-de-hobsbawm-lembra-como-perdeu-apoio-do-pt.shtml"
+    },
+    {
+     "titulo": "A IA brasileira não começa do zero, mas precisa de direção",
+     "link": "https://www.jota.info/opiniao-e-analise/artigos/a-ia-brasileira-nao-comeca-do-zero-mas-precisa-de-direcao"
+    },
+    {
+     "titulo": "5 coisas legais (e outras nem tanto) do Leapmotor C10 REEV",
+     "link": "https://canaltech.com.br/carros/5-coisas-legais-e-outras-nem-tanto-do-leapmotor-c10-reev/"
+    },
+    {
+     "titulo": "Fitas cds dvds e blu rays a evolucao dos jogos em midia fisica",
+     "link": "https://www.estadao.com.br/tecmundo/voxel/fitas-cds-dvds-e-blu-rays-a-evolucao-dos-jogos-em-midia-fisica/"
+    },
+    {
+     "titulo": "Entenda o modelo de parceria do VCT e das ligas de LoL: de onde vem o dinheiro dos times",
+     "link": "https://olhardigital.com.br/2026/11/08/games-e-consoles/vct-e-lol-como-os-times-de-esports-ganham-dinheiro/"
+    },
+    {
+     "titulo": "Roubo de US$6,3 bi da Binance deve deixar seguradoras mais atentas",
+     "link": "https://www.uol.com.br/tilt/noticias/reuters/2026/11/06/roubo-de-us63-bi-da-binance-deve-deixar-seguradoras-mais-atentas.htm"
+    },
+    {
+     "titulo": "Jogos de PlayStation em oferta por menos de R$ 35 - veja lista",
+     "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOYllwMU9HZ2xNaWwtWE9rYXpTRllLS0VQN25IS3I4YmR3M2t3WGJMQzF1STNGTEIwLUZQbjhJNkJSU21PYWplRkpnTXBsYzhXV3BaeFRibmZ3QlZuMVdpQjVRa3RlWWRKWnhjZEtxWjQwZzBGYTVnZUZnNzJaOUJqS1JXbUhCZDFJRnd0ckJYVFpMRUd1SThyTWN0NGhOc0RENjNlcDNXa1hBRnJmNG9LRQ?oc=5"
+    },
+    {
+     "titulo": "PostgreSQL: adoção real além do ranking DB-Engines",
+     "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNdEczTHNsY3VuS0ZkaDN4MWxhVjRJRkxsbFZHZHRpaWdEYVVlUThkRHpNRmxmV2txa2VndnhQSk8wNmhCMUhkNXhIZWdzand4cjJHWjZGbUpGNnhFZDlXTWM5NEY4dHY2TXZ6NTNraG9LemlnZXZZRXhKaENsUDVqVXJfbmUwRnZwSzMwTVRaLVQ0YVV5b3U2V3EzSm85a28xNld3ZzJzMEE?oc=5"
+    },
+    {
+     "titulo": "Amazon’s new basic Kindle proves you don’t need all the bells and whistles",
+     "link": "https://techcrunch.com/2026/11/07/amazons-new-basic-kindle-proves-you-dont-need-all-the-bells-and-whistles/"
+    },
+    {
+     "titulo": "6 Best Touchscreen Gloves (2026) Knitted, Waterproof, Leather, and More",
+     "link": "https://www.wired.com/gallery/best-touchscreen-gloves/"
+    },
+    {
+     "titulo": "The pros and cons of buying refurbished laptops",
+     "link": "https://www.engadget.com/2307699/buying-refurbished-laptops-pros-and-cons/"
+    },
+    {
+     "titulo": "US Justice Department sets up an AI task force under its new SI name",
+     "link": "https://thenextweb.com/news/doj-super-intelligence-task-force-ai"
+    },
+    {
+     "titulo": "Após 13 anos, o filme de zumbis de maior sucesso ganhará uma sequência que poderá rivalizar com obras de Christopher Nolan e Denis Villeneuve",
+     "link": "https://br.ign.com/cinema-tv/157384/apos-13-anos-o-filme-de-zumbis-de-maior-sucesso-ganhara-uma-sequencia-que-podera-rivalizar-com-obras"
+    },
+    {
+     "titulo": "Deals: Galaxy S26 Ultra and S25 Ultra on sale, Galaxy Z Fold8 price drops",
+     "link": "https://www.gsmarena.com/deals_galaxy_s26_ultra_and_s25_ultra_on_sale_galaxy_z_fold8_price_drops-news-75378.php"
+    },
+    {
+     "titulo": "Writing as a thinking tool",
+     "link": "http://muratbuffalo.blogspot.com/2026/11/writing-as-thinking-tool.html"
+    },
+    {
+     "titulo": "Ajuste nas contas públicas: o que está na mesa de Lula e o que está fora do radar do presidente",
+     "link": "https://g1.globo.com/economia/noticia/2026/11/08/ajuste-nas-contas-publicas-o-que-esta-na-mesa-de-lula-e-o-que-esta-fora-do-radar-do-presidente.ghtml"
+    },
+    {
+     "titulo": "Oposição critica plano de Lula de ter 40 ministérios no 4º mandato",
+     "link": "https://www.poder360.com.br/poder-congresso/oposicao-critica-plano-de-lula-de-ter-40-ministerios-no-4o-mandato/"
+    },
+    {
+     "titulo": "Lula e seu carcereiro",
+     "link": "https://redir.folha.com.br/redir/online/poder/rss091/*https://www1.folha.uol.com.br/colunas/eliogaspari/2026/11/lula-e-seu-carcereiro.shtml"
+    },
+    {
+     "titulo": "Devedor contumaz: efeitos penais da LC 225/2026 no tempo",
+     "link": "https://www.jota.info/opiniao-e-analise/artigos/devedor-contumaz-efeitos-penais-da-lc-225-2026-no-tempo"
+    },
+    {
+     "titulo": "Feito Pipa: filme brasileiro tem chance de concorrer ao Oscar 2027?",
+     "link": "https://canaltech.com.br/entretenimento/feito-pipa-filme-brasileiro-tem-chance-de-concorrer-ao-oscar-2027/"
+    },
+    {
+     "titulo": "Samsung define data para iniciar a pre venda de oculos inteligentes nos eua",
+     "link": "https://www.estadao.com.br/tecmundo/produto-e-review/samsung-define-data-para-iniciar-a-pre-venda-de-oculos-inteligentes-nos-eua/"
+    },
+    {
+     "titulo": "Jogos de hoje (08/11/26): onde assistir futebol ao vivo e horários das partidas",
+     "link": "https://olhardigital.com.br/2026/11/08/internet-e-redes-sociais/jogos-de-hoje-08-11-26-onde-assistir-futebol-ao-vivo-e-horarios-das-partidas/"
+    },
+    {
+     "titulo": "iPhone tem lista com 100 mil termos proibidos e oculta ofensas a Trump",
+     "link": "https://www.uol.com.br/tilt/noticias/redacao/2026/11/06/apple-oculta-termos-negativos-sobre-trump-e-biden-do-teclado-do-iphone.ghtm"
+    },
+    {
+     "titulo": "Uma modder está transformando um lendário Brick Game 9999 in 1 em um Game Boy funcional",
+     "link": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxPZDEwa0J5SjBhSVpaRzQ3R09tVVFQMi1DZ2NjVDFrejNnR21HY1poOUtzOXJZdmltV0pJNDBmaUVqQkV6amRhb1g4YVRid3lTaXBrSUhxSGpsR3VadnpUeHJGT050RUc2UVEwZHUzYXg5T2hJdXlyWXF6NUFJWXBOZ20tWWNYTndWVkdGUk1La1NuRDdFXy0wZUlqbDRtYkVCY2tUd0ZpMlAya2M5MXdkTkhwSGFYMmU3X1R4VFJadVNXcUplQV96Rjl4bTdjeHNfcUFYUDNwVEd1ZEh6VHJpMWR3eE0?oc=5"
+    },
+    {
+     "titulo": "Search Console mistura cliques do AI Overviews com os da busca tradicional, dificultando medir o impacto da GEO",
+     "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNSTQ1aGRxQm8zQ2VJQ0tYeDBWWkFYb0lUWTBLU0xzN1RjRVNJWXlKUF9LRTFLc2hxV28wOXcyNm0tUWFBYTJmQ2w1SHROQUYtVENHYWlLYjNXWVc0QkZrSjdZMUZOMnhaZ2xaQnlyd24xcG0xTXJlSWZlSkw5ZkNkS2NVU2JGUXZ4OXhRbDRiRmNqQ0N0OEtGRlJIdEg2N2xaemo1T1gzdVZRZUIz?oc=5"
+    },
+    {
+     "titulo": "The Apple MacBook Pro M5 is on Sale, and a Top MacBook to Buy Right Now",
+     "link": "https://www.wired.com/story/macbook-pro-m5-deal-11-6-2026/"
+    },
+    {
+     "titulo": "The game reverse engineering community is the latest casualty of AI",
+     "link": "https://www.engadget.com/2307604/game-reverse-engineering-community-latest-ai-casualty/"
+    },
+    {
+     "titulo": "UK may add Vinted and eBay to its under-16 social media ban",
+     "link": "https://thenextweb.com/news/uk-under-16-social-media-ban-vinted-ebay"
+    },
+    {
+     "titulo": "81 anos, 102 filmes, 8 indicações ao Oscar: uma das maiores estrelas de todos os tempos estabeleceu um recorde",
+     "link": "https://br.ign.com/cinema-tv/157383/81-anos-102-filmes-8-indicacoes-ao-oscar-uma-das-maiores-estrelas-de-todos-os-tempos-estabeleceu-um"
+    },
+    {
+     "titulo": "OnePlus releases its ColorOS 17 rollout schedule for November",
+     "link": "https://www.gsmarena.com/oneplus_releases_its_coloros_17_rollout_schedule_for_november-news-75398.php"
+    },
+    {
+     "titulo": "Llama-modchip: 284B DeepSeek on 64GB RAM, no GPU",
+     "link": "https://github.com/synchopate/llama-modchip"
+    },
+    {
+     "titulo": "Maioridade penal: especialistas apontam falhas no ECA e defendem mudanças no sistema socioeducativo",
+     "link": "https://g1.globo.com/politica/noticia/2026/11/08/maioridade-penal-especialistas-apontam-falhas-no-eca-e-defendem-mudancas-no-sistema-socioeducativo.ghtml"
+    },
+    {
+     "titulo": "Hepatite B: controlar o vírus ainda não significa curar",
+     "link": "https://www.poder360.com.br/poder-saude/hepatite-b-controlar-o-virus-ainda-nao-significa-curar/"
+    },
+    {
+     "titulo": "A economia de Lula 4",
+     "link": "https://redir.folha.com.br/redir/online/poder/rss091/*https://www1.folha.uol.com.br/colunas/celso-rocha-de-barros/2026/11/a-economia-de-lula-4.shtml"
+    },
+    {
+     "titulo": "IBS e CBS: os desafios da composição de preços, das desonerações e das imunidades",
+     "link": "https://www.jota.info/opiniao-e-analise/artigos/ibs-e-cbs-os-desafios-da-composicao-de-precos-das-desoneracoes-e-das-imunidades"
+    },
+    {
+     "titulo": "10 jogos do Nintendo 64 que são jogáveis nos consoles da atual geração",
+     "link": "https://canaltech.com.br/games/jogos-nintendo-64-jogaveis-consoles-atuais/"
+    },
+    {
+     "titulo": "Epic games anuncia mudancas no clube fortnite e v bucks da assinatura confira as novidades",
+     "link": "https://www.estadao.com.br/tecmundo/voxel/epic-games-anuncia-mudancas-no-clube-fortnite-e-v-bucks-da-assinatura-confira-as-novidades/"
+    },
+    {
+     "titulo": "Automação inteligente: por que volume não pode ser o único objetivo",
+     "link": "https://olhardigital.com.br/2026/11/08/colunistas/automacao-inteligente-por-que-volume-nao-pode-ser-o-unico-objetivo/"
+    },
+    {
+     "titulo": "EUA cancelam reunião de 'Força-Tarefa da IA' com CEOs de big techs",
+     "link": "https://www.uol.com.br/tilt/noticias/reuters/2026/11/06/governo-trump-cancela-reuniao-de-influente-conselho-de-tecnologia.htm"
+    },
+    {
+     "titulo": "Cadillacs and Dinosaurs ganha port de fã para o Neo Geo, que leva o clássico dos Capcom para o mundo da SNK",
+     "link": "https://news.google.com/rss/articles/CBMi_gFBVV95cUxQM3FJMlFIZFJrZFZ0TkpDd29LRlc0UWs0azhhVjJhVEhJa0FtNXg4bXN5MzluNTZZZVdycjBMLW5tb2tTQTd0YTQ5ZjFQTFFBRExhQzNSaVJHcld4dmRfbzJZcklwN3R0NUV3Sjlrbno5el9iZGw2OGs4cHd0VUp6bURac25JQVJmSnR4YklMRDVRQ29KSldHRk5nb21EMUhuZTd4Wm5SS0FKdHlWQkJ1ellHREo4VWQzZUpDQXVDQVVBZjNna1BXVzhjTDVGN0FBbjN3b0hEQVJLbmpST3RLWWc3MGhBZjNHQ3hibkFqSGo0ZGROX0d3OXJsQmhZZw?oc=5"
+    },
+    {
+     "titulo": "Figma Dev Mode MCP Server: o que ele expõe do design",
+     "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPWlo5ZmcweDNlNzlGZUVUcWFuaTJWaldUQjNZRG9DLWxGNjktVi1wd1NBUnhyZDE0LVFkUHpXVG0yem1STjZybkp1WWNBZTBsM3gzVVg3M1RDN0hSbTZ4Sl9fa3pNT0Q4U3Z1TnphSWRDU0hFVGFhTWlDZVlzTm8xT2Z3QUQ0Z2tBVkpiWVdwUmhhUDBLOTBqb2lXNFFKMlB0b19SVURpN3pvZDVoZTZzNFN6MkY?oc=5"
+    },
+    {
+     "titulo": "World Models Will Soon Be Inescapable. Here’s What You Need to Know",
+     "link": "https://www.wired.com/story/world-models-will-soon-be-inescapable-what-you-need-to-know/"
+    },
+    {
+     "titulo": "How to reset your Vizio TV back to factory settings",
+     "link": "https://www.engadget.com/2307501/how-to-reset-vizio-tv-factory-settings/"
+    },
+    {
+     "titulo": "Meet Sola Security: the enterprise security brain behind the agentic era",
+     "link": "https://thenextweb.com/news/sola-security-enterprise-security-brain-ai-agents"
+    },
+    {
+     "titulo": "Agent memory needs its OpenTelemetry moment",
+     "link": "https://www.lorekit.io/blog/open-agent-memory-format"
+    }
+   ],
+   "roteiro": "LEO: Domingo tem aquela preguiça boa se arrastando pela casa, mas a tecnologia não dorme de conchinha com ninguém. Então, tá no ar a edição de hoje do seu podcast diário de tecnologia, domingo, 8 de novembro de 2026. Eu sou o Leo, de olho aberto e café na mão.\n\nCLARA: E eu sou a Clara. Cheguei sem pressa, com a voz mansa, pra te contar tudo aquilo que os outros tentam esconder nas entrelinhas.\n\nLEO: E olha que tem gente escondendo o próprio rosto hoje, viu. Ou melhor... criando um novinho em folha.\n\nCLARA: Criando e faturando alto, querido. Um golpe de cinema que custou mais de setecentos milhões de reais.\n\n---\n\nLEO: O Departamento de Justiça dos Estados Unidos revelou uma acusação federal pesadíssima contra três homens. Eles usaram inteligência artificial generativa em tempo real pra roubar pelo menos cento e vinte e nove milhões de dólares.\n\nCLARA: Quase três quartos de bilhão de reais, na nossa moeda. Uma loucura sofisticada.\n\nLEO: E as vítimas não foram pessoas desatentas na internet.\n\nCLARA: Longe disso. Foram hospitais, redes bancárias e grandes corporações.\n\nLEO: Como é que os caras conseguiram furar sistemas tão caros?\n\nCLARA: Com pura lábia digital e um cinismo impecável. Eles geravam deepfakes hiper-realistas de diretores executivos das próprias companhias e apareciam em chamadas de vídeo ao vivo fingindo ser advogados e chefes.\n\nLEO: Caramba... você entra na reunião do Zoom, seu chefe tá na tela pedindo uma transferência emergencial de fornecedor...\n\nCLARA: — e quem desconfia da cara de quem assina seu salário? A ilusão era perfeita. Voz sintetizada, trejeitos faciais sincronizados e a pressão psicológica de sempre. \"Transfere agora que o negócio vai melar.\"\n\nLEO: O funcionário fica com medo de contrariar o chefe e manda a grana.\n\nCLARA: Manda direto pra contas no exterior. O que mais impressiona é a quebra de um dogma. Durante anos, a segurança corporativa disse que bastava olhar o vídeo pra confirmar a identidade.\n\nLEO: Essa regra morreu.\n\nCLARA: Morreu e foi enterrada. A biometria visual virou brinquedo na mão de quem programa bem.\n\nLEO: Se nem vendo a cara da pessoa em vídeo a gente pode confiar, o protocolo das empresas vai ter que voltar pros anos oitenta.\n\nCLARA: Pelo menos uma checagem física fora da rede ou chave criptográfica em hardware. Se depender só dos meus belos olhos numa tela de chamada, meu bem... ninguém mais sabe quem tá do outro lado.\n\n---\n\nLEO: Da fraude com rosto falso a gente pula pros servidores brutos. A Google Cloud soltou uma novidade que mexe no vespeiro da infraestrutura corporativa.\n\nCLARA: Entregaram a chave do castelo pros clientes. Eles liberaram o VMware Cloud Foundation nove ponto x rodando direto em servidores dedicados, o famoso bare metal.\n\nLEO: Sem a camada de software do Google no meio?\n\nCLARA: Exatamente. Em vinte e duas regiões do planeta. O Google liga as máquinas monstruosas — com quase cem núcleos de processamento e mais de um terabyte de memória —, entrega o acesso root completo e simplesmente se retira da sala.\n\nLEO: Quem manda agora é o cliente.\n\nCLARA: — com todos os bônus e os ônus da liberdade. Você pode levar sua própria licença da Broadcom e instalar o sistema do seu jeito. Mas se der problema de madrugada...\n\nLEO: ...não tem técnico do Google pra consertar.\n\nCLARA: Você que lute com os patches às duas da manhã. É um movimento claro pra bater de frente com o que a Amazon e a Oracle já fazem, deixando o modelo gerenciado da Microsoft isolado no mercado.\n\n---\n\nLEO: Agora, Clara... cê sabe que eu amo preservação de jogos antigos, né? Mas hoje a notícia caiu como um balde de água fria na comunidade.\n\nCLARA: Uma perda bem melancólica. O maior portal de engenharia reversa de games da internet, o decomp ponto dev, anunciou que tá fechando as portas.\n\nLEO: Logo eles, que tavam reconstruindo clássicos direto do código de máquina?\n\nCLARA: Eles mesmos. O fundador desabafou que o uso desenfreado de ferramentas de inteligência artificial arruinou o propósito do projeto.\n\nLEO: Ué, mas a IA não acelera o trabalho de traduzir o código?\n\nCLARA: Acelera, e muito. Só que decompilação nunca foi só sobre chegar no resultado final correndo.\n\nLEO: Era sobre o processo de descoberta.\n\nCLARA: — exatamente, você entendeu o charme da coisa. Era o prazer comunitário de abrir o motor de um jogo de trinta anos atrás, decifrar cada linha que os programadores originais escreveram e aprender com aquilo.\n\nLEO: E aí começou a invasão dos apressadinhos.\n\nCLARA: Uma enxurrada de usuários pegando o código aberto, jogando em robôs de código sem entender nada e gerando milhares de arquivos sem revisão humana. Virou uma corrida oca por números, e o espírito de pesquisa foi pro ralo.\n\nLEO: Uma pena imensa. Quando a máquina tira o prazer humano do aprendizado, sobra só o arquivo frio.\n\n---\n\nLEO: Falando em colocar robôs onde antes só tinha gente, o código da versão de testes do iOS vinte e sete ponto três entregou um segredo que a Apple tava guardando pro HomeView.\n\nCLARA: Eles criaram uma categoria novinha chamada \"aplicativos conversacionais\". Parece que finalmente os chatbots como Claude e ChatGPT vão morar no painel doméstico da Maçã.\n\nLEO: Já era hora, porque a assistente antiga não entendia nem receita de bolo.\n\nCLARA: Mas o detalhe saboroso nem é esse. Como o aparelho vai ficar ouvindo a casa toda, a Apple adicionou uma trava de segurança draconiana contra invasores.\n\nLEO: Trava no áudio?\n\nCLARA: Se alguém errar a autenticação de voz três vezes, o sistema bloqueia tudo e só libera se você encostar seu celular físico.\n\nLEO: — e se errar de novo?\n\nCLARA: Uma hora de castigo na primeira tentativa e até oito horas na quarta. A Apple prefere te deixar sem acender a luz da cozinha por comando a deixar um estranho invadir o microfone da sua sala.\n\n---\n\nLEO: Saindo dos dispositivos de casa e entrando na nossa cobertura política, o primeiro domingo pós-eleição trouxe um retrato inédito do sentimento do eleitor brasileiro.\n\nCLARA: O instituto Quaest publicou a primeira pesquisa de avaliação sobre o cenário nacional após a confirmação do quarto mandato do presidente Lula.\n\nLEO: E quais foram os números apurados pelo levantamento?\n\nCLARA: O governo registrou quarenta e oito por cento de aprovação contra quarenta e quatro por cento de desaprovação popular. O índice de aprovação se manteve estável em relação à sondagem feita na véspera da votação.\n\nLEO: E a margem mostra o tamanho do desafio de governabilidade no Congresso Nacional.\n\nCLARA: Exatamente. A pesquisa também mapeou as expectativas concretas da população pras promessas de campanha. A proposta de encerrar a escala de trabalho seis por um e a isenção tributária total da cesta básica aparecem no topo das prioridades apontadas pelos eleitores.\n\nLEO: Demandas diretas que agora vão passar pela articulação com os deputados e senadores em Brasília.\n\nCLARA: O Planalto vai precisar de muito diálogo com a base parlamentar pra transformar essas metas em projetos de lei viáveis economicamente.\n\n---\n\nLEO: Bora engatar a marcha na nossa rodada rápida.\n\nCLARA: A Anthropic fechou uma compra histórica de três bilhões e quatrocentos milhões de dólares em geradores a gás pra garantir energia própria pros seus data centers de inteligência artificial.\n\nLEO: Enquanto falta luz na rede pública, a IA queima combustível fóssil direto na fonte. Loucura pura.\n\nCLARA: E os donos do Steam Deck podem comemorar: a Epic Games confirmou o desenvolvimento de uma versão oficial do seu inicializador de jogos pro SteamOS.\n\nLEO: Menos malabarismo no Linux pra jogar o que a gente comprou por lá.\n\nCLARA: Fechando a rodada, o governo brasileiro liberou quarenta e seis milhões de reais pra financiar uma plataforma que vai interligar centros de dados de pequeno porte em cidades do interior do país.\n\nLEO: Levando infraestrutura de nuvem pra além do eixo Rio-São Paulo.\n\n---\n\nLEO: Clara, você falou ali atrás sobre o pessoal da comunidade de games que passava anos fazendo decompilação. Traduz isso pra quem não passa o domingo compilando arquivo em C++.\n\nCLARA: Imagina que você foi num restaurante refinadíssimo, comeu um prato inesquecível e o chef se recusou terminantemente a te dar a receita secreta.\n\nLEO: Segredo de família trancado a sete chaves.\n\nCLARA: Isso. Você pega o prato pronto, leva pra casa e começa a provar pedaço por pedaço. Separa o tempero, analisa a acidez do molho, deduz a temperatura do forno e anota tudo num caderno até recriar a receita original do zero.\n\nLEO: Cê descobre o caminho inverso que o cozinheiro fez.\n\nCLARA: Decompilação é isso no mundo digital. O programa que roda no seu computador é o prato já cozido, uma maçaroca de bits que só a máquina mastiga. O desenvolvedor analisa aquele bolo pronto e reconstrói o texto do código-fonte original pra entender cada segredo que os criadores esconderam ali.\n\nLEO: Dá trabalho demais, mas o sabor do mistério resolvido não tem preço.\n\n---\n\nLEO: E entre chefes gerados por computador roubando banco, receitas de código decifradas no braço e geradores a gás sustentando a nuvem, encerramos a edição deste domingo.\n\nCLARA: Descansem a mente, cuidem de quem tá perto e não confiem em qualquer voz que sussurra certezas demais.\n\nLEO: Boa semana pra todo mundo.\n\nCLARA: Até amanhã.",
+   "manchete": "Suspeitos usam deepfakes de chefes para desviar US$ 129 milhões nos EUA",
+   "audio_ok": true,
+   "apresentadores": [
+    "Clara",
+    "Leo"
+   ]
   }
  ]
 }
