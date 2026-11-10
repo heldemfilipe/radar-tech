@@ -1981,6 +1981,47 @@
     "Clara",
     "Leo"
    ]
+  },
+  {
+   "data": "2026-11-10",
+   "gerado_em": "2026-11-10T14:08:13-03:00",
+   "noticias": [
+    {
+     "titulo": "Nvidia avança para perda de mais de US$400 bilhões em valor de mercado em dois dias",
+     "link": "https://www.uol.com.br/tilt/noticias/reuters/2026/11/10/nvidia-avanca-para-perda-demais-de-us400-bilhoes-em-valor-de-mercado-em-dois-dias.htm"
+    },
+    {
+     "titulo": "Sundrop turns your endless baby photos into recaps, time-lapses and more — without AI",
+     "link": "https://techcrunch.com/2026/11/10/sundrop-turns-your-endless-baby-photos-into-recaps-time-lapses-and-more-without-ai/"
+    },
+    {
+     "titulo": "Anvisa aprova mais duas canetas de semaglutida para tratar diabetes",
+     "link": "https://www.poder360.com.br/poder-saude/anvisa-aprova-mais-2-canetas-de-semaglutida-para-tratar-diabetes/"
+    },
+    {
+     "titulo": "Rockstar Games confirma que GTA 6 será jogável no Xbox One de um jeito diferenciado",
+     "link": "https://br.ign.com/grand-theft-auto-vi/157504/rockstar-games-confirma-que-gta-6-sera-jogavel-no-xbox-one-de-um-jeito-diferenciado"
+    },
+    {
+     "titulo": "Política Nacional de Incentivo à Fabricação de Motores vai à Câmara",
+     "link": "https://www12.senado.leg.br/noticias/materias/2026/11/10/politica-nacional-de-incentivo-a-fabricacao-de-motores-vai-a-camara"
+    },
+    {
+     "titulo": "Gemini 4 Carbon is now available",
+     "link": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/"
+    },
+    {
+     "titulo": "Steam Deck agora mostra FPS médio dos jogos antes da compra",
+     "link": "https://canaltech.com.br/hardware/steam-deck-agora-mostra-fps-medio-dos-jogos-antes-da-compra/"
+    }
+   ],
+   "roteiro": "ANA: tá no ar a edição de hoje do seu podcast diário de tecnologia, terça-feira, 10 de novembro de 2026. Eu sou a Ana, com a voz bem guardada pra te contar o que os gigantes preferiam abafar.\n\nCLARA: E eu sou a Clara. Cheguei de mansinho, meu bem, com um sorriso de canto de boca pra destrinchar o caos que armaram nas últimas vinte e quatro horas.\n\nANA: E o estrago de hoje tem nome, sobrenome e uma investigação do FBI que tá fazendo Wall Street tremer nas bases.\n\n---\n\nANA: A Nvidia viu quase quatrocentos bilhões de dólares evaporarem do valor de mercado em apenas dois dias de pregão.\n\nCLARA: Uma sangria desatada. E tudo por causa de um escândalo digno de espionagem internacional envolvendo o chefão da casa.\n\nANA: O CEO Jensen Huang virou alvo de uma investigação interna do conselho de administração e do FBI.\n\nCLARA: Acontece que ele teve um caso íntimo com uma empresária chinesa que, segundo as autoridades americanas, opera como espiã a serviço de Pequim.\n\nANA: E a acusação não é só moral, Clara. O buraco é muito mais embaixo nos servidores.\n\nCLARA: Os relatórios apontam que o executivo facilitou o envio ilegal de cerca de sete bilhões e meio de dólares em chips de ponta para o território chinês.\n\nANA: Bem na época em que o governo dos Estados Unidos tentava bloquear a exportação de tecnologia de inteligência artificial pra lá.\n\nCLARA: É... o amor tem dessas coisas, né? Às vezes a pessoa perde a cabeça e, no caso dele, quase entrega a soberana vantagem tecnológica do país de bandeja.\n\nANA: Os investidores estão apavorados porque a empresa simplesmente não tem um plano claro de sucessão caso o Jensen caia.\n\nCLARA: Quando o pilar central balança, o castelo inteiro ameaça ruir. Ninguém esperava que a geopolítica global fosse dar rasteira na fabricante de chips mais valiosa do mundo justamente pela via do romance corporativo.\n\n---\n\nANA: Saindo do drama de Hollywood e descendo para o motor dos nossos softwares, a Google Cloud jogou mais uma carta pesada na mesa da inteligência artificial.\n\nCLARA: Eles liberaram globalmente o Gemini 4 Carbon, o modelo mais bruto que já saiu da oficina deles.\n\nANA: E o preço no API veio agressivo o suficiente para desestabilizar a concorrência da Anthropic e da OpenAI.\n\nCLARA: Dois dólares por milhão de tokens de entrada e dez dólares na saída.\n\nANA: Mas o bônus mais saboroso dessa atualização atende pelo nome de swarm no ambiente de desenvolvimento Antigravity.\n\nCLARA: Com um único comando de texto, você cria um enxame coordenado de agentes autônomos.\n\nANA: Um cuida da arquitetura, outro audita o código e o terceiro testa as falhas de segurança em paralelo.\n\nCLARA: É como montar um escritório inteiro de engenheiros de elite que trabalham de graça e não reclamam do café frio às três da manhã.\n\n---\n\nANA: Na indústria dos consoles, a Rockstar resolveu colocar um pingo nos is sobre o tão esperado GTA 6.\n\nCLARA: E a notícia veio com um banho de água fria pra quem esperava milagre técnico nos aparelhos mais antigos.\n\nANA: Eles confirmaram que o jogo vai rodar mirando em trinta quadros por segundo em todos os consoles da geração atual, incluindo o Xbox Series S.\n\nCLARA: Mas o pulo do gato veio por causa de uma parceria de streaming.\n\nANA: Quem tem um Xbox One vai poder rodar o título via nuvem pelo Xbox Cloud Gaming.\n\nCLARA: Com os mesmos gráficos do Series S, transformando o console antigo no equipamento mais barato do mercado para jogar o lançamento do século.\n\nANA: Uma gambiarra tecnológica charmosa que poupa o bolso de quem não quer gastar em hardware novo.\n\n---\n\nANA: Nos aplicativos de consumo, a Apple ganhou um concorrente curioso que aposta em privacidade local pura.\n\nCLARA: Chegou o Sundrop, um app feito por pais que transforma aquela montanha de fotos de bebês em álbuns automáticos sem mandar nada pra nuvem alheia.\n\nANA: Eles usam o framework de visão e aprendizado de máquina nativo do próprio iPhone.\n\nCLARA: Nada de inteligência artificial generativa inventando rostos falsos ou mandando sua privacidade para servidores externos.\n\nANA: O sistema apenas varre a sua galeria e monta os resumos semanais de crescimento.\n\nCLARA: A assinatura anual custa uns quarenta dólares, mas pelo menos você dorme sabendo que as trapalhadas do seu filho não vão treinar o robô de nenhuma big tech.\n\n---\n\nANA: Entrando na nossa pauta política de Brasília, o Senado Federal aprovou na Comissão de Infraestrutura um projeto que cria a Política Nacional de Incentivo à Fabricação de Motores.\n\nCLARA: O objetivo é blindar e estimular a cadeia produtiva nacional de motores, apostando em inovação e sustentabilidade.\n\nANA: Enquanto isso, na Câmara dos Deputados, o clima azucrinou de vez para uma das propostas mais polêmicas do sistema eleitoral.\n\nCLARA: Os líderes do Centrão avisaram o presidente da Casa, Hugo Motta, que o projeto do voto distrital misto morreu antes de nascer.\n\nANA: Eles relataram falta absoluta de apoio nas bancadas e enterraram a tentativa de mudar o modelo de votação.\n\nCLARA: Ninguém quer mexer em time que está ganhando as próprias cadeiras, né? E por falar em regras de jogo, o Conselho Nacional de Justiça aprovou por unanimidade uma resolução para controlar a venda de precatórios.\n\nANA: Com direito a uma central nacional para rastrear todas as operações e estancar as fraudes que apareceram com força nas investigações recentes.\n\n---\n\nANA: Passando correndo pela nossa rodada rápida.\n\nCLARA: A Anvisa liberou mais duas canetas de semaglutida no Brasil, expandindo as opções para tratamento de diabetes e acirrando o mercado que já tem o famoso Ozempic.\n\nANA: E a Valve atualizou o sistema do Steam Deck para mostrar o FPS médio dos jogos diretamente na página da loja antes da compra.\n\nCLARA: Chega de comprar no escuro e descobrir que o portátil engasga na primeira explosão.\n\n---\n\nANA: Você comentou mais cedo sobre aquele enxame de agentes de inteligência artificial que a Google liberou no Carbon. Como é que a gente explica essa arquitetura distribuída para quem está ouvindo?\n\nCLARA: É como uma orquestra sinfônica onde cada músico toca um instrumento diferente, mas todos seguem a mesma batuta sem precisar olhar pro lado o tempo todo. Cada agente resolve uma partitura específica — um cuida das cordas, outro dos sopros —, e no fim a sinfonia sai pronta na sua tela.\n\nANA: — e se um violinista desafinar no meio da execução...\n\nCLARA: O regente digital substitui o infeliz em milissegundos antes que o público perceba a falha.\n\n---\n\nANA: A terça-feira mostrou que até os impérios mais sólidos tremem quando a geopolítica e o código entram em rota de colisão.\n\nCLARA: E o melhor jeito de sobreviver a isso é garantir que o seu enxame de agentes esteja rodando direitinho, meu bem.\n\nANA: Até amanhã.\n\nCLARA: Não esquece de atualizar as suas chaves antes de dormir.",
+   "manchete": "Nvidia avança para perda de US$400 bilhões em valor de mercado",
+   "audio_ok": true,
+   "apresentadores": [
+    "Clara",
+    "Ana"
+   ]
   }
  ]
 }
