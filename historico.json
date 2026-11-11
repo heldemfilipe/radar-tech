@@ -2022,6 +2022,59 @@
     "Clara",
     "Ana"
    ]
+  },
+  {
+   "data": "2026-11-11",
+   "gerado_em": "2026-11-11T14:14:41-03:00",
+   "noticias": [
+    {
+     "titulo": "Meta’s infrastructure chief Santosh Janardhan to step down in 2027",
+     "link": "https://thenextweb.com/news/meta-infrastructure-chief-santosh-janardhan-steps-down"
+    },
+    {
+     "titulo": "Report: PlayStation's Fairgames cancelled, no devs to be laid off",
+     "link": "https://www.gamedeveloper.com/console/report-playstation-s-fairgame-cancelled-but-haven-studios-remains"
+    },
+    {
+     "titulo": "Here's your first look at Nothing's upcoming screenless AI-native device",
+     "link": "https://www.gsmarena.com/heres_your_first_look_at_nothings_upcoming_screenless_ainative_device-news-75439.php"
+    },
+    {
+     "titulo": "Telefónica fornecerá rede privativa 5G para centro militar ligado à OTAN",
+     "link": "https://telesintese.com.br/telefonica-fornecera-rede-privativa-5g-para-centro-militar-ligado-a-otan/"
+    },
+    {
+     "titulo": "A false smoke alarm almost drowned Jane Street's only NYC datacenter",
+     "link": "https://michael.bacarella.com/2026/11/10/false-smoke-alarm-jane-street-datacenter/"
+    },
+    {
+     "titulo": "Congresso prorroga por 60 dias MP que proíbe bets no país",
+     "link": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-11/congresso-prorroga-por-60-dias-mp-que-proibe-bets-no-pais"
+    },
+    {
+     "titulo": "[In preview] Public Preview: Distributed accelerator for cloud storage on AKS",
+     "link": "https://azure.microsoft.com/updates?id=578454"
+    },
+    {
+     "titulo": "Projeto que amplia proteção emergencial a mulheres avança",
+     "link": "https://www12.senado.leg.br/noticias/materias/2026/11/11/projeto-que-amplia-protecao-emergencial-a-mulheres-avanca"
+    },
+    {
+     "titulo": "IA da OpenAI encontra 948 formas de obter acesso total ao Linux",
+     "link": "https://www.uol.com.br/tilt/noticias/redacao/2026/11/11/ia-da-openai-encontra-948-formas-de-obter-acesso-total-ao-linux.ghtm"
+    },
+    {
+     "titulo": "Presença feminina no comando de prefeituras mais que dobrou em 24 anos",
+     "link": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-11/presenca-feminina-no-comando-de-prefeituras-mais-que-dobrou-em-24-anos"
+    }
+   ],
+   "roteiro": "ANA: Se o mundo lá fora tá pegando fogo, a gente desacelera aqui dentro. tá no ar a edição de hoje do seu podcast diário de tecnologia, quarta-feira, 11 de novembro de 2026. Eu sou a Ana.\nCLARA: E eu sou a Clara. Cheguei sem pressa, meu bem... porque quando o assunto é bilhão de dólares, a conversa merece ser devagar.\nANA: E a Meta resolveu trocar a peça mais estratégica do motor de inteligência artificial.\nCLARA: Troca de guarda com prazo longo.\nANA: O chefe de infraestrutura deles, Santosh Janardhan, vai entregar o cargo no começo de 2027.\nCLARA: É... dezessete anos construindo a casa.\nANA: Quem assume é o Dave Brown, que eles tiraram da AWS este ano.\nCLARA: Roubaram com carinho.\nANA: O momento é tenso.\nCLARA: — a Meta quer gastar até...\nANA: ...cento e quarenta e cinco bilhões de dólares só este ano.\nCLARA: Só em chips e data centers.\nANA: E pra dar conta desse gasto monstruoso, eles estão mudando a forma de publicar código.\nCLARA: Levaram até um prêmio da CNCF hoje por causa disso.\nANA: Cortaram o tempo de implantação nas máquinas de quatro horas pra meros minutos.\nCLARA: Usando automação pura em mais de cem clusters de Kubernetes.\nANA: Quando você gasta esse nível de fortuna, quatro horas de espera no servidor é um prejuízo indecente.\n\n---\n\nANA: Falando em servidor... tem dia que o perigo mora no teto.\nCLARA: Ai, nem me fala.\nANA: Um alarme de incêndio falso quase destruiu o único data center da corretora Jane Street em Nova York.\nCLARA: Imagina a cena.\nANA: O sistema de emergência surtou e ficou a um passo de acionar os chuveiros de água em cima dos racks.\nCLARA: Água e servidor... o banho mais caro da história.\nANA: Eles tiveram que correr pra desligar o sistema na mão antes do desastre.\nCLARA: E na nuvem da Microsoft, a novidade é pra quem roda inteligência artificial pesada no Azure.\nANA: Entrou em testes o acelerador distribuído pra armazenamento no Kubernetes.\nCLARA: Ele usa os discos NVMe locais pra criar um cachê ultrarrápido entre os nós.\nANA: — evita que o modelo de IA fique esperando...\nCLARA: ...os dados chegarem da rede externa.\nANA: É a física do silício trabalhando a favor do tempo.\n\n---\n\nANA: Na indústria de jogos, a tempestade dos jogos como serviço fez mais uma vítima de peso.\nCLARA: A Sony cancelou o jogo Fairgames, da Haven Studios.\nANA: Aquele assalto multiplayer de 2023.\nCLARA: Foi direto pro gaveteiro.\nANA: Pelo menos teve um lado bom.\nCLARA: Nenhum desenvolvedor foi demitido.\nANA: A equipe vai ser redistribuída em outros projetos do estúdio.\nCLARA: Menos mal. É raro essa elegância.\nANA: O mercado saturou de jogo online que exige a vida do jogador.\nCLARA: Ninguém tem mais paciência pra passar a noite inteira num passe de batalha.\n\n---\n\nANA: E no mundo dos celulares, a Nothing quer tirar a tela da sua frente.\nCLARA: O Carl Pei mostrou o visual do primeiro aparelho deles focado puramente em IA nativa.\nANA: Um corpinho de metal escovado, sem tela nenhuma.\nCLARA: Chique, né?\nANA: Tem só um botão físico grande com um ponto vermelho, tipo gravador clássico.\nCLARA: Ficar olhando pra um quadradinho de vidro o dia todo tá ficando meio deselegante.\nANA: Se o futuro for conversar com o aparelho em vez de rolar feed, eu apoio.\n\n---\n\nANA: Em Brasília, a proibição das casas de aposta ganhou mais tempo de vigência.\nCLARA: O presidente do Senado, Davi Alcolumbre, assinou a prorrogação por sessenta dias da Medida Provisória 1.394.\nANA: É o texto que suspendeu a exploração, a publicidade e a intermediação de bets em todo o país.\nCLARA: Com a prorrogação, a regra continua valendo enquanto os parlamentares analisam o mérito do texto.\nANA: E na Comissão de Direitos Humanos do Senado, avançou o projeto de lei 167 de 2026.\nCLARA: A proposta permite que delegados de polícia imponham medidas protetivas de urgência pra mulheres em situação de violência doméstica.\nANA: Isso em municípios que não sejam sede de comarca, onde o juiz não está presente de forma imediata.\nCLARA: O delegado poderá fixar distância mínima do agressor e pedir a apreensão de armas de fogo, devendo informar a Justiça em vinte e quatro horas.\nANA: A intenção do relator, senador Alessandro Vieira, é garantir proteção rápida nos locais mais isolados.\nCLARA: O texto segue agora pra análise na Comissão de Segurança Pública.\n\n---\n\nANA: Vamos girar com as notícias rápidas.\nCLARA: A Telefónica fechou um contrato de três anos pra instalar uma rede privativa 5G num centro militar da OTAN na Eslováquia.\nANA: Vão testar IA e defesa contra drones.\nCLARA: E uma campanha da OpenAI descobriu novecentas e quarenta e oito falhas de segurança no código do Linux.\nANA: Todas permitiam acesso total de administrador ao sistema.\nCLARA: É... a máquina acha buraco onde humano nem desconfia.\nANA: E o IBGE revelou que a presença de mulheres no comando das prefeituras brasileiras mais que dobrou em vinte e quatro anos.\nCLARA: Passou de seis por cento em 2001 pra treze vírgula quatro por cento agora em 2025.\nANA: Avançou... mas ainda está bem longe da metade da população.\n\n---\n\nANA: Você falou que a Meta está usando uma automação GitOps no Kubernetes pra economizar tempo. Como funciona isso de um jeito que todo mundo entenda?\nCLARA: Pensa num livro de receitas de família, meu bem. Em vez de cada cozinheiro inventar uma medida na hora de ir pro fogão, todo mundo segue estritamente o que está escrito naquela folha oficial. Se você quiser mudar o prato, ajusta o texto no papel primeiro. Aí a cozinha lê a alteração e atualiza o tempero automaticamente, sem ninguém precisar bater panela de improviso.\nANA: — e se alguém tentar colocar sal demais direto na panela...\nCLARA: O próprio sistema corrige a receita e volta pro padrão original em segundos. Nada sai do controle.\n\n---\n\nANA: Do risco de afogar os servidores de Nova York até o fim das telas nos celulares, o dia hoje mostrou que economizar tempo é a maior sofisticação.\nCLARA: E saber a hora de mudar o código é pra poucos, meu bem.\nANA: Boa noite pra vocês.\nCLARA: Guarda o seu acesso com carinho e até amanhã.",
+   "manchete": "Meta troca chefia de infraestrutura e investe 145 bilhões em IA",
+   "audio_ok": true,
+   "apresentadores": [
+    "Clara",
+    "Ana"
+   ]
   }
  ]
 }
