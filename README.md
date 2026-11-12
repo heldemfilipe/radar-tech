@@ -104,9 +104,11 @@ dupla, e o `historico.json` guarda quem apresentou cada episódio.
 
 ### Diálogo mais humano
 
-O prompt tem uma seção "SOAR HUMANO" (falas de tamanhos variados com reações
-curtas, interrupções, hesitação, pouca exclamação, pouco "Ana, ..." / "Leo,
-...", transições variadas, sem formato de entrevista) e não tem mais bordão de
+O prompt tem uma seção "SOAR HUMANO" (cada locutor termina o raciocínio antes
+do outro falar — falas de 2 a 4 frases, poucas trocas por notícia, reação
+curta só de vez em quando e nada de frase deixada no ar pro outro completar —,
+hesitação, pouca exclamação, pouco "Ana, ..." / "Leo, ...", transições
+variadas, sem formato de entrevista) e não tem mais bordão de
 abertura, despedida, pergunta ou termo do dia: cada fala nasce da conversa.
 Além disso, o script procura nos episódios anteriores os **começos de frase
 que se repetiram** ("e aí, Ana, pronta pra ver", "tá, mas o que isso muda",
@@ -114,7 +116,9 @@ que se repetiram** ("e aí, Ana, pronta pra ver", "tá, mas o que isso muda",
 Actions mostra uma linha `[DIÁLOGO]` com as métricas e um `[AVISO]` se o
 roteiro voltou a soar como locutor ou repetiu frase gasta. Base medida nos episódios de 11 e 13/10,
 antes da mudança: 0% de falas curtas, ~45 palavras por fala, ~75% das falas
-com "!" e o nome do colega em ~35% delas.
+com "!" e o nome do colega em ~35% delas. Depois veio o vício oposto (episódio
+de 04/11: ~17 palavras por fala, 22% de falas curtas, frases cortadas no meio
+pro outro completar), que agora também gera `[AVISO]`.
 
 ## Formato do episódio
 
