@@ -824,13 +824,22 @@ SOAR HUMANO, NÃO LOCUTOR (a parte mais importante do roteiro):
 - É uma conversa entre duas pessoas que trabalham juntas e se gostam, não dois
   locutores lendo notícia em revezamento. Um reage ao que o outro acabou de
   dizer ANTES de seguir pro próximo assunto.
-- Misture o tamanho das falas. Umas bem curtas, de 1 a 6 palavras (reação
-  de verdade ao que o outro disse); várias de 10 a 25 palavras; e só
-  de vez em quando uma de até 45 palavras (na manchete). Pelo menos 1 em cada
-  4 falas é curta. NUNCA duas falas seguidas com mais de 35 palavras.
-- Quem fala pode ser cortado: interrompa uma frase no meio com "—" e deixe o
-  outro entrar; quem foi cortado retoma depois ("Então, como eu ia dizendo,
-  ..."). Faça isso de 3 a 5 vezes no episódio.
+- CADA UM TERMINA O RACIOCÍNIO ANTES DO OUTRO FALAR. Uma fala é um
+  pensamento completo: quem está contando a notícia conta o pedaço inteiro
+  (o que aconteceu + o detalhe que importa, ou o porquê + a consequência)
+  em 2 a 4 frases, e só então passa a vez. Nada de picotar a explicação em
+  frases soltas, uma por fala, com o outro soltando "sério?", "e aí?",
+  "que crueldade" entre cada uma — isso soa como pingue-pongue de locutor.
+- Tamanho das falas: a maioria entre 20 e 50 palavras; na manchete e no
+  termo do dia, falas de até 70 palavras são bem-vindas. Fala curta (até 8
+  palavras) existe, mas é exceção: no máximo 1 em cada 5 falas, e nunca duas
+  curtas seguidas. Quem responde também fala de verdade: reage E acrescenta
+  algo (uma opinião, uma dúvida concreta, uma ligação), não só um "nossa".
+- Cada bloco de notícia tem poucas trocas: umas 3 a 6 falas, não 10 falas
+  de uma frase cada.
+- Nunca deixe uma frase pela metade com "..." ou "—" pro outro completar, e
+  ninguém termina a frase do outro. Interrupção, no máximo 1 no episódio
+  inteiro, e quem foi cortado retoma e termina a ideia na fala seguinte.
 - Marcas de fala real, sem exagero: hesitação ("é... tipo", "como é que eu
   falo"), autocorreção ("quer dizer, não, peraí"), pensar em voz alta, e
   palavrinhas como "olha", "cara", "pô", "nossa", "hum", "ué", "sei lá".
@@ -851,8 +860,9 @@ SOAR HUMANO, NÃO LOCUTOR (a parte mais importante do roteiro):
   ("ai, essa foi boa", "não, para") — nunca "haha" nem "(risos)".
 - Números do jeito que se fala: "uns quarenta por cento", "quase três
   bilhões". No máximo 2 números por fala; ficha técnica inteira vira conversa.
-- Uma ideia por fala. Se tem três informações, são três falas, com reação no
-  meio.
+- Uma ideia completa por fala: se a explicação tem três informações ligadas,
+  elas vêm juntas na mesma fala, em frases curtas e encadeadas, e o outro
+  reage no final.
 
 PORTUGUÊS NATURAL (muito importante):
 - Escreva como brasileiros realmente falam, não como uma tradução. Frases
@@ -995,7 +1005,8 @@ NÃO SEJA REPETITIVO (muito importante):
   de efeito nem o termo do dia desses episódios. Também não copie o formato
   nem o ritmo deles: as regras de formato, de SOAR HUMANO e o roteiro do TERMO
   DO DIA acima valem mais que qualquer coisa que esses episódios tenham feito
-  (por exemplo, não imite falas longas cheias de exclamação).
+  (por exemplo, não imite falas longas cheias de exclamação, nem a troca
+  picotada de uma frase por fala com reações de uma palavra no meio).
 - Se sobrarem poucas notícias inéditas, faça um episódio mais curto em vez de
   requentar assunto.
 
@@ -1542,14 +1553,21 @@ def avaliar_dialogo(
     """Mede o quanto o roteiro parece conversa (e não locutores revezando) e
     avisa no log quando regride. Linha de base dos episódios de 11 e 13/10,
     antes das regras de SOAR HUMANO: 0 falas curtas, ~45 palavras por fala,
-    ~75% das falas com '!' e nome do colega em ~35% delas."""
+    ~75% das falas com '!' e nome do colega em ~35% delas. Depois, o oposto
+    (novembro): falas de uma frase, com reação de uma palavra entre cada uma
+    e frases deixadas no ar pro outro completar — conversa picotada."""
     falas = [(spk, t) for spk, t in segments if spk != "PAUSA"]
     if len(falas) < 4:
         return
     n = len(falas)
     palavras = [len(t.split()) for _, t in falas]
     curtas = sum(p <= 6 for p in palavras)
-    longas = sum(p > 40 for p in palavras)
+    longas = sum(p > 60 for p in palavras)
+    # Frase deixada no ar ("Depois disso..." / "— ele surta?") pro outro completar.
+    picotadas = sum(
+        bool(re.search(r"(\.\.\.|…|—|--)\s*$", t1)) and bool(re.match(r"\s*(—|--|[a-zà-ÿ])", t2))
+        for (_, t1), (_, t2) in zip(falas, falas[1:])
+    )
     exclamacao = sum("!" in t for _, t in falas)
     cortes = sum("—" in t or "--" in t for _, t in falas)
     nomes = [a["nome"] for a in dupla]
@@ -1559,13 +1577,18 @@ def avaliar_dialogo(
     print(
         f"[DIÁLOGO] {n} falas, média {sum(palavras) / n:.0f} palavras | curtas {curtas / n:.0%} | "
         f"longas {longas / n:.0%} | com '!' {exclamacao / n:.0%} | nome do colega {vocativos / n:.0%} | "
-        f"interrupções {cortes} | 'por falar em' {por_falar} | frases gastas {len(gastas_usadas)}"
+        f"interrupções {cortes} | frases picotadas {picotadas} | 'por falar em' {por_falar} | "
+        f"frases gastas {len(gastas_usadas)}"
     )
     problemas = []
-    if curtas / n < 0.15:
-        problemas.append("poucas falas curtas (<15%)")
-    if longas / n > 0.25:
-        problemas.append("falas longas demais (>25%)")
+    if curtas / n > 0.25:
+        problemas.append("conversa picotada: falas curtas demais (>25%)")
+    if sum(palavras) / n < 18:
+        problemas.append("falas curtas em média (<18 palavras): ninguém termina o raciocínio")
+    if picotadas > 2:
+        problemas.append(f"{picotadas} frases deixadas pela metade pro outro completar")
+    if longas / n > 0.4:
+        problemas.append("falas longas demais (>40%)")
     if exclamacao / n > 0.5:
         problemas.append("exclamação demais (>50%)")
     if vocativos / n > 0.3:
