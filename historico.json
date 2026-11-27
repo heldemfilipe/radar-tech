@@ -1,619 +1,6 @@
 {
  "episodios": [
   {
-   "data": "2026-11-19",
-   "gerado_em": "2026-11-19T15:18:10-03:00",
-   "noticias": [
-    {
-     "titulo": "Troféus e conquistas de GTA 6: veja lista de desafios para platinar o jogo",
-     "link": "https://tecnoblog.net/responde/trofeus-e-conquistas-de-gta-6-veja-lista-de-desafios-para-platinar-o-jogo/"
-    },
-    {
-     "titulo": "Xiaomi terá celular com tela curva nos 4 ladros e bordas invisíveis, diz leaker",
-     "link": "https://canaltech.com.br/smartphone/xiaomi-tera-celular-com-tela-curva-nos-4-ladros-e-bordas-invisiveis-diz-leaker/"
-    },
-    {
-     "titulo": "Ifood confirma vazamento de dados de clientes parceiros e entregadores",
-     "link": "https://www.estadao.com.br/tecmundo/ciberseguranca/ifood-confirma-vazamento-de-dados-de-clientes-parceiros-e-entregadores/"
-    },
-    {
-     "titulo": "Hora de equipar seu tablet: selecionamos ótimas opções em promoção na Amazon",
-     "link": "https://olhardigital.com.br/2026/11/19/reviews/hora-de-equipar-seu-tablet-selecionamos-otimas-opcoes-em-promocao-na-amazon/"
-    },
-    {
-     "titulo": "GTA 6: cachorro de jet ski e gato agressivo viralizam nas redes em 1º dia",
-     "link": "https://www.uol.com.br/tilt/noticias/redacao/2026/11/19/gta-6-cachorro-de-jet-ski-e-gato-agressivo-viralizam-nas-redes-em-1-dia.ghtm"
-    },
-    {
-     "titulo": "Ryzen Olympic Ridge, as CPUs Zen 6 para dekstop, teria sido adiado para depois da Computex",
-     "link": "https://www.adrenaline.com.br/amd/ryzen-olympic-ridge-as-cpus-zen-6-para-dekstop-teria-sido-adiado-para-depois-da-computex/"
-    },
-    {
-     "titulo": "IPO da Anthropic: avaliação de US$1,5 trilhão explicada",
-     "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOU3JGVXVlcUtKUzBpMFNnYTFNbEpfbHBVRHJzZGF0Uy1zQloxSEdUM2dTbHl3NTF1SE0zZV9WR0VOZXJnSnpPUUVkOHVZcjZ1bUNCSHFfR3RoQXV0VTQ0STFhVVpZaDRDaGZlNGxPVXgwdWwwNWNGVjc2dlMza2lQdHNwekx5MDMzbUdPY3lhVkhHRFF3NUplUVlKZW1ac3lZN3BpOGVuM2p6Vlg2Y1pZbksxWjhZdw?oc=5"
-    },
-    {
-     "titulo": "Google apresenta Gemini 4 Neon para programação, trabalho e pesquisa",
-     "link": "https://www.showmetech.com.br/google-gemini-4-neon-programacao-trabalho-pesquisa/"
-    },
-    {
-     "titulo": "ANPD mantém proibição das ferramentas de transmissões ao vivo do Discord",
-     "link": "https://www.mobiletime.com.br/noticias/19/11/2026/anpd-ao-vivo-discord/"
-    },
-    {
-     "titulo": "Google gives Gemini the ability to use your Mac for you",
-     "link": "https://techcrunch.com/2026/11/19/google-gives-gemini-the-ability-to-use-your-mac-for-you/"
-    },
-    {
-     "titulo": "Amazon is pushing alerts opposing NYC’s Delivery Protection Act",
-     "link": "https://www.theverge.com/tech/1037813/amazon-is-pushing-alerts-to-shoppers-opposing-nycs-delivery-protection-act"
-    },
-    {
-     "titulo": "Google will launch Android app verification requirement globally in January 2027",
-     "link": "https://arstechnica.com/gadgets/2026/11/google-will-launch-android-app-verification-requirement-globally-in-january-2027/"
-    },
-    {
-     "titulo": "Google Built a Giant ‘Mirror Dimension’ Internet to Test Its Chrome AI Agents",
-     "link": "https://www.wired.com/story/google-built-a-giant-mirror-dimension-internet-to-test-its-chrome-ai-agents/"
-    },
-    {
-     "titulo": "How to game share GTA 6 and split the cost with a friend",
-     "link": "https://www.engadget.com/2322043/how-to-game-share-gta-6-split-cost/"
-    },
-    {
-     "titulo": "iPhone Duo, One Month Later: I’m Not Ready to End the Love Affair",
-     "link": "https://www.cnet.com/tech/mobile/iphone-duo-one-month-review/"
-    },
-    {
-     "titulo": "I’ve tested countless Linux distros, and Pond is unlike anything I’ve tried – here’s why",
-     "link": "https://www.zdnet.com/tech/pond-distro-arch-linux-unique-ui/"
-    },
-    {
-     "titulo": "Exclusive: OpenAI reveals Performance Factory, a Codex-powered software optimization system that keeps ChatGPT fast",
-     "link": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxPRmktQ2JEUXFSZmVLaTl4WE9RLWJzRUtscEZXdnF1Q3B3LVFUTV9rSkFUVUppWXFIanQ3aGcxVTRBcGdJd1ZOdkgzYmVDTzJONW5PRExPeDNzWFp5T1FyUEFJQ05pZ19XQ2oyeEdMMkFoUlE1aDg1WUFTRkxyaUQ2cDV5T0dDeXBRa3ZkR0ktdDlDaVVXUlVLUEFfaWxveTJJWHdfNGVsSVdXekVSRGJmdGN1ODlEaGlULWtUOHRFODJIRVh5ckpCVEplUXFxb1FtNzE5MkNKLVN6YlhQSlNJUkN3ZzlBUQ?oc=5"
-    },
-    {
-     "titulo": "Google’s Gemini can now take over tasks on your Mac",
-     "link": "https://thenextweb.com/news/google-gemini-mac-computer-use-multi-step-tasks"
-    },
-    {
-     "titulo": "The best early Black Friday headphones deals on Sony, Bose, Apple, and more",
-     "link": "https://mashable.com/tech/best-early-black-friday-headphones-live-deals-2026"
-    },
-    {
-     "titulo": "Ubisoft lays off 166 staff in Montreal and Quebec studios",
-     "link": "https://www.gamesindustry.biz/ubisoft-lays-off-166-staff-in-montreal-and-quebec-studios"
-    },
-    {
-     "titulo": "Ubisoft lays off 166 in Canada across Montréal and Quebec City",
-     "link": "https://www.gamedeveloper.com/business/ubiosft-lays-off-166-in-canada"
-    },
-    {
-     "titulo": "Resident Evil 2 e 3 para PS5 por menos de R$ 120 cada na Black da Amazon",
-     "link": "https://br.ign.com/descontos/157781/resident-evil-2-e-3-para-ps5-por-menos-de-r-120-cada-na-black-da-amazon"
-    },
-    {
-     "titulo": "Nothing AI device gets teased in a new image",
-     "link": "https://www.gsmarena.com/nothing_ai_device_gets_teased_in_a_new_image-news-75540.php"
-    },
-    {
-     "titulo": "Lula regulamenta escala 5×2 com regras para turnos e jornada 12×36",
-     "link": "https://telesintese.com.br/lula-regulamenta-escala-5x2-com-regras-para-turnos-e-jornada-12x36/"
-    },
-    {
-     "titulo": "Claude Fable 5.2 solves two open problems in the physics of black holes",
-     "link": "https://www.anthropic.com/research/claude-black-hole-physics"
-    },
-    {
-     "titulo": "Transporte gratuito no fim de semana complementa escala 5x2, diz Lula",
-     "link": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-11/transporte-gratuito-no-fim-de-semana-complementa-escala-5x2-diz-lula"
-    },
-    {
-     "titulo": "Comissão aprova regras de prevenção e enfrentamento ao bullying e ao cyberbullying",
-     "link": "https://www.camara.leg.br/noticias/1321149-comissao-aprova-regras-de-prevencao-e-enfrentamento-ao-bullying-e-ao-cyberbullying"
-    },
-    {
-     "titulo": "Áudio: Fraude contábil no mercado de capitais pode levar a até 6 anos de prisão",
-     "link": "https://www12.senado.leg.br/noticias/audios/2026/11/fraude-contabil-no-mercado-de-capitais-pode-levar-a-ate-6-anos-de-prisao"
-    },
-    {
-     "titulo": "Lula exonera Wellington Dias, ministro do Desenvolvimento Social",
-     "link": "https://g1.globo.com/politica/noticia/2026/11/19/lula-exonera-wellington-dias-ministro-do-desenvolvimento-social.ghtml"
-    },
-    {
-     "titulo": "Van Hattem diz que pode virar réu e ser preso por fala na Câmara",
-     "link": "https://www.poder360.com.br/poder-justica/van-hattem-diz-que-pode-virar-reu-e-ser-preso-por-fala-na-camara/"
-    },
-    {
-     "titulo": "Crise no Supremo tem origem na atividade de juízes empresários",
-     "link": "https://redir.folha.com.br/redir/online/poder/rss091/*https://www1.folha.uol.com.br/blogs/frederico-vasconcelos/2026/11/crise-no-supremo-tem-origem-na-atividade-de-juizes-empresarios.shtml"
-    },
-    {
-     "titulo": "Quem é Rafael Fonteles, governador do Piauí e cotado para ministro de Lula em 2027",
-     "link": "https://www.jota.info/executivo/quem-e-rafael-fonteles-governador-do-piaui-e-cotado-para-ministro-de-lula-em-2027"
-    },
-    {
-     "titulo": "AWS Lambda now supports GPU instances for Event Functions on Lambda Managed Instances",
-     "link": "https://aws.amazon.com/blogs/aws/aws-lambda-now-supports-gpu-instances-for-event-functions-on-lambda-managed-instances/"
-    },
-    {
-     "titulo": "Comece a usar o AWS Lambda SnapStart para imagens de container",
-     "link": "https://aws.amazon.com/pt/blogs/aws-brasil/comece-a-usar-o-aws-lambda-snapstart-para-imagens-de-container/"
-    },
-    {
-     "titulo": "Get more from your Kiro investment with credit pooling: A guide for admins",
-     "link": "https://aws.amazon.com/blogs/devops/get-more-from-your-kiro-investment-with-credit-pooling-a-guide-for-admins/"
-    },
-    {
-     "titulo": "Aderant modernizes analytics data pipeline with Apache Iceberg and AWS Lambda",
-     "link": "https://aws.amazon.com/blogs/architecture/aderant-modernizes-analytics-data-pipeline-with-apache-iceberg-and-aws-lambda/"
-    },
-    {
-     "titulo": "Helping our partners market smarter, together, with Gemini",
-     "link": "https://cloud.google.com/blog/topics/partners/helping-our-partners-market-smarter-together-with-gemini/"
-    },
-    {
-     "titulo": "Azure Cobalt 200 VMs now available, proven on real workloads and built for the agentic era",
-     "link": "https://azure.microsoft.com/en-us/blog/azure-cobalt-200-vms-now-available-proven-on-real-workloads-and-built-for-the-agentic-era/"
-    },
-    {
-     "titulo": "[In preview] Public Preview: Database Agent for Azure Database for PostgreSQL",
-     "link": "https://azure.microsoft.com/updates?id=579579"
-    },
-    {
-     "titulo": "IDrive wants to back up your coding agents, too",
-     "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9uRzJYTlNRajVuUHI1WTFIczhEdWttMmxHUWdwV3RCdVBJSFQxYWZfYzlsNnNMTTY4UVpfOTFNRVlSNFdLVjFmQl9FVWlnYWNRLXdoR1kwankyeHc?oc=5"
-    },
-    {
-     "titulo": "Presentation: AI-Assisted Software Delivery: From Code to Production",
-     "link": "https://www.infoq.com/presentations/ai-assisted-software-delivery/?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=global"
-    },
-    {
-     "titulo": "Docker patches Java4Shell and the NGINX HTTP/2 with Docker Hardened Images",
-     "link": "https://www.docker.com/blog/docker-patches-java4shell-and-the-nginx-http-2-with-docker-hardened-images/"
-    },
-    {
-     "titulo": "S3 audit log streaming with OpenID Connect expands to GHE.com",
-     "link": "https://github.blog/changelog/2026-11-19-s3-audit-log-streaming-with-openid-connect-expands-to-ghe-com"
-    },
-    {
-     "titulo": "To Do: Microsoft vai encerrar aplicativo de organização",
-     "link": "https://tecnoblog.net/noticias/to-do-microsoft-vai-encerrar-aplicativo-de-organizacao/"
-    },
-    {
-     "titulo": "Três estados \"brigam\" para ter 2ª fábrica da BYD no Brasil; veja quais",
-     "link": "https://canaltech.com.br/carros/tres-estados-brigam-para-ter-2-fabrica-da-byd-no-brasil-veja-quais/"
-    },
-    {
-     "titulo": "Gta 6 pode ser jogado por criancas entenda a classificacao indicativa do jogo",
-     "link": "https://www.estadao.com.br/tecmundo/voxel/gta-6-pode-ser-jogado-por-criancas-entenda-a-classificacao-indicativa-do-jogo/"
-    },
-    {
-     "titulo": "GTA 6 chegou: veja o preço do jogo e do PS5 em oferta",
-     "link": "https://olhardigital.com.br/2026/11/19/reviews/gta-6-lancamento-ps5-slim-disk-pacote-astro-bot-gt7-oferta/"
-    },
-    {
-     "titulo": "GTA 6: veja códigos e cheats de dinheiro, armas e veículos para PS5 e Xbox",
-     "link": "https://www.uol.com.br/tilt/noticias/redacao/2026/11/19/gta-6-quais-sao-os-codigos-de-trapaca-para-ps5-e-xbox-e-como-ativar.ghtm"
-    },
-    {
-     "titulo": "Jogos de PC em oferta por menos de R$ 40 na Black Friday da Epic Games",
-     "link": "https://www.adrenaline.com.br/games/pc-games/jogos-de-pc-em-oferta-por-menos-de-r-40-na-black-friday-da-epic-games/"
-    },
-    {
-     "titulo": "Bing AI Overviews: Microsoft confirma anúncios no recurso",
-     "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxONEVJRmlXcWNPdkRtV3RiUWtJbGdJV1pXNndMdzFwMmVuVVdIQXFPUWgtZ1kwRnFwZnRTclJPS1I2Q01aVW9LOWctNmItZ0NnbHJpdkw0MS1xWXZpbl90UXI0bjFjUnRzYlRnY093b1BIWkxqWFIyMDJrVl8xdDhvZlJhWnFXTnhsNXZBX1JGa0w1bnJkbk5hVA?oc=5"
-    },
-    {
-     "titulo": "Black Friday OPPO tem até 30% de desconto; veja ofertas de celulares",
-     "link": "https://www.showmetech.com.br/black-friday-oppo-2026-ofertas-celulares/"
-    },
-    {
-     "titulo": "Patentes: arbitragem é tendência para solucionar conflitos multinacionais, aposta Ericsson",
-     "link": "https://www.mobiletime.com.br/noticias/19/11/2026/patentes-arbitragem/"
-    },
-    {
-     "titulo": "Meta’s AI agent Muse is mixing up conversations and exposing private data, report says",
-     "link": "https://techcrunch.com/2026/11/19/metas-ai-agent-muse-is-mixing-up-conversations-and-exposing-private-data-report-says/"
-    },
-    {
-     "titulo": "Amazon’s last-gen Kindle Paperwhite hasn’t been this cheap since June",
-     "link": "https://www.theverge.com/gadgets/1037635/amazon-kindle-paperwhite-black-friday-2026-deal-sale"
-    },
-    {
-     "titulo": "Mouse fight club might explain why we like to watch violent things",
-     "link": "https://arstechnica.com/science/2026/11/watching-mouse-fight-club-teaches-the-critters-how-to-fight/"
-    },
-    {
-     "titulo": "21 Best Home Entertainment Gifts (2026): TVs, Lights, and More",
-     "link": "https://www.wired.com/story/best-home-entertainment-gifts-2026/"
-    },
-    {
-     "titulo": "Google signs deal with Blue Origin to send satellite data centers into orbit",
-     "link": "https://www.engadget.com/2321988/google-signs-deal-with-blue-origin-to-send-satellite-data-centers-into-orbit/"
-    },
-    {
-     "titulo": "Canva Has a New Kill Switch for AI: ‘We Know AI Doesn’t Suit Every Task’",
-     "link": "https://www.cnet.com/tech/services-and-software/canva-design-ai-kill-switch-news-2026/"
-    },
-    {
-     "titulo": "Best Black Friday Kindle deals: Up to 41% off Paperwhite, Colorsoft, and more",
-     "link": "https://www.zdnet.com/tech/best-early-black-friday-kindle-deals-2026/"
-    },
-    {
-     "titulo": "Most security teams can't spot a rogue AI agent, says former FBI cyber investigator",
-     "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPNWZtdGVDLUdCa1c2QmVPSm9lWWdVU0czU29GQ01TNzBfa0JmYXRkNFBoQzBFMmVsQjRlOVZuNXJudHZkNVVtdWtSYlA5dW5jWXJCNGpBbXJ3T3dHekdNZWowbDR4NXROQ2RtZzFDeml0VV94cUp3UFFlV180aFNhVmtSU2lrRW5NQ2k4ZlJaSnVvUWZ6QXNSeU5RQUVPRGpXeWVsa01rSkZiTWtXZWNFOU5KZkY?oc=5"
-    },
-    {
-     "titulo": "Model ML raises $250m at a $1.5bn valuation for bankers’ AI agents",
-     "link": "https://thenextweb.com/news/model-ml-250m-series-b-1-5bn-valuation-ai-agents-bankers"
-    },
-    {
-     "titulo": "Im telling everyone to buy the Oura Ring 5 during Black Friday",
-     "link": "https://mashable.com/tech/black-friday-deal-2026-oura-ring-5"
-    },
-    {
-     "titulo": "007 First Light wins GOTY at 2026 TIGA Awards, Dovetail Games takes home four accolades including Best Publisher",
-     "link": "https://www.gamesindustry.biz/007-first-light-wins-goty-at-2026-tiga-awards-dovetail-games-takes-home-four-accolades-including-best-publisher"
-    },
-    {
-     "titulo": "Why greenlighting Dressmaker wasn't an easy decision to make",
-     "link": "https://www.gamedeveloper.com/marketing/why-greenlighting-dressmaker-wasn-t-an-easy-decision-to-make"
-    },
-    {
-     "titulo": "ANPD rejeita recurso do Discord e mantém suspensão de transmissões ao vivo no Brasil",
-     "link": "https://br.ign.com/games/157780/anpd-rejeita-recurso-do-discord-e-mantem-suspensao-de-transmissoes-ao-vivo-no-brasil"
-    },
-    {
-     "titulo": "Amazon UK drops the prices of the new Xiaomi 18 Pro and Xiaomi 18 Pro Max for Prime subscribers",
-     "link": "https://www.gsmarena.com/amazon_uk_drops_the_prices_of_the_new_xiaomi_18_pro_and_xiaomi_18_pro_max_for_prime_subscribers-news-75546.php"
-    },
-    {
-     "titulo": "TRF1 mantém suspensa exigência de atestado da Feninfra para provedores que foram à Justiça",
-     "link": "https://telesintese.com.br/trf1-mantem-suspensa-exigencia-de-atestado-da-feninfra-para-provedores-que-foram-a-justica/"
-    },
-    {
-     "titulo": "Anthropic hits $2T in Nasdaq debut",
-     "link": "https://www.reuters.com/business/finance/anthropics-historic-debut-put-ais-promise-peril-wall-st-test-2026-11-19/"
-    },
-    {
-     "titulo": "Prevendo judicialização, Lula cobra atenção à aplicação da escala 5x2",
-     "link": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-11/prevendo-judicializacao-lula-cobra-atencao-aplicacao-da-escala-5x2"
-    },
-    {
-     "titulo": "Comissão especial pode votar parecer sobre ampliação do limite de faturamento para o MEI",
-     "link": "https://www.camara.leg.br/noticias/1321031-comissao-especial-pode-votar-parecer-sobre-ampliacao-do-limite-de-faturamento-para-o-mei"
-    },
-    {
-     "titulo": "Áudio: Copa Feminina: aprovada autonomia de escolas para definir férias em 2027",
-     "link": "https://www12.senado.leg.br/noticias/audios/2026/11/copa-feminina-aprovada-autonomia-de-escolas-para-definir-ferias-em-2027"
-    },
-    {
-     "titulo": "IFI alerta que 'bondades' de Lula na eleição apertam máquina pública e pede ajuste 'profundo'",
-     "link": "https://g1.globo.com/economia/noticia/2026/11/19/orgao-do-senado-alerta-que-bondades-de-lula-nas-eleicoes-apertam-maquina-publica-e-pede-ajuste-fiscal-profundo.ghtml"
-    },
-    {
-     "titulo": "Planalto reforma portal de leis e arquivos perdem indexação no Google",
-     "link": "https://www.poder360.com.br/poder-governo/planalto-reforma-portal-de-leis-e-arquivos-perdem-indexacao-no-google/"
-    },
-    {
-     "titulo": "Senado encomenda novo retrato de Davi Alcolumbre por R$ 11,4 mil",
-     "link": "https://redir.folha.com.br/redir/online/poder/rss091/*https://www1.folha.uol.com.br/blogs/brasilia-hoje/2026/11/senado-encomenda-novo-retrato-de-davi-alcolumbre-por-r-114-mil.shtml"
-    },
-    {
-     "titulo": "Decreto que regulamenta o fim da escala 6×1 traz flexibilização para descanso semanal e divisor de horas extras",
-     "link": "https://www.jota.info/trabalho/decreto-que-regulamenta-o-fim-da-escala-6x1-traz-flexibilizacao-para-descanso-semanal-e-divisor-de-horas-extras"
-    },
-    {
-     "titulo": "How United Airlines streams database changes to Apache Iceberg with Amazon Data Firehose",
-     "link": "https://aws.amazon.com/blogs/architecture/how-united-airlines-streams-database-changes-to-apache-iceberg-with-amazon-data-firehose/"
-    },
-    {
-     "titulo": "Introducing object enrichments: Transform unstructured data into agent-ready context",
-     "link": "https://cloud.google.com/blog/products/storage-data-transfer/cost-effective-ai-context-extraction-from-unstructured-gcs-data/"
-    },
-    {
-     "titulo": "Continuous improvement comes to Microsoft Foundry",
-     "link": "https://azure.microsoft.com/en-us/blog/continuous-improvement-comes-to-microsoft-foundry/"
-    },
-    {
-     "titulo": "[In preview] Public Preview: AI bot ruleset for Azure Front Door Premium WAF",
-     "link": "https://azure.microsoft.com/updates?id=581604"
-    },
-    {
-     "titulo": "A “headless Slack”: Vercel’s new message board lets Claude Code and Codex agents work together",
-     "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE15d1V6WHR6dGhFbVdYaHphak5OM2lFd3pwVmtFSXl1OERpbklBbHVJYTd5Z1g2SVp3eUNGX0pXWXN6VHpvNkJ6MEI4Y3RYTG5HTEFvQkV0cm1xdElFM0E?oc=5"
-    },
-    {
-     "titulo": "QCon San Francisco 2026: Use AI to Multiply Your Team as a Staff Engineer",
-     "link": "https://www.infoq.com/news/2026/11/ai-staff-engineer/?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=global"
-    },
-    {
-     "titulo": "Meet the New Docker: Built to Run on Trust",
-     "link": "https://www.docker.com/blog/meet-the-new-docker-built-to-run-on-trust/"
-    },
-    {
-     "titulo": "Wait for pull request events with GitHub CLI",
-     "link": "https://github.blog/changelog/2026-11-18-wait-for-pull-request-events-with-github-cli"
-    },
-    {
-     "titulo": "Black November: iPhone 16e volta a cair com cupom em até 12x sem juros",
-     "link": "https://tecnoblog.net/achados/black-november-iphone-16e-volta-a-cair-com-cupom-em-ate-12x-sem-juros/"
-    },
-    {
-     "titulo": "Samsung testa modo na One UI 9.5 que transforma câmera do Galaxy em lente 360 graus",
-     "link": "https://canaltech.com.br/software/samsung-testa-modo-na-one-ui-95-que-transforma-camera-do-galaxy-em-lente-360-graus/"
-    },
-    {
-     "titulo": "Whatsapp entra no hype de gta 6 e adota logo do whatup nas redes",
-     "link": "https://www.estadao.com.br/tecmundo/produto-e-review/whatsapp-entra-no-hype-de-gta-6-e-adota-logo-do-whatup-nas-redes/"
-    },
-    {
-     "titulo": "Anthropic: IPO faz fortuna de fundadores disparar e pode enriquecer milhares",
-     "link": "https://olhardigital.com.br/2026/11/19/pro/anthropic-ipo-faz-fortuna-de-fundadores-disparar-e-pode-enriquecer-milhares/"
-    },
-    {
-     "titulo": "Take-Two deve quebrar recordes de vendas com \"GTA VI\"",
-     "link": "https://www.uol.com.br/tilt/noticias/reuters/2026/11/19/take-two-deve-quebrar-recordes-de-vendas-com-gta-vi.htm"
-    },
-    {
-     "titulo": "Mark of the Deep para PC de graça hoje – resgate agora!",
-     "link": "https://www.adrenaline.com.br/games/pc-games/mark-of-the-deep-para-pc-de-graca-hoje-resgate-agora/"
-    },
-    {
-     "titulo": "PHP 8.2 a 8.6: patch corrige 7 falhas críticas de RCE",
-     "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQZVRXVnpYTHBxTlk4a0lOaHJlU1k1WkRGLU5wY1J5VmxWVjBrTGJRUlh5MnZvRUNzbTd6eS1mdk5pTU9JZEtKQl8xMU1wZlBJT19maTN3WjA5S0tsdVFMbElDTG1qYk5MM3BiVFI1SGh6WXBtLVltUzRLa0x0RmRHcFhSOXVWMEZOWkNvX0hRY2IwVXAySl80YlNfNUg5SGJpbG9yU2ZGSQ?oc=5"
-    },
-    {
-     "titulo": "Google Play elege melhores apps Android de 2026; veja a lista",
-     "link": "https://www.showmetech.com.br/melhores-apps-google-play-2026/"
-    },
-    {
-     "titulo": "Custo do token é o maior desafio na orquestração de LLMs, dizem desenvolvedores",
-     "link": "https://www.mobiletime.com.br/noticias/19/11/2026/custo-de-tokens-mapa/"
-    },
-    {
-     "titulo": "Former Alibaba exec’s Everful raises $48.5M to connect retailers with Chinese factories",
-     "link": "https://techcrunch.com/2026/11/19/former-alibaba-execs-everful-raises-48-5m-to-connect-retailers-with-chinese-factories/"
-    },
-    {
-     "titulo": "Anthropic starts trading on Wall Street",
-     "link": "https://www.theverge.com/ai-artificial-intelligence/1035384/anthropic-ipo-trading-nasdaq"
-    },
-    {
-     "titulo": "NASA's new Moon plans have a problem: Orion wasn't designed to fly this way",
-     "link": "https://arstechnica.com/space/2026/11/to-make-moon-landings-easier-nasa-is-making-life-harder-for-orion/"
-    },
-    {
-     "titulo": "Anthropic’s Record-Breaking IPO Highlights the AI Giant’s Worst Enemy—Itself",
-     "link": "https://www.wired.com/story/anthropics-record-breaking-ipo-highlights-the-ai-giants-worst-enemy-itself/"
-    },
-    {
-     "titulo": "Apple HomePod mini 2 review: A necessary, but underwhelming update",
-     "link": "https://www.engadget.com/2321939/apple-homepod-mini-2-review/"
-    },
-    {
-     "titulo": "Ford Designed Its Fathom EV Battery Pack to Bend in a Crash, for Safety",
-     "link": "https://www.cnet.com/home/electric-vehicles/ford-fathom-ev-battery-pack-design-crash-safety/"
-    },
-    {
-     "titulo": "Your Google AI mode searches can stay private now with ‘temporary threads’ – here’s how",
-     "link": "https://www.zdnet.com/innovation/google-ai-mode-searches-private-temporary-threads/"
-    },
-    {
-     "titulo": "Extrordinas Raises $1.5 Million to Accelerate End-to-End Incident Response",
-     "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOLVdEbkJ1UFFDbGZkOXYyQVVRQzhIMVFvSHh5cWx0OUUybkRtNXNjcmZScURub3BOUnpTa2locTlGNmxIRE5icmYtb3BadDRVQVE4THFpNTdZN0NSU2M2QnFCVjFyNm9YZDF4eVdlN2tNTWJpYUlRQkJRdEFiSlhfSEJwVmRsYjZCSzl3MmJkM2UyNnRuZGpERHA4TVI4VzF5Z2w1N1kwOEo?oc=5"
-    },
-    {
-     "titulo": "Anthropic shares jump 34% at open in record Nasdaq debut",
-     "link": "https://thenextweb.com/news/anthropic-shares-jump-34-percent-nasdaq-debut-ant"
-    },
-    {
-     "titulo": "The rumored OLED iMac may be canceled or delayed",
-     "link": "https://mashable.com/tech/apple-imac-oled-could-be-canceled"
-    },
-    {
-     "titulo": "Call of Duty: Modern Warfare 4 debuts as top-selling game in US for October 2026",
-     "link": "https://www.gamesindustry.biz/call-of-duty-modern-warfare-4-debuts-as-top-selling-game-in-us-for-october-2026"
-    },
-    {
-     "titulo": "Clair Obscur: Expedition 33's narrative lead wants to change game funding",
-     "link": "https://www.gamedeveloper.com/design/clair-obscur-expedition-33-s-narrative-lead-wants-to-change-game-funding"
-    },
-    {
-     "titulo": "Ubisoft confirma mais demissões; 166 pessoas deixam 2 estúdios da empresa",
-     "link": "https://br.ign.com/assassins-creed-shadows/157779/ubisoft-confirma-mais-demissoes-166-pessoas-deixam-2-estudios-da-empresa"
-    },
-    {
-     "titulo": "GSMArena Awards 2026: The winners",
-     "link": "https://www.gsmarena.com/best_phones_2026_gsmarena_awards-news-75526.php"
-    },
-    {
-     "titulo": "Anatel autoriza Hughes a usar 700 MHz em três municípios de Mato Grosso",
-     "link": "https://telesintese.com.br/anatel-autoriza-hughes-a-usar-700-mhz-em-tres-municipios-de-mato-grosso/"
-    },
-    {
-     "titulo": "Chrome AI features wasting much bandwidth",
-     "link": "https://perishablepress.com/chrome-ai-wasting-much-bandwidth/"
-    },
-    {
-     "titulo": "Lula promete manter direitos e diz que controle fiscal é prioridade",
-     "link": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-11/lula-promete-manter-direitos-e-diz-que-controle-fiscal-e-prioridade"
-    },
-    {
-     "titulo": "Comissão aprova custeio pela empresa de cursos obrigatórios para profissionais da segurança privada",
-     "link": "https://www.camara.leg.br/noticias/1321040-comissao-aprova-custeio-pela-empresa-de-cursos-obrigatorios-para-profissionais-da-seguranca-privada"
-    },
-    {
-     "titulo": "Áudio: Votação do projeto que reforma o Código Civil deve ficar para 2027",
-     "link": "https://www12.senado.leg.br/noticias/audios/2026/11/votacao-do-projeto-que-reforma-o-codigo-civil-deve-ficar-para-2027"
-    },
-    {
-     "titulo": "Ministro afirma que pacote fiscal dará segurança ao mercado, mas admite possíveis novas medidas para cumprir metas",
-     "link": "https://g1.globo.com/politica/blog/camila-bomfim/post/2026/11/19/moreti-fiscal-mercado.ghtml"
-    },
-    {
-     "titulo": "Senado aprova férias escolares flexíveis para Copa do Mundo de 2027",
-     "link": "https://www.poder360.com.br/poder-congresso/senado-aprova-ferias-escolares-flexiveis-para-copa-do-mundo-de-2027/"
-    },
-    {
-     "titulo": "Área destinada à reparação de danos ambientais em SP triplica nos últimos três anos",
-     "link": "https://redir.folha.com.br/redir/online/poder/rss091/*https://www1.folha.uol.com.br/colunas/painel/2026/11/area-destinada-a-reparacao-de-danos-ambientais-em-sp-triplica-nos-ultimos-tres-anos.shtml"
-    },
-    {
-     "titulo": "Alcolumbre e Motta apostam na Lei da Dosimetria para destravar reeleição, mas dependem de Moraes",
-     "link": "https://www.jota.info/legislativo/alcolumbre-e-motta-apostam-na-lei-da-dosimetria-para-destravar-reeleicao-mas-dependem-de-moraes"
-    },
-    {
-     "titulo": "Resilience testing your agents on Amazon Bedrock AgentCore",
-     "link": "https://aws.amazon.com/blogs/architecture/resilience-testing-your-agents-on-amazon-bedrock-agentcore/"
-    },
-    {
-     "titulo": "Introducing in-place migration to GKE Dataplane V2",
-     "link": "https://cloud.google.com/blog/products/networking/gke-dataplane-v2-in-place-migration/"
-    },
-    {
-     "titulo": "Introducing the new Microsoft IQ: Putting your organization’s intelligence to work in every agent",
-     "link": "https://azure.microsoft.com/en-us/blog/introducing-the-new-microsoft-iq-putting-your-organizations-intelligence-to-work-in-every-agent/"
-    },
-    {
-     "titulo": "Announcing: The new Azure Databricks on Azure Government is now in Beta",
-     "link": "https://azure.microsoft.com/updates?id=581645"
-    },
-    {
-     "titulo": "Where should AI workloads run? Probably next to the data.",
-     "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFA2cXBmWmRpd1ZfNzY0MG5heTZMUVUyTGo3R2RqTzhOM2RweG5QQWNjR0s5a1VEeUktbGRyY2hzME9qWk9MVG9WeTZtRGd0ZE9kNGhoUjNIVjFMN29kaHc?oc=5"
-    },
-    {
-     "titulo": ".NET 11 : ASP.NET Core: Union Type Support, OpenAPI 3.2 by Default and Blazor AI Components",
-     "link": "https://www.infoq.com/news/2026/11/asp-net-11-release/?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=global"
-    },
-    {
-     "titulo": "Connect Supabase, Box, Calendly, and more to Copilot",
-     "link": "https://github.blog/changelog/2026-11-18-connect-supabase-box-calendly-and-more-to-copilot"
-    },
-    {
-     "titulo": "Já há mais satélites visíveis a olho nu do que estrelas em várias regiões",
-     "link": "https://tecnoblog.net/noticias/ja-ha-mais-satelites-visiveis-a-olho-nu-do-que-estrelas-em-varias-regioes/"
-    },
-    {
-     "titulo": "5 apps e serviços de GTA 6 inspirados no mundo real",
-     "link": "https://canaltech.com.br/apps/5-apps-e-servicos-de-gta-6-inspirados-no-mundo-real/"
-    },
-    {
-     "titulo": "Numero de satelites ja supera o de estrelas visiveis a olho nu em muitas cidades",
-     "link": "https://www.estadao.com.br/tecmundo/stem/numero-de-satelites-ja-supera-o-de-estrelas-visiveis-a-olho-nu-em-muitas-cidades/"
-    },
-    {
-     "titulo": "No IPO da Anthropic, CEO diz que IA ficará “sob controle humano”",
-     "link": "https://olhardigital.com.br/2026/11/19/inteligencia-artificial/no-ipo-da-anthropic-ceo-diz-que-ia-ficara-sob-controle-humano/"
-    },
-    {
-     "titulo": "Meta revê prazo climático após emissões subirem 45% com uso de IA",
-     "link": "https://www.uol.com.br/tilt/noticias/redacao/2026/11/19/meta-reve-prazo-climatico-apos-emissoes-subirem-45-com-expansao-da-ia.ghtm"
-    },
-    {
-     "titulo": "GTA 6 foi censurado no Japão para impedir que Jason fique completamente nu",
-     "link": "https://www.adrenaline.com.br/games/gta-6-foi-censurado-no-japao-para-impedir-que-jason-fique-completamente-nu/"
-    },
-    {
-     "titulo": "Maisie Winterbottom (@MaisieWinterbottom712)",
-     "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9QazI0aGRTLVROdXlTRUJYTkZCQ0h1UHNIUE1IdDlWekZ4NzVlN2tuck5mbUZfdVVQMXU3dVRUQlIxWm9hckN2SGRGY1BkRmlYZ2VNYl9aN0Vpb0Z1SHFqWm83MnI5aGM?oc=5"
-    },
-    {
-     "titulo": "Google Play elege os melhores jogos Android de 2026; veja os vencedores",
-     "link": "https://www.showmetech.com.br/google-play-melhores-jogos-android-2026/"
-    },
-    {
-     "titulo": "Pix automático, tap on everything e agentes de IA para PJ no Mobimeeting",
-     "link": "https://www.mobiletime.com.br/noticias/19/11/2026/mobimeeting-pix-automatico/"
-    },
-    {
-     "titulo": "Anthropic hits Nasdaq exchanges at $111, 33% above IPO price",
-     "link": "https://techcrunch.com/2026/11/19/anthropic-hits-nasdaq-exchanges-at-110-27-above-ipo-price/"
-    },
-    {
-     "titulo": "Microsoft is killing its great tasks app in favor of its worse tasks app",
-     "link": "https://www.theverge.com/tech/1037558/microsoft-to-do-shutdown-planner"
-    },
-    {
-     "titulo": "How to tell a cyberattack from a plain old outage",
-     "link": "https://arstechnica.com/security/2026/11/how-to-tell-a-cyberattack-from-a-plain-old-outage/"
-    },
-    {
-     "titulo": "Voyager Is a Light-Day Away. Here’s How Far That Really Is",
-     "link": "https://www.wired.com/story/voyager-light-day-away-how-far-that-really-is/"
-    },
-    {
-     "titulo": "You won't find this fan favorite feature in GTA 6",
-     "link": "https://www.engadget.com/2321965/you-wont-find-this-fan-favorite-feature-in-gta-6/"
-    },
-    {
-     "titulo": "At Scout Motors’ New Plant, Validation of Terra and Traveler EVs Has Begun",
-     "link": "https://www.cnet.com/home/electric-vehicles/scout-motors-terra-traveler-ev-south-carolina-factory-tour/"
-    },
-    {
-     "titulo": "The Oura Ring 5 just hit its lowest price ever for Black Friday",
-     "link": "https://www.zdnet.com/tech/oura-ring-5-black-friday-2026-deal/"
-    },
-    {
-     "titulo": "Instacart Cut AI Coding Cost per Merge 75% with CTO Anirban Kundu",
-     "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPaWgwbWpLR3ZUZDRMMGx1VXg3OG5wa0FCb3l2NnhpZm5pbkVhdUZxRFhqdzRjenVGWllvQkdkRHM1UGhabk1NcHQ4ZUJ5X085WnluZzVoSzN4Q0lVSnh4TG56NWJfQTFPUFM0RlRORllJUjByZTNhRUxIQkE1Q3l6SkZWX0FwdEtobDY3LXVsZk5QM0lmMnFxcUJ3?oc=5"
-    },
-    {
-     "titulo": "Trump’s accounts traded up to $97.5M in Nvidia stock, CNBC finds",
-     "link": "https://thenextweb.com/news/trump-nvidia-trades-97-5m-cnbc-huang-briefing"
-    },
-    {
-     "titulo": "Anthropic IPO details: Price, valuation, stock ticker, more",
-     "link": "https://mashable.com/tech/anthropic-ipo-details-price-valuation-stock-ticker"
-    },
-    {
-     "titulo": "US Senate hearing examines child safety on Roblox, considers bipartisan bill to bypass forced arbitration",
-     "link": "https://www.gamesindustry.biz/us-senate-hearing-examines-child-safety-on-roblox-considers-bipartisan-bill-to-bypass-forced-arbitration"
-    },
-    {
-     "titulo": "PlayStation emerges victorious in a $2.6 billion lawsuit alleging a digital monopoly",
-     "link": "https://www.gamedeveloper.com/console/playstation-emerges-victorious-in-a-2-6-billion-lawsuit-alleging-a-digital-monopoly"
-    },
-    {
-     "titulo": "Atores que interpretam Jason e Lucia em GTA 6 são vistos juntos pela primeira vez em foto",
-     "link": "https://br.ign.com/grand-theft-auto-vi/157777/atores-que-interpretam-jason-e-lucia-em-gta-6-sao-vistos-juntos-pela-primeira-vez-em-foto"
-    },
-    {
-     "titulo": "Black Friday deals from Amazon Germany: deals ranging from flagship to mid-range",
-     "link": "https://www.gsmarena.com/black_friday_deals_from_amazon_germany_deals_ranging_from_flagship_to_midrange-news-75542.php"
-    },
-    {
-     "titulo": "GTA VI leva tráfego global de dados a recorde histórico",
-     "link": "https://telesintese.com.br/gta-vi-leva-trafego-global-de-dados-a-recorde-historico/"
-    },
-    {
-     "titulo": "Launch HN: Onlook (YC W25) – An open-source developer tool for designers",
-     "link": "https://github.com/onlook-dev/onlook/"
-    },
-    {
-     "titulo": "Senado rejeita mudanças no texto e aprova ajuste fiscal do governo",
-     "link": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-11/senado-rejeita-mudancas-no-texto-e-aprova-ajuste-fiscal-do-governo"
-    },
-    {
-     "titulo": "Comissão aprova projeto que fortalece inteligência policial contra crimes cibernéticos",
-     "link": "https://www.camara.leg.br/noticias/1321041-comissao-aprova-projeto-que-fortalece-inteligencia-policial-contra-crimes-ciberneticos"
-    },
-    {
-     "titulo": "Áudio: Consciência Negra: projeção no Congresso homenageia Zumbi dos Palmares",
-     "link": "https://www12.senado.leg.br/noticias/audios/2026/11/consciencia-negra-projecao-no-congresso-homenageia-zumbi-dos-palmares"
-    }
-   ],
-   "roteiro": "LEO: O pregão abriu em Nova York pegando fogo e o mercado de inteligência artificial acabou de quebrar a banca... tá no ar a edição de hoje do seu podcast diário de tecnologia, quinta-feira, 19 de novembro de 2026. Eu sou o Leo, já pronto pra ver onde esse dinheiro todo vai parar.\n\nANA: E eu sou a Ana. E confesso que adoro observar o exato instante em que o discurso filosófico de cautela encontra a ganância implacável de Wall Street. O espetáculo fica bem mais interessante.\n\nLEO: Pois é, e hoje não teve pra mais ninguém no mercado financeiro. A Anthropic fez sua estreia oficial na Nasdaq e simplesmente atropelou qualquer previsão modesta dos analistas.\n\n---\n\nLEO: O ticker ANT começou a negociar nesta quinta-feira cotado a cento e onze dólares e cinquenta centavos, um salto de trinta e quatro por cento sobre o valor inicial da oferta pública. Com isso, a criadora do Claude levantou mais de cento e sete bilhões de dólares e encostou na marca histórica de dois trilhões de valor de mercado.\n\nANA: É a maior captação da história da bolsa americana. E o contraste é delicioso... Enquanto os sete fundadores viam o patrimônio conjunto passar de oitocentos bilhões de reais, o CEO Dario Amodei subiu ao palco pra insistir que a empresa jamais vai se curvar a pressões comerciais e que manterá a inteligência artificial sob rédea curta humana.\n\nLEO: É um malabarismo retórico e tanto, né? Você capta cem bilhões de investidores sedentos por lucro trimestral agressivo e diz que a segurança vem antes do retorno financeiro. Quero ver sustentar essa postura quando a cobrança bater na porta dos servidores.\n\nANA: O ponto cego tá justamente na conta de infraestrutura. Os registros mostram que a Anthropic precisa queimar rios de eletricidade e chips de última geração pra manter o Claude competitivo contra a OpenAI e o Google. O mercado comprou a promessa de que o Claude Fable e os novos agentes vão monetizar rápido no setor corporativo, mas a pressão por margem líquida agora é pública e auditada.\n\n---\n\nLEO: E pra alimentar esse apetite voraz por processamento que a IA exige, a infraestrutura da nuvem tá se reinventando no silício. No Microsoft Ignite, a Azure oficializou a disponibilidade geral das máquinas virtuais Cobalt 200.\n\nANA: São instâncias baseadas na arquitetura ARM própria da Microsoft, prometendo até cinquenta por cento a mais de desempenho em relação à geração anterior. O foco declarado é atender justamente cargas de trabalho de agentes autônomos e bancos de dados intensivos, com clientes de peso como Databricks, Snowflake e a própria OpenAI já rodando em produção.\n\nLEO: No fim das contas, a guerra da nuvem virou uma corrida pra gastar menos energia e entregar mais requisições por watt. Quem depende de modelos massivos rodando o dia inteiro sente um alívio gigante no custo quando o chip foi desenhado sob medida pra aquele fluxo de dados.\n\nANA: E a concorrência responde no mesmo ritmo. O Google Cloud também liberou a migração sem interrupção de clusters do GKE pro Dataplane V2, usando eBPF direto no kernel do Linux pra aguentar até quinze mil nós sem gargalo de rede. A infraestrutura inteira tá sendo reconstruída pra não engasgar com os robôs.\n\n---\n\nLEO: Agora, enquanto as big techs nadam em dinheiro com a nuvem, os estúdios de desenvolvimento de jogos continuam enfrentando um inverno rigoroso. A Ubisoft confirmou a demissão de cento e sessenta e seis profissionais no Canadá, atingindo diretamente os polos de Montreal e Quebec.\n\nANA: A gente comentou anteontem sobre o corte de um terço da equipe na Firaxis, e o roteiro na Ubisoft é bem parecido. O corte pegou em cheio o Vantage Studio, aquela divisão criada em conjunto com a Tencent pra cuidar de franquias bilionárias como Assassin's Creed e Far Cry.\n\nLEO: É assustador pensar que esses estúdios canadenses historicamente recebem subsídios fiscais pesados do governo local e, mesmo assim, a tesourada vem sem dó. Falaram em projetos cancelados e foco de produção revisto.\n\nANA: Na prática, as publicadoras estão encerrando a fase de apostas paralelas e cortando qualquer projeto que não seja garantia de bilheteria imediata. Se um jogo não tem tração comprovada nas métricas internas, a liderança simplesmente desliga os aparelhos pra estancar o sangramento do orçamento.\n\n---\n\nLEO: Mudando o foco pro que a gente carrega no bolso, a Xiaomi parece decidida a desafiar a física com um design que anda agitando os bastidores da indústria mobile.\n\nANA: Informações vindas da cadeia de suprimentos revelam que a fabricante tá desenvolvendo um display com curvatura nos quatro lados e bordas praticamente imperceptíveis a olho nu. É a tentativa de criar um aparelho verdadeiramente sem margens frontais, além de um formato ligeiramente mais largo pro consumo de mídia.\n\nLEO: Eu só fico pensando na quantidade de toques acidentais que a palma da mão vai dar numa tela que escorre por todos os cantos. O algoritmo de rejeição de toque vai ter que fazer hora extra pra esse telefone ser utilizável no dia a dia.\n\nANA: Esse sempre foi o calcanhar de aquiles das telas curvas. Mas do ponto de vista de engenharia de vidro e painel flexível, atingir essa curvatura quádrupla sem distorcer o sinal ou criar pontos frágeis de quebra nas quinas é uma demonstração de força bruta fabril da Xiaomi.\n\n---\n\nLEO: No radar de política nacional, o Palácio do Planalto formalizou uma mudança profunda nas regras de trabalho do país. O presidente Lula assinou o decreto que regulamenta a implementação da jornada cinco por dois.\n\nANA: O texto estabelece as condições de compensação de horas, regras pra turnos especiais no regime doze por trinta e seis e confirma o escalonamento da carga semanal. A jornada máxima no país cai de quarenta e quatro para quarenta e duas horas a partir de dezesseis de dezembro, com previsão de chegar a quarenta horas na etapa seguinte.\n\nLEO: E teve ainda a defesa pública de transporte gratuito nos fins de semana em nível nacional pra permitir que o trabalhador aproveite os dois dias de descanso. Mas na própria cerimônia, o governo admitiu que a medida vai enfrentar uma enxurrada de contestações jurídicas e divergências de interpretação nos tribunais.\n\nANA: Setores de serviços essenciais e telecomunicações já estão avaliando o impacto nas escalas de suporte contínuo. As federações empresariais apontam risco de elevação no custo operacional das equipes de plantão, enquanto o Ministério do Trabalho prepara portarias setoriais pra detalhar as categorias que exigem revezamento ininterrupto.\n\n---\n\nLEO: Na nossa rodada rápida, o Conselho Diretor da ANPD rejeitou por unanimidade o recurso do Discord e manteve a suspensão cautelar do recurso Go Live e das transmissões ao vivo no Brasil, apontando insuficiência nas medidas de proteção a menores sob o ECA Digital.\n\nANA: No setor de entrega, o iFood confirmou um incidente de segurança que resultou no vazamento de dados cadastrais envolvendo clientes, restaurantes parceiros e entregadores, afirmando que informações bancárias e senhas não foram violadas.\n\nLEO: E a Microsoft confirmou que vai descontinuar de vez o aplicativo de tarefas To Do em junho de dois mil e vinte e sete, forçando os usuários corporativos a migrarem para o Planner.\n\n---\n\nLEO: Ana, quando você falou mais cedo da atualização do GKE no Google Cloud, você mencionou uma tal de migração in-place pra mudar a rede do cluster. Como é que se troca uma fundação dessas sem derrubar a casa inteira?\n\nANA: Pensa numa equipe de mecânicos que precisa trocar os quatro pneus e o motor de um carro a cento e vinte por hora na rodovia, sem fazer o motorista pisar no freio nem derramar o café do passageiro. A migração tradicional exige você ligar um carro reserva do lado, transferir as pessoas de veículo em movimento e só depois desligar o primeiro.\n\nLEO: Um gasto absurdo de combustível e uma manobra arriscada pra caramba.\n\nANA: Exatamente. A migração in-place atualiza os componentes internos de cada nó do cluster de forma gradual e direta no mesmo endereço IP. O sistema vai substituindo as regras de rede no kernel enquanto a aplicação continua respondendo, sem você precisar duplicar os servidores nem pagar o dobro pela infraestrutura durante o processo.\n\n---\n\nLEO: Dos bilhões astronômicos da bolsa americana até a cirurgia delicada pra atualizar a rede da nuvem em pleno voo, o dia de hoje provou que manter a máquina girando exige muito mais do que dinheiro... exige controle de ponta a ponta.\n\nANA: E no final das contas, quem não domina a própria engrenagem acaba sendo atropelado pelo ritmo do mercado. A gente se vê amanhã.",
-   "manchete": "Anthropic estreia na Nasdaq com avaliação de US$ 2 trilhões",
-   "audio_ok": true,
-   "apresentadores": [
-    "Ana",
-    "Leo"
-   ]
-  },
-  {
    "data": "2026-11-20",
    "gerado_em": "2026-11-20T14:51:45-03:00",
    "noticias": [
@@ -4330,6 +3717,619 @@
    ],
    "roteiro": "LEO: Tem dias que a gente percebe que a única certeza que a tecnologia dá é que o código nunca dorme, né? Tá no ar a edição de hoje do seu podcast diário de tecnologia, quinta-feira, 26 de novembro de 2026. Eu sou o Leo, pronto pra te guiar pelas curvas e surpresas desse ecossistema.\nCLARA: E eu sou a Clara. Voz macia, sem pressa nenhuma... aqui pra te mostrar que os bastidores desse mercado sempre guardam histórias bem mais interessantes do que os releases oficiais.\nLEO: E hoje a nossa pauta tá com aquela energia de quem comprou passagem só de ida, porque o mundo das viagens e da conectividade resolveu dar uma guinada curiosa bem no meio da Black Friday.\nCLARA: Pois é, e olha que o buraco é mais embaixo do que parece... porque quando as gigantes resolvem mexer nos bastidores da nossa rotina, até o jeito de voar pelo mundo ganha um sotaque digital inédito.\n\n---\n\nLEO: E a grande manchete do dia mexe diretamente com o nosso bolso e com as operadoras tradicionais. O WhatsApp anunciou que vai permitir a compra de pacotes de dados para viagens internacionais direto por um chip virtual, o eSIM, dentro do próprio aplicativo.\nCLARA: A sacada é genial na sua simplicidade. Em vez de você ficar quebrando a cabeça com operadoras estrangeiras caríssimas ou perdendo tempo trocando chip físico na chegada do voo, o app vira o balcão de passagens da sua conexão. Você escolhe o plano de acordo com o país de destino e ativa tudo nas configurações.\nLEO: É o tipo de facilidade que faz a gente olhar para o roaming internacional tradicional com uma certa pena, né? Aquele susto homérico na fatura do pós-pago quando a gente voltava de viagem está com os dias contados.\nCLARA: Exato, meu caro. O ecossistema de mensageria percebeu que dominar a conversa não basta; o negócio agora é controlar o tubo por onde os dados passam. E convenhamos, tirar o intermediário da jogada é um charme que poucas empresas conseguem executar com tanta elegância comercial.\n\n---\n\nLEO: Saindo da ponte aérea e descendo para a infraestrutura dos servidores, a Huawei resolveu dar uma dor de cabeça daquelas para as gigantes de memória. A empresa revelou um projeto de memória de alta largura de banda, a tal da HBM, que promete dobrar a densidade de pinos de dados em comparação com o que a Samsung e a SK Hynix produzem em massa hoje em dia.\nCLARA: Esse anúncio em São Francisco tem um peso geopolítico imenso. Como as fabricantes sul-coreanas e a americana Micron estão proibidas de vender essas peças de ponta para o mercado chinês por causa das sanções dos Estados Unidos, a China está tendo que tramar a própria soberania na unha.\nLEO: E a ficha técnica impressiona. Se eles conseguirem tirar esse papel do laboratório e fabricar em escala real, vai ser o pulo do gato para alimentar os chips de inteligência artificial mais avançados sem precisar depender do contrabando de componentes coreanos.\nCLARA: É a clássica história da necessidade afiando o engenho. Quando fecham a porta da frente, o engenheiro criativo pega a chave de fenda e desmonta a parede para passar por trás. O mercado global de semicondutores que se cuide, porque essa disputa de hardware ainda vai render muita tela preta nas bolsas de valores.\n\n---\n\nLEO: No universo dos consoles e dos pixels, a ressaca de Grand Theft Auto 6 continua rendendo análises profundas sobre a indústria. E por falar nisso, ontem a gente comentou os números estrondosos de lançamento, e hoje os analistas de mercado jogaram luz sobre o outro lado da moeda: o enorme sucesso comercial esbarra no tamanho limitado da base de consoles instalados neste momento.\nCLARA: O que significa, traduzindo em miúdos, que a galinha dos ovos de ouro da Rockstar ainda tem uma mina gigante para explorar quando o jogo inevitavelmente chegar aos computadores. Mas o dado mais curioso dessa leva veio dos bastidores da própria desenvolvedora, onde os funcionários votaram esmagadoramente contra a criação de um sindicato formal logo após a euforia da estreia.\nLEO: É um contraste curioso, né? Enquanto o mundo inteiro aplaudia a obra de arte que levou mais de uma década para ser construída, a turma que segurou o rojão no teclado preferiu manter o modelo atual de relação com a casa, recusando o acordo de reconhecimento sindical proposto pelo IWGB.\nCLARA: Pois é, o frisson criativo às vezes caminha por trilhas bem tortuosas com a burocracia trabalhista. Fica evidente que a engenharia de paixão e o estresse corporativo vivem um casamento de fachada que ninguém ousa separar de vez.\n\n---\n\nLEO: Na pauta mobile e de consumo, a Apple continua dando o que falar com as novidades em torno de seus dispositivos dobráveis. E tem desenvolvedor descobrindo utilidades bem inusitadas para o formato, como a chegada de um novo modo de área de trabalho remota que praticamente transforma o aparelho em um mini computador de bolso.\nCLARA: A criatividade de quem programa não tem limite mesmo. O que antes era só um visor flexível para consumir conteúdo na horizontal agora ganha traços de estação de trabalho portátil, provando que o hardware dobrável finalmente encontrou uma alma de software que justifique o preço salgado.\nLEO: É aquela história, né? O gadget ganha uma dobra na tela, e a nossa paciência com o notebook tradicional diminui pela metade.\n\n---\n\nLEO: Entrando no tabuleiro da política em Brasília, o debate sobre o ajuste fiscal ganhou contornos intensos com repercussões diretas no Congresso e nas agências reguladoras. Enquanto o Senado articula encontros com prefeitos para rediscutir o financiamento dos municípios e o impacto das novas jornadas, o foco do mercado financeiro segue fixo nas contas públicas.\nCLARA: E os números da Instituição Fiscal Independente mostraram que a engenharia das contas do governo seria bem diferente sem os incentivos negociados pelo parlamento. Se o texto estivesse livre de exceções setoriais, a alíquota de referência do futuro imposto sobre o consumo cairia para cerca de sete por cento em 2027.\nLEO: Mostra o tamanho do xadrez político que é governar no Brasil, né? Cada setor protege o seu quinhão com unhas e dentes, e o resultado final é sempre o fruto de um acordo cheio de arestas que o contribuinte acaba conhecendo na ponta da nota fiscal.\nCLARA: Exatamente. A política tributária nunca é só uma equação matemática fria; ela é o retrato exato de quem tem força para puxar a toalha para o seu lado na mesa de negociação. Imparcialidade nos fatos, mas com aquela pitada de realidade que a gente não pode ignorar.\n\n---\n\nLEO: Abrindo a rodada rápida, a Federal Communications Commission aprovou nos Estados Unidos o plano da SpaceX para lançar até um milhão de satélites dedicados a criar data centers em órbita, apesar dos alertas pesados da comunidade científica sobre lixo espacial.\nCLARA: E na segurança digital, o Proton Pass entrou na onda da Black Friday oferecendo descontos agressivos de sessenta por cento no plano anual para capturar novos usuários que querem fugir de senhas fracas.\nLEO: Para fechar, o X lançou um novo sistema de controle parental que permite a adultos supervisionarem até cinco contas de adolescentes de treze a dezessete anos, com a supervisão expirando automaticamente quando o jovem atinge a maioridade.\n\n---\n\nLEO: Clara, me conta uma coisa. Essa história da Huawei querendo fabricar memória HBM avançada me deixou curioso com a sopa de letrinhas dos semicondutores. Como é que a gente explica o funcionamento dessa tal memória de alta largura de banda para quem não é engenheiro de hardware?\nCLARA: Imagina que os dados processados por uma inteligência artificial são como milhares de passageiros tentando sair de um navio de cruzeiro ao mesmo tempo. As memórias tradicionais funcionam como uma ponte estreita onde todo mundo esbarra e forma fila indiana. Já a tecnologia HBM é como se a gente construísse dezenas de esteiras rolantes empilhadas umas sobre as outras, conectadas por milhares de fios microscópicos que funcionam como portas verticais. Os dados saem em bloco, na mesma velocidade, sem nenhum engarrafamento. É força bruta organizada com requinte de alfaiataria.\nLEO: Então o chip de IA finalmente consegue beber água direto na fonte sem ficar esperando o caminhão-pipa chegar na esquina.\nCLARA: Exatamente isso, meu caro. Menos espera, mais vazão e o processamento voando alto, bem longe da lentidão dos velhos tempos.\n\n---\n\nLEO: Entre pacotes de dados comprados direto pelo WhatsApp e satélites espaciais prometendo computação na órbita da Terra, a quinta-feira provou que a inovação não respeita fronteira nenhuma.\nCLARA: E quem não prestar atenção nos bastidores dessa engrenagem acaba virando mero figurante na peça dos outros. Tenha uma noite inspiradora... eu fico por aqui.",
    "manchete": "WhatsApp anuncia eSIM com pacotes de dados para viagens internacionais",
+   "audio_ok": true,
+   "apresentadores": [
+    "Clara",
+    "Leo"
+   ]
+  },
+  {
+   "data": "2026-11-27",
+   "gerado_em": "2026-11-27T16:02:38-03:00",
+   "noticias": [
+    {
+     "titulo": "Black 2026: Garmin Forerunner 165 chega a 47% OFF histórico para maratonistas",
+     "link": "https://tecnoblog.net/achados/black-2026-garmin-forerunner-165-chega-a-47-off-historico-para-maratonistas/"
+    },
+    {
+     "titulo": "Mercado Livre derrete preço do iPhone Air de 1 TB com 58% de desconto",
+     "link": "https://canaltech.com.br/smartphone/mercado-livre-derrete-preco-do-iphone-air-de-1-tb-com-58-de-desconto/"
+    },
+    {
+     "titulo": "Ao vivo black friday radar tecmundo estadao",
+     "link": "https://www.estadao.com.br/tecmundo/ao-vivo-black-friday-radar-tecmundo-estadao/"
+    },
+    {
+     "titulo": "Monitores gamer na Black Friday: 5 ofertas com até 61% OFF",
+     "link": "https://olhardigital.com.br/2026/11/27/reviews/monitores-gamer-black-friday-samsung-odyssey-aoc-agon/"
+    },
+    {
+     "titulo": "Astrônomos criticam aval dos EUA a 1 milhăo de satélites da SpaceX",
+     "link": "https://www.uol.com.br/tilt/noticias/redacao/2026/11/27/astronomos-criticam-aval-a-1-milhao-de-satelites-da-spacex.ghtm"
+    },
+    {
+     "titulo": "Modder reaproveita tela de water cooler para criar monitor de hardware independente",
+     "link": "https://www.adrenaline.com.br/hardware/modder-reaproveita-tela-de-water-cooler-para-criar-monitor-de-hardware-independente/"
+    },
+    {
+     "titulo": "Google vai revelar onde cada dev do Android mora e trabalha",
+     "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPOGZrYXBOMzJ0eHhjSkZJRHlCY3VWUkNQbGw0dTE4UjVJb1RQUzU4UkFpUnQxTWZMbXVoMG8yWFA4R0NoaDZ2RkNsZWFqQm5UQnlobmxjVTlHSnk0Wklkd3RMNWx1SkV1S3k2T214aE1LSGE0OUlCQWFzU01FRUFjS3pn?oc=5"
+    },
+    {
+     "titulo": "PyTorch GreenLight: IA aprova PRs sem revisão humana",
+     "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPQTA2OUhOd01RcDhsNVhrQjRWbk4td1cwLWR4Mi1heTFlWGxoU1R1X3lvZkJfVXdlUktWcTNHQVhlSm5rWU5wa21pUEt5ZUNnbzJIaGRCeGk1YmZoVFhxOXJSLTNOQTBlWTBOWUtPR2JPNzNCeGxQd1dZUmlWMFZiWWozS2U1aHBzdmxhQldMRDIta0kwVjdndnJ5R083VS1HcFpfRmpDTVo?oc=5"
+    },
+    {
+     "titulo": "Black Friday 2026: veja peças para montar ou atualizar seu PC com desconto",
+     "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNOFZUN1Z4WE1XUUNieG9wWmpDVWZtR18wbjY5TVQ1c0RHTnBuUmk0d0N4VkthTFF1Tm1wNjkwY1hRNVZ1aGhFVnRKeWJUWDBtRHp0RWVHZXZLWE9FSFlYMVdBUUM3T2kyYWdNQ0RsNUlUQVROZjZSNzJfWnZSUnZTSnJpUkxFbkZhanc?oc=5"
+    },
+    {
+     "titulo": "Telemedicina: 14,4% dos brasileiros com smartphone fizeram consulta nos últimos 12 meses",
+     "link": "https://www.mobiletime.com.br/noticias/27/11/2026/telemedicina-super/"
+    },
+    {
+     "titulo": "Nvidia hits pause on chip shipments to Southeast Asia",
+     "link": "https://techcrunch.com/2026/11/26/nvidia-hits-pause-on-chip-shipments-to-southeast-asia/"
+    },
+    {
+     "titulo": "Anker’s 100W universal travel charger is down to $60, its lowest price yet",
+     "link": "https://www.theverge.com/gadgets/1041006/anker-100w-universal-travel-charger-black-friday-deal-sale"
+    },
+    {
+     "titulo": "The best Black Friday deals Ars could find",
+     "link": "https://arstechnica.com/shopping/2026/11/the-best-black-friday-deals-ars-could-find/"
+    },
+    {
+     "titulo": "Best Black Friday Espresso Machine Deals: Up to 38% Off (2026)",
+     "link": "https://www.wired.com/story/black-friday-coffee-espresso-deals-11-27-2026/"
+    },
+    {
+     "titulo": "Hackers reportedly infiltrated the Air Force's cloud systems",
+     "link": "https://www.engadget.com/2329586/hackers-reportedly-infiltrated-the-air-force-cloud-systems/"
+    },
+    {
+     "titulo": "This Portable Spot Cleaner From Bissell Is an Affordable Alternative to the Shark StainForce on Black Friday",
+     "link": "https://www.cnet.com/home/kitchen-and-household/shark-stainforce-bissell-little-green-black-friday-deals/"
+    },
+    {
+     "titulo": "Black Friday 2026 at Lowe’s: See the ad and shop the best deals live now",
+     "link": "https://www.zdnet.com/home-and-office/best-black-friday-lowes-ad-scan-deals-2026/"
+    },
+    {
+     "titulo": "NEURA plans a robot training gym in Spain with Aragón’s government",
+     "link": "https://thenextweb.com/news/neura-robotics-gym-aragon-spain-costa-group"
+    },
+    {
+     "titulo": "175+ Black Friday deals were actually excited about: See the top Apple, Kindle, Lego, and Sony offers live now",
+     "link": "https://mashable.com/tech/black-friday-best-deals-2026"
+    },
+    {
+     "titulo": "One week on, here's the impact GTA 6's launch had on the industry so far",
+     "link": "https://www.gamesindustry.biz/one-week-on-heres-the-impact-gta-6s-launch-had-on-the-industry-so-far"
+    },
+    {
+     "titulo": "Nintendo Switch OLED com Super Mario Bros. Wonder fica mais barato com cupom-relâmpago na Amazon",
+     "link": "https://br.ign.com/descontos/158037/nintendo-switch-oled-com-super-mario-bros-wonder-fica-mais-barato-com-cupom-relampago-na-amazon"
+    },
+    {
+     "titulo": "TCL teams up with Rebel in the UK to make a social media-less kids phone",
+     "link": "https://www.gsmarena.com/tcl_teams_up_with_rebel_in_the_uk_to_make_a_social_medialess_kids_phone-news-75672.php"
+    },
+    {
+     "titulo": "Abrasat e Sindisat repudiam PL que flexibiliza indicação de dirigentes de agências reguladoras",
+     "link": "https://telesintese.com.br/abrasat-e-sindisat-repudiam-pl-que-flexibiliza-indicacao-de-dirigentes-de-agencias-reguladoras/"
+    },
+    {
+     "titulo": "The NFL Player Who Left Football for Math",
+     "link": "https://www.nytimes.com/2026/11/26/science/john-urschel-ai-nfl-math.html"
+    },
+    {
+     "titulo": "Lula garante benefícios em novo governo, mas defende revisão",
+     "link": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-11/lula-garante-beneficios-em-novo-governo-mas-defende-revisao"
+    },
+    {
+     "titulo": "Comissão aprova gratuidade de 20 minutos em áreas de embarque de aeroportos",
+     "link": "https://www.camara.leg.br/noticias/1323758-comissao-aprova-gratuidade-de-20-minutos-em-areas-de-embarque-de-aeroportos"
+    },
+    {
+     "titulo": "Emendas à LDO de 2027 tentam proteger programas e mudar a meta fiscal",
+     "link": "https://www12.senado.leg.br/noticias/materias/2026/11/27/emendas-a-ldo-de-2027-tentam-proteger-programas-e-mudar-a-meta-fiscal"
+    },
+    {
+     "titulo": "Meirelles defende que Trabuco anuncie medidas de ajuste fiscal logo no início da gestão",
+     "link": "https://g1.globo.com/politica/blog/andreia-sadi/post/2026/11/27/meirelles-defende-que-trabuco-anuncie-ajuste-fiscal-no-inicio-da-gestao-e-enfrente-eventual-resistencia-de-aliados.ghtml"
+    },
+    {
+     "titulo": "Internautas comparam Cleitinho e irmão gêmeo: “Ruth e Raquel”",
+     "link": "https://www.poder360.com.br/poder-gente/internautas-comparam-cleitinho-e-irmao-gemeo-ruth-e-raquel/"
+    },
+    {
+     "titulo": "Maioria dos brasileiros quer que governo Lula mude políticas e projetos, diz pesquisa",
+     "link": "https://redir.folha.com.br/redir/online/poder/rss091/*https://www1.folha.uol.com.br/poder/2026/11/maioria-dos-brasileiros-quer-que-governo-lula-mude-politicas-e-projetos-diz-pesquisa.shtml"
+    },
+    {
+     "titulo": "Lula escolhe Camilo Santana para comandar a Casa Civil, dizem aliados",
+     "link": "https://www.jota.info/executivo/lula-escolhe-camilo-santana-para-comandar-a-casa-civil-dizem-aliados"
+    },
+    {
+     "titulo": "Houston, we have a networking problem: Why NTT thinks space computing is the final frontier",
+     "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE10RXdfeDdJa2U5Z2RzVVlLRS1xSDNnd3NyaU40QjRHYmlLc0phNDJ3TkR2Nm02YTBRNHNXdWJUYXJ2Q3dkY2FwdG5TOWhIazAzVTNLMU1BNl9lMWZrR3VXakVMNFI?oc=5"
+    },
+    {
+     "titulo": "Meta Brings Code Review Auto-Approval More Mainstream with PyTorch GreenLight",
+     "link": "https://www.infoq.com/news/2026/11/uber-agent-spend-steady/?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=global"
+    },
+    {
+     "titulo": "De Campinas para o mundo: Samsung abre as portas do laboratório de saúde",
+     "link": "https://tecnoblog.net/noticias/de-campinas-para-o-mundo-samsung-abre-as-portas-do-laboratorio-de-saude/"
+    },
+    {
+     "titulo": "KaBuM! derrete preço de Marvel's Spider-Man 2 para PS5 com cupom especial",
+     "link": "https://canaltech.com.br/games/kabum-derrete-preco-de-marvels-spider-man-2-para-ps5-com-cupom-especial/"
+    },
+    {
+     "titulo": "Ao vivo black friday estadao tecmundo live virada",
+     "link": "https://www.estadao.com.br/tecmundo/ao-vivo-black-friday-estadao-tecmundo-live-virada/"
+    },
+    {
+     "titulo": "Brasil perdeu até 75 dias de período chuvoso em três décadas, aponta estudo",
+     "link": "https://olhardigital.com.br/2026/11/27/ciencia-e-espaco/brasil-perdeu-ate-75-dias-de-periodo-chuvoso-em-tres-decadas-aponta-estudo/"
+    },
+    {
+     "titulo": "Vítima de fraude digital deve ser ágil, avisar o banco e fazer um BO",
+     "link": "https://www.uol.com.br/tilt/noticias/redacao/2026/11/27/vitima-de-fraude-digital-deve-avisar-banco-e-fazer-bo-veja-o-que-fazer.ghtm"
+    },
+    {
+     "titulo": "Primeira expansão de Hollow Knight: Silksong vai ser gratuita e ganha data",
+     "link": "https://www.adrenaline.com.br/games/primeira-expansao-de-hollow-knight-silksong-vai-ser-gratuita-e-ganha-data/"
+    },
+    {
+     "titulo": "Como usar light-dark() do CSS sem cair nas armadilhas de fallback e performance",
+     "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNLXBsbk90eTFTREhnODBEcGpmWk42eE8wbGVXbXdyYl9kZGM2Uk9weWtwUmd4VURnTVlwUzJqQ1lmSW94WUE3M0NDM1ozZmpDeTlacC1CVzFIcFc1Mlo0SENmLUVPT0lrMkQzaVdtalZDZkMwODJyU2lWVkhpejYzZnIzamdFdDM3bGk1cTRfMEJPZEVWdVVnZTMwR1FrUEsxTzQwTXJxTkgzQkNrMm5Lcg?oc=5"
+    },
+    {
+     "titulo": "Showmetech tem novas newsletters em português e inglês; veja como assinar",
+     "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOamx1b05oUGZDMFp1eUdiQlNIU3Q2cjkzWHY2cF9fVXdDNEM0N21Rdlg0Q2VReGtXYWFKR0twNzQxclZESGR3MnpodmFZT0hHVW95MEUxeWdFallSREIxeWlMbXg2ZkVUN2M4TUd6azFTbjZGVWxDSlVLWUt5MF84NTlWV2pZU0ZVQUdtS1N1T0FLS00?oc=5"
+    },
+    {
+     "titulo": "Settle: startup cria agentes de IA para editais de compras governamentais",
+     "link": "https://www.mobiletime.com.br/noticias/27/11/2026/settle/"
+    },
+    {
+     "titulo": "Is Alice Huang a spy or not?",
+     "link": "https://techcrunch.com/2026/11/26/is-alice-huang-a-spy-or-not/"
+    },
+    {
+     "titulo": "Here are the best Black Friday deals you can grab for $30 or less",
+     "link": "https://www.theverge.com/gadgets/1039645/black-friday-best-cheap-tech-deals-under-30-2026"
+    },
+    {
+     "titulo": "Intel faced a choice: Give Trump 10% or face the consequences",
+     "link": "https://arstechnica.com/tech-policy/2026/11/intel-faced-a-choice-give-trump-10-or-face-the-consequences/"
+    },
+    {
+     "titulo": "Best CurrentBody Black Friday Deals (2026): 20% Off LED Masks and More",
+     "link": "https://www.wired.com/story/currentbody-black-friday-deals-11-27-2026/"
+    },
+    {
+     "titulo": "5 Costco Electronics With Deep Discounts For Black Friday 2026",
+     "link": "https://www.engadget.com/2329581/costco-electronics-deep-discounts-black-friday-2026/"
+    },
+    {
+     "titulo": "Apple Brings Its iPhone Broadcasting to Formula 1 at the Las Vegas Grand Prix",
+     "link": "https://www.cnet.com/tech/apple-iphone-broadcasting-f1-las-vegas/"
+    },
+    {
+     "titulo": "Los Angeles schools switch off Google’s AI Overviews on student laptops",
+     "link": "https://thenextweb.com/news/la-schools-disable-google-ai-overviews-search-standoff"
+    },
+    {
+     "titulo": "The 17 best Black Friday TV deals: Get a 65-inch OLED for $799 and save 50% with doorbuster TV deals",
+     "link": "https://mashable.com/tech/black-friday-best-tv-deals-2026"
+    },
+    {
+     "titulo": "GTA 6's pirate PC ports: new tools, old problem | Opinion",
+     "link": "https://www.gamesindustry.biz/gta-6s-pirate-pc-ports-new-tools-old-problem-opinion"
+    },
+    {
+     "titulo": "\"Extremamente desapontado\": Denis Villeneuve não gostou que a Disney colocou Vingadores: Doutor Destino no mesmo dia de lançamento de Duna: Parte Três",
+     "link": "https://br.ign.com/duna-parte-3/158035/extremamente-desapontado-denis-villeneuve-nao-gostou-que-a-disney-colocou-vingadores-doutor-destino"
+    },
+    {
+     "titulo": "Deal: Amazon increases its Black Friday discounts for the Galaxy S26, S26+ and S26 Ultra",
+     "link": "https://www.gsmarena.com/deal_amazon_increases_its_black_friday_discounts_for_the_galaxy_s26_s26_and_s26_ultra-news-75671.php"
+    },
+    {
+     "titulo": "Senado acelera projeto que acaba com quarentena política para diretores da Anatel",
+     "link": "https://telesintese.com.br/senado-acelera-projeto-que-acaba-com-quarentena-politica-para-diretores-da-anatel/"
+    },
+    {
+     "titulo": "Convex skills send the user's app idea to a remote server without telling them",
+     "link": "https://github.com/convex/convex-backend-skill/issues/64"
+    },
+    {
+     "titulo": "Lula e Cleitinho debatem negociação de dívida de Minas Gerais",
+     "link": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-11/lula-e-cleitinho-debatem-negociacao-de-divida-de-minas-gerais"
+    },
+    {
+     "titulo": "Comissão aprova criação de corredores exclusivos para motos e regras para circulação entre faixas",
+     "link": "https://www.camara.leg.br/noticias/1323756-comissao-aprova-criacao-de-corredores-exclusivos-para-motos-e-regras-para-circulacao-entre-faixas"
+    },
+    {
+     "titulo": "Áudio: Proposta determina que haja pontos de apoio para trabalhadores da limpeza urbana",
+     "link": "https://www12.senado.leg.br/noticias/audios/2026/11/proposta-determina-que-haja-pontos-de-apoio-para-trabalhadores-da-limpeza-urbana"
+    },
+    {
+     "titulo": "Manutenção de Moretti no Ministério do Planejamento é vista como praticamente certa, em um aceno de Lula ao PT",
+     "link": "https://g1.globo.com/politica/blog/valdo-cruz/post/2026/11/27/manutencao-de-moretti-no-ministerio-do-planejamento-e-vista-como-praticamente-certa-em-um-aceno-de-lula-ao-pt.ghtml"
+    },
+    {
+     "titulo": "Argentina aprova lei que proíbe propaganda de bets nos esportes",
+     "link": "https://www.poder360.com.br/poder-internacional/argentina-aprova-lei-que-proibe-propaganda-de-bets-nos-esportes/"
+    },
+    {
+     "titulo": "Integrantes do governo dizem que Lula deve confirmar Alckmin na Segurança",
+     "link": "https://redir.folha.com.br/redir/online/poder/rss091/*https://www1.folha.uol.com.br/colunas/painel/2026/11/integrantes-do-governo-dizem-que-lula-deve-confirmar-alckmin-na-seguranca.shtml"
+    },
+    {
+     "titulo": "Sinprofaz promove congresso sobre segurança jurídica e reforma tributária",
+     "link": "https://www.jota.info/tributos/sinprofaz-promove-congresso-sobre-seguranca-juridica-e-reforma-tributaria"
+    },
+    {
+     "titulo": "Vercel’s CEO thinks the next big AI speedup won’t come from smarter models",
+     "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1mQzQwaWYtd25tTk5QWEZSQURQeHF4UVNNOUswX3Q0OEt2aEZkVmRwLWhFN2VsazFGR3I5YTdhNDREeGV0SDJsYXRxSlVlNlVDalgwRUNfWGVQYXpFN0FaZA?oc=5"
+    },
+    {
+     "titulo": "Netflix Builds Quasar to Measure the Blast Radius of Library API Changes",
+     "link": "https://www.infoq.com/news/2026/11/netflix-quasar-api-impact/?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=global"
+    },
+    {
+     "titulo": "Black Friday: iPhone 16e recebe preço de Android em oferta até 12x",
+     "link": "https://tecnoblog.net/achados/black-friday-iphone-16e-recebe-preco-de-android-em-oferta-ate-12x/"
+    },
+    {
+     "titulo": "Não atualize ainda: novo driver da NVIDIA corrige desgaste de SSD, mas causa tela preta",
+     "link": "https://canaltech.com.br/hardware/nao-atualize-ainda-novo-driver-da-nvidia-corrige-desgaste-de-ssd-mas-causa-tela-preta/"
+    },
+    {
+     "titulo": "Samsung esta desenvolvendo nuvem privada para recursos do galaxy ai",
+     "link": "https://www.estadao.com.br/tecmundo/produto-e-review/samsung-esta-desenvolvendo-nuvem-privada-para-recursos-do-galaxy-ai/"
+    },
+    {
+     "titulo": "GTA 6 estaria causando falhas graves no PS5 e Xbox Series; entenda",
+     "link": "https://olhardigital.com.br/2026/11/27/games-e-consoles/gta-6-falhas-ps5-xbox-series-consoles-superaquecimento/"
+    },
+    {
+     "titulo": "EUA acusam especialista em segurança de pagar hackers em segredo",
+     "link": "https://www.uol.com.br/tilt/noticias/redacao/2026/11/27/eua-acusam-executivo-de-ciberseguranca-de-pagar-hackers-em-segredo.ghtm"
+    },
+    {
+     "titulo": "Estúdio de Hollow Knight anuncia a Team Cherry Presents, para atuar também como distribuidora",
+     "link": "https://www.adrenaline.com.br/games/estudio-de-hollow-knight-anuncia-a-team-cherry-presents-para-atuar-tambem-como-distribuidora/"
+    },
+    {
+     "titulo": "Netflix cria Quasar para medir o impacto real de mudanças de API em bibliotecas internas",
+     "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQSTBtX0ktdktXb2d3MmJIcEJqRlVqMmkwX3ZlUGFZbUNBTGlzVEZJMUpNVEtDcUQ1NkdQSURBd0FZczFUNjBRLVN0X1Z4NUs2OHByb3M3a1RRSmNiVWl4UlBlOUhLSTVscmswdHoxSUN4Y1hKd0NoUGtjT25hRG5INHNPaHFHbUQwWloxM3Q2QU9BV0s0ZWZTM3VVSmk5THNfVkRKb0o0VERwNGdhT3B4WA?oc=5"
+    },
+    {
+     "titulo": "RTX 5060 ou RTX 5070: qual GeForce combina com seu PC gamer?",
+     "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1fS1VZYVpnSUNkNmh6M3d0bk1faVVlM0RwUnVMRnhQSTJ0RHkxNlV0MnhFOGhQd3hyVXVseDlndThTWndTelRzMG5MSFZwSUpwaExRNWZKeGtYWHJqVkxXTw?oc=5"
+    },
+    {
+     "titulo": "Claro prepara segunda versão de sua API de Number Verification",
+     "link": "https://www.mobiletime.com.br/noticias/27/11/2026/claro-number-verifiy/"
+    },
+    {
+     "titulo": "X finally gets parental controls after 20 years",
+     "link": "https://techcrunch.com/2026/11/26/x-finally-gets-parental-controls-after-20-years/"
+    },
+    {
+     "titulo": "The best Black Friday deals on AirPods, MacBooks, and other Apple gear",
+     "link": "https://www.theverge.com/gadgets/1043935/best-black-friday-apple-deals-2026"
+    },
+    {
+     "titulo": "Books, bikes, and The Burbs: These are Ars staff’s holiday gift picks for 2026",
+     "link": "https://arstechnica.com/shopping/2026/11/books-bikes-and-the-burbs-these-are-ars-staffs-holiday-gift-picks-for-2026/"
+    },
+    {
+     "titulo": "Apple Black Friday Deals (2026): AirPods, iPads, MacBooks, and More",
+     "link": "https://www.wired.com/story/black-friday-apple-deals-11-27-2026/"
+    },
+    {
+     "titulo": "WhatsApp adds support for travel eSIMs",
+     "link": "https://www.engadget.com/2329553/whatsapp-adds-support-for-travel-esims/"
+    },
+    {
+     "titulo": "Best Black Friday E-Bike and Electric Scooter Deals: Save Up to $1,100",
+     "link": "https://www.cnet.com/tech/best-black-friday-e-bike-and-electric-scooter-deals-save-up-to-1100/"
+    },
+    {
+     "titulo": "Electric cars beat petrol and diesel combined in the EU by almost 70,000",
+     "link": "https://thenextweb.com/news/eu-ev-sales-october-2026-outsold-petrol-diesel-combined"
+    },
+    {
+     "titulo": "Black Friday Amazon device deals: Save up to 58% on Echo devices and get $40 free credit",
+     "link": "https://mashable.com/tech/black-friday-best-amazon-device-deals-2026"
+    },
+    {
+     "titulo": "Story of Seasons studio Marvelous offering voluntary resignations to reduce headcount by 65 roles",
+     "link": "https://www.gamesindustry.biz/story-of-seasons-studio-marvelous-offering-voluntary-resignations-to-reduce-headcount-by-65-roles"
+    },
+    {
+     "titulo": "2 Smart TVs pelo preço de 1! Combo oficial da Samsung traz dois modelos em oferta na Black da Amazon",
+     "link": "https://br.ign.com/descontos/158034/2-smart-tvs-pelo-preco-de-1-combo-oficial-da-samsung-traz-dois-modelos-em-oferta-na-black-da-amazon"
+    },
+    {
+     "titulo": "ChatGPT for Android could soon make calls and send texts",
+     "link": "https://www.gsmarena.com/chatgpt_for_android_could_soon_make_calls_and_send_texts-news-75677.php"
+    },
+    {
+     "titulo": "Senado pode votar regras para certificação e auditoria de IA na saúde",
+     "link": "https://telesintese.com.br/senado-pode-votar-regras-para-certificacao-e-auditoria-de-ia-na-saude/"
+    },
+    {
+     "titulo": "I'm Scared of AI",
+     "link": "https://thesoapbox.email/archive/3"
+    },
+    {
+     "titulo": "Comissão aprova direito de associações rurais contestarem dispensa de compra para merenda",
+     "link": "https://www.camara.leg.br/noticias/1323754-comissao-aprova-direito-de-associacoes-rurais-contestarem-dispensa-de-compra-para-merenda"
+    },
+    {
+     "titulo": "Áudio: Senado pode votar alteração das regras de gerenciamento do Fundo Constitucional do DF",
+     "link": "https://www12.senado.leg.br/noticias/audios/2026/11/senado-pode-votar-alteracao-das-regras-de-gerenciamento-do-fundo-constitucional-do-df"
+    },
+    {
+     "titulo": "Ministério da Justiça tirou do ar 86 mil sites e perfis com publicidade ilegal de bets desde proibição",
+     "link": "https://g1.globo.com/politica/noticia/2026/11/27/ministerio-da-justica-tirou-do-ar-86-mil-sites-e-perfis-com-publicidade-ilegal-de-bets-desde-proibicao.ghtml"
+    },
+    {
+     "titulo": "Lula diz que não pode gastar dinheiro à toa no governo",
+     "link": "https://www.poder360.com.br/poder-governo/lula-diz-que-nao-pode-gastar-dinheiro-a-toa-no-governo/"
+    },
+    {
+     "titulo": "Sob Lula, Exército tentou reverter tombamento de antigo DOI-Codi no RJ",
+     "link": "https://redir.folha.com.br/redir/online/poder/rss091/*https://www1.folha.uol.com.br/poder/2026/11/sob-lula-exercito-tentou-reverter-tombamento-de-antigo-doi-codi-no-rj.shtml"
+    },
+    {
+     "titulo": "Presidente da Zetta defende automatização dos fluxos de escrituração do consignado CLT",
+     "link": "https://www.jota.info/tributos-e-empresas/mercado/presidente-da-zetta-defende-automatizacao-dos-fluxos-de-escrituracao-do-consignado-clt"
+    },
+    {
+     "titulo": "A year from now, VMware wants AI troubleshooting your private cloud",
+     "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE9YYTZHVW9sdnVCV3Z6bzZuTmpIRTY3Z0xiODNGTEFZQ3ltYkNucGw4dm5mZHpRakVVOTc0YVV3dVRqRGtWcFVETTVNdS0zY3lZVE9KbF8tM3FsMFE2SUZnTk1HZmlUUQ?oc=5"
+    },
+    {
+     "titulo": "Grafana Begins Its Biggest UI Refresh Since Version 7",
+     "link": "https://www.infoq.com/news/2026/11/grfana-ui-refresh/?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=global"
+    },
+    {
+     "titulo": "Alto custo da memória derruba metas para smartphones em 2027",
+     "link": "https://tecnoblog.net/noticias/alto-custo-da-memoria-derruba-metas-para-smartphones-em-2027/"
+    },
+    {
+     "titulo": "Google corrige falha que fazia aba do Gemini devorar memória RAM no Chrome",
+     "link": "https://canaltech.com.br/apps/google-corrige-falha-que-fazia-aba-do-gemini-devorar-memoria-ram-no-chrome/"
+    },
+    {
+     "titulo": "Sea of sorrow dlc gratis de hollow knight silksong chega em dezembro",
+     "link": "https://www.estadao.com.br/tecmundo/voxel/sea-of-sorrow-dlc-gratis-de-hollow-knight-silksong-chega-em-dezembro/"
+    },
+    {
+     "titulo": "Google Docs agora permite comparar arquivos do Word sem conversão",
+     "link": "https://olhardigital.com.br/2026/11/27/internet-e-redes-sociais/google-docs-agora-permite-comparar-arquivos-do-word-sem-conversao/"
+    },
+    {
+     "titulo": "Bélgica determina paralisaçăo de obra de data center do Google",
+     "link": "https://www.uol.com.br/tilt/noticias/redacao/2026/11/27/belgica-determina-paralisacao-de-obra-de-datacenter-do-google.ghtm"
+    },
+    {
+     "titulo": "Delta Force recebe colaboração com Metal Gear Solid Delta e skin de Naked Snake",
+     "link": "https://www.adrenaline.com.br/games/delta-force-metal-gear-solid-delta-collab/"
+    },
+    {
+     "titulo": "Como testar nomes acessíveis de ações repetidas numa tabela com Playwright",
+     "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQNTdBTkM3d3hNNlN3bEZIcmlGU0xYcDRhY0lkOGJTYkdKYU5zc096UFpnalhqTGNaRGtuRXk4S3pma1F3TjZEUThaRW5DVl9FN1p2U1lVSFNfWlY4T0QxYU4zSDlfaVZNNERGdUZmYVRPQ0EtNFBXVUQ1cnEtWk9aWVNwamxuSHhNNzgwYWJhNk1wUGc3SWYyeXpaMjYybzZ3bUZWUURSTTNsWlE3RkE?oc=5"
+    },
+    {
+     "titulo": "Samsung, Apple e mais: os 12 melhores celulares com desconto na Black Friday",
+     "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNc0xfUFVFQ2ZuMG9ITVdaQXd0QjhnQWtPbjlyXzJYZjQ4Zlh0TEtzbWQ0LWZrSGJCLUlKUTBpTHI0MHY5RUdOWnBScy1XWTdxQmZzQ3BSbi1Vd3ZLRHlCV3NMRWdIR2c2a2Q0SnRkUm0waGIzd0N6VE5DQ1hEb0c1X0szVU9ib215RFpN?oc=5"
+    },
+    {
+     "titulo": "IA é usada por 90% dos funcionários da Nomad no dia a dia",
+     "link": "https://www.mobiletime.com.br/noticias/27/11/2026/ia-nomad-funcionarios/"
+    },
+    {
+     "titulo": "You can grab a 12-pack of Zepath’s rechargeable AA batteries for just $24",
+     "link": "https://www.theverge.com/gadgets/1043272/zepath-rechargeable-aa-batteries-black-friday-2026-deal-sale"
+    },
+    {
+     "titulo": "Volvo's big batteries: We drive its updated 2028 plug-in hybrids",
+     "link": "https://arstechnica.com/cars/2026/11/volvos-big-batteries-we-drive-its-updated-2028-plug-in-hybrids/"
+    },
+    {
+     "titulo": "Walking Pad Deals to Shop This Black Friday (2026)",
+     "link": "https://www.wired.com/story/best-black-friday-walking-pad-treadmill-deals-11-27-26/"
+    },
+    {
+     "titulo": "Google will soon share Android developers' addresses publicly",
+     "link": "https://www.engadget.com/2329389/google-will-soon-share-android-developers-addresses-publicly/"
+    },
+    {
+     "titulo": "Xpeng says its Iron humanoid could be doing chores in one or two years",
+     "link": "https://thenextweb.com/news/xpeng-iron-humanoid-mass-production-homes-2027"
+    },
+    {
+     "titulo": "Everything to know about Black Friday 2026: Best deals, sale dates, doorbusters, and more",
+     "link": "https://mashable.com/tech/black-friday-2026-everything-to-know-best-deals-open-hours-ad-scans"
+    },
+    {
+     "titulo": "Indie puzzle adventure Rhell beats GTA 6 to win Best Game Made in The North at the Game Republic Awards",
+     "link": "https://www.gamesindustry.biz/indie-puzzle-adventure-rhell-beats-gta-6-to-win-best-game-made-in-the-north-at-the-game-republic-awards"
+    },
+    {
+     "titulo": "Jogadores encontram glitch em GTA 6 que impede progredir na campanha do game; saiba o que fazer se isso ocorrer",
+     "link": "https://br.ign.com/grand-theft-auto-vi/158033/jogadores-encontram-glitch-em-gta-6-que-impede-progredir-na-campanha-do-game-saiba-o-que-fazer-se-is"
+    },
+    {
+     "titulo": "Deal: the Poco F9 Ultra is on sale for Black Friday with discounts up to 25%",
+     "link": "https://www.gsmarena.com/deal_the_poco_f9_ultra_is_on_sale_for_black_friday_with_discounts_up_to_25-news-75670.php"
+    },
+    {
+     "titulo": "Orçamento de 2027 prevê alta de 42% em Ciência, Tecnologia e Comunicações",
+     "link": "https://telesintese.com.br/orcamento-de-2027-preve-alta-de-42-em-ciencia-tecnologia-e-comunicacoes/"
+    },
+    {
+     "titulo": "Palliative Care for the Chronically Online",
+     "link": "https://idiotecon.substack.com/p/palliative-care-for-the-chronically"
+    },
+    {
+     "titulo": "Comissão aprova gratuidade de até 30 minutos para veículos em área de embarque e desembarque dos aeroportos",
+     "link": "https://www.camara.leg.br/noticias/1323760-comissao-aprova-gratuidade-de-ate-30-minutos-para-veiculos-em-area-de-embarque-e-desembarque-dos-aeroportos"
+    },
+    {
+     "titulo": "Aprovada não é cumprida: por que leis não saem do papel?",
+     "link": "https://www12.senado.leg.br/noticias/infomaterias/2026/10/aprovada-nao-e-cumprida-por-que-leis-nao-saem-do-papel"
+    },
+    {
+     "titulo": "Quem é Letícia Villar, jogadora da seleção brasileira presa na Rússia que pediu ajuda a Lula",
+     "link": "https://g1.globo.com/mundo/noticia/2026/11/27/quem-e-leticia-villar-jogadora-da-selecao-brasileira-presa-na-russia-que-pediu-ajuda-a-lula.ghtml"
+    },
+    {
+     "titulo": "Brasil reelege Lula, mas 60% querem mudanças no governo",
+     "link": "https://www.poder360.com.br/poder-governo/brasil-reelege-lula-mas-60-querem-mudancas-no-governo/"
+    },
+    {
+     "titulo": "Fora do Senado em 2027, Mara Gabrilli participará de conselhos da Fiesp",
+     "link": "https://redir.folha.com.br/redir/online/poder/rss091/*https://www1.folha.uol.com.br/colunas/painel/2026/11/fora-do-senado-em-2027-mara-gabrilli-participara-de-conselhos-da-fiesp.shtml"
+    },
+    {
+     "titulo": "Entidades veem redução de quarentena como risco à autonomia de agências reguladoras",
+     "link": "https://www.jota.info/legislativo/entidades-veem-reducao-de-quarentena-como-risco-a-autonomia-de-agencias-reguladoras"
+    },
+    {
+     "titulo": "Same coding model, 10x the token speed. How did Cognition do it?",
+     "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE5GSmtWMXMtbGtteWxsOWRpWDhYTEhnRjdKZFhLd19EQUhRazlLeTg3dTI5SkNyQjZHWkFMTnlsU0owc0N3VC1hUmRlb2J3OUVRQlV0UWt3RWF4b3dlWTNPY0dB?oc=5"
+    },
+    {
+     "titulo": "Presentation: From Fan-Out to Fast: Sub-100ms API Design in Distributed Systems",
+     "link": "https://www.infoq.com/presentations/sub-100ms-latency-distributed-systems/?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=global"
+    },
+    {
+     "titulo": "Hackers invadem principal plataforma de nuvem da Força Aérea dos EUA",
+     "link": "https://tecnoblog.net/noticias/hackers-invadem-principal-plataforma-de-nuvem-da-forca-aerea-dos-eua/"
+    },
+    {
+     "titulo": "CNH B pode dirigir eletrificados com mais de 4.250 kg?",
+     "link": "https://canaltech.com.br/carros/cnh-b-pode-dirigir-eletrificados-com-mais-de-4250-kg/"
+    },
+    {
+     "titulo": "Atriz de lucia em gta 6 manni l perez confirma que esta trabalhando no jogo ha quase uma decada",
+     "link": "https://www.estadao.com.br/tecmundo/voxel/atriz-de-lucia-em-gta-6-manni-l-perez-confirma-que-esta-trabalhando-no-jogo-ha-quase-uma-decada/"
+    },
+    {
+     "titulo": "Do TWS barato ao over-ear com ANC: os melhores fones da Black Friday",
+     "link": "https://olhardigital.com.br/2026/11/27/reviews/fones-bluetooth-black-friday-ofertas-por-faixa-de-preco/"
+    },
+    {
+     "titulo": "Chips da Nvidia văo parar em data center chinęs ligado ŕ Megaspeed",
+     "link": "https://www.uol.com.br/tilt/noticias/redacao/2026/11/27/china-tem-chips-avancados-da-nvidia-em-data-center-ligado-a-megaspeed.ghtm"
+    },
+    {
+     "titulo": "Falhas de segurança em PCs com AMD reduzem de 19 anos para 20 dias o tempo para quebrar PIN do BitLocker",
+     "link": "https://www.adrenaline.com.br/amd/falhas-de-seguranca-em-pcs-com-amd-reduzem-de-19-anos-para-20-dias-o-tempo-para-quebrar-pin-do-bitlocker/"
+    },
+    {
+     "titulo": "Quando a produtividade se torna inimiga da descoberta.",
+     "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPVlEyREFEa0tLWU9ub3BEdlRsd0tEU3FQMG1HX0cxRTZrdlZTWmlCdG10dWRHVXpmTU5Rb0t5Q1hmdktNczlvcEFPV2FHa3Jsbm9xekdQLTlhSE5vUUZvZzJPMEI3UkxfSVF5Vk9DU2hSWUhJdlhpMWhuRkp2YXFNdDBYZUV0SkVObHVEUkhTMk9JVHZ5bWhObG1rN1RXajFWMVVv?oc=5"
+    },
+    {
+     "titulo": "Como a tecnologia mobile transformou o chão de loja em canal estratégico",
+     "link": "https://www.mobiletime.com.br/artigos/27/11/2026/como-a-tecnologia-mobile-transformou-o-chao-de-loja-em-canal-estrategico/"
+    },
+    {
+     "titulo": "Apple’s AirPods Pro 3 are a whopping $100 off for Black Friday",
+     "link": "https://www.theverge.com/gadgets/1039978/airpods-pro-3-apple-earbuds-black-friday-2026-deal-sale"
+    },
+    {
+     "titulo": "Best Black Friday Robot Vacuum Deals from Roborock (2026): Up to $700 Off",
+     "link": "https://www.wired.com/story/black-friday-robot-vacuum-deals-11-27-2026/"
+    },
+    {
+     "titulo": "Backloggd urges users to change their passwords after a breach",
+     "link": "https://www.engadget.com/2329256/backloggd-breach-november-2026-password-reset/"
+    },
+    {
+     "titulo": "Shoppers ask AI for Black Friday deals, but few let the bots pay",
+     "link": "https://thenextweb.com/news/ai-shopping-agents-black-friday-retailers-trust"
+    },
+    {
+     "titulo": "The best Black Friday iPad deals, chosen by a tablet tester: My top picks for 2026",
+     "link": "https://mashable.com/tech/black-friday-best-ipad-deals-2026"
+    },
+    {
+     "titulo": "Mastered receives funding to support training for games studios in West of England",
+     "link": "https://www.gamesindustry.biz/mastered-receives-funding-to-support-training-for-games-studios-in-west-of-england"
+    },
+    {
+     "titulo": "Fã tem plano de transformar um dos vilões mais populares de Baldur’s Gate 3 em um personagem com quem é possível ter um romance",
+     "link": "https://br.ign.com/baldurs-gate-3/158023/fa-tem-plano-de-transformar-um-dos-viloes-mais-populares-de-baldurs-gate-3-em-um-personagem-com-quem"
+    },
+    {
+     "titulo": "Realme 17 Ultra's memory configurations and colors tipped",
+     "link": "https://www.gsmarena.com/realme_17_ultra_ram_storage_colors_tipped-news-75669.php"
+    },
+    {
+     "titulo": "Comissão do Senado propõe selo nacional de cibersegurança e regras para empresas",
+     "link": "https://telesintese.com.br/comissao-do-senado-propoe-selo-nacional-de-ciberseguranca-e-regras-para-empresas/"
+    },
+    {
+     "titulo": "Credit card skimming scripts using WebRTC found on popular shopping sites",
+     "link": "https://www.infohawk.com/news/2026-11-27-black-friday-webrtc-skimmer"
+    },
+    {
+     "titulo": "Comissão debate riscos de aposentados e pensionistas em face da portabilidade digital",
+     "link": "https://www.camara.leg.br/noticias/1323174-comissao-debate-riscos-de-aposentados-e-pensionistas-em-face-da-portabilidade-digital"
+    },
+    {
+     "titulo": "Áudio: CAE analisa projeto que torna obrigatória remoção de veículos abandonados",
+     "link": "https://www12.senado.leg.br/noticias/audios/2026/11/cae-analisa-projeto-que-torna-obrigatoria-remocao-de-veiculos-abandonados"
+    },
+    {
+     "titulo": "Lula convida Camilo Santana para ser ministro da Casa Civil",
+     "link": "https://g1.globo.com/economia/blog/ana-flor/post/2026/11/27/lula-convida-camilo-santana-para-ser-ministro-da-casa-civil.ghtml"
+    },
+    {
+     "titulo": "Nunes pede troca de enfeites de Natal após críticas: “Também não gostei”",
+     "link": "https://www.poder360.com.br/poder-brasil/nunes-pede-troca-de-enfeites-de-natal-apos-criticas-tambem-nao-gostei/"
+    },
+    {
+     "titulo": "Lula diz que 'salto alto' levou a derrota no primeiro turno da eleição",
+     "link": "https://redir.folha.com.br/redir/online/poder/rss091/*https://www1.folha.uol.com.br/poder/2026/11/lula-diz-que-salto-alto-levou-a-derrota-no-primeiro-turno-da-eleicao.shtml"
+    },
+    {
+     "titulo": "Esther Dweck participa do Fórum JOTA Visão 2030",
+     "link": "https://www.jota.info/coberturas-especiais/forum-jota/esther-dweck-participa-do-forum-jota-visao-2030"
+    },
+    {
+     "titulo": "Article: Engineering Reliable Telematics from Smartphone Sensors",
+     "link": "https://www.infoq.com/articles/engineering-reliable-smartphone-sensor-telematics/?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=global"
+    },
+    {
+     "titulo": "Melhor soundbar LG: 6 modelos que valem a pena em 2026",
+     "link": "https://tecnoblog.net/guias/melhor-soundbar-lg/"
+    },
+    {
+     "titulo": "Como ouvir os melhores diálogos íntimos entre Jason e Lucia em GTA 6",
+     "link": "https://canaltech.com.br/games/como-ouvir-os-melhores-dialogos-intimos-entre-jason-e-lucia-em-gta-6/"
+    },
+    {
+     "titulo": "Black friday confira dicas para comprar um notebook gamer com boas configuracoes",
+     "link": "https://www.estadao.com.br/tecmundo/voxel/black-friday-confira-dicas-para-comprar-um-notebook-gamer-com-boas-configuracoes/"
+    }
+   ],
+   "roteiro": "LEO: Sexta-feira de Black Friday é aquele momento em que metade do planeta tá caçando cupom e a outra metade tá rezando pros servidores não derreterem na virada. E tá no ar a edição de hoje do seu podcast diário de tecnologia, sexta-feira, 27 de novembro de 2026. Aqui é o Leo, com o carrinho virtual ainda vazio e o radar ligado.\n\nCLARA: E aqui é a Clara. Chegando com calma, voz baixa e aquele olhar cirúrgico pra te contar que, enquanto você disputava desconto em monitor, os maiores segredos militares do mundo tavam balançando numa brecha bem desconfortável na nuvem.\n\nLEO: Pois é, e o estrago não foi na lojinha da esquina. Quando a segurança de caças, mísseis e sistemas de defesa fica exposta, o desconto sai caro demais pra qualquer potência.\n\n---\n\nLEO: O bicho pegou feio na infraestrutura da Força Aérea dos Estados Unidos. Hackers conseguiram invadir a Cloud One, que é basicamente a espinha dorsal de nuvem da corporação, operada num consórcio de peso com Amazon Web Services, Microsoft Azure, Google Cloud e Oracle. O caso foi revelado pela Reuters e mobilizou até o Comando Cibernético americano em caráter de urgência.\n\nCLARA: E o detalhe mais picante dessa história não é só quem entrou, mas onde colocaram a mão. As fontes indicam que a invasão bateu direto no plano de controle da Cloud One. Pra te situar sem rodeios, o plano de controle é como se fosse um controle remoto universal da infraestrutura inteira. Em tese, quem entra ali ganha passe livre pra enxergar a prontidão de aeronaves ou o transporte logístico de peças em tempo real.\n\nLEO: Uma chave mestra digital na mão de quem não devia. E a reação interna foi drástica: os caras suspenderam a migração de sistemas administrativos que já durava anos, revogaram privilégios de vários administradores e simplesmente congelaram as atualizações de aplicativos que já rodavam na plataforma. Ninguém mexe em nada até entender o tamanho do rombo.\n\nCLARA: Uma paralisia total por precaução, porque a Cloud One gerencia desde folhas de pagamento de militares até sistemas de rastreio de munições espalhados por duzentas bases ao redor do globo. É o tipo de dor de cabeça que lembra a qualquer arquiteto de software que centralizar tudo num único castelo é sedutor, mas se alguém acha a fresta do portão principal, a corte inteira fica refém.\n\n---\n\nLEO: E falando em cuidar da casa pra evitar que uma alteração desmorone o prédio, a engenharia da Netflix apresentou uma ferramenta interna chamada Quasar. O objetivo é responder aquela pergunta que tira o sono de qualquer desenvolvedor antes de publicar uma biblioteca: se eu mudar esse método agora, o que vai quebrar lá na ponta?\n\nCLARA: É o charme de calcular o dano antes de acender o pavio. A ferramenta faz uma indexação semântica do código usando o protocolo SCIP, cruza com o catálogo de APIs e joga esses metadados num bucket do Amazon S3 pra rodar consultas com o Athena. Assim, eles conseguem mapear exatamente quais repositórios e serviços consomem determinada função e medir o impacto real da mudança.\n\nLEO: Evita aquele clássico terror do deploy na sexta-feira à tarde, né? Em vez de você torcer pra nenhum serviço do catálogo parar de responder na TV do usuário, o Quasar aponta o dedo e diz exatamente qual equipe precisa atualizar a dependência antes de subir o código pra produção.\n\nCLARA: Exatamente. Menos adivinhação, mais elegância no processo. Saber a quem você afeta antes de dar o próximo passo é uma virtude rara, tanto na arquitetura de microsserviços quanto na vida pessoal.\n\n---\n\nLEO: No mundo dos games, uma surpresa daquelas que aquecem o coração de quem aprecia produções independentes. A Team Cherry, criadora da saga Hollow Knight, anunciou que tá virando publisher com o selo Team Cherry Presents, usando a própria estrutura pra financiar e publicar jogos de outros estúdios menores.\n\nCLARA: E já chegaram abrindo o cofre com três títulos inéditos no catálogo e ainda acalmaram o público deles. A primeira grande expansão de Silksong, batizada de Sea of Sorrow, vai ser completamente gratuita e chega no mês que vem pra todo mundo.\n\nLEO: Isso que eu chamo de moral com a comunidade. Em vez de virar refém de grandes corporações depois de faturar horrores, o estúdio australiano resolveu criar o próprio ecossistema pra proteger criadores independentes daquela pressão sufocante de prazos absurdos.\n\nCLARA: Quando você alcança o topo por mérito próprio e decide estender a mão pra puxar quem tá subindo a ladeira, o mercado inteiro ganha fôlego. É uma jogada refinada que fortalece os indies e bota vergonha em muita gigante cheia de acionistas impacientes.\n\n---\n\nLEO: Já no ecossistema mobile, o Google resolveu comprar uma briga barulhenta com a comunidade de desenvolvimento do Android. A empresa confirmou que vai passar a exibir publicamente na Google Play Store os dados de endereço físico de quem publica aplicativos na loja.\n\nCLARA: A medida foi desenhada pra cumprir as exigências da Lei de Serviços Digitais da União Europeia, mas a big tech resolveu aplicar a regra de forma global. E a revolta é compreensível: muitos desenvolvedores autônomos ou pequenos estúdios não têm uma sede corporativa e usam o próprio endereço residencial no cadastro de comerciante.\n\nLEO: Imagina a situação. O programador cria um aplicativo no quarto de casa, o app viraliza ou dá algum bug, e de repente o endereço da residência dele fica estampado na vitrine do mundo inteiro pra qualquer usuário furioso consultar.\n\nCLARA: É uma invasão de privacidade sob a bandeira da conformidade legal. A transparência comercial é válida, claro, mas obrigar o criador independente a expor a própria porta da rua parece uma falta de tato gritante pra uma empresa que nasceu na internet.\n\n---\n\nLEO: Virando a chave pro cenário político em Brasília, a movimentação em torno da montagem do novo governo do presidente Lula ganhou contornos mais definidos nas últimas horas, com reflexos diretos na coordenação das políticas públicas e na agenda econômica.\n\nCLARA: O senador Camilo Santana foi convidado formalmente para assumir a Casa Civil a partir de janeiro, sucedendo a articulação política central do Palácio do Planalto após ter exercido papel de destaque na campanha do segundo turno. A confirmação oficial deve ocorrer no início da próxima semana.\n\nLEO: Ao mesmo tempo, integrantes do governo sinalizam a ida do vice-presidente Geraldo Alckmin para a criação do Ministério da Segurança Pública, enquanto o presidente Lula reforçou em declarações públicas que o governo fará um pente-fino em benefícios sociais para cortar irregularidades, mas assegurou que as metas da educação e os repasses pra famílias de baixa renda estão blindados.\n\nCLARA: Do lado econômico, o foco do Congresso e do mercado segue sobre a tramitação da Lei de Diretrizes Orçamentárias, com mais de mil e quinhentas emendas protocoladas para tentar equilibrar os gastos públicos e a meta fiscal de 2027, mostrando que a negociação em Brasília vai exigir muito jogo de cintura entre a Fazenda e os parlamentares.\n\n---\n\nLEO: O novo driver 621.40 da Nvidia corrigiu aquele bug bizarro que desgastava os discos SSD gravando dados sem parar, mas trouxe uma surpresa indigesta: uma enxurrada de relatos de telas pretas e perda de sinal em conexões DisplayPort e monitores secundários nas placas RTX 40 e 50. A recomendação da comunidade é segurar a instalação.\n\nCLARA: Na corrida das compras de fim de ano, pesquisadores de segurança identificaram um novo golpe sofisticado. Criminosos estão usando scripts maliciosos apoiados no protocolo WebRTC em sites de comércio pra interceptar dados de cartão de crédito direto na memória do navegador, burlando sistemas comuns de monitoramento de tráfego.\n\nLEO: E na Europa, o governo regional da Valônia, na Bélgica, mandou o Google paralisar imediatamente as obras do seu novo data center perto de Charleroi. As autoridades apontaram que a construção continuava avançando há meses sem que a empresa tivesse obtido a licença ambiental obrigatória.\n\n---\n\nLEO: Clara, ouvindo você comentar sobre a invasão aos sistemas da Força Aérea dos Estados Unidos, ficou evidente o peso que teve o acesso a uma parte específica da infraestrutura. Muita gente ouve falar em nuvem, mas quando a gente toca em plano de controle, a coisa fica num patamar bem diferente, né?\n\nCLARA: É a diferença sutil entre ser passageiro e ter o manche nas mãos. Num ambiente de computação em nuvem, o plano de dados é o chão de fábrica: é por onde trafegam os arquivos, as mensagens, as fotos e os processos do dia a dia. Já o plano de controle é o cérebro administrativo que comanda esse tráfego. É ali que você cria ou destrói servidores, concede ou revoga permissões de acesso, define rotas e dita quem pode falar com quem.\n\nLEO: Ou seja, você não precisa necessariamente roubar o conteúdo de um arquivo pra fazer um estrago monumental.\n\nCLARA: Exatamente. Se você domina o plano de controle, você não tá apenas espiando a correspondência; você ganhou a capacidade de desligar as luzes do prédio, trocar as fechaduras e decidir quem entra e quem fica do lado de fora. É o poder absoluto sobre a engrenagem.\n\n---\n\nLEO: E com o plano de controle de uma superpotência estremecido e a Black Friday testando a resistência de cada conexão, a nossa sexta-feira encerra com a certeza de que segurança digital não é acessório, é sobrevivência básica.\n\nCLARA: É isso. Cuide bem das suas chaves de acesso, escolha seus cliques com elegância e aproveite o fim de semana com moderação. A gente se encontra na segunda.",
+   "manchete": "Hackers invadem Cloud One da Força Aérea dos EUA",
    "audio_ok": true,
    "apresentadores": [
     "Clara",
